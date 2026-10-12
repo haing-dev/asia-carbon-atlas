@@ -18,7 +18,9 @@ jobs:
         with:
           enable-cache: true
       - run: uv sync --frozen
-      - run: uv run python -m pipeline.discover ${{ inputs.urls }}
+      - env:
+          URLS: ${{ inputs.urls }}
+        run: uv run python -m pipeline.discover $URLS
       - name: Publish to ci-logs branch
         run: |
           mkdir -p /tmp/out && cp -r work/discover /tmp/out/
