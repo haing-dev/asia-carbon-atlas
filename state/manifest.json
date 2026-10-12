@@ -1,6 +1,21 @@
 {
-  "last_commit_at": "2026-10-12T07:46:44+00:00",
+  "last_commit_at": "2026-10-12T08:07:56+00:00",
   "sources": {
+    "a6pipeline": {
+      "error": null,
+      "last_changed": "2026-10-12T08:07:56+00:00",
+      "last_checked": "2026-10-12T08:07:56+00:00",
+      "rows": 153,
+      "signal": {
+        "a6p2": "c55adb3158b3514d",
+        "pacm": "e54e480896100076",
+        "rows": {
+          "a6p2": 309,
+          "pacm": 179
+        }
+      },
+      "stale": false
+    },
     "cdm": {
       "error": null,
       "last_changed": "2026-10-12T07:46:44+00:00",
@@ -13,6 +28,17 @@
       },
       "stale": false
     },
+    "jcm": {
+      "error": null,
+      "last_changed": "2026-10-12T08:07:56+00:00",
+      "last_checked": "2026-10-12T08:07:56+00:00",
+      "rows": 83,
+      "signal": {
+        "issues": "W/\"5437b377e5fc2d32829d5bea29cc0723\"",
+        "list": "W/\"19bb3703b4455cebc41b876278b00cb5\""
+      },
+      "stale": false
+    },
     "puro": {
       "error": null,
       "last_changed": "2026-10-12T07:46:44+00:00",
@@ -21,6 +47,18 @@
       "signal": {
         "newest_issuance": "30 Sept 2026 10823 Exomad Green, Concepción Exomad Industria Maderera S.A. Biochar, 2022 ",
         "projects_hash": "d594df3848e72148"
+      },
+      "stale": false
+    },
+    "ucr": {
+      "error": null,
+      "last_changed": "2026-10-12T08:07:56+00:00",
+      "last_checked": "2026-10-12T08:07:56+00:00",
+      "rows": 301,
+      "signal": {
+        "grid_hash": "9f1a7b9ea336ebc4",
+        "month": "2026-10",
+        "projects": 314
       },
       "stale": false
     },
