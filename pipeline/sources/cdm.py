@@ -8,8 +8,10 @@ Probe: the workbook link on the UNEP-CCC page + its Last-Modified/ETag (2 reques
 """
 from __future__ import annotations
 
+import datetime as dt
 import io
 import re
+from collections import defaultdict
 
 import openpyxl
 
@@ -24,6 +26,8 @@ HEADER_ROW = 3
 
 
 def unfccc_url(kind: str, uid: str) -> str:
+    if len(str(uid)) < 20:  # placeholder IDs in the workbook (e.g. "AuxID"): fall back to the UNFCCC search page
+        return "https://cdm.unfccc.int/Projects/projsearch.html"
     if (kind or "").upper() == "POA":
         return f"https://cdm.unfccc.int/ProgrammeOfActivities/Validation/DB/{uid}/view.html"
     return f"https://cdm.unfccc.int/Projects/Validation/DB/{uid}/view.html"
@@ -37,6 +41,39 @@ def kt(v) -> int | None:
         return int(round(float(v) * 1000))
     except (TypeError, ValueError):
         return None
+
+
+def _day(v) -> dt.date | None:
+    d = to_date(v)
+    return dt.date.fromisoformat(d) if d and len(d) == 10 else None
+
+
+def vintages_from_issuances(wb) -> dict[int, dict[str, int]]:
+    """CDM ref -> {year: CERs}: each issuance is spread over its monitoring period by days per calendar year."""
+    if "UNFCCC_issuances" not in wb.sheetnames:
+        return {}
+    rows = wb["UNFCCC_issuances"].iter_rows(values_only=True)
+    header = [str(h or "").strip() for h in next(rows)]
+    try:
+        i_ref, i_from, i_to, i_units = (header.index(h) for h in (
+            "CDM project reference number", "Monitoring report started", "Monitoring report ended", "Units - Total"))
+    except ValueError:
+        return {}
+    out: dict[int, dict[str, float]] = defaultdict(lambda: defaultdict(float))
+    for row in rows:
+        ref, units = to_int(row[i_ref]), to_int(row[i_units])
+        start, end = _day(row[i_from]), _day(row[i_to])
+        if not ref or not units:
+            continue
+        if not start or not end or end < start:
+            if end or start:
+                out[ref][str((end or start).year)] += units
+            continue
+        total = (end - start).days + 1
+        for y in range(start.year, end.year + 1):
+            a, b = max(start, dt.date(y, 1, 1)), min(end, dt.date(y, 12, 31))
+            out[ref][str(y)] += units * ((b - a).days + 1) / total
+    return {ref: {y: int(round(v)) for y, v in sorted(years.items()) if round(v)} for ref, years in out.items()}
 
 
 class Adapter(Source):
@@ -61,6 +98,7 @@ class Adapter(Source):
         version = re.search(r"/uploads/(\d{4}/\d{2})/", signal["url"])
         version = f"UNEP-CCC CDM Pipeline {version.group(1) if version else ''}".strip()
         wb = openpyxl.load_workbook(io.BytesIO(r.content), read_only=True, data_only=True)
+        vintages = vintages_from_issuances(wb)
         ws = wb["CDM_Projects"]
         rows = ws.iter_rows(values_only=True, max_col=100)
         header = None
@@ -111,7 +149,7 @@ class Adapter(Source):
                 "est_annual_tco2e": kt(g(row, "Reductions (ktCO2e/yr)")),
                 "issued_tco2e": kt(g(row, "Total issuance (kCERs)")) or 0,
                 "retired_tco2e": kt(g(row, "Voluntary cancellations (kCERs)")) or 0,
-                "issuance_by_vintage": {},
+                "issuance_by_vintage": vintages.get(ref, {}),
                 "crediting_start": to_date(g(row, "Start 1st period")),
                 "crediting_end": end,
                 "cross_refs": cross_refs(g(row, "SD Tool, Gold Standard & CCB project number")),

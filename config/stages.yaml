@@ -63,3 +63,5 @@ map:
     registered: registered
     mo issued: registered      # mitigation outcomes issued (issued > 0 => issuing)
     published: pipeline
+  GCC:
+    registered: registered

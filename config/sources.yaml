@@ -16,10 +16,10 @@ sources:
     enabled: true
     cadence_days: 10
   gcc:
-    label: Global Carbon Council
+    label: Global Carbon Council (approved-projects export)
     registries: [GCC]
-    url: https://www.globalcarboncouncil.com/
-    enabled: false   # site returns 403 to automated requests (no bypass, per policy)
+    url: https://gcc2.globalcarboncouncil.com/search/registration
+    enabled: true   # site is behind a bot challenge: read from the owner's export in data/manual/gcc/
     cadence_days: 10
   ucr:
     label: Universal Carbon Registry

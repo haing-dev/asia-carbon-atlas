@@ -10,7 +10,7 @@ import csv
 import re
 from collections import defaultdict
 
-from pipeline import common
+from pipeline import common, dedupe
 
 STAGE_ORDER = {"inactive": 0, "pipeline": 1, "registered": 2, "issuing": 3}
 
@@ -60,6 +60,15 @@ def stage_of(rec: dict, stage_map: dict, today: str) -> str:
     return mapped
 
 
+def load_population() -> dict[str, float]:
+    """UN WPP 2024, 1 July 2025 (config/population.csv, written by pipeline.population)."""
+    path = common.CONFIG / "population.csv"
+    if not path.exists():
+        return {}
+    with open(path, encoding="utf-8") as f:
+        return {r["iso3"]: float(r["population"]) for r in csv.DictReader(line for line in f if not line.startswith("#"))}
+
+
 def country_shares(countries: list[str], in_scope: set[str], population: dict[str, float]) -> dict[str, float]:
     """Share of the project's volume attributed to each in-scope host country (population-weighted)."""
     if not countries:
@@ -86,11 +95,13 @@ def merge_article6(items: list[dict]) -> dict | None:
             "itmos_transferred": itmos or None}
 
 
-def cluster_records(records: list[dict]) -> list[list[dict]]:
-    """Union-find over explicit cross-registry references (docs/SPEC.md §7.1).
-    Fuzzy matching for records without references is added in M3."""
+def cluster_records(records: list[dict], fuzzy: list[tuple[str, str, float]] | None = None) -> list[list[dict]]:
+    """Union-find over explicit cross-registry references (SPEC §7.1), then fuzzy matches (§7.2).
+    A fuzzy match never joins two clusters that already hold a record from the same registry."""
     ids = {r["record_id"] for r in records}
     parent = {i: i for i in ids}
+    regs: dict[str, set[str]] = {r["record_id"]: ({r["registry"]} if r.get("role") != "annotation" else set()) for r in records}
+    fuzzy_roots: set[str] = set()
 
     def find(x):
         while parent[x] != x:
@@ -98,21 +109,62 @@ def cluster_records(records: list[dict]) -> list[list[dict]]:
             x = parent[x]
         return x
 
+    def union(a, b):
+        ra, rb = find(a), find(b)
+        if ra != rb:
+            parent[ra] = rb
+            regs[rb] |= regs.pop(ra, set())
+            if ra in fuzzy_roots:
+                fuzzy_roots.discard(ra)
+                fuzzy_roots.add(rb)
+        return rb
+
     for r in records:
         for ref in r.get("cross_refs") or []:
             if ref in ids and ref != r["record_id"]:
-                parent[find(ref)] = find(r["record_id"])
+                union(ref, r["record_id"])
+    for a, b, _s in sorted(fuzzy or [], key=lambda x: -x[2]):
+        ra, rb = find(a), find(b)
+        if ra == rb or (regs.get(ra, set()) & regs.get(rb, set())):
+            continue
+        fuzzy_roots.add(union(a, b))
     groups: dict[str, list[dict]] = defaultdict(list)
     for r in records:
         groups[find(r["record_id"])].append(r)
     # Safety: never merge records whose country sets don't intersect.
     out = []
-    for members in groups.values():
+    for root, members in groups.items():
         if len(members) > 1 and not set.intersection(*(set(m.get("countries") or []) for m in members)):
             out.extend([m] for m in members)
         else:
+            if root in fuzzy_roots:
+                for m in members:
+                    m["_fuzzy"] = True
             out.append(members)
     return out
+
+
+def rollup(members: list[dict]) -> tuple[int, int, dict[str, int], bool]:
+    """Issued/retired across registries (SPEC §7.3): a vintage year issued in two registries counts once (the max).
+    Records without vintage detail add their totals as they are. Retired is capped at the rolled-up issued."""
+    total = sum(m.get("issued_tco2e") or 0 for m in members)
+    retired = sum(m.get("retired_tco2e") or 0 for m in members)
+    years: dict[str, list[int]] = defaultdict(list)
+    for m in members:
+        for y, v in (m.get("issuance_by_vintage") or {}).items():
+            if v:
+                years[y].append(int(v))
+    by_vintage = {y: max(v) for y, v in sorted(years.items())}
+    # Each vintage year issued in more than one registry is counted once (the largest).
+    dup = sum(sum(v) - max(v) for v in years.values() if len(v) > 1)
+    overlap = dup > 0
+    if overlap:
+        smallest = min(m.get("issued_tco2e") or 0 for m in members if m.get("issuance_by_vintage"))
+        dup = min(dup, smallest)
+    issued = total - dup
+    if len(members) > 1:
+        retired = min(retired, issued)
+    return issued, retired, by_vintage, overlap
 
 
 def _min_year(members: list[dict], field: str) -> int | None:
@@ -120,7 +172,7 @@ def _min_year(members: list[dict], field: str) -> int | None:
     return min(years) if years else None
 
 
-def build_projects() -> list[dict]:
+def build_projects(write_review: bool = False) -> list[dict]:
     records = common.load_all_records()
     countries_cfg = common.load_yaml("countries.yaml")["countries"]
     in_scope = set(countries_cfg)
@@ -128,9 +180,14 @@ def build_projects() -> list[dict]:
     mmap = load_methodology_map()
     rules = load_type_rules()
     today = common.today()
-    population: dict[str, float] = {}  # M3: UN WPP 2024 (2025) from config/population.csv
+    population = load_population()
 
-    clusters = cluster_records(records)
+    taxonomy_l2 = common.load_yaml("taxonomy.yaml")["l2"]
+    l2_cache = {r["record_id"]: classify(r, mmap, rules) for r in records}
+    fuzzy, review = dedupe.fuzzy_links(records, lambda r: taxonomy_l2.get(l2_cache[r["record_id"]], {}).get("l1"))
+    if write_review:
+        dedupe.write_pending(review)
+    clusters = cluster_records(records, fuzzy)
 
     projects = []
     for members in clusters:
@@ -147,6 +204,7 @@ def build_projects() -> list[dict]:
         if not shares:
             continue
         stages = [stage_of(m, stage_map, today) for m in members]
+        issued, retired, by_vintage, overlap = rollup(members)
         projects.append({
             "project_id": min(m["record_id"] for m in members),
             "display_name": next((m["name"] for m in members if m.get("name")), lead["record_id"]),
@@ -157,9 +215,9 @@ def build_projects() -> list[dict]:
             "stage": max(stages, key=lambda s: STAGE_ORDER[s]),
             "registries": [{"record_id": m["record_id"], "registry": m["registry"], "url": m["registry_url"]} for m in members],
             "est_annual_tco2e": lead.get("est_annual_tco2e") or next((m.get("est_annual_tco2e") for m in members if m.get("est_annual_tco2e")), None),
-            "issued_tco2e": sum(m.get("issued_tco2e") or 0 for m in members),
-            "retired_tco2e": sum(m.get("retired_tco2e") or 0 for m in members),
-            "issuance_by_vintage": lead.get("issuance_by_vintage") or {},
+            "issued_tco2e": issued,
+            "retired_tco2e": retired,
+            "issuance_by_vintage": by_vintage,
             "methodology_codes": sorted({c for m in members for c in (m.get("methodology_codes") or [])}),
             "crediting": [lead.get("crediting_start"), lead.get("crediting_end")],
             "years": {k: _min_year(members, f"{k}_date") for k in ("listed", "registered", "first_issuance")},
@@ -169,6 +227,8 @@ def build_projects() -> list[dict]:
             "developer_url": None,
             "flags": (["multi_country"] if len(countries) > 1 else [])
             + (["multi_registry"] if len(members) > 1 else [])
+            + (["name_match"] if any(m.get("_fuzzy") for m in members) else [])
+            + (["vintage_overlap"] if overlap else [])
             + (["retired_gt_issued"] if any((m.get("retired_tco2e") or 0) > (m.get("issued_tco2e") or 0) for m in members) else []),
         })
     projects.sort(key=lambda p: p["project_id"])
@@ -176,7 +236,7 @@ def build_projects() -> list[dict]:
 
 
 def main() -> None:
-    projects = build_projects()
+    projects = build_projects(write_review=True)
     print(f"{len(projects)} projects from {len(common.load_all_records())} records")
 
 
