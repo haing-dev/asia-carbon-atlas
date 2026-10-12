@@ -1,5 +1,5 @@
 <script>
-  import { L1_COLORS, STAGE_LABELS, STAGE_YEAR, fmt, fmtFull } from "./data.js";
+  import { L1_COLORS, STAGE_LABELS, fmt, fmtFull } from "./data.js";
 
   let { rows, index, loading } = $props();
 
@@ -10,22 +10,24 @@
 
   const cols = [
     { k: "name", label: "Project" }, { k: "dev", label: "Developer" }, { k: "country", label: "Country", fn: 2 },
-    { k: "type", label: "Credit type" }, { k: "reg", label: "Registry", fn: 3 }, { k: "st", label: "Stage", fn: 4 }, { k: "yr", label: "Year", fn: 4 },
+    { k: "type", label: "Credit type" }, { k: "reg", label: "Registry", fn: 3 }, { k: "st", label: "Stage", fn: 4 },
+    { k: "y_listed", label: "Listed", unit: "year", yr: true, fn: 4 }, { k: "y_registered", label: "Validated", unit: "year", yr: true, fn: 4 },
+    { k: "y_first_issuance", label: "1st issued", unit: "year", yr: true, fn: 4 },
     { k: "ea", label: "Est. annual", num: true, unit: "tCO₂e/yr", fn: 5 }, { k: "is", label: "Issued", num: true, unit: "tCO₂e", fn: 6 },
     { k: "re", label: "Retired", num: true, unit: "tCO₂e", fn: 6 }, { k: "off", label: "Announced offtaker(s)", fn: 7 },
   ];
 
   const sorted = $derived.by(() => {
     const key = (r) => ({ name: r.display_name, dev: r.developer || "", country: r.countries.join(","), type: r.typeLabel,
-      reg: r.registries.map((x) => x.registry).join(","), st: r.st, yr: yearOf(r) || 0, ea: r.ea, is: r.is, re: r.re, off: r.offtakers.length })[sortKey];
+      reg: r.registries.map((x) => x.registry).join(","), st: r.st, y_listed: yr(r, "listed"), y_registered: yr(r, "registered"), y_first_issuance: yr(r, "first_issuance"), ea: r.ea, is: r.is, re: r.re, off: r.offtakers.length })[sortKey];
     return [...rows].sort((a, b) => {
       const x = key(a), y = key(b);
       return (typeof x === "number" ? x - y : String(x).localeCompare(String(y))) * sortDir;
     });
   });
 
-  const yearOf = (r) => r.years?.[STAGE_YEAR[index.stages[r.st]]] ?? null;
-  const yearTip = (r) => r.years ? `Listed ${r.years.listed ?? "—"} · Validated ${r.years.registered ?? "—"} · First issuance ${r.years.first_issuance ?? "—"}` : "";
+  // Missing years sort last in both directions.
+  const yr = (r, k) => r.years?.[k] ?? (sortDir > 0 ? 9999 : 0);
 
   function sortBy(k) {
     if (sortKey === k) sortDir = -sortDir;
@@ -38,7 +40,7 @@
     <thead>
       <tr>
         {#each cols as c}
-          <th class:num={c.num} aria-sort={sortKey === c.k ? (sortDir > 0 ? "ascending" : "descending") : "none"}>
+          <th class:num={c.num || c.yr} aria-sort={sortKey === c.k ? (sortDir > 0 ? "ascending" : "descending") : "none"}>
             <button onclick={() => sortBy(c.k)}>{c.label}{sortKey === c.k ? (sortDir > 0 ? " ↑" : " ↓") : ""}{#if c.unit}<small>{c.unit}</small>{/if}</button>{#if c.fn}<sup class="fn"><a href="#note-{c.fn}" aria-label="Note {c.fn}">{c.fn}</a></sup>{/if}
           </th>
         {/each}
@@ -64,7 +66,9 @@
             {#if r.article6}<span class="badge a6" title={["Article 6", r.article6.status, r.article6.buyer_countries?.length ? "buyer: " + r.article6.buyer_countries.join(", ") : "", r.article6.itmos_transferred ? fmt(r.article6.itmos_transferred) + " ITMOs transferred" : ""].filter(Boolean).join(" · ")}>{r.article6.mechanism}{#if r.article6.buyer_countries?.length} → {r.article6.buyer_countries.join(", ")}{/if}</span>{/if}
           </td>
           <td>{STAGE_LABELS[index.stages[r.st]]}</td>
-          <td class="num" title={yearTip(r)}>{yearOf(r) ?? "—"}</td>
+          <td class="num yr">{r.years?.listed ?? "—"}</td>
+          <td class="num yr">{r.years?.registered ?? "—"}</td>
+          <td class="num yr">{r.years?.first_issuance ?? "—"}</td>
           <td class="num">{fmt(r.ea)}</td>
           <td class="num">{fmt(r.is)}</td>
           <td class="num">{fmt(r.re)}</td>
@@ -88,7 +92,6 @@
                   </dd>
                 {/if}
                 {#if r.methodology_codes?.length}<dt>Methodology</dt><dd class="num">{r.methodology_codes.join(", ")}</dd>{/if}
-                {#if r.years}<dt>Milestones</dt><dd class="num">{yearTip(r)}</dd>{/if}
                 {#if r.crediting?.[0]}<dt>Crediting period</dt><dd class="num">{r.crediting[0]} → {r.crediting[1] || "?"}</dd>{/if}
                 {#if r.flags?.length}<dt>Flags</dt><dd>{r.flags.join(", ")}</dd>{/if}
               </dl>
@@ -105,7 +108,7 @@
 
 <style>
   .scroller { overflow-x: auto; border: 1px solid var(--line); border-radius: var(--radius); background: var(--surface); }
-  table { border-collapse: collapse; width: 100%; min-width: 1100px; font-size: 13.5px; }
+  table { border-collapse: collapse; width: 100%; min-width: 1250px; font-size: 13.5px; }
   th { text-align: left; font-weight: 600; border-bottom: 1px solid var(--line); position: sticky; top: 0; background: var(--surface); }
   th { white-space: nowrap; }
   th sup { margin-left: -6px; }
@@ -125,6 +128,7 @@
   dt { color: var(--muted); }
   dd { margin: 0; }
   .vint { display: flex; flex-wrap: wrap; gap: 4px 12px; }
+  .yr { color: var(--muted); }
   .empty { text-align: center; color: var(--muted); padding: 28px; }
   .more { text-align: center; }
   .more button { border: 1px solid var(--line); background: var(--surface); border-radius: 999px; padding: 4px 14px; cursor: pointer; }

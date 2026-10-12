@@ -104,12 +104,12 @@
     if (iso) document.getElementById("projects")?.scrollIntoView({ behavior: "smooth", block: "start" });
   }
   function downloadCsv() {
-    const head = ["project_id", "project", "developer", "countries", "credit_type", "registries", "registry_urls", "stage",
+    const head = ["project_id", "project", "developer", "countries", "credit_type", "registries", "registry_urls", "stage", "listed_year", "validated_year", "first_issued_year",
       "est_annual_tco2e", "issued_tco2e", "retired_tco2e", "offtakers", "project_url", "developer_url"];
     const esc = (v) => `"${String(v ?? "").replaceAll('"', '""')}"`;
     const lines = [head.join(",")].concat(rows.map((r) => [r.project_id, r.display_name, r.developer, r.countries.join(" "),
       r.typeLabel, r.registries.map((g) => g.record_id).join(" "), r.registries.map((g) => g.url).join(" "),
-      index.stages[r.st], r.ea, r.is, r.re, r.offtakers.map((o) => o.name).join("; "), r.project_url, r.developer_url].map(esc).join(",")));
+      index.stages[r.st], r.years?.listed, r.years?.registered, r.years?.first_issuance, r.ea, r.is, r.re, r.offtakers.map((o) => o.name).join("; "), r.project_url, r.developer_url].map(esc).join(",")));
     const a = document.createElement("a");
     a.href = URL.createObjectURL(new Blob([lines.join("\n")], { type: "text/csv" }));
     a.download = `asia-carbon-atlas-${country || "all"}.csv`;
@@ -128,7 +128,7 @@
     "Map shading uses a square-root scale so smaller countries remain visible; the ranking bars beside the map are linear, so their lengths compare volumes directly. Totals include only the filters currently selected.",
     "Projects hosted in several countries appear once in the table. For country totals on the map, their volumes are split across host countries in proportion to population (UN World Population Prospects 2024).",
     "A project listed in several registries (e.g. CDM → Gold Standard, or CDM → Article 6.4) is merged into one row where the registries cross-reference each other; volumes are shown per registry in the row details. Verra, Gold Standard and Isometric records come via the Berkeley Voluntary Registry Offsets Database; CDM records via the UNEP Copenhagen Climate Centre CDM Pipeline (compiled from UNFCCC data), linked to each project's UNFCCC page. JCM and UCR records come from their public registries. Article 6 data come from the UNEP Copenhagen Climate Centre Article 6 Pipeline: Article 6.4 (PACM) activities merge with their CDM records; Article 6.2 status and buyer country are shown as a tag on the matching registry project (6.2 volumes are never added on top), and an authorised 6.2 activity with no other registry record appears as its own row.",
-    "Listed: listed, under development or under validation. Validated: validated and registered, nothing issued yet. Issuing: at least one issuance to date (including projects whose crediting period has since ended). Inactive: withdrawn, rejected, deregistered, or crediting period ended with nothing issued (hidden by default). The Year column shows the year the project reached its current stage: listing year, registration year, or first issuance year.",
+    "Listed: listed, under development or under validation. Validated: validated and registered, nothing issued yet. Issuing: at least one issuance to date (including projects whose crediting period has since ended). Inactive: withdrawn, rejected, deregistered, or crediting period ended with nothing issued (hidden by default). Year columns: year first listed, year validated/registered, and year of first issuance, as published by the registry (— where the source gives no date; Verra and Gold Standard listing dates are not in the Berkeley database).",
     "The registry's own ex-ante estimate of annual reductions or removals, which often exceeds what is later issued.",
     "One credit = one tonne of CO₂e reduced or removed. Issued and retired volumes are cumulative.",
     "Offtakers are limited to public registry retirement records, government publications and public announcements, and are therefore not exhaustive.",
