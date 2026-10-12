@@ -1,4 +1,33 @@
 {
-  "last_commit_at": "2026-10-12T05:25:08+00:00",
-  "sources": {}
+  "last_commit_at": "2026-10-12T07:04:15+00:00",
+  "sources": {
+    "cdm": {
+      "error": null,
+      "last_changed": "2026-10-12T07:04:15+00:00",
+      "last_checked": "2026-10-12T07:04:15+00:00",
+      "rows": 3024,
+      "signal": {
+        "etag": "\"1182fd5-632f6ba395d70\"",
+        "last_modified": "Thu, 17 Apr 2025 10:18:47 GMT",
+        "url": "https://unepccc.org/wp-content/uploads/2025/04/cdm-pipeline.xlsx"
+      },
+      "stale": false
+    },
+    "puro": {
+      "error": null,
+      "last_changed": "2026-10-12T07:04:15+00:00",
+      "last_checked": "2026-10-12T07:04:15+00:00",
+      "rows": 7,
+      "signal": {
+        "newest_issuance": "30 Sept 2026 10823 Exomad Green, Concepción Exomad Industria Maderera S.A. Biochar, 2022 ",
+        "projects_hash": "d594df3848e72148"
+      },
+      "stale": false
+    },
+    "vrod": {
+      "error": "ValueError: 'Total Credits Issued' is not in list",
+      "last_checked": "2026-10-12T07:04:15+00:00",
+      "stale": true
+    }
+  }
 }
