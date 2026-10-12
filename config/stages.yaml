@@ -18,6 +18,7 @@ map:
     registered: registered
   VCS:
     registered: registered
+    transfer to another ghg program: inactive
     late to verify: registered
     verification approval requested: registered
     units transferred from approved ghg program: registered
@@ -69,6 +70,18 @@ map:
     announced: announced
   ACR:                       # American Carbon Registry (via VROD)
     registered: registered
+    "active: registered": registered
+    "active: listed": pipeline
+    "active: listed - proposed project": pipeline
+    "active: proposed renewal": registered
+    "canceled: registered": inactive
+    "completed: registered": registered
+    listed - active arb project: registered      # California compliance (ARB) offset project
+    listed - active ecy project: registered      # Washington (Ecology) compliance offset project
+    listed - active registry project: pipeline
+    listed - active registry renewal: registered
+    transferred arb project: registered
+    terminated: inactive
     listed: pipeline
     completed: registered
     active: registered
@@ -80,6 +93,7 @@ map:
     transitioned: registered
   CAR:                       # Climate Action Reserve (via VROD)
     registered: registered
+    terminated: inactive
     listed: pipeline
     completed: registered
     transitioned: registered

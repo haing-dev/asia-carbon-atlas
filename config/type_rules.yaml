@@ -8,6 +8,11 @@ rules:
   # 2) Exact registry types (Berkeley VROD "Scope / Type")
   - {re: '^Household & Community / Biodigesters', l2: household_biogas}
   - {re: '^Household & Community / (Clean Water|Community Boreholes)', l2: water}
+  - {re: 'Mine Methane Capture|Coal Mine Methane', l2: coal_mine_methane}
+  - {re: 'Avoided Grassland Conversion', l2: other_land}
+  - {re: 'Avoided Forest Conversion', l2: redd}
+  - {re: 'Plugging Oil & Gas Wells|Orphan(ed)? (oil|well)', l2: oil_gas_methane}
+  - {re: 'Refrigerant Leak|Refrigerant', l2: industrial_gases}
   - {re: '^Household & Community / Cookstoves', l2: cookstoves}
   - {re: '^Household & Community / (Lighting|Bundled Energy Efficiency)', l2: buildings}
   - {re: '^Waste Management / Composting', l2: composting}

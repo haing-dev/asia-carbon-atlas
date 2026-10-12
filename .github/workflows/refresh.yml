@@ -53,10 +53,11 @@ jobs:
           ARGS="--sources ${{ steps.pick.outputs.sources }}"
           [ "${{ steps.pick.outputs.force }}" = "true" ] && ARGS="$ARGS --force"
           mkdir -p work/logs
+          set -o pipefail
           uv run python -m pipeline.refresh $ARGS 2>&1 | tee work/logs/refresh.log
       - name: Validate
         if: steps.run.outputs.changed == 'true'
-        run: uv run python -m pipeline.validate 2>&1 | tee work/logs/validate.log
+        run: set -o pipefail; uv run python -m pipeline.validate 2>&1 | tee work/logs/validate.log
       - name: Publish logs to ci-logs branch (readable from chat sessions)
         if: always() && steps.pick.outputs.sources != 'none'
         run: |
