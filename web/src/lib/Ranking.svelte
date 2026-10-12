@@ -1,7 +1,7 @@
 <script>
   import { fmt } from "./data.js";
 
-  let { totals, countries, selected = null, unit, onselect } = $props();
+  let { totals, countries, selected = null, highlight = null, unit, onselect, onhover = () => {} } = $props();
 
   const rows = $derived.by(() => {
     const list = countries.map((c, i) => ({ ...c, v: totals.get(i) || 0 })).filter((d) => d.v > 0).sort((a, b) => b.v - a.v);
@@ -14,7 +14,8 @@
 <div class="ranking" role="list" aria-label="Countries ranked">
   <div class="head"><span>Country</span><span>{unit}</span></div>
   {#each rows as r (r.id)}
-    <button class="row" class:sel={selected === r.id} role="listitem" onclick={() => onselect(selected === r.id ? null : r.id)}>
+    <button class="row" class:sel={selected === r.id} class:hl={highlight === r.id} role="listitem" onclick={() => onselect(selected === r.id ? null : r.id)}
+      onmouseenter={() => onhover(r.id)} onmouseleave={() => onhover(null)} onfocus={() => onhover(r.id)} onblur={() => onhover(null)}>
       <img src="/flags/{r.id}.svg" alt="" width="18" height="13.5" loading="lazy" />
       <span class="name">{r.name}</span>
       <span class="val num">{fmt(r.v)} <small>{r.pct >= 0.1 ? r.pct.toFixed(r.pct >= 10 ? 0 : 1) : "<0.1"}%</small></span>
@@ -30,7 +31,7 @@
   .head { display: flex; justify-content: space-between; font-size: 11px; text-transform: uppercase; letter-spacing: 0.05em; color: var(--muted); padding: 2px 4px 6px; border-bottom: 1px solid var(--line); }
   .row { display: grid; grid-template-columns: 22px 1fr auto; grid-template-rows: auto 5px; align-items: center; column-gap: 6px; row-gap: 3px;
     width: 100%; background: none; border: 0; border-radius: 6px; padding: 5px 4px; cursor: pointer; text-align: left; font-size: 13px; }
-  .row:hover { background: var(--chip); }
+  .row:hover, .row.hl { background: var(--chip); }
   .row.sel { background: var(--accent-soft); }
   img { border-radius: 2px; box-shadow: 0 0 0 1px var(--line); }
   .name { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }

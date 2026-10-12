@@ -8,6 +8,7 @@ on:
       - "config/**"
       - "review/**"
       - "data/**"
+      - "content/**"
       - "pipeline/**"
       - "!pipeline/sources/**"
       - "pyproject.toml"

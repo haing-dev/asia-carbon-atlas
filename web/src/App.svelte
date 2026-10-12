@@ -16,10 +16,11 @@
   let error = $state(null);
   let metric = $state("is");
   let country = $state(null);
+  let mapHl = $state(null);   // country hovered in the ranking
+  let rankHl = $state(null);  // country hovered on the map
   let f = $state({ l2: null, stages: new Set([0, 1, 2, 4]), registries: null, a6: false, q: "" });
   let rawRows = $state([]);
   let loadingRows = $state(false);
-  let theme = $state(null);
 
   // ---- URL state (shareable links) ----
   function readUrl(idx) {
@@ -108,7 +109,7 @@
     const head = ["project_id", "project", "developer", "countries", "credit_type", "registries", "registry_urls", "stage", "listed_year", "validated_year", "first_issued_year",
       "est_annual_tco2e", "issued_tco2e", "retired_tco2e", "offtakers", "project_url", "developer_url"];
     const esc = (v) => `"${String(v ?? "").replaceAll('"', '""')}"`;
-    const lines = [head.join(",")].concat(rows.map((r) => [r.project_id, r.display_name, r.developer, r.countries.join(" "),
+    const lines = [head.join(",")].concat(rows.map((r) => [r.project_id, r.display_name, r.developer, (r.country_names || r.countries).join("; "),
       r.typeLabel, r.registries.map((g) => g.record_id).join(" "), r.registries.map((g) => g.url).join(" "),
       index.stages[r.st], r.years?.listed, r.years?.registered, r.years?.first_issuance, r.ea, r.is, r.re, r.offtakers.map((o) => o.name).join("; "), r.project_url, r.developer_url].map(esc).join(",")));
     const a = document.createElement("a");
@@ -116,33 +117,25 @@
     a.download = `asia-carbon-atlas-${country || "all"}.csv`;
     a.click();
   }
-  function toggleTheme() {
-    const dark = document.documentElement.dataset.theme
-      ? document.documentElement.dataset.theme === "dark"
-      : matchMedia("(prefers-color-scheme: dark)").matches;
-    theme = dark ? "light" : "dark";
-    document.documentElement.dataset.theme = theme;
-    try { localStorage.setItem("theme", theme); } catch (e) {}
-  }
-  // Footnotes, numbered in reading order. Markers in the page link to #note-N.
-  const NOTES = [
-    ["Shading uses a square-root scale; ranking bars are linear.", "Totals reflect the current filters."],
-    ["Public sources only; not exhaustive.", "CDM credit buyers: UNEP-CCC CDM Pipeline (often traders or government programmes).",
-      "Announcements: the source names the buyer, the project or supplier, and the date.", "Hover a name for details; click for the source."],
-    ["Multi-country projects appear once in the table.",
-      "Map totals split them by population (UN World Population Prospects 2024, 2025); non-Asian shares are excluded.",
-      "If the project name names one host country, all volume goes to that country. Hover \"multi\" for the split."],
-    ["One row per project: records are merged when registries cross-reference each other or names closely match (same country and type, no conflicting capacity, place or phase).",
-      "Issued is summed across registries; a vintage year issued in two registries counts once.",
-      "Verra, Gold Standard, Isometric: Berkeley Voluntary Registry Offsets Database. CDM: UNEP-CCC CDM Pipeline (links to UNFCCC). JCM, UCR, Puro: their public registries. GCC: approved-projects export (no issuance data). Article 6: UNEP-CCC Article 6 Pipeline.",
-      "Article 6.4 activities merge with their CDM record; Article 6.2 is a tag and never adds volume."],
-    ["Listed: listed, under development or under validation.", "Validated: registered, nothing issued yet.",
-      "Issuing: at least one issuance.", "Inactive: withdrawn, rejected, deregistered, or crediting period ended with no issuance (hidden by default).",
-      "Announced deal: public purchase announcement with no single registry record.",
-      "Year columns: as published by the registry; — where not published."],
-    ["Registry's ex-ante estimate; often higher than what is later issued."],
-    ["1 credit = 1 tCO₂e.", "Issued and retired are cumulative."],
-  ];
+  // Footnotes come from content/notes.md (owner-editable). Markers refer to notes by key; numbers follow file order.
+  const notes = $derived(meta?.notes || []);
+  const fnum = (key) => notes.findIndex((n) => n.key === key) + 1 || null;
+  const esc = (t) => t.replace(/[&<>"]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
+  // Tiny, safe inline markdown: [text](https://...) and **bold**.
+  const md = (t) => esc(t)
+    .replace(/\[([^\]]+)\]\((https?:\/\/[^\s)]+)\)/g, '<a href="$2" target="_blank" rel="noopener">$1</a>')
+    .replace(/\*\*([^*]+)\*\*/g, "<strong>$1</strong>");
+  // Owner-only edit link: open the site once with ?owner=1 on your own browser (?owner=0 to hide it again).
+  let owner = $state(false);
+  onMount(() => {
+    try {
+      const o = new URLSearchParams(location.search).get("owner");
+      if (o === "1") localStorage.setItem("atlas-owner", "1");
+      if (o === "0") localStorage.removeItem("atlas-owner");
+      owner = localStorage.getItem("atlas-owner") === "1";
+    } catch (e) {}
+  });
+  const EDIT_NOTES = "https://github.com/haing-dev/asia-carbon-atlas/edit/main/content/notes.md";
   const asOf = (s) => s.last_changed ? s.last_changed.slice(0, 10) : s.enabled ? "pending" : "not yet connected";
 </script>
 
@@ -154,7 +147,6 @@
   <nav>
     <a href="#sources">Sources</a>
     <a href="#notes">Notes</a>
-    <button class="theme" onclick={toggleTheme} aria-label="Toggle dark mode">◐</button>
   </nav>
 </header>
 
@@ -178,7 +170,7 @@
       </section>
     {/if}
     <div class="maphead">
-      <label>Show<sup class="fn"><a href="#note-1">1</a></sup>
+      <label>Show{#if fnum("map")}<sup class="fn"><a href="#note-{fnum('map')}">{fnum("map")}</a></sup>{/if}
         <select bind:value={metric}>
           {#each Object.entries(METRICS) as [k, m]}<option value={k}>{m.label} ({m.unit})</option>{/each}
         </select>
@@ -186,8 +178,8 @@
       <span class="muted">Total in view: <span class="num">{fmt(total)}</span> {METRICS[metric].unit}</span>
     </div>
     <div class="mapgrid">
-      <Map {totals} countries={index.countries} selected={country} metricLabel={METRICS[metric].label} unit={METRICS[metric].unit} onselect={selectCountry} />
-      <Ranking {totals} countries={index.countries} selected={country} unit={METRICS[metric].unit} onselect={selectCountry} />
+      <Map {totals} countries={index.countries} selected={country} highlight={mapHl} metricLabel={METRICS[metric].label} unit={METRICS[metric].unit} onselect={selectCountry} onhover={(iso) => (rankHl = iso)} />
+      <Ranking {totals} countries={index.countries} selected={country} highlight={rankHl} unit={METRICS[metric].unit} onselect={selectCountry} onhover={(iso) => (mapHl = iso)} />
     </div>
 
     <section id="projects">
@@ -199,7 +191,7 @@
         <button class="dl" onclick={downloadCsv} disabled={!rows.length}>Download CSV</button>
       </div>
       <Filters {index} bind:f onclear={clearFilters} />
-      <Table {rows} {index} loading={loadingRows} />
+      <Table {rows} {index} {fnum} loading={loadingRows} />
     </section>
 
     <section id="sources" class="prose">
@@ -220,10 +212,10 @@
     </section>
 
     <section id="notes" class="notes">
-      <h2>Notes</h2>
+      <h2>Notes {#if owner}<a class="edit" href={EDIT_NOTES} target="_blank" rel="noopener">Edit notes</a>{/if}</h2>
       <ol>
-        {#each NOTES as n, i}
-          <li id="note-{i + 1}"><ul>{#each n as pt}<li>{pt}</li>{/each}</ul></li>
+        {#each notes as n, i}
+          <li id="note-{i + 1}"><ul>{#each n.points as pt}<li>{@html md(pt)}</li>{/each}</ul></li>
         {/each}
       </ol>
       <p>Credits: Berkeley Carbon Trading Project, <em>Voluntary Registry Offsets Database</em> (CC BY 4.0); UNEP Copenhagen Climate Centre, <em>CDM Pipeline</em> and <em>Article 6 Pipeline</em>; Natural Earth; UN DESA, <em>World Population Prospects 2024</em>. Research use only; not investment advice.</p>
@@ -238,7 +230,6 @@
   h1 { font-size: 22px; margin: 0 0 2px; letter-spacing: -0.01em; }
   h1 + p { margin: 0; font-size: 14px; max-width: 640px; }
   nav { display: flex; gap: 14px; align-items: center; font-size: 14px; white-space: nowrap; }
-  .theme { border: 1px solid var(--line); background: var(--surface); border-radius: 999px; width: 30px; height: 30px; cursor: pointer; }
   .notice { background: var(--chip); border: 1px solid var(--line); border-radius: var(--radius); padding: 8px 12px; font-size: 14px; }
   .news { margin: 12px 0 6px; padding: 10px 14px 8px; border: 1px solid var(--line); border-radius: var(--radius); background: var(--surface); }
   .news h2 { font-size: 15px; margin-bottom: 6px; }
@@ -260,6 +251,7 @@
   .dl:disabled { opacity: 0.4; cursor: default; }
   .prose { margin-top: 36px; max-width: 860px; font-size: 14px; }
   .notes { margin-top: 36px; padding-top: 12px; border-top: 1px solid var(--line); max-width: 860px; font-size: 12px; color: var(--muted); }
+  .notes .edit { font-size: 11px; text-transform: none; letter-spacing: 0; border: 1px solid var(--accent); border-radius: 999px; padding: 1px 8px; }
   .notes h2 { font-size: 13px; text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 4px; }
   .notes ol { padding-left: 18px; margin: 0 0 10px; }
   .notes > ol > li { margin-bottom: 4px; scroll-margin-top: 16px; }

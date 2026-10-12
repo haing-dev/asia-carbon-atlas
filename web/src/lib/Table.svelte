@@ -1,7 +1,7 @@
 <script>
   import { L1_COLORS, STAGE_LABELS, fmt, fmtFull } from "./data.js";
 
-  let { rows, index, loading } = $props();
+  let { rows, index, loading, fnum = () => null } = $props();
 
   let sortKey = $state("is");
   let sortDir = $state(-1);
@@ -9,17 +9,17 @@
   let limit = $state(200);
 
   const cols = [
-    { k: "name", label: "Project" }, { k: "dev", label: "Developer" }, { k: "off", label: "Announced offtaker(s)", fn: 2 },
-    { k: "country", label: "Country", fn: 3 },
-    { k: "type", label: "Credit type" }, { k: "reg", label: "Registry", fn: 4 }, { k: "st", label: "Stage", fn: 5 },
-    { k: "y_listed", label: "Listed", unit: "year", yr: true, fn: 5 }, { k: "y_registered", label: "Validated", unit: "year", yr: true, fn: 5 },
-    { k: "y_first_issuance", label: "1st issued", unit: "year", yr: true, fn: 5 },
-    { k: "ea", label: "Est. annual", num: true, unit: "tCO₂e/yr", fn: 6 }, { k: "is", label: "Issued", num: true, unit: "tCO₂e", fn: 7 },
-    { k: "re", label: "Retired", num: true, unit: "tCO₂e", fn: 7 },
+    { k: "name", label: "Project" }, { k: "dev", label: "Developer" }, { k: "off", label: "Announced offtaker(s)", fn: "offtakers" },
+    { k: "country", label: "Country", fn: "countries" },
+    { k: "type", label: "Credit type" }, { k: "reg", label: "Registry", fn: "registries" }, { k: "st", label: "Stage", fn: "stages" },
+    { k: "y_listed", label: "Listed", unit: "year", yr: true, fn: "stages" }, { k: "y_registered", label: "Validated", unit: "year", yr: true, fn: "stages" },
+    { k: "y_first_issuance", label: "1st issued", unit: "year", yr: true, fn: "stages" },
+    { k: "ea", label: "Est. annual", num: true, unit: "tCO₂e/yr", fn: "estimate" }, { k: "is", label: "Issued", num: true, unit: "tCO₂e", fn: "units" },
+    { k: "re", label: "Retired", num: true, unit: "tCO₂e", fn: "units" },
   ];
 
   const sorted = $derived.by(() => {
-    const key = (r) => ({ name: r.display_name, dev: r.developer || "", country: r.countries.join(","), type: r.typeLabel,
+    const key = (r) => ({ name: r.display_name, dev: r.developer || "", country: (r.country_names || r.countries).join(","), type: r.typeLabel,
       reg: r.registries.map((x) => x.registry).join(","), st: r.st, y_listed: yr(r, "listed"), y_registered: yr(r, "registered"), y_first_issuance: yr(r, "first_issuance"), ea: r.ea, is: r.is, re: r.re, off: r.offtakers.length })[sortKey];
     return [...rows].sort((a, b) => {
       const x = key(a), y = key(b);
@@ -44,7 +44,7 @@
       <tr>
         {#each cols as c}
           <th class:num={c.num || c.yr} aria-sort={sortKey === c.k ? (sortDir > 0 ? "ascending" : "descending") : "none"}>
-            <button onclick={() => sortBy(c.k)}>{c.label}{sortKey === c.k ? (sortDir > 0 ? " ↑" : " ↓") : ""}{#if c.unit}<small>{c.unit}</small>{/if}</button>{#if c.fn}<sup class="fn"><a href="#note-{c.fn}" aria-label="Note {c.fn}">{c.fn}</a></sup>{/if}
+            <button onclick={() => sortBy(c.k)}>{c.label}{sortKey === c.k ? (sortDir > 0 ? " ↑" : " ↓") : ""}{#if c.unit}<small>{c.unit}</small>{/if}</button>{#if c.fn && fnum(c.fn)}<sup class="fn"><a href="#note-{fnum(c.fn)}" aria-label="Note {fnum(c.fn)}">{fnum(c.fn)}</a></sup>{/if}
           </th>
         {/each}
       </tr>
@@ -66,7 +66,7 @@
             {#each r.offtakers.slice(0, 4) as o, i}{#if i}, {/if}<a href={o.source_url} target="_blank" rel="noopener" title={offTip(o)}>{o.name}</a>{/each}{#if r.offtakers.length > 4} <span class="muted">+{r.offtakers.length - 4}</span>{/if}
             {#if !r.offtakers.length}<span class="muted">—</span>{/if}
           </td>
-          <td>{r.countries.join(", ")}{#if r.countries.length > 1} <span class="badge" title={"Map split (by population, UN WPP 2024; Asian hosts only): " + Object.entries(r.country_shares || {}).map(([c, v]) => `${c} ${(v * 100).toFixed(v < 0.01 ? 2 : 0)}%`).join(", ")}>multi</span>{/if}</td>
+          <td>{(r.country_names || r.countries).join(", ")}{#if r.countries.length > 1} <span class="badge" title={"Map split (by population, UN WPP 2024; Asian hosts only): " + Object.entries(r.country_shares || {}).map(([c, v]) => `${c} ${(v * 100).toFixed(v < 0.01 ? 2 : 0)}%`).join(", ")}>multi</span>{/if}</td>
           <td><span class="sw" style="background:{L1_COLORS[r.l1]}"></span>{r.typeLabel}</td>
           <td class="regs">
             {#each r.registries as g}<a class="badge" href={g.url} target="_blank" rel="noopener" title={g.registry === "ANN" ? "Open the announcement" : "Open registry record"}>{g.registry === "ANN" ? "announcement" : g.record_id}</a>{/each}

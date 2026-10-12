@@ -29,6 +29,31 @@ REGISTRY_GROUP = {"VCS": "Independent standards", "GS": "Independent standards",
                   "ANN": "Announcements"}
 
 
+def load_notes() -> list[dict]:
+    """content/notes.md -> [{key, points}] (owner-editable footnotes)."""
+    path = common.ROOT / "content" / "notes.md"
+    if not path.exists():
+        return []
+    text = re.sub(r"<!--.*?-->", "", path.read_text(encoding="utf-8"), flags=re.S)
+    notes = []
+    for line in text.splitlines():
+        if line.startswith("## "):
+            notes.append({"key": line[3:].strip().split()[0].lower(), "points": []})
+        elif line.lstrip().startswith("- ") and notes:
+            notes[-1]["points"].append(line.lstrip()[2:].strip())
+        elif line.strip() and notes and notes[-1]["points"]:
+            notes[-1]["points"][-1] += " " + line.strip()  # wrapped bullet
+    return [n for n in notes if n["points"]]
+
+
+def country_name(iso: str, cfg: dict) -> str:
+    if iso in cfg:
+        return cfg[iso]["name"]
+    import pycountry
+    c = pycountry.countries.get(alpha_3=iso)
+    return getattr(c, "common_name", None) or (c.name if c else iso)
+
+
 def source_date(sid: str, state: dict) -> str | None:
     """Date of the data at the source: a release/version date where the source publishes one, otherwise the date we
     last read the live registry (or imported the export)."""
@@ -88,6 +113,7 @@ def main() -> None:
             "project_id", "display_name", "developer", "developer_url", "project_url", "countries", "country_shares",
             "registries", "issuance_by_vintage", "methodology_codes", "crediting", "years", "article6",
             "offtakers", "flags")}
+        row["country_names"] = [country_name(c, countries) for c in p["countries"]]
         for c in p["country_shares"]:
             by_country[c].append(row)
 
@@ -115,6 +141,7 @@ def main() -> None:
             "url": s.get("url"), "license": s.get("license"),
         } for sid, s in sources.items()},
         "project_count": len(projects),
+        "notes": load_notes(),
         "headlines": json.loads((common.ROOT / "data" / "headlines.json").read_text(encoding="utf-8"))
         if (common.ROOT / "data" / "headlines.json").exists() else None,
         "files": files,
