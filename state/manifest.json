@@ -1,5 +1,5 @@
 {
-  "last_commit_at": "2026-10-12T08:07:56+00:00",
+  "last_commit_at": "2026-10-12T08:18:04+00:00",
   "sources": {
     "a6pipeline": {
       "error": null,
@@ -52,8 +52,8 @@
     },
     "ucr": {
       "error": null,
-      "last_changed": "2026-10-12T08:07:56+00:00",
-      "last_checked": "2026-10-12T08:07:56+00:00",
+      "last_changed": "2026-10-12T08:18:04+00:00",
+      "last_checked": "2026-10-12T08:18:04+00:00",
       "rows": 301,
       "signal": {
         "grid_hash": "9f1a7b9ea336ebc4",
