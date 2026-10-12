@@ -28,7 +28,7 @@ jobs:
     outputs:
       changed: ${{ steps.run.outputs.changed }}
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
         with:
           fetch-depth: 2
       - uses: astral-sh/setup-uv@v6
