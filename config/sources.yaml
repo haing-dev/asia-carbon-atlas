@@ -3,8 +3,8 @@
 # label: shown on the site. cadence_days: minimum days between probes (the 10-day schedule probes everything due).
 sources:
   vrod:
-    label: Berkeley Voluntary Registry Offsets Database (Verra, Gold Standard, Isometric)
-    registries: [VCS, GS, ISO]
+    label: Berkeley Voluntary Registry Offsets Database (Verra, Gold Standard, Isometric, ACR, CAR, ART TREES)
+    registries: [VCS, GS, ISO, ACR, CAR, ART]
     url: https://gspp.berkeley.edu/berkeley-carbon-trading-project/offsets-database
     license: CC BY 4.0
     enabled: true

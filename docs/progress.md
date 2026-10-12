@@ -36,6 +36,11 @@
 
 - Night mode only. Footnotes live in `content/notes.md` (owner edits on GitHub; "Edit notes" link shows after visiting the site once with `?owner=1`).
 
+- **Americas (2026-10-12):** areas in `config/countries.yaml` (`area:`), per-area basemaps (`web/scripts/make-basemap.mjs`),
+  per-area index files, region switcher. ACR/CAR/ART TREES via VROD (ACR/ART link to GreenTrace project lists; CAR to APX).
+  Headlines and offtakers per area. ~10.7k projects (Asia 5.96k, North America 3.14k, South America 1.63k).
+  Gaps: Cercarbono / BioCarbon Registry (Colombia, EcoRegistry platform), Brazil/Colombia national registries.
+
 ## Next
 - Owner: send a fresh GCC export when wanted (replace the file in `data/manual/gcc/`); spot-check `review/dedupe_pending.csv` pairs.
 - M5 rest: monthly scheduled Claude task for offtaker/website enrichment (queue + review flow per SPEC §10); Puro retirement beneficiaries.

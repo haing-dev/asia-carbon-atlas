@@ -1,6 +1,6 @@
 # Asia Carbon Credit Atlas
 
-Research-only public website mapping carbon credit projects in Asia (ex-China).
+Research-only public website mapping carbon credit projects by region: Asia (ex-mainland China), North America (incl. Central America & Caribbean), South America.
 
 - Full spec: `docs/SPEC.md`. Current status and next steps: `docs/progress.md` (read this first).
 - Source notes: `docs/sources.md`. Methods shown on the site: `docs/methods.md`.

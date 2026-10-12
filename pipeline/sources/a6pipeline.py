@@ -123,6 +123,8 @@ def a62_records(rows: list[dict]) -> list[dict]:
             continue
         url = link(r.get("docs"))
         refs = link_refs(url)
+        if "greentrace.ice.com/art/" in (url or "") and re.fullmatch(r"[A-Z]{2}-[A-Z]{2}-\d{4}", str(r["id"])):
+            refs.append(f"ART:{str(r['id'])[-4:]}")  # A6 Pipeline numbers ART TREES programmes by their ART id
         b = buyer(str(r["id"]))
         standalone = not refs and status.lower() in STANDALONE_62 and bool(url)
         if not refs and not standalone:

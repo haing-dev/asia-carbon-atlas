@@ -86,6 +86,117 @@ offtakes:
     date: 2026-04-02
     source_url: https://www.klik.ch/en/news/news-article/new-itmo-issuances-for-ndc-use-from-bangkok-e-bus-programme
     source_title: New ITMO issuances for NDC use from Bangkok E-Bus Programme (KliK)
+  # --- Americas (researched 2026-10-12) ---
+  - record: ART:0102
+    buyer: Hess Corporation
+    volume_tco2e: 37500000
+    date: '2022-12-02'
+    source_url: https://www.businesswire.com/news/home/20221202005187/en/5343635/Hess-Corporation-and-the-Government-of-Guyana-Announce-REDD-Carbon-Credits-Purchase-Agreement
+    source_title: Hess Corporation and the Government of Guyana Announce REDD+ Carbon Credits Purchase Agreement
+  - record: ART:0124
+    buyer: LEAF Coalition
+    volume_tco2e: 12000000
+    date: '2024-09-25'
+    source_url: https://www.nicfi.no/2024/09/25/new-agreement-with-global-businesses-preserves-rainforest-in-the-amazon/
+    source_title: "New Agreement with Global Businesses Preserves Rainforest in the Amazon (Par\xE1)"
+  - record: ART:0101
+    buyer: Emergent (LEAF Coalition)
+    date: '2023-12-02'
+    source_url: https://www.lw.com/en/news/2023/12/latham-advises-on-landmark-forest-carbon-credit-agreements
+    source_title: Latham Advises on Landmark Forest Carbon Credit Agreements (Costa Rica ERPA)
+  - record: ART:0109
+    buyer: LEAF Coalition
+    date: '2025-05-06'
+    source_url: https://iica.int/en/press/news/iica-will-participate-in-a-trailblazing-project-in-ecuador-that-will-enable-the-country-to-mobilize-usd-30-million-in-international-funds-to-preserve-forests-and-strengthen-the-communities-that-protec
+    source_title: 'IICA: Ecuador to mobilize USD 30 million (LEAF Coalition, ART TREES)'
+  - record: VCS:5525
+    buyer: Microsoft
+    volume_tco2e: 500000
+    date: '2024-07-09'
+    source_url: https://www.1pointfive.com/news/1pointfive-and-microsoft-announce-agreement-for-direct-air-capture-cdr-credits
+    source_title: Microsoft agrees to purchase 500,000 tonnes of DAC carbon removal credits (STRATOS)
+  - record: VCS:5525
+    buyer: Amazon
+    volume_tco2e: 250000
+    date: '2023-09-12'
+    source_url: https://www.1pointfive.com/news/amazon-cdr-removal-credit-purchase-agreement
+    source_title: 1PointFive and Amazon announce 10-year carbon removal credit purchase agreement
+  - record: VCS:5525
+    buyer: Airbus
+    volume_tco2e: 400000
+    date: '2022-03-17'
+    source_url: https://www.oxy.com/siteassets/documents/news-releases/pr_031722-1pointfive_ce_airbus-purchases-co2-removal-credits.pdf
+    source_title: Airbus purchases CO2 removal credits from 1PointFive (Oxy release)
+  - record: VCS:5525
+    buyer: All Nippon Airways (ANA)
+    volume_tco2e: 30000
+    date: '2023-08-01'
+    source_url: https://www.esgtoday.com/ana-signs-30000-tonne-carbon-removal-agreement/
+    source_title: ANA Signs 30,000 Tonne Carbon Removal Agreement (Stratos)
+  - record: VCS:5525
+    buyer: TD Securities
+    volume_tco2e: 27500
+    date: '2023-11-01'
+    source_url: https://1pointfive.com/1pointfive-cdr-purchase-agreement-td-bank-group
+    source_title: 1PointFive and TD announce DAC carbon removal credit purchase
+  - record: ISO:prj_1HCHT9G2H1S05MYP
+    buyer: Microsoft
+    volume_tco2e: 10000
+    date: '2024-11-15'
+    source_url: https://datacenterdynamics.com/en/news/microsoft-to-purchase-10000-tons-of-dac-credits-from-deep-sky
+    source_title: Microsoft to purchase 10,000 tons of DAC credits from Deep Sky (Alberta)
+  - record: ISO:prj_1J4P33N6W1S0RKE2
+    buyer: American Airlines
+    volume_tco2e: 10000
+    date: '2023-11-29'
+    source_url: https://www.esgtoday.com/american-airlines-signs-carbon-removal-agreement-with-cleantech-startup-graphyte
+    source_title: American Airlines Signs Carbon Removal Agreement with Graphyte (Pine Bluff, Arkansas)
+    note: Source names Graphyte's Pine Bluff facility; Graphyte has one registry project.
+  - record: ISO:prj_1JY1YXDBS1S01Y05
+    buyer: Frontier buyers
+    volume_tco2e: 154240
+    date: '2023-12-07'
+    source_url: https://frontierclimate.com/writing/lithos
+    source_title: Frontier buyers sign enhanced weathering offtake agreements with Lithos Carbon
+    note: Supplier-level deal (US farms); Lithos has one registry project.
+  - record: ISO:prj_1K10D531D1S0DEV9
+    buyer: Frontier buyers
+    volume_tco2e: 90000
+    date: '2024-12-12'
+    source_url: https://frontierclimate.com/writing/terradot
+    source_title: Terradot signs $27M deal with Frontier buyers (Brazil ERW)
+    note: Supplier-level deal; Terradot has one registry ERW project in Brazil.
+  - record: ISO:prj_1K10D531D1S0DEV9
+    buyer: Google
+    volume_tco2e: 200000
+    date: '2024-12-13'
+    source_url: https://datacenterdynamics.com/en/news/google-to-purchase-200k-tons-of-carbon-removal-credits-from-terradot
+    source_title: Google to purchase 200k tons of carbon removal credits from Terradot
+    note: Supplier-level deal; Terradot has one registry ERW project in Brazil.
+  - record: ISO:prj_1H502CZZH1S0VMYW
+    buyer: Frontier buyers
+    volume_tco2e: 115211
+    date: '2025-08-28'
+    source_url: https://betakit.com/frontier-signs-43-3-million-cad-carbon-removal-deal-with-planetary/
+    source_title: Frontier signs $43.3-million CAD carbon removal deal with Planetary (Nova Scotia)
+  - record: GS:12135
+    buyer: Microsoft
+    volume_tco2e: 7000000
+    date: '2025-01-31'
+    source_url: https://www.esgtoday.com/microsoft-inks-7-million-ton-nature-based-carbon-removal-megadeal/
+    source_title: Microsoft Inks 7 Million Ton Nature-Based Carbon Removal Megadeal (Chestnut Carbon)
+  - record: CAR:1674
+    buyer: Microsoft
+    volume_tco2e: 234000
+    date: '2024-09-11'
+    source_url: https://www.esgtoday.com/microsoft-buys-234000-rainforest-restoration-carbon-removal-credits-from-toroto/
+    source_title: "Microsoft Buys 234,000 Rainforest Restoration Carbon Removal Credits from Toroto (Conhu\xE1s)"
+  - record: A62:PE-CH-5031
+    buyer: KliK Foundation (with Climate Cent Foundation)
+    volume_tco2e: 960000
+    date: '2021-11-25'
+    source_url: https://klik.ch/news/news-article/klik-foundation-signs-worlds-first-purchase-agreement
+    source_title: KliK Foundation signs world's first purchase agreement (Tuki Wasi, Peru)
 
 announced_rows:
   - id: ANN:varaha-biochar-ind
@@ -218,3 +329,183 @@ announced_rows:
         date: 2021-02-24
         source_url: https://www.worldbank.org/en/news/press-release/2021/02/26/nepal-and-world-bank-sign-innovative-financing-agreement-on-forests-and-climate-change-for-building-back-greener
         source_title: Nepal and World Bank Sign Innovative Financing Agreement on Forests and Climate Change
+  # --- Americas (researched 2026-10-12) ---
+  - id: ANN:heirloom-dac-usa
+    name: "Heirloom \u2014 Project Cypress DAC, Louisiana"
+    developer: Heirloom
+    countries: [USA]
+    l2: dac
+    offtakes:
+      - buyer: Microsoft
+        volume_tco2e: 315000
+        date: '2023-09-07'
+        source_url: https://www.heirloomcarbon.com/news/heirloom-and-microsoft-sign-permanent-co2-removal-deal
+        source_title: Heirloom and Microsoft sign permanent CO2 removal deal
+  - id: ANN:holocene-dac-usa
+    name: "Holocene \u2014 direct air capture, Tennessee (supplier-level deal)"
+    developer: Holocene
+    countries: [USA]
+    l2: dac
+    offtakes:
+      - buyer: Google
+        volume_tco2e: 100000
+        date: '2024-09-10'
+        source_url: https://www.esgtoday.com/google-signs-100000-ton-carbon-removal-deal-with-dac-technology-startup-holocene/
+        source_title: Google Signs 100,000 Ton Carbon Removal Deal with Holocene
+  - id: ANN:atmosclear-beccs-usa
+    name: "AtmosClear \u2014 BECCS, Port of Greater Baton Rouge, Louisiana"
+    developer: AtmosClear BR (Fidelis)
+    countries: [USA]
+    l2: beccs
+    offtakes:
+      - buyer: Microsoft
+        volume_tco2e: 6750000
+        date: '2025-04-15'
+        source_url: https://aap.com.au/aapreleases/cision20250415ae64670
+        source_title: AtmosClear signs agreement with Microsoft for carbon removal from Louisiana project
+  - id: ANN:co280-beccs-usa
+    name: "CO280 \u2014 BECCS at US pulp and paper mills (supplier-level deals)"
+    developer: CO280
+    countries: [USA]
+    l2: beccs
+    offtakes:
+      - buyer: Microsoft
+        volume_tco2e: 3685000
+        date: '2025-04-14'
+        source_url: https://www.intelligentcio.com/north-america/?p=43820
+        source_title: CO280 signs 3.69 million tonne agreement with Microsoft
+      - buyer: JPMorganChase
+        volume_tco2e: 450000
+        date: '2025-05-21'
+        source_url: https://www.esgtoday.com/jpmorgan-signs-large-scale-carbon-removal-deal-for-under-200-per-ton/
+        source_title: JPMorgan Signs Large-Scale Carbon Removal Deal (CO280, Gulf Coast mill)
+  - id: ANN:arbor-beccs-usa
+    name: "Arbor \u2014 BECCS facility near Lake Charles, Louisiana"
+    developer: Arbor
+    countries: [USA]
+    l2: beccs
+    offtakes:
+      - buyer: Frontier buyers
+        volume_tco2e: 116000
+        date: '2025-07-08'
+        source_url: https://frontierclimate.com/writing/arbor
+        source_title: Arbor moves closer to first commercial facility, fueled by Frontier deal
+  - id: ANN:vaulteddeep-usa
+    name: "Vaulted Deep \u2014 biomass geologic storage (supplier-level deal)"
+    developer: Vaulted Deep
+    countries: [USA]
+    l2: biomass_storage
+    offtakes:
+      - buyer: Microsoft
+        volume_tco2e: 4900000
+        date: '2025-07-17'
+        source_url: https://www.esgtoday.com/microsoft-signs-one-of-largest-ever-carbon-removal-deals-with-biomass-waste-management-startup-vaulted-deep/
+        source_title: Microsoft Signs One of Largest-Ever Carbon Removal Deals with Vaulted Deep
+  - id: ANN:charm-usa
+    name: "Charm Industrial \u2014 bio-oil sequestration (supplier-level deal)"
+    developer: Charm Industrial
+    countries: [USA]
+    l2: biomass_storage
+    offtakes:
+      - buyer: Frontier buyers
+        volume_tco2e: 112000
+        date: '2023-05-18'
+        source_url: https://frontierclimate.com/writing/first-offtake
+        source_title: Frontier buyers sign first $53M in offtake agreements with Charm Industrial
+  - id: ANN:livingcarbon-usa
+    name: "Living Carbon \u2014 reforestation of Appalachian mine lands (supplier-level deal)"
+    developer: Living Carbon
+    countries: [USA]
+    l2: arr
+    offtakes:
+      - buyer: Microsoft
+        volume_tco2e: 1400000
+        date: '2025-04-21'
+        source_url: https://www.livingcarbon.com/press-releases/living-carbon-announces-agreement-with-microsoft
+        source_title: Living Carbon Announces Agreement with Microsoft
+  - id: ANN:regreen-bra
+    name: "re.green \u2014 forest restoration, Brazil (supplier-level deals)"
+    developer: re.green
+    countries: [BRA]
+    l2: arr
+    offtakes:
+      - buyer: Microsoft
+        volume_tco2e: 3000000
+        date: '2024-05-13'
+        source_url: https://www.esgtoday.com/microsoft-signs-another-reforestation-based-carbon-removal-megadeal
+        source_title: Microsoft Signs Another Reforestation-Based Carbon Removal Megadeal (re.green)
+      - buyer: Microsoft
+        volume_tco2e: 3500000
+        date: '2025-01-23'
+        source_url: https://www.esgtoday.com/microsoft-signs-forest-restoration-deal-to-remove-3-5-million-tons-of-co2/
+        source_title: Microsoft Signs Forest Restoration Deal to Remove 3.5 Million Tons of CO2 (re.green)
+  - id: ANN:mombak-bra
+    name: "Mombak \u2014 Amazon reforestation, Brazil (supplier-level deals)"
+    developer: Mombak
+    countries: [BRA]
+    l2: arr
+    offtakes:
+      - buyer: Microsoft
+        volume_tco2e: 1500000
+        date: '2023-12-06'
+        source_url: https://www.esgtoday.com/microsoft-signs-one-of-the-largest-ever-nature-based-deals-to-remove-1-5-million-tons-of-carbon/
+        source_title: Microsoft Signs Nature-Based Deal to Remove 1.5 Million Tons (Mombak)
+      - buyer: Google
+        volume_tco2e: 50000
+        date: '2024-09-19'
+        source_url: https://www.esgtoday.com/?p=17264
+        source_title: Google Signs Brazil Reforestation-Based Carbon Removal Purchase Deal (Mombak)
+      - buyer: Google
+        volume_tco2e: 200000
+        date: '2025-11-06'
+        source_url: https://www.esgtoday.com/google-signs-200000-ton-reforestation-based-carbon-removal-deal-with-mombak/
+        source_title: Google Signs 200,000 Ton Reforestation-Based Carbon Removal Deal with Mombak
+  - id: ANN:btgtig-bra
+    name: "BTG Pactual TIG \u2014 reforestation and restoration in Latin America (supplier-level deals)"
+    developer: BTG Pactual Timberland Investment Group
+    countries: [BRA]
+    l2: arr
+    offtakes:
+      - buyer: Microsoft
+        volume_tco2e: 8000000
+        date: '2024-06-18'
+        source_url: https://www.esgtoday.com/microsoft-signs-largest-ever-carbon-removal-deal-with-btg-pactual/
+        source_title: Microsoft Signs Largest-Ever Nature-Based Carbon Removal Deal with BTG Pactual
+      - buyer: Meta
+        volume_tco2e: 1300000
+        date: '2024-09-18'
+        source_url: https://www.esgtoday.com/meta-signs-deal-for-up-to-3-9-million-tons-of-nature-based-carbon-removal-credits-with-btg-pactual/
+        source_title: Meta Signs Deal for up to 3.9 Million Tons with BTG Pactual
+  - id: ANN:ponterra-pan
+    name: "Ponterra \u2014 reforestation, Panama (supplier-level deal)"
+    developer: Ponterra
+    countries: [PAN]
+    l2: arr
+    offtakes:
+      - buyer: Microsoft
+        volume_tco2e: 1600000
+        date: '2024-06-13'
+        source_url: https://orrick.com/News/2024/06/Nature-Based-Carbon-Removal-Microsoft-Agrees-to-Panama-Reforestation-Deal
+        source_title: Microsoft Agrees to Panama Reforestation Deal (Ponterra)
+  - id: ANN:exomad-bol
+    name: "Exomad Green \u2014 biochar, Bolivia (supplier-level deal)"
+    developer: Exomad Green
+    countries: [BOL]
+    l2: biochar
+    offtakes:
+      - buyer: Microsoft
+        volume_tco2e: 1240000
+        date: '2025-05-22'
+        source_url: https://www.esgtoday.com/microsoft-signs-largest-ever-biochar-carbon-removal-agreement/
+        source_title: Microsoft Signs Largest-Ever Biochar Carbon Removal Agreement (Exomad Green)
+  - id: ANN:terradot-rice-bra
+    name: "Terradot \u2014 rice methane elimination, Rio Grande do Sul"
+    developer: Terradot
+    countries: [BRA]
+    l2: rice_methane
+    offtakes:
+      - buyer: Google
+        volume_tco2e: 1000000
+        date: '2026-09-18'
+        source_url: https://carboncredits.com/?p=47817
+        source_title: Google Signs Record Carbon Removal Deal With Terradot for Brazil Rice Project
