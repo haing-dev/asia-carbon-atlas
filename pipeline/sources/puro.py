@@ -90,6 +90,9 @@ class Adapter(Source):
             issued = re.search(r"Issued credits ([\d,  ]+?) Retired", text)
             retired = re.search(r"Retired credits ([\d,  ]+?) ", text)
             meth = p.get("methodology") or {}
+            # Issuance rows read "07 Sept 2023 22 Biochar, ..." -> dates of each issuance listed on the page.
+            iss_dates = sorted(filter(None, (to_date(f"{d} {m[:3]} {y}")
+                                             for d, m, y in re.findall(r"\b(\d{1,2}) ([A-Z][a-z]{2,4}) (\d{4}) [\d,]+ ", text))))
             rec = {
                 "record_id": f"PURO:{pid}",
                 "registry": "PURO",
@@ -113,6 +116,9 @@ class Adapter(Source):
                 "source_version": f"Puro Registry {today}",
                 "raw_hash": common.sha256_bytes(r.content),
                 "supplier_listing_url": p.get("supplierListingUrl"),
+                "listed_date": None,
+                "registered_date": to_date(p.get("creditingPeriodStart")),
+                "first_issuance_date": iss_dates[0] if iss_dates else None,
             }
             out.append(carry_over(rec, prev, today))
         return out

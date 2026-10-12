@@ -9,7 +9,9 @@
     items: index.l2.map((x, i) => ({ i, label: x.label, l1: x.l1 })).filter((x) => x.l1 === g.id),
   })));
   const stageGroups = $derived([{ items: index.stages.map((s, i) => ({ i, label: STAGE_LABELS[s] })) }]);
-  const registryGroups = $derived([{ items: index.registries.map((r, i) => ({ i, label: r.label })) }]);
+  const registryGroups = $derived(["Independent standards", "Government & UN mechanisms"].map((g) => ({
+    label: g, items: index.registries.map((r, i) => ({ i, label: r.label, group: r.group })).filter((x) => x.group === g),
+  })));
 </script>
 
 <div class="filters">

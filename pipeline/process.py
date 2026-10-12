@@ -102,6 +102,11 @@ def cluster_records(records: list[dict]) -> list[list[dict]]:
     return out
 
 
+def _min_year(members: list[dict], field: str) -> int | None:
+    years = [int(str(m[field])[:4]) for m in members if m.get(field) and str(m[field])[:4].isdigit()]
+    return min(years) if years else None
+
+
 def build_projects() -> list[dict]:
     records = common.load_all_records()
     countries_cfg = common.load_yaml("countries.yaml")["countries"]
@@ -138,6 +143,7 @@ def build_projects() -> list[dict]:
             "issuance_by_vintage": lead.get("issuance_by_vintage") or {},
             "methodology_codes": sorted({c for m in members for c in (m.get("methodology_codes") or [])}),
             "crediting": [lead.get("crediting_start"), lead.get("crediting_end")],
+            "years": {k: _min_year(members, f"{k}_date") for k in ("listed", "registered", "first_issuance")},
             "article6": None,
             "offtakers": [],
             "project_url": None,

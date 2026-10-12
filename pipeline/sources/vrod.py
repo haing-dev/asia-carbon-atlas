@@ -80,6 +80,13 @@ class Adapter(Source):
             years.append((j, header[j]))
             j += 1
 
+        # "Credits issued by issuance year" block: the run of year columns right after "Project Website".
+        iss_years = []
+        j = col("Project Website") + 1
+        while j < len(header) and re.fullmatch(r"\d{4}", header[j] or ""):
+            iss_years.append((j, header[j]))
+            j += 1
+
         prev = {p["record_id"]: p for p in previous}
         today = common.today()
         out = []
@@ -122,8 +129,9 @@ class Adapter(Source):
                 "removal_raw": row[c["Reduction / Removal"]],
                 "state_raw": row[c["State"]],
                 "poa_id": row[c["PoA / Aggregate ID"]],
-                "listed": to_date(row[c["Project Listed"]]),
-                "registered": to_date(row[c["Project Registered"]]),
+                "listed_date": to_date(row[c["Project Listed"]]),
+                "registered_date": to_date(row[c["Project Registered"]]),
+                "first_issuance_date": next((y for j, y in iss_years if to_int(row[j])), None),
                 "project_website_raw": row[c["Project Website"]] or None,
             }
             out.append(carry_over(rec, prev, today))

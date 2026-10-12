@@ -1,6 +1,7 @@
 <script>
   import { onMount } from "svelte";
   import Map from "./lib/Map.svelte";
+  import Ranking from "./lib/Ranking.svelte";
   import Filters from "./lib/Filters.svelte";
   import Table from "./lib/Table.svelte";
   import { aggregate, fmt, loadIndex, loadMeta, loadRows, makePredicate } from "./lib/data.js";
@@ -124,10 +125,10 @@
   }
   // Footnotes, numbered in reading order. Markers in the page link to #note-N.
   const NOTES = [
-    "Circle area is proportional to the value (not a log scale): a country with a quarter of the volume has half the radius. Totals include only the filters currently selected.",
+    "Map shading uses a square-root scale so smaller countries remain visible; the ranking bars beside the map are linear, so their lengths compare volumes directly. Totals include only the filters currently selected.",
     "Projects hosted in several countries appear once in the table. For country totals on the map, their volumes are split across host countries in proportion to population (UN World Population Prospects 2024).",
     "A project listed in several registries (e.g. CDM → Gold Standard, or CDM → Article 6.4) is merged into one row where the registries cross-reference each other; volumes are shown per registry in the row details. Verra, Gold Standard and Isometric records come via the Berkeley Voluntary Registry Offsets Database; CDM records via the UNEP Copenhagen Climate Centre CDM Pipeline (compiled from UNFCCC data), linked to each project's UNFCCC page.",
-    "Pipeline: listed, under development or under validation. Registered: registered, nothing issued yet. Issuing: at least one issuance to date (including projects whose crediting period has since ended). Inactive: withdrawn, rejected, deregistered, or crediting period ended with nothing issued (hidden by default).",
+    "Listed: listed, under development or under validation. Validated: validated and registered, nothing issued yet. Issuing: at least one issuance to date (including projects whose crediting period has since ended). Inactive: withdrawn, rejected, deregistered, or crediting period ended with nothing issued (hidden by default). The Year column shows the year the project reached its current stage: listing year, registration year, or first issuance year.",
     "The registry's own ex-ante estimate of annual reductions or removals, which often exceeds what is later issued.",
     "One credit = one tonne of CO₂e reduced or removed. Issued and retired volumes are cumulative.",
     "Offtakers are limited to public registry retirement records, government publications and public announcements, and are therefore not exhaustive.",
@@ -157,14 +158,17 @@
       <p class="notice">Registry data is being connected source by source. The map and table fill in as each source goes live.</p>
     {/if}
     <div class="maphead">
-      <label>Circle size<sup class="fn"><a href="#note-1">1</a></sup>
+      <label>Show<sup class="fn"><a href="#note-1">1</a></sup>
         <select bind:value={metric}>
           {#each Object.entries(METRICS) as [k, m]}<option value={k}>{m.label} ({m.unit})</option>{/each}
         </select>
       </label>
       <span class="muted">Total in view: <span class="num">{fmt(total)}</span> {METRICS[metric].unit}</span>
     </div>
-    <Map {totals} countries={index.countries} selected={country} metricLabel={METRICS[metric].label} unit={METRICS[metric].unit} onselect={selectCountry} />
+    <div class="mapgrid">
+      <Map {totals} countries={index.countries} selected={country} metricLabel={METRICS[metric].label} unit={METRICS[metric].unit} onselect={selectCountry} />
+      <Ranking {totals} countries={index.countries} selected={country} unit={METRICS[metric].unit} onselect={selectCountry} />
+    </div>
 
     <section id="projects">
       <div class="tablehead">
@@ -216,6 +220,9 @@
   .theme { border: 1px solid var(--line); background: var(--surface); border-radius: 999px; width: 30px; height: 30px; cursor: pointer; }
   .notice { background: var(--chip); border: 1px solid var(--line); border-radius: var(--radius); padding: 8px 12px; font-size: 14px; }
   .maphead { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 8px; margin: 10px 0 8px; font-size: 14px; }
+  .mapgrid { display: grid; grid-template-columns: minmax(0, 2.3fr) minmax(220px, 1fr); gap: 12px; align-items: start; }
+  .mapgrid :global(.ranking) { max-height: 560px; }
+  @media (max-width: 820px) { .mapgrid { grid-template-columns: 1fr; } .mapgrid :global(.ranking) { max-height: 320px; } }
   .maphead select { margin-left: 6px; border: 1px solid var(--line); border-radius: 6px; padding: 3px 6px; background: var(--surface); }
   #projects { margin-top: 18px; scroll-margin-top: 12px; }
   .tablehead { display: flex; justify-content: space-between; align-items: center; gap: 12px; flex-wrap: wrap; }

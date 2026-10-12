@@ -6,7 +6,9 @@ export const L1_COLORS = {
   transport: "#6E57A6", other: "#8A8A8A",
 };
 
-export const STAGE_LABELS = { pipeline: "Pipeline", registered: "Registered", issuing: "Issuing", inactive: "Inactive" };
+export const STAGE_LABELS = { pipeline: "Listed", registered: "Validated", issuing: "Issuing", inactive: "Inactive" };
+// Which year to show for each stage: listed -> listing year, validated -> registration year, issuing -> first issuance year.
+export const STAGE_YEAR = { pipeline: "listed", registered: "registered", issuing: "first_issuance", inactive: null };
 
 export async function loadMeta() {
   const r = await fetch("/data/meta.json", { cache: "no-cache" });

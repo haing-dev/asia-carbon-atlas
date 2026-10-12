@@ -125,6 +125,9 @@ class Adapter(Source):
                 "pdd_consultant_raw": g(row, "PDD Consultant"),
                 "transition_request": g(row, "Transition Request"),
                 "mw": g(row, "MW"),
+                "listed_date": to_date(g(row, "Start of validation")),
+                "registered_date": to_date(g(row, "Date of registration")),
+                "first_issuance_date": to_date(g(row, "First issuance")),
             }
             if rec["retired_tco2e"] > rec["issued_tco2e"]:
                 rec["retired_tco2e"] = rec["issued_tco2e"]  # rounding of kCERs
