@@ -155,6 +155,7 @@
       owner = localStorage.getItem("atlas-owner") === "1";
     } catch (e) {}
   });
+  const DISCLAIMER = "This project is purely for research purposes and is not used for any commercialization or monetization. All data sources are credited.";
   const EDIT_NOTES = "https://github.com/haing-dev/asia-carbon-atlas/edit/main/content/notes.md";
   const asOf = (s) => s.last_changed ? s.last_changed.slice(0, 10) : s.enabled ? "pending" : "not yet connected";
 </script>
@@ -162,7 +163,8 @@
 <header class="wrap top">
   <div>
     <h1>Carbon Credit Atlas <span class="where">· {areaInfo?.label || "Asia"}</span></h1>
-    <p class="muted">Carbon credit projects in {areaInfo?.scope || "Asia, excluding mainland China"}, across registries and Paris Agreement mechanisms. Research use only.</p>
+    <p class="muted">Carbon credit projects in {areaInfo?.scope || "Asia, excluding mainland China"}, across registries and Paris Agreement mechanisms.</p>
+    <p class="disclaimer">Disclaimer: {DISCLAIMER}</p>
   </div>
   <nav>
     <a href="#sources">Sources</a>
@@ -245,10 +247,15 @@
       <h2>Notes {#if owner}<a class="edit" href={EDIT_NOTES} target="_blank" rel="noopener">Edit notes</a>{/if}</h2>
       <ol>
         {#each notes as n, i}
-          <li id="note-{i + 1}"><ul>{#each n.points as pt}<li>{@html md(pt)}</li>{/each}</ul></li>
+          <li id="note-{i + 1}"><strong class="nt">{n.title}</strong><ul>{#each n.points as pt}<li>{@html md(pt)}</li>{/each}</ul></li>
         {/each}
       </ol>
-      <p>Credits: Berkeley Carbon Trading Project, <em>Voluntary Registry Offsets Database</em> (CC BY 4.0); UNEP Copenhagen Climate Centre, <em>CDM Pipeline</em> and <em>Article 6 Pipeline</em>; Natural Earth; UN DESA, <em>World Population Prospects 2024</em>. Research use only; not investment advice.</p>
+      <h2 class="cr">Credit</h2>
+      <ul class="credits">
+        <li><strong>Data:</strong> Berkeley Carbon Trading Project, <em>Voluntary Registry Offsets Database</em> (CC BY 4.0); UNEP Copenhagen Climate Centre, <em>CDM Pipeline</em> and <em>Article 6 Pipeline</em>; the registries listed under Sources; Natural Earth; UN DESA, <em>World Population Prospects 2024</em>.</li>
+        <li><strong>Disclaimer:</strong> {DISCLAIMER}</li>
+        <li><strong>Author:</strong> <a href="mailto:haing.penn@gmail.com">haing.penn@gmail.com</a> · <a href="https://www.linkedin.com/in/hai-n-13a45370" target="_blank" rel="noopener">LinkedIn</a></li>
+      </ul>
     </section>
   {/if}
 </main>
@@ -258,7 +265,7 @@
 <style>
   .top { display: flex; justify-content: space-between; align-items: flex-start; gap: 16px; padding-top: 22px; padding-bottom: 6px; }
   h1 { font-size: 22px; margin: 0 0 2px; letter-spacing: -0.01em; }
-  h1 + p { margin: 0; font-size: 14px; max-width: 640px; }
+  h1 + p { margin: 0; font-size: 14px; max-width: 680px; }
   nav { display: flex; gap: 14px; align-items: center; font-size: 14px; white-space: nowrap; }
   .notice { background: var(--chip); border: 1px solid var(--line); border-radius: var(--radius); padding: 8px 12px; font-size: 14px; }
   .where { color: var(--accent); font-weight: 600; }
@@ -293,7 +300,12 @@
   .notes .edit { font-size: 11px; text-transform: none; letter-spacing: 0; border: 1px solid var(--accent); border-radius: 999px; padding: 1px 8px; }
   .notes h2 { font-size: 13px; text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 4px; }
   .notes ol { padding-left: 18px; margin: 0 0 10px; }
-  .notes > ol > li { margin-bottom: 4px; scroll-margin-top: 16px; }
+  .notes > ol > li { margin-bottom: 6px; scroll-margin-top: 16px; }
+  .notes .nt { color: var(--ink); font-weight: 600; }
+  .notes h2.cr { margin-top: 14px; }
+  .credits { margin: 0 0 10px; padding-left: 18px; }
+  .credits li { margin-bottom: 3px; }
+  .disclaimer { margin: 4px 0 0; font-size: 12.5px; color: var(--faint); max-width: 760px; }
   .notes ul { margin: 0; padding-left: 14px; list-style: "– "; }
   .notes > ol > li:target { color: var(--ink); background: var(--accent-soft); }
   .prose h2 { margin-bottom: 8px; }

@@ -12,22 +12,23 @@
     { k: "name", label: "Project" }, { k: "dev", label: "Developer" }, { k: "off", label: "Announced offtaker(s)", fn: "offtakers" },
     { k: "country", label: "Country", fn: "countries" },
     { k: "type", label: "Credit type" }, { k: "reg", label: "Registry", fn: "registries" }, { k: "st", label: "Stage", fn: "stages" },
-    { k: "y_listed", label: "Listed", unit: "year", yr: true, fn: "stages" }, { k: "y_registered", label: "Validated", unit: "year", yr: true, fn: "stages" },
-    { k: "y_first_issuance", label: "1st issued", unit: "year", yr: true, fn: "stages" },
+    { k: "y_listed", label: "Listed", unit: "year", yr: true, fn: "years" }, { k: "y_registered", label: "Validated", unit: "year", yr: true, fn: "years" },
+    { k: "y_first_issuance", label: "1st issued", unit: "year", yr: true, fn: "years" },
     { k: "ea", label: "Est. annual", num: true, unit: "tCO₂e/yr", fn: "estimate" }, { k: "is", label: "Issued", num: true, unit: "tCO₂e", fn: "units" },
     { k: "re", label: "Retired", num: true, unit: "tCO₂e", fn: "units" },
   ];
 
   const sorted = $derived.by(() => {
     const key = (r) => ({ name: r.display_name, dev: r.developer || "", country: (r.country_names || r.countries).join(","), type: r.typeLabel,
-      reg: r.registries.map((x) => x.registry).join(","), st: r.st, y_listed: yr(r, "listed"), y_registered: yr(r, "registered"), y_first_issuance: yr(r, "first_issuance"), ea: r.ea, is: r.is, re: r.re, off: r.offtakers.length })[sortKey];
+      reg: r.registries.map((x) => x.registry).join(","), st: r.st, y_listed: yr(r, "listed"), y_registered: yr(r, "registered"), y_first_issuance: yr(r, "first_issuance"), ea: vol(r.ea), is: vol(r.is), re: vol(r.re), off: r.offtakers.length })[sortKey];
     return [...rows].sort((a, b) => {
       const x = key(a), y = key(b);
       return (typeof x === "number" ? x - y : String(x).localeCompare(String(y))) * sortDir;
     });
   });
 
-  // Missing years sort last in both directions.
+  // Missing values (not published by the source) sort last in both directions.
+  const vol = (v) => v ?? (sortDir > 0 ? Infinity : -Infinity);
   const yr = (r, k) => r.years?.[k] ?? (sortDir > 0 ? 9999 : 0);
 
   const offTip = (o) => [o.type, o.country, o.date, o.volume_tco2e ? fmt(o.volume_tco2e) + " tCO₂e" : "", o.note].filter(Boolean).join(" · ");
@@ -66,7 +67,7 @@
             {#each r.offtakers.slice(0, 4) as o, i}{#if i}, {/if}<a href={o.source_url} target="_blank" rel="noopener" title={offTip(o)}>{o.name}</a>{/each}{#if r.offtakers.length > 4} <span class="muted">+{r.offtakers.length - 4}</span>{/if}
             {#if !r.offtakers.length}<span class="muted">—</span>{/if}
           </td>
-          <td>{(r.country_names || r.countries).join(", ")}{#if r.countries.length > 1} <span class="badge" title={"Map split (by population, UN WPP 2024; Asian hosts only): " + Object.entries(r.country_shares || {}).map(([c, v]) => `${c} ${(v * 100).toFixed(v < 0.01 ? 2 : 0)}%`).join(", ")}>multi</span>{/if}</td>
+          <td>{(r.country_names || r.countries).join(", ")}{#if r.countries.length > 1} <span class="badge" title={"Map split by population (UN WPP 2024), hosts in this region only: " + Object.entries(r.country_shares || {}).map(([c, v]) => `${c} ${(v * 100).toFixed(v < 0.01 ? 2 : 0)}%`).join(", ")}>multi</span>{/if}</td>
           <td><span class="sw" style="background:{L1_COLORS[r.l1]}"></span>{r.typeLabel}</td>
           <td class="regs">
             {#each r.registries as g}<a class="badge" href={g.url} target="_blank" rel="noopener" title={g.registry === "ANN" ? "Open the announcement" : "Open registry record"}>{g.registry === "ANN" ? "announcement" : g.record_id}</a>{/each}

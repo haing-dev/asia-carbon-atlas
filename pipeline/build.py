@@ -45,12 +45,64 @@ def load_notes() -> list[dict]:
     notes = []
     for line in text.splitlines():
         if line.startswith("## "):
-            notes.append({"key": line[3:].strip().split()[0].lower(), "points": []})
+            head = line[3:].strip()
+            key, _, title = head.partition(":") if ":" in head else (head.split()[0], "", "")
+            notes.append({"key": key.strip().lower(), "title": title.strip() or key.strip().capitalize(), "points": []})
         elif line.lstrip().startswith("- ") and notes:
             notes[-1]["points"].append(line.lstrip()[2:].strip())
         elif line.strip() and notes and notes[-1]["points"]:
             notes[-1]["points"][-1] += " " + line.strip()  # wrapped bullet
     return [n for n in notes if n["points"]]
+
+
+# Registry links the browser can rebuild from the record id ({id} = the part after "REG:"); rows omit such links.
+URL_TEMPLATES = {
+    "VCS": "https://registry.verra.org/app/projectDetail/VCS/{id}",
+    "GS": "https://registry.goldstandard.org/projects/details/{id}",
+    "CAR": "https://thereserve2.apx.com/mymodule/reg/prjView.asp?id1={id}",
+    "ACR": "https://greentrace.ice.com/acr/projects",
+    "ART": "https://greentrace.ice.com/art/projects",
+    "PURO": "https://registry.puro.earth/projects/{id}",
+    "JCM": "https://www.jcm.go.jp/jc/projects/{lid}/",
+    "GCC": "https://gcc2.globalcarboncouncil.com/search/registration",
+}
+UNEP_CDM = "https://unepccc.org/cdm-ji-pipeline/"
+
+
+def _template_url(record_id: str) -> str | None:
+    reg, _, native = record_id.partition(":")
+    t = URL_TEMPLATES.get(reg)
+    return t.format(id=native, lid=native.lower()) if t else None
+
+
+def compact_row(p: dict) -> dict:
+    """Display row for the browser, without empty fields or anything the browser can rebuild
+    (see web/src/lib/data.js hydrateRow)."""
+    row = {"id": p["project_id"], "n": p["display_name"], "c": p["countries"],
+           "rg": [r["record_id"] if r["url"] == _template_url(r["record_id"]) else [r["record_id"], r["url"]]
+                  for r in p["registries"]]}
+    if p.get("developer"):
+        row["d"] = p["developer"]
+    if len(p["countries"]) > 1:
+        row["sh"] = p["country_shares"]
+    y = [p["years"].get(k) for k in ("listed", "registered", "first_issuance")]
+    if any(y):
+        row["y"] = y
+    for key, val in (("v", p.get("issuance_by_vintage")), ("m", p.get("methodology_codes")), ("a6", p.get("article6")),
+                     ("f", p.get("flags")), ("pu", p.get("project_url")), ("du", p.get("developer_url"))):
+        if val:
+            row[key] = val
+    if any(p.get("crediting") or []):
+        row["cr"] = p["crediting"]
+    offs = []
+    for o in p.get("offtakers") or []:
+        if o["type"] == "CDM credit buyer" and o.get("source_url") == UNEP_CDM:
+            offs.append([o["name"], o.get("country")])   # constant source: rebuilt in the browser
+        else:
+            offs.append({k: v for k, v in o.items() if v not in (None, "")})
+    if offs:
+        row["o"] = offs
+    return row
 
 
 def country_name(iso: str, cfg: dict) -> str:
@@ -104,6 +156,7 @@ def main() -> None:
     files = {"index": {}, "rows": {}}
     by_country: dict[str, list[dict]] = defaultdict(list)
     rowcache: dict[str, dict] = {}
+    names: set[str] = set()
     area_counts = {}
     for area in AREAS:
         country_ids = [c for c, v in countries.items() if v.get("area") == area]
@@ -124,16 +177,13 @@ def main() -> None:
             cols["st"].append(STAGES.index(p["stage"]))
             cols["rg"].append(mask)
             cols["a6"].append(1 if p.get("article6") else 0)
-            cols["ea"].append(p.get("est_annual_tco2e") or 0)
-            cols["is"].append(p.get("issued_tco2e") or 0)
-            cols["re"].append(p.get("retired_tco2e") or 0)
+            cols["ea"].append(p.get("est_annual_tco2e"))   # null = not published by the source
+            cols["is"].append(p.get("issued_tco2e"))
+            cols["re"].append(p.get("retired_tco2e"))
             if p["project_id"] not in rowcache:
-                row = {k: p[k] for k in (
-                    "project_id", "display_name", "developer", "developer_url", "project_url", "countries", "country_shares",
-                    "registries", "issuance_by_vintage", "methodology_codes", "crediting", "years", "article6",
-                    "offtakers", "flags")}
-                row["country_names"] = [country_name(c, countries) for c in p["countries"]]
+                row = compact_row(p)
                 rowcache[p["project_id"]] = row
+                names.update(p["countries"])
                 for c in p["country_shares"]:
                     by_country[c].append(row)
         index = {
@@ -160,7 +210,9 @@ def main() -> None:
             "source_date": source_date(sid, manifest["sources"].get(sid) or {}),
             "live": sid not in ("vrod", "cdm", "gcc"),
             "url": s.get("url"), "license": s.get("license"),
-        } for sid, s in sources.items()},
+        } for sid, s in sources.items() if s.get("enabled")},
+        "names": {c: country_name(c, countries) for c in sorted(names)},
+        "url_templates": URL_TEMPLATES,
         "project_count": len(projects),
         "areas": [{"id": a, "label": AREAS[a]["label"], "scope": AREAS[a]["scope"], "projects": area_counts[a]} for a in AREAS],
         "notes": load_notes(),

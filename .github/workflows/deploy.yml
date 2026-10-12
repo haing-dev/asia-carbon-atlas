@@ -67,11 +67,3 @@ jobs:
           key: deployed-${{ steps.hash.outputs.hash }}
       - if: steps.seen.outputs.cache-hit == 'true'
         run: echo "Site unchanged since last deploy; nothing uploaded."
-      - name: Site address
-        working-directory: web
-        env:
-          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
-          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
-        run: |
-          D=$(npx wrangler pages project list 2>/dev/null | grep -oE '[a-z0-9-]+\.pages\.dev' | grep asia-carbon-atlas | head -1)
-          echo "::notice title=Site::https://$D"

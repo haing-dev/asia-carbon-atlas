@@ -45,8 +45,33 @@ const rowCache = new Map();
 export async function loadRows(meta, iso) {
   const file = meta.files.rows[iso];
   if (!file) return [];
-  if (!rowCache.has(file)) rowCache.set(file, fetch("/data/" + file).then((r) => r.json()));
+  if (!rowCache.has(file)) rowCache.set(file, fetch("/data/" + file).then((r) => r.json()).then((rows) => rows.map((r) => hydrateRow(meta, r))));
   return rowCache.get(file);
+}
+
+// Rows are stored compactly (pipeline/build.py compact_row): rebuild the full shape the UI uses.
+const CDM_BUYERS = { type: "CDM credit buyer", source_url: "https://unepccc.org/cdm-ji-pipeline/", source_title: "UNEP-CCC CDM Pipeline, 'Credit buyer' column" };
+function urlFor(meta, rid) {
+  const i = rid.indexOf(":");
+  const t = meta.url_templates?.[rid.slice(0, i)];
+  const id = rid.slice(i + 1);
+  return t ? t.replace("{id}", id).replace("{lid}", id.toLowerCase()) : null;
+}
+export function hydrateRow(meta, r) {
+  const y = r.y || [];
+  return {
+    project_id: r.id, display_name: r.n, developer: r.d || null, countries: r.c,
+    country_names: r.c.map((c) => meta.names?.[c] || c),
+    country_shares: r.sh || { [r.c[0]]: 1 },
+    registries: r.rg.map((g) => {
+      const [rid, url] = Array.isArray(g) ? g : [g, urlFor(meta, g)];
+      return { record_id: rid, registry: rid.slice(0, rid.indexOf(":")), url };
+    }),
+    years: { listed: y[0] ?? null, registered: y[1] ?? null, first_issuance: y[2] ?? null },
+    issuance_by_vintage: r.v || {}, methodology_codes: r.m || [], crediting: r.cr || [null, null],
+    article6: r.a6 || null, flags: r.f || [], project_url: r.pu || null, developer_url: r.du || null,
+    offtakers: (r.o || []).map((o) => (Array.isArray(o) ? { name: o[0], country: o[1], ...CDM_BUYERS } : o)),
+  };
 }
 
 // filters: {l2: Set<number>|null, stages: Set<number>, registries: Set<number>|null, a6: bool}

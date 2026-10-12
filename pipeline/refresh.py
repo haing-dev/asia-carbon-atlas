@@ -51,6 +51,10 @@ def run(selected: list[str] | None, force: bool) -> dict:
             path = common.RECORDS_DIR / f"{sid}.jsonl"
             previous = common.read_jsonl(path)
             records = adapter.fetch(previous, signal)
+            # Gate (SPEC §11): a source that suddenly returns far fewer rows is more likely broken than shrinking.
+            # Keep the previous data and mark it stale; a forced run (scope changes) skips the gate.
+            if not force and previous and len(records) < 0.8 * len(previous):
+                raise SourceError(f"row count dropped {len(previous)} -> {len(records)} (>20%); kept previous data")
             changed = common.write_jsonl_if_changed(path, records)
             state.update(signal=signal, rows=len(records), stale=False, error=None)
             if changed:

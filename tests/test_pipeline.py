@@ -65,8 +65,8 @@ def test_article6_annotation_tags_without_adding_volume(monkeypatch):
 
 def test_vintage_overlap_counts_once():
     from pipeline.process import rollup
-    cdm = {"issued_tco2e": 300, "retired_tco2e": 0, "issuance_by_vintage": {"2010": 100, "2011": 200}}
-    vcs = {"issued_tco2e": 250, "retired_tco2e": 50, "issuance_by_vintage": {"2011": 200, "2012": 50}}
+    cdm = {"registry": "CDM", "issued_tco2e": 300, "retired_tco2e": 0, "issuance_by_vintage": {"2010": 100, "2011": 200}}
+    vcs = {"registry": "VCS", "issued_tco2e": 250, "retired_tco2e": 50, "issuance_by_vintage": {"2011": 200, "2012": 50}}
     issued, retired, by_vintage, overlap = rollup([cdm, vcs])
     assert (issued, overlap) == (350, True) and by_vintage == {"2010": 100, "2011": 200, "2012": 50}
 
@@ -92,3 +92,53 @@ def test_cdm_buyers_parsed():
     from pipeline.process import cdm_buyers
     out = cdm_buyers({"registry": "CDM", "credit_buyer_raw": "Netherlands (AES AgriVerde), Switzerland (ACE-Asia) "})
     assert [(o["name"], o["country"]) for o in out] == [("AES AgriVerde", "Netherlands"), ("ACE-Asia", "Switzerland")]
+
+
+def test_programme_activities_add_up_within_a_registry():
+    from pipeline.process import estimate, rollup
+    design = {"registry": "GS", "native_id": "100", "poa_id": 100, "est_annual_tco2e": 0, "issued_tco2e": 0}
+    vpa1 = {"registry": "GS", "native_id": "101", "poa_id": 100, "est_annual_tco2e": 50, "issued_tco2e": 80,
+            "issuance_by_vintage": {"2023": 80}}
+    vpa2 = {"registry": "GS", "native_id": "102", "poa_id": 100, "est_annual_tco2e": 60, "issued_tco2e": 70,
+            "issuance_by_vintage": {"2023": 70}}
+    issued, _, by_vintage, overlap = rollup([design, vpa1, vpa2])
+    assert (issued, by_vintage, overlap) == (150, {"2023": 150}, False)   # same vintage, different credits: added
+    assert estimate([design, vpa1, vpa2]) == 110
+    big_design = dict(design, est_annual_tco2e=500)
+    assert estimate([big_design, vpa1, vpa2]) == 500                      # programme-level figure is larger
+    # The same project in two registries: one registry's estimate, not a sum.
+    assert estimate([{"registry": "VCS", "est_annual_tco2e": 90}, {"registry": "CDM", "est_annual_tco2e": 100}]) == 90
+
+
+def test_unknown_volumes_stay_unknown():
+    from pipeline.process import rollup
+    issued, retired, _, _ = rollup([{"registry": "GCC", "issued_tco2e": None, "retired_tco2e": None}])
+    assert issued is None and retired is None
+
+
+def test_issued_projects_are_issuing_even_if_status_is_inactive():
+    from pipeline.process import stage_of
+    smap = {"VCS": {"inactive": "inactive", "registered": "registered"}}
+    assert stage_of({"registry": "VCS", "registry_status_raw": "Inactive", "issued_tco2e": 5}, smap, "2026-10-12") == "issuing"
+    assert stage_of({"registry": "VCS", "registry_status_raw": "Inactive", "issued_tco2e": 0}, smap, "2026-10-12") == "inactive"
+
+
+def test_vrod_year_block_stops_at_next_block():
+    from pipeline.sources.vrod import year_block
+    header = ["First Year", "2020", "2021", "2022", "2020", "2021", "Owner"]
+    assert year_block(header, 1) == [(1, "2020"), (2, "2021"), (3, "2022")]
+
+
+def test_compact_row_drops_rebuildable_fields():
+    from pipeline.build import compact_row
+    p = {"project_id": "VCS:1", "display_name": "X", "developer": None, "countries": ["IND"], "country_shares": {"IND": 1.0},
+         "registries": [{"record_id": "VCS:1", "registry": "VCS", "url": "https://registry.verra.org/app/projectDetail/VCS/1"},
+                        {"record_id": "CDM:9", "registry": "CDM", "url": "https://cdm.unfccc.int/x"}],
+         "years": {"listed": None, "registered": 2020, "first_issuance": None}, "issuance_by_vintage": {},
+         "methodology_codes": [], "crediting": [None, None], "article6": None, "flags": [], "project_url": None,
+         "developer_url": None,
+         "offtakers": [{"name": "Vitol", "type": "CDM credit buyer", "country": "Switzerland",
+                        "source_url": "https://unepccc.org/cdm-ji-pipeline/", "source_title": "t"}]}
+    row = compact_row(p)
+    assert row == {"id": "VCS:1", "n": "X", "c": ["IND"], "rg": ["VCS:1", ["CDM:9", "https://cdm.unfccc.int/x"]],
+                   "y": [None, 2020, None], "o": [["Vitol", "Switzerland"]]}

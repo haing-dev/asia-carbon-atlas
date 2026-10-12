@@ -48,12 +48,13 @@ def classify(rec: dict, mmap: dict, rules: list) -> str:
 
 
 def stage_of(rec: dict, stage_map: dict, today: str) -> str:
-    raw = str(rec.get("registry_status_raw") or "").strip().lower()
-    mapped = stage_map.get(rec["registry"], {}).get(raw)
-    if mapped == "inactive":
-        return "inactive"
+    """Issuing whenever anything has been issued (credits exist even if the project later became inactive);
+    otherwise the registry status mapped by config/stages.yaml; registered with the crediting period over and
+    nothing issued counts as inactive."""
     if (rec.get("issued_tco2e") or 0) > 0:
         return "issuing"
+    raw = str(rec.get("registry_status_raw") or "").strip().lower()
+    mapped = stage_map.get(rec["registry"], {}).get(raw)
     if mapped is None:
         mapped = "registered" if raw else "pipeline"
     end = rec.get("crediting_end")
@@ -158,27 +159,57 @@ def cluster_records(records: list[dict], fuzzy: list[tuple[str, str, float]] | N
     return out
 
 
-def rollup(members: list[dict]) -> tuple[int, int, dict[str, int], bool]:
-    """Issued/retired across registries (SPEC §7.3): a vintage year issued in two registries counts once (the max).
-    Records without vintage detail add their totals as they are. Retired is capped at the rolled-up issued."""
-    total = sum(m.get("issued_tco2e") or 0 for m in members)
-    retired = sum(m.get("retired_tco2e") or 0 for m in members)
-    years: dict[str, list[int]] = defaultdict(list)
+def _known_sum(values) -> int | None:
+    vals = [v for v in values if v is not None]
+    return sum(vals) if vals else None
+
+
+def rollup(members: list[dict]) -> tuple[int | None, int | None, dict[str, int], bool]:
+    """Issued/retired for one project (SPEC §7.3).
+    Records in the same registry (programme + its activities) are added up. Across registries the same project is
+    listed twice, so a vintage year issued in more than one registry counts once (the largest). Records without
+    vintage detail add their totals as they are. None = no source reports the figure."""
+    total = _known_sum(m.get("issued_tco2e") for m in members)
+    retired = _known_sum(m.get("retired_tco2e") for m in members)
+    by_reg: dict[str, dict[str, int]] = defaultdict(lambda: defaultdict(int))
+    reg_total: dict[str, int] = defaultdict(int)
     for m in members:
+        reg_total[m["registry"]] += m.get("issued_tco2e") or 0
         for y, v in (m.get("issuance_by_vintage") or {}).items():
             if v:
-                years[y].append(int(v))
-    by_vintage = {y: max(v) for y, v in sorted(years.items())}
-    # Each vintage year issued in more than one registry is counted once (the largest).
-    dup = sum(sum(v) - max(v) for v in years.values() if len(v) > 1)
+                by_reg[m["registry"]][y] += int(v)
+    years = sorted({y for reg in by_reg.values() for y in reg})
+    by_vintage = {y: max(reg.get(y, 0) for reg in by_reg.values()) for y in years}
+    dup = sum(sum(reg.get(y, 0) for reg in by_reg.values()) - by_vintage[y] for y in years)
     overlap = dup > 0
-    if overlap:
-        smallest = min(m.get("issued_tco2e") or 0 for m in members if m.get("issuance_by_vintage"))
-        dup = min(dup, smallest)
-    issued = total - dup
-    if len(members) > 1:
-        retired = min(retired, issued)
-    return issued, retired, by_vintage, overlap
+    if overlap and total is not None:
+        # Never deduct more than everything outside the largest registry.
+        dup = min(dup, total - max(reg_total.values()))
+        total -= dup
+    if retired is not None and total is not None and len(reg_total) > 1:
+        retired = min(retired, total)
+    return total, retired, by_vintage, overlap
+
+
+def estimate(members: list[dict]) -> int | None:
+    """Estimated annual volume: one registry's figure (the lead registry's, else the next that has one), never a
+    sum across registries (the same project listed twice). Within one registry, a programme's activities
+    (VPAs/CPAs) add up; the programme's own figure is used instead when it is larger. Other same-registry
+    duplicates take the largest figure."""
+    order: list[str] = []
+    for m in members:
+        if m["registry"] not in order:
+            order.append(m["registry"])
+    for reg in order:
+        recs = [m for m in members if m["registry"] == reg and m.get("est_annual_tco2e")]
+        if not recs:
+            continue
+        acts = [m for m in recs if m.get("poa_id") and str(m["poa_id"]) != str(m.get("native_id"))]
+        if acts:
+            umbrella = max((int(m["est_annual_tco2e"]) for m in recs if m not in acts), default=0)
+            return max(umbrella, sum(int(m["est_annual_tco2e"]) for m in acts))
+        return max(int(m["est_annual_tco2e"]) for m in recs)
+    return None
 
 
 def _min_year(members: list[dict], field: str) -> int | None:
@@ -266,10 +297,10 @@ def build_projects(write_review: bool = False) -> list[dict]:
             "developer": next((m["developer_raw"] for m in members if m.get("developer_raw")), None),
             "countries": countries,
             "country_shares": shares,
-            "l2": classify(lead, mmap, rules),
+            "l2": l2_cache[lead["record_id"]],
             "stage": max(stages, key=lambda s: STAGE_ORDER[s]),
             "registries": [{"record_id": m["record_id"], "registry": m["registry"], "url": m["registry_url"]} for m in members],
-            "est_annual_tco2e": lead.get("est_annual_tco2e") or next((m.get("est_annual_tco2e") for m in members if m.get("est_annual_tco2e")), None),
+            "est_annual_tco2e": estimate(members),
             "issued_tco2e": issued,
             "retired_tco2e": retired,
             "issuance_by_vintage": by_vintage,

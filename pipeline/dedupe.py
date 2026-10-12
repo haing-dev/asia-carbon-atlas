@@ -12,7 +12,6 @@ from __future__ import annotations
 import csv
 import re
 from collections import defaultdict
-from itertools import combinations
 
 from rapidfuzz import fuzz
 
@@ -118,6 +117,19 @@ def _by_part(name: str | None) -> set[str]:
     return distinct(norm_name(m.group(1))) if m else set()
 
 
+def prepare(r: dict) -> None:
+    """Pre-compute everything the pair score needs, once per record."""
+    n = norm_name(r.get("name"))
+    r["_n"], r["_cap"], r["_ord"], r["_d"] = n, capacities(r), ordinals(r.get("name")), distinct(n)
+    r["_pl"], r["_te"] = places(n), techs(n)
+    r["_dev"] = _tokens(r.get("developer_raw"))
+    r["_by"] = _by_part(r.get("name"))
+    r["_bundle"] = "bundle" in (r.get("name") or "").lower()
+    st = str(r.get("state_raw") or "").strip().lower()
+    r["_st"] = st or None
+    r["_meth"] = set(r.get("methodology_codes") or [])
+
+
 def score(a: dict, b: dict) -> tuple[float, dict]:
     na, nb = a["_n"], b["_n"]
     if not na or not nb:
@@ -127,29 +139,56 @@ def score(a: dict, b: dict) -> tuple[float, dict]:
         return 0.0, {"cap": False}
     if a["_ord"] != b["_ord"]:
         return 0.0, {"ord": False}
-    pa, pb = places(na), places(nb)
+    pa, pb = a["_pl"], b["_pl"]
     if pa and pb and pa != pb:
         return 0.0, {"place": False}
-    ta, tb = techs(na), techs(nb)
+    ta, tb = a["_te"], b["_te"]
     if ta and tb and not (ta & tb):
         return 0.0, {"tech": False}
-    dev = bool(_tokens(a.get("developer_raw")) & _tokens(b.get("developer_raw")))
+    dev = bool(a["_dev"] & b["_dev"])
     da, db = a["_d"], b["_d"]
     if not da or not db:
         # Generic names ("Wind Power Project in Gujarat") never auto-merge; capacity + developer can only send them to review.
         return (0.8 if cap and dev else 0.0), {"generic": True, "cap": cap, "dev": dev}
     jacc = len(da & db) / len(da | db)
     name = 0.5 * fuzz.token_sort_ratio(na, nb) / 100 + 0.5 * jacc
-    state = bool(a.get("state_raw") and b.get("state_raw") and
-                 str(a["state_raw"]).strip().lower() == str(b["state_raw"]).strip().lower())
-    meth = bool(set(a.get("methodology_codes") or []) & set(b.get("methodology_codes") or []))
+    state = bool(a["_st"] and a["_st"] == b["_st"])
+    meth = bool(a["_meth"] & b["_meth"])
     s = name + (0.10 if cap else 0) + (0.05 if dev else 0) + (0.03 if state else 0) + (0.02 if meth else 0)
-    by_a, by_b = _by_part(a.get("name")), _by_part(b.get("name"))
-    if cap is None and da <= by_a and db <= by_b:
+    if cap is None and da <= a["_by"] and db <= b["_by"]:
         s = min(s, 0.85)  # only the developer's name identifies the project, and capacity can't confirm it
-    if ("bundle" in (a.get("name") or "").lower()) != ("bundle" in (b.get("name") or "").lower()):
+    if a["_bundle"] != b["_bundle"]:
         s = min(s, 0.85)  # a bundle vs a single plant: never auto-merged
     return min(1.0, round(s, 3)), {"name": round(name, 3), "cap": cap, "dev": dev, "state": state, "meth": meth}
+
+
+def candidate_pairs(block: list[dict]):
+    """Pairs that can score >= REVIEW. A pair with no distinctive name token in common has a name score <= 0.5 and
+    can't get there, except two generic names that share a developer (the capacity + developer path). So only
+    pairs sharing a distinctive token, or a developer token where one name is generic, are compared."""
+    by_tok: dict[str, list[int]] = defaultdict(list)
+    by_dev: dict[str, list[int]] = defaultdict(list)
+    for i, r in enumerate(block):
+        for t in r["_d"]:
+            by_tok[t].append(i)
+        for t in r["_dev"]:
+            by_dev[t].append(i)
+    seen: set[tuple[int, int]] = set()
+    for ids in by_tok.values():
+        for x in range(len(ids)):
+            for y in range(x + 1, len(ids)):
+                seen.add((ids[x], ids[y]))
+    for i, r in enumerate(block):
+        if r["_d"]:
+            continue
+        for t in r["_dev"]:
+            for j in by_dev[t]:
+                if j != i:
+                    seen.add((min(i, j), max(i, j)))
+    for i, j in seen:
+        a, b = block[i], block[j]
+        if a["registry"] != b["registry"]:
+            yield a, b
 
 
 def load_decisions() -> dict[str, str]:
@@ -170,8 +209,7 @@ def fuzzy_links(records: list[dict], l1_of) -> tuple[list[tuple[str, str, float]
     for r in records:
         if r.get("role") == "annotation" or r["registry"] in ("A62", "PACM", "ANN"):
             continue
-        r["_n"], r["_cap"], r["_ord"] = norm_name(r.get("name")), capacities(r), ordinals(r.get("name"))
-        r["_d"] = distinct(r["_n"])
+        prepare(r)
         for c in r.get("countries") or []:
             blocks[(c, l1_of(r))].append(r)
     cands, review, seen = [], [], set()
@@ -179,9 +217,7 @@ def fuzzy_links(records: list[dict], l1_of) -> tuple[list[tuple[str, str, float]
     for block in blocks.values():
         if len(block) < 2:
             continue
-        for a, b in combinations(block, 2):
-            if a["registry"] == b["registry"]:
-                continue
+        for a, b in candidate_pairs(block):
             pid = pair_id(a["record_id"], b["record_id"])
             if pid in seen:
                 continue
@@ -194,6 +230,11 @@ def fuzzy_links(records: list[dict], l1_of) -> tuple[list[tuple[str, str, float]
             s, why = score(a, b)
             if s >= REVIEW:
                 cands.append((a, b, s, why))
+    ids = {r["record_id"] for r in records}
+    for pid, d in decisions.items():
+        a, _, b = pid.partition("|")
+        if d == "yes" and a in ids and b in ids and pid not in seen:
+            merge.append((a, b, 1.0))
     # A match must be unambiguous: each record's best candidate in the other registry, clearly ahead of the runner-up.
     best: dict[tuple[str, str], list[float]] = defaultdict(list)
     for a, b, s, _ in cands:

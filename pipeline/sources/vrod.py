@@ -39,6 +39,16 @@ def registry_url(reg: str, native: str, docs: str | None) -> str:
     return docs if docs and docs.startswith("http") else "https://registry.isometric.com/"
 
 
+def year_block(header: list[str], start: int) -> list[tuple[int, str]]:
+    """(column, year) pairs for one run of increasing year columns starting at `start`."""
+    out: list[tuple[int, str]] = []
+    j = start
+    while j < len(header) and re.fullmatch(r"\d{4}", header[j] or "") and (not out or header[j] > out[-1][1]):
+        out.append((j, header[j]))
+        j += 1
+    return out
+
+
 class Adapter(Source):
     implemented = True
 
@@ -80,19 +90,13 @@ class Adapter(Source):
             "PoA / Aggregate ID", "Project Listed", "Project Registered", "Registry Documents",
             "Project Website", "Project Description", "Project Owner",
         ]}
-        vint_start = col("First Year of Project (Vintage)") + 1
-        years = []
-        j = vint_start
-        while j < len(header) and re.fullmatch(r"\d{4}", header[j] or ""):
-            years.append((j, header[j]))
-            j += 1
+        # Three year-blocks follow "First Year of Project (Vintage)": credits issued by vintage, credits retired
+        # or cancelled in each year, credits remaining by vintage. Only the first is issuance by vintage: stop
+        # where the years start again.
+        years = year_block(header, col("First Year of Project (Vintage)") + 1)
 
         # "Credits issued by issuance year" block: the run of year columns right after "Project Website".
-        iss_years = []
-        j = col("Project Website") + 1
-        while j < len(header) and re.fullmatch(r"\d{4}", header[j] or ""):
-            iss_years.append((j, header[j]))
-            j += 1
+        iss_years = year_block(header, col("Project Website") + 1)
 
         prev = {p["record_id"]: p for p in previous}
         today = common.today()

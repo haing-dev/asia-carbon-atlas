@@ -81,7 +81,7 @@ class Adapter(Source):
                 "registry_type_raw": row.get("Project Kinds/ Activity Type"),
                 "registry_status_raw": "Registered",
                 "est_annual_tco2e": to_int(col(row, "Validated GHG Emission Reduction")),
-                "issued_tco2e": 0,
+                "issued_tco2e": None,  # not in the export (issuances are on GCC's S&P registry)
                 "retired_tco2e": None,
                 "issuance_by_vintage": {},
                 "crediting_start": crediting[0] if crediting else None,
