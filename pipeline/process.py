@@ -308,10 +308,12 @@ def build_projects(write_review: bool = False) -> list[dict]:
             "crediting": [lead.get("crediting_start"), lead.get("crediting_end")],
             "years": {k: _min_year(members, f"{k}_date") for k in ("listed", "registered", "first_issuance")},
             "article6": merge_article6([m.get("article6") for m in members + notes]),
-            "offtakers": sorted(sorted(
-                [o for m in members for o in deals_by_record.get(m["record_id"], []) + m.get("_deals", [])]
-                + [o for m in members for o in cdm_buyers(m)],
-                key=lambda o: str(o.get("date") or ""), reverse=True), key=lambda o: o["type"] != "Announced offtake"),
+            # Offtakers = publicly announced deals only (each linked to the announcement).
+            "offtakers": sorted([o for m in members for o in deals_by_record.get(m["record_id"], []) + m.get("_deals", [])],
+                                key=lambda o: str(o.get("date") or ""), reverse=True),
+            # The UNEP-CCC "Credit buyer" column is not shown: it mixes Annex I participants, traders and even host
+            # companies (e.g. CDM 1 lists the Indian project owner), and no public page confirms a purchase.
+            "cdm_buyers": [o for m in members for o in cdm_buyers(m)],
             "project_url": None,
             "developer_url": None,
             "flags": (["multi_country"] if len(countries) > 1 else [])

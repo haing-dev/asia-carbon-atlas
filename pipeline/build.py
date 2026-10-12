@@ -94,12 +94,7 @@ def compact_row(p: dict) -> dict:
             row[key] = val
     if any(p.get("crediting") or []):
         row["cr"] = p["crediting"]
-    offs = []
-    for o in p.get("offtakers") or []:
-        if o["type"] == "CDM credit buyer" and o.get("source_url") == UNEP_CDM:
-            offs.append([o["name"], o.get("country")])   # constant source: rebuilt in the browser
-        else:
-            offs.append({k: v for k, v in o.items() if v not in (None, "")})
+    offs = [{k: v for k, v in o.items() if v not in (None, "")} for o in p.get("offtakers") or []]
     if offs:
         row["o"] = offs
     return row

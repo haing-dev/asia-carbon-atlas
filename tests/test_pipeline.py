@@ -137,8 +137,8 @@ def test_compact_row_drops_rebuildable_fields():
          "years": {"listed": None, "registered": 2020, "first_issuance": None}, "issuance_by_vintage": {},
          "methodology_codes": [], "crediting": [None, None], "article6": None, "flags": [], "project_url": None,
          "developer_url": None,
-         "offtakers": [{"name": "Vitol", "type": "CDM credit buyer", "country": "Switzerland",
-                        "source_url": "https://unepccc.org/cdm-ji-pipeline/", "source_title": "t"}]}
+         "offtakers": [], "cdm_buyers": [{"name": "Vitol", "type": "CDM credit buyer", "country": "Switzerland",
+                                          "source_url": "https://unepccc.org/cdm-ji-pipeline/", "source_title": "t"}]}
     row = compact_row(p)
     assert row == {"id": "VCS:1", "n": "X", "c": ["IND"], "rg": ["VCS:1", ["CDM:9", "https://cdm.unfccc.int/x"]],
-                   "y": [None, 2020, None], "o": [["Vitol", "Switzerland"]]}
+                   "y": [None, 2020, None]}

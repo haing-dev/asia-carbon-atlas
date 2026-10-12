@@ -50,7 +50,6 @@ export async function loadRows(meta, iso) {
 }
 
 // Rows are stored compactly (pipeline/build.py compact_row): rebuild the full shape the UI uses.
-const CDM_BUYERS = { type: "CDM credit buyer", source_url: "https://unepccc.org/cdm-ji-pipeline/", source_title: "UNEP-CCC CDM Pipeline, 'Credit buyer' column" };
 function urlFor(meta, rid) {
   const i = rid.indexOf(":");
   const t = meta.url_templates?.[rid.slice(0, i)];
@@ -70,7 +69,7 @@ export function hydrateRow(meta, r) {
     years: { listed: y[0] ?? null, registered: y[1] ?? null, first_issuance: y[2] ?? null },
     issuance_by_vintage: r.v || {}, methodology_codes: r.m || [], crediting: r.cr || [null, null],
     article6: r.a6 || null, flags: r.f || [], project_url: r.pu || null, developer_url: r.du || null,
-    offtakers: (r.o || []).map((o) => (Array.isArray(o) ? { name: o[0], country: o[1], ...CDM_BUYERS } : o)),
+    offtakers: r.o || [],
   };
 }
 

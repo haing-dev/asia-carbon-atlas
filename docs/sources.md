@@ -50,5 +50,5 @@
 - Not in the export: developer, issued/retired, project page URL (rows link to the GCC search page).
 
 ## Offtakers
-- CDM: "Credit buyer" column of the UNEP-CCC CDM Pipeline, parsed as `Country (Entity)`; shown as "CDM credit buyer".
+- CDM: the UNEP-CCC "Credit buyer" column is kept in the records but NOT shown: it mixes Annex I participants, traders and even host companies, and its only public source is the Excel file.
 - Announcements: `config/offtakers.yaml`, researched by web search; each source must name buyer, project/supplier and date.
