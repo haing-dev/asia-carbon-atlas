@@ -148,6 +148,7 @@ def main() -> None:
         shutil.rmtree(out)
     (out / "rows").mkdir(parents=True)
 
+    today = common.today()
     l2_ids = list(taxonomy["l2"])
     l2idx = {k: i for i, k in enumerate(l2_ids)}
 
@@ -178,6 +179,8 @@ def main() -> None:
             cols["rg"].append(mask)
             cols["a6"].append(1 if p.get("article6") else 0)
             cols["ea"].append(p.get("est_annual_tco2e"))   # null = not published by the source
+            end = (p.get("crediting") or [None, None])[1]
+            cols["ex"].append(1 if end and end < today else 0)  # crediting period over: left out of map est. totals
             cols["is"].append(p.get("issued_tco2e"))
             cols["re"].append(p.get("retired_tco2e"))
             if p["project_id"] not in rowcache:

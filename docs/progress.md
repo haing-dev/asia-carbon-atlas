@@ -41,6 +41,20 @@
   Headlines and offtakers per area. ~10.7k projects (Asia 5.96k, North America 3.14k, South America 1.63k).
   Gaps: Cercarbono / BioCarbon Registry (Colombia, EcoRegistry platform), Brazil/Colombia national registries.
 
+- **Review 2026-10-12 (efficiency + accuracy):**
+  - Fixed: VROD vintage parsing read all three year blocks (issued-by-vintage, retired-by-year, remaining-by-vintage) into one
+    dict, so "issued by vintage" and the cross-registry overlap rule used mixed numbers. Now vintage sums equal issued totals.
+  - Fixed: projects with issuance but an inactive registry status were "Inactive" and dropped from default totals (~30M t);
+    now Issuing (matches the notes).
+  - Fixed: programmes (GS PoA + VPAs) took one VPA's estimate and could under-count issuance; activities now add up
+    within a registry, the overlap rule applies only across registries.
+  - Unknown volumes (GCC issued, JCM retired, UCR/Puro estimates) now show "—" instead of 0.
+  - Est. annual map totals skip projects whose crediting period ended.
+  - Efficiency: dedupe 30 s → 1.6 s (candidate pairs via shared tokens; identical results); browser rows 4.2 MB → 1.8 MB
+    raw (Asia); refresh gate keeps previous data if a source's row count drops >20%; publish skips non-site files.
+  - External spot-checks: Onsan/Paulínia CDM, Guyana ART match public figures; Katingan (50.9M) and CAR totals lag the
+    latest registry issuances (VROD v2026-08 snapshot timing).
+
 ## Next
 - Owner: send a fresh GCC export when wanted (replace the file in `data/manual/gcc/`); spot-check `review/dedupe_pending.csv` pairs.
 - M5 rest: monthly scheduled Claude task for offtaker/website enrichment (queue + review flow per SPEC §10); Puro retirement beneficiaries.

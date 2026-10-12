@@ -33,7 +33,7 @@ async function fetchIndex(file) {
   const projects = new Array(n);
   for (let i = 0; i < n; i++) {
     projects[i] = {
-      id: c.id[i], shares: c.c[i], l2: c.l2[i], st: c.st[i], rg: c.rg[i], a6: c.a6[i],
+      id: c.id[i], shares: c.c[i], l2: c.l2[i], st: c.st[i], rg: c.rg[i], a6: c.a6[i], ex: c.ex ? c.ex[i] : 0,
       ea: c.ea[i], is: c.is[i], re: c.re[i],
     };
   }
@@ -88,6 +88,7 @@ export function aggregate(projects, pred, metric) {
   const totals = new Map();
   for (const p of projects) {
     if (!pred(p)) continue;
+    if (metric === "ea" && p.ex) continue;   // estimated annual: only projects still in a crediting period
     const v = p[metric] || 0;
     if (!v) continue;
     for (const [ci, s] of p.shares) totals.set(ci, (totals.get(ci) || 0) + v * s);

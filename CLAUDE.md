@@ -3,7 +3,7 @@
 Research-only public website mapping carbon credit projects by region: Asia (ex-mainland China), North America (incl. Central America & Caribbean), South America.
 
 - Full spec: `docs/SPEC.md`. Current status and next steps: `docs/progress.md` (read this first).
-- Source notes: `docs/sources.md`. Methods shown on the site: `docs/methods.md`.
+- Source notes: `docs/sources.md`. Footnotes shown on the site: `content/notes.md` (owner-editable).
 
 MUSTs (details in the spec):
 - Verifiable data only: every row links to a public registry/official record; every number traces to source URL + version + hash.

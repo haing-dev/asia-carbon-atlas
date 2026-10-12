@@ -3,7 +3,7 @@
 ## vrod — Berkeley Voluntary Registry Offsets Database (Verra, Gold Standard, Isometric)
 - Page: https://gspp.berkeley.edu/berkeley-carbon-trading-project/offsets-database (CC BY 4.0, cite per page).
 - Probe: version label in the main download link (`Voluntary-Registry-Offsets-Database--vYYYY-MM.xlsx`), ~every 2 months.
-- Fetch: main workbook (~17 MB), sheet `PROJECTS`, header on row 4. Keep VCS/GOLD/ISO rows with an Asian country.
+- Fetch: main workbook (~17 MB), sheet `PROJECTS`, header on row 4. Keep VCS/GOLD/ISO/ACR/CAR/ART rows with an in-scope country. Year blocks: issued by vintage (used), retired by year, remaining by vintage, issued by issuance year (used for first issuance) — each block is read only up to where the years restart.
 - Fields used: Project ID, Name, Voluntary Status, Scope/Type, Methodology, Country, State, Developer, Owner, totals issued/retired,
   issued-by-vintage block (columns after "First Year of Project (Vintage)"), Estimated Annual Emission Reductions, PoA ID,
   listed/registered dates, Registry Documents, Project Website.
@@ -21,7 +21,7 @@
 ## puro — Puro.earth Registry
 - `/projects` embeds all projects as JSON in the Next.js payload (projectId, name, countryCode, supplierName, methodology, crediting period, lat/long).
 - Detail page `/projects/<id>` shows "Issued credits" and "Retired credits" totals and the issuance list.
-- Probe: hash of the embedded project list + newest row on `/issuances`. Fetch detail pages for Asian projects only (7 as of 2026-10).
+- Probe: hash of the embedded project list + newest row on `/issuances`. Fetch detail pages for in-scope projects only (7 as of 2026-10).
 - Retirement beneficiaries: shown client-side; to add in M5 (offtakers).
 
 ## jcm — Joint Crediting Mechanism (Japan)
