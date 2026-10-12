@@ -1,5 +1,5 @@
 {
-  "last_commit_at": "2026-10-12T13:59:42+00:00",
+  "last_commit_at": "2026-10-12T16:14:14+00:00",
   "sources": {
     "a6pipeline": {
       "error": null,
@@ -75,9 +75,9 @@
     },
     "vrod": {
       "error": null,
-      "last_changed": "2026-10-12T07:46:44+00:00",
-      "last_checked": "2026-10-12T07:46:44+00:00",
-      "rows": 3125,
+      "last_changed": "2026-10-12T16:14:14+00:00",
+      "last_checked": "2026-10-12T16:14:14+00:00",
+      "rows": 6764,
       "signal": {
         "url": "https://gspp.berkeley.edu/assets/uploads/page/Voluntary-Registry-Offsets-Database--v2026-08.xlsx",
         "version": "2026-08"
