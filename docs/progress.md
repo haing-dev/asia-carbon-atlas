@@ -15,9 +15,10 @@
 - **M2 (more sources): done** (2026-10-12). UCR 301 records (300 India, 1 Nepal), JCM 83 registered, A6 Pipeline 153
   (19 PACM, 133 6.2 tags, 1 standalone 6.2 row: Bangkok E-Bus). 6,233 projects; 107 carry an Article 6 tag. Adapters for JCM (registered only), UCR, and the UNEP-CCC Article 6 Pipeline
   (PACM rows merged with CDM; 6.2 status/buyer tags on matching JCM/Verra projects; unmatched authorised 6.2 activities as rows).
-  GCC blocked (403) → disabled. Site: shaded map + ranked bars with flags, "Listed"/"Validated", Year column, grouped registry filter.
+  GCC blocked (403) → disabled. Site: shaded map + ranked bars with flags, "Listed"/"Validated", separate Listed/Validated/1st issued year columns, grouped registry filter.
 
 ## Next
+- GCC: owner will upload a GCC export manually (site blocks bots) → add a file-based GCC adapter reading it from the repo.
 - M3: fuzzy dedupe (VCS↔CDM rarely cross-reference), CDM issuance by vintage for overlap rule, population shares (UN WPP).
 - Owner to spot-check that Verra and Gold Standard registry links open the right project.
 
