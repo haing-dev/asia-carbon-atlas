@@ -2,6 +2,26 @@
 # Each rule's regex is tested (case-insensitive) against "<registry type> | <methodology> | <project name>".
 # Registry types: Berkeley VROD "Scope / Type", UNEP-CCC "Type / Sub-type", Puro methodology names.
 rules:
+  # 1) Name/keyword signals that override the registry's broad type
+  - {re: 'mangrove|seagrass|blue carbon|tidal wetland|VM0033', l2: blue_carbon}
+  - {re: 'agro-?forestry', l2: agroforestry}
+  # 2) Exact registry types (Berkeley VROD "Scope / Type")
+  - {re: '^Household & Community / Biodigesters', l2: household_biogas}
+  - {re: '^Household & Community / (Clean Water|Community Boreholes)', l2: water}
+  - {re: '^Household & Community / Cookstoves', l2: cookstoves}
+  - {re: '^Household & Community / (Lighting|Bundled Energy Efficiency)', l2: buildings}
+  - {re: '^Waste Management / Composting', l2: composting}
+  - {re: '^Agriculture / (Rice Emission Reductions|Improved Irrigation Management)', l2: rice_methane}
+  - {re: '^Agriculture / Sustainable Agriculture', l2: soil_carbon}
+  - {re: '^Agriculture / (Manure Methane Digester|Feed Additives)', l2: livestock}
+  - {re: '^Forestry & Land Use / Wetland Restoration', l2: peat_wetland}
+  - {re: '^Forestry & Land Use / REDD', l2: redd}
+  - {re: '^Forestry & Land Use / Afforestation', l2: arr}
+  - {re: '^Forestry & Land Use / Sustainable Grassland', l2: soil_carbon}
+  - {re: '^Carbon Capture & Storage / Carbon Capture in Concrete', l2: mineralization}
+  - {re: '^Transportation / Electric Vehicles', l2: e_mobility}
+  - {re: '^Renewable Energy / Biomass', l2: biomass_power}
+  # 3) Keyword rules (CDM/UNEP types, methodologies, names)
   # Forestry & land use
   - {re: 'REDD|avoided (planned |unplanned )?deforestation|avoided conversion|VM0007|VM0009|VM0015|VM0048', l2: redd}
   - {re: 'mangrove|seagrass|blue carbon|tidal wetland|VM0033', l2: blue_carbon}

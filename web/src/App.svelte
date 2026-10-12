@@ -126,8 +126,8 @@
   const NOTES = [
     "Circle area is proportional to the value (not a log scale): a country with a quarter of the volume has half the radius. Totals include only the filters currently selected.",
     "Projects hosted in several countries appear once in the table. For country totals on the map, their volumes are split across host countries in proportion to population (UN World Population Prospects 2024).",
-    "A project listed in several registries (e.g. CDM → Verra, or CDM → Article 6.4) is merged into one row; a vintage issued in two registries is counted once. Verra and Gold Standard records come via the Berkeley Voluntary Registry Offsets Database.",
-    "Pipeline: listed or under validation. Registered: registered with no issuance yet. Issuing: at least one issuance. Inactive: withdrawn, rejected or crediting period ended (hidden by default).",
+    "A project listed in several registries (e.g. CDM → Gold Standard, or CDM → Article 6.4) is merged into one row where the registries cross-reference each other; volumes are shown per registry in the row details. Verra, Gold Standard and Isometric records come via the Berkeley Voluntary Registry Offsets Database; CDM records via the UNEP Copenhagen Climate Centre CDM Pipeline (compiled from UNFCCC data), linked to each project's UNFCCC page.",
+    "Pipeline: listed, under development or under validation. Registered: registered, nothing issued yet. Issuing: at least one issuance to date (including projects whose crediting period has since ended). Inactive: withdrawn, rejected, deregistered, or crediting period ended with nothing issued (hidden by default).",
     "The registry's own ex-ante estimate of annual reductions or removals, which often exceeds what is later issued.",
     "One credit = one tonne of CO₂e reduced or removed. Issued and retired volumes are cumulative.",
     "Offtakers are limited to public registry retirement records, government publications and public announcements, and are therefore not exhaustive.",

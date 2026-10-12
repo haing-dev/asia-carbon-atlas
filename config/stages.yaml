@@ -16,3 +16,34 @@ map:
   PURO:
     issuing: issuing
     registered: registered
+  VCS:
+    registered: registered
+    late to verify: registered
+    verification approval requested: registered
+    units transferred from approved ghg program: registered
+    crediting period renewal requested: registered
+    crediting period renewal and verification approval requested: registered
+    requantification requested: registered
+    verification approval request denied: registered
+    on hold - see notification letter: registered
+    pipeline listing (under development) approved: pipeline
+    pipeline listing requested (under development): pipeline
+    pipeline listing requested (under validation): pipeline
+    under validation (public comment period closed): pipeline
+    under validation (public comment period open): pipeline
+    registration requested: pipeline
+    registration and verification approval requested: pipeline
+    withdrawn: inactive
+    inactive: inactive
+    rejected by administrator: inactive
+    registration request denied: inactive
+    registration and verification approval request denied: inactive
+  GS:
+    gold standard certified project: registered
+    gold standard certified design: registered
+    listed: pipeline
+  ISO:
+    validated: registered
+    under validation: pipeline
+    validation unsuccessful: inactive
+    cancelled: inactive

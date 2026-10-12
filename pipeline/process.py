@@ -69,6 +69,39 @@ def country_shares(countries: list[str], in_scope: set[str], population: dict[st
     return {c: round(w / total, 6) for c, w in weights.items() if c in in_scope}
 
 
+# Which record supplies the display name / estimate when a project is in several registries.
+LEAD_PRIORITY = {"VCS": 0, "GS": 0, "ISO": 0, "PURO": 0, "GCC": 1, "UCR": 1, "PACM": 1, "JCM": 1, "CDM": 2}
+
+
+def cluster_records(records: list[dict]) -> list[list[dict]]:
+    """Union-find over explicit cross-registry references (docs/SPEC.md §7.1).
+    Fuzzy matching for records without references is added in M3."""
+    ids = {r["record_id"] for r in records}
+    parent = {i: i for i in ids}
+
+    def find(x):
+        while parent[x] != x:
+            parent[x] = parent[parent[x]]
+            x = parent[x]
+        return x
+
+    for r in records:
+        for ref in r.get("cross_refs") or []:
+            if ref in ids and ref != r["record_id"]:
+                parent[find(ref)] = find(r["record_id"])
+    groups: dict[str, list[dict]] = defaultdict(list)
+    for r in records:
+        groups[find(r["record_id"])].append(r)
+    # Safety: never merge records whose country sets don't intersect.
+    out = []
+    for members in groups.values():
+        if len(members) > 1 and not set.intersection(*(set(m.get("countries") or []) for m in members)):
+            out.extend([m] for m in members)
+        else:
+            out.append(members)
+    return out
+
+
 def build_projects() -> list[dict]:
     records = common.load_all_records()
     countries_cfg = common.load_yaml("countries.yaml")["countries"]
@@ -79,13 +112,11 @@ def build_projects() -> list[dict]:
     today = common.today()
     population: dict[str, float] = {}  # M3: UN WPP 2024 (2025) from config/population.csv
 
-    clusters: dict[str, list[dict]] = defaultdict(list)
-    for rec in records:
-        clusters[rec["record_id"]].append(rec)  # M3: union-find over cross-refs + fuzzy matches
+    clusters = cluster_records(records)
 
     projects = []
-    for members in clusters.values():
-        members.sort(key=lambda r: r["record_id"])
+    for members in clusters:
+        members.sort(key=lambda r: (LEAD_PRIORITY.get(r["registry"], 9), r["record_id"]))
         lead = members[0]
         countries = sorted({c for m in members for c in (m.get("countries") or [])})
         shares = country_shares(countries, in_scope, population)
@@ -93,7 +124,7 @@ def build_projects() -> list[dict]:
             continue
         stages = [stage_of(m, stage_map, today) for m in members]
         projects.append({
-            "project_id": lead["record_id"],
+            "project_id": min(m["record_id"] for m in members),
             "display_name": lead.get("name") or lead["record_id"],
             "developer": lead.get("developer_raw"),
             "countries": countries,
@@ -101,7 +132,7 @@ def build_projects() -> list[dict]:
             "l2": classify(lead, mmap, rules),
             "stage": max(stages, key=lambda s: STAGE_ORDER[s]),
             "registries": [{"record_id": m["record_id"], "registry": m["registry"], "url": m["registry_url"]} for m in members],
-            "est_annual_tco2e": lead.get("est_annual_tco2e"),
+            "est_annual_tco2e": lead.get("est_annual_tco2e") or next((m.get("est_annual_tco2e") for m in members if m.get("est_annual_tco2e")), None),
             "issued_tco2e": sum(m.get("issued_tco2e") or 0 for m in members),
             "retired_tco2e": sum(m.get("retired_tco2e") or 0 for m in members),
             "issuance_by_vintage": lead.get("issuance_by_vintage") or {},
@@ -112,6 +143,7 @@ def build_projects() -> list[dict]:
             "project_url": None,
             "developer_url": None,
             "flags": (["multi_country"] if len(countries) > 1 else [])
+            + (["multi_registry"] if len(members) > 1 else [])
             + (["retired_gt_issued"] if any((m.get("retired_tco2e") or 0) > (m.get("issued_tco2e") or 0) for m in members) else []),
         })
     projects.sort(key=lambda p: p["project_id"])
