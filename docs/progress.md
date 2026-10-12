@@ -34,6 +34,8 @@
   https://claude.ai/artifact/HMJAiyx5ZAXieaE3j72qFi (db collection `decisions`; apply with `python -m pipeline.review_page --apply`).
   Refresh is now weekly (Sun); weekly Claude scheduled task (Mon) per `docs/weekly-task.md`.
 
+- Night mode only. Footnotes live in `content/notes.md` (owner edits on GitHub; "Edit notes" link shows after visiting the site once with `?owner=1`).
+
 ## Next
 - Owner: send a fresh GCC export when wanted (replace the file in `data/manual/gcc/`); spot-check `review/dedupe_pending.csv` pairs.
 - M5 rest: monthly scheduled Claude task for offtaker/website enrichment (queue + review flow per SPEC §10); Puro retirement beneficiaries.
