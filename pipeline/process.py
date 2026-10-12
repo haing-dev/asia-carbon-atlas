@@ -70,7 +70,20 @@ def country_shares(countries: list[str], in_scope: set[str], population: dict[st
 
 
 # Which record supplies the display name / estimate when a project is in several registries.
-LEAD_PRIORITY = {"VCS": 0, "GS": 0, "ISO": 0, "PURO": 0, "GCC": 1, "UCR": 1, "PACM": 1, "JCM": 1, "CDM": 2}
+LEAD_PRIORITY = {"VCS": 0, "GS": 0, "ISO": 0, "PURO": 0, "GCC": 1, "UCR": 1, "PACM": 1, "JCM": 1, "A62": 1, "CDM": 2}
+
+
+def merge_article6(items: list[dict]) -> dict | None:
+    """Combine Article 6 tags from a project's records/annotations into one display value."""
+    items = [a for a in items if a]
+    if not items:
+        return None
+    mechs = sorted({a["mechanism"] for a in items})
+    buyers = sorted({b for a in items for b in (a.get("buyer_countries") or [])})
+    statuses = sorted({a["status"] for a in items if a.get("status")})
+    itmos = sum(a.get("itmos_transferred") or 0 for a in items)
+    return {"mechanism": " + ".join(mechs), "buyer_countries": buyers, "status": "; ".join(statuses),
+            "itmos_transferred": itmos or None}
 
 
 def cluster_records(records: list[dict]) -> list[list[dict]]:
@@ -121,6 +134,12 @@ def build_projects() -> list[dict]:
 
     projects = []
     for members in clusters:
+        # Annotation records (e.g. Article 6.2 tags) only label the project they cross-reference;
+        # they never add rows, volumes or registries.
+        notes = [m for m in members if m.get("role") == "annotation"]
+        members = [m for m in members if m.get("role") != "annotation"]
+        if not members:
+            continue
         members.sort(key=lambda r: (LEAD_PRIORITY.get(r["registry"], 9), r["record_id"]))
         lead = members[0]
         countries = sorted({c for m in members for c in (m.get("countries") or [])})
@@ -130,8 +149,8 @@ def build_projects() -> list[dict]:
         stages = [stage_of(m, stage_map, today) for m in members]
         projects.append({
             "project_id": min(m["record_id"] for m in members),
-            "display_name": lead.get("name") or lead["record_id"],
-            "developer": lead.get("developer_raw"),
+            "display_name": next((m["name"] for m in members if m.get("name")), lead["record_id"]),
+            "developer": next((m["developer_raw"] for m in members if m.get("developer_raw")), None),
             "countries": countries,
             "country_shares": shares,
             "l2": classify(lead, mmap, rules),
@@ -144,7 +163,7 @@ def build_projects() -> list[dict]:
             "methodology_codes": sorted({c for m in members for c in (m.get("methodology_codes") or [])}),
             "crediting": [lead.get("crediting_start"), lead.get("crediting_end")],
             "years": {k: _min_year(members, f"{k}_date") for k in ("listed", "registered", "first_issuance")},
-            "article6": None,
+            "article6": merge_article6([m.get("article6") for m in members + notes]),
             "offtakers": [],
             "project_url": None,
             "developer_url": None,

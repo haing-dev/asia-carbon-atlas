@@ -61,7 +61,7 @@
           <td><span class="sw" style="background:{L1_COLORS[r.l1]}"></span>{r.typeLabel}</td>
           <td class="regs">
             {#each r.registries as g}<a class="badge" href={g.url} target="_blank" rel="noopener" title="Open registry record">{g.record_id}</a>{/each}
-            {#if r.article6}<span class="badge a6" title={r.article6.buyer_countries?.join(", ")}>{r.article6.mechanism}</span>{/if}
+            {#if r.article6}<span class="badge a6" title={["Article 6", r.article6.status, r.article6.buyer_countries?.length ? "buyer: " + r.article6.buyer_countries.join(", ") : "", r.article6.itmos_transferred ? fmt(r.article6.itmos_transferred) + " ITMOs transferred" : ""].filter(Boolean).join(" · ")}>{r.article6.mechanism}{#if r.article6.buyer_countries?.length} → {r.article6.buyer_countries.join(", ")}{/if}</span>{/if}
           </td>
           <td>{STAGE_LABELS[index.stages[r.st]]}</td>
           <td class="num" title={yearTip(r)}>{yearOf(r) ?? "—"}</td>

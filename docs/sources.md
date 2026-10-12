@@ -23,3 +23,24 @@
 - Detail page `/projects/<id>` shows "Issued credits" and "Retired credits" totals and the issuance list.
 - Probe: hash of the embedded project list + newest row on `/issuances`. Fetch detail pages for Asian projects only (7 as of 2026-10).
 - Retirement beneficiaries: shown client-side; to add in M5 (offtakers).
+
+## jcm — Joint Crediting Mechanism (Japan)
+- List: https://www.jcm.go.jp/jc/projects (static HTML on S3, table `#pro_list`, ~150 rows, all partner countries). Only status "Project registered" kept.
+- Issuances: https://www.jcm.go.jp/jc/projects-issues (table `#refno_desc`: per monitoring period, one row per country — host and Japan shares). Issued = sum of country rows; first issuance = earliest date.
+- Estimated annual: median of non-zero "Estimated emission reductions in each year" on the project page (fetched once per project, then reused).
+- Probe: HEAD ETag of the two list pages. Developer = first Japanese participant (both sides kept in participants).
+
+## ucr — Universal Carbon Registry
+- Grid: `/CouRegistry/Grid?...&PageSize=1000` lists all projects (~314) with title "(UCR ID Number: N)", status, start/end year, state, type. No robots.txt (404).
+- Detail `/Registry/Details?id=...`: location, type, authorized contact, serial blocks (available / retired / tokenized). Issued = sum of distinct serial ranges; country from the serial's ISO2 code (`...-UCR-CoU-IN-...`), else location.
+- Probe: grid hash + month → details re-read when the list changes, and at most monthly (~5 min). No issuance dates or ex-ante estimates on UCR pages.
+
+## a6pipeline — UNEP-CCC Article 6 Pipeline
+- JSON API behind the activity tables: `POST https://a6pipeline.unepccc.org/api/graphs/4003` with `{"show_as":"table","source":"pacm","pacm_stage":"all_all_registered"}` and `{"show_as":"table","source":"a6p2"}`. No robots.txt (404).
+- PACM: registered activities (all CDM transitions in 2026-10); CPAs summed per programme; cross-referenced to `CDM:<id>` so they merge.
+- 6.2: rows matched to JCM/Verra/Gold Standard by their document link become annotation records (tag + buyer country, never volume).
+  Authorised activities (Registered / MO issued) with no other registry record become their own rows (registry `A62`), e.g. Bangkok E-Bus (Thailand → Switzerland).
+- Buyer country = middle code of the A6 ID (e.g. `TH-CH-5002`); `ND` = not disclosed.
+
+## gcc — Global Carbon Council
+- Whole domain (incl. robots.txt, sitemap) returns HTTP 403 to the atlas User-Agent. Disabled; no bypass. Revisit if they publish an export.

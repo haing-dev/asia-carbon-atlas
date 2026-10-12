@@ -12,8 +12,12 @@
   - Stages: `config/stages.yaml` for CDM/VCS/GS/ISO/PURO.
   - Site: dropdown filters (credit type with sub-types, project stage, registry), numbered footnotes at the end.
 
+- **M2 (more sources): in progress** (2026-10-12). Adapters for JCM (registered only), UCR, and the UNEP-CCC Article 6 Pipeline
+  (PACM rows merged with CDM; 6.2 status/buyer tags on matching JCM/Verra projects; unmatched authorised 6.2 activities as rows).
+  GCC blocked (403) → disabled. Site: shaded map + ranked bars with flags, "Listed"/"Validated", Year column, grouped registry filter.
+
 ## Next
-- M2: GCC, UCR, JCM (registered only), UNEP Article 6 Pipeline / PACM.
+- Check first JCM/UCR/A6 refresh results (counts, unmapped statuses, type classification of JCM/UCR projects).
 - M3: fuzzy dedupe (VCS↔CDM rarely cross-reference), CDM issuance by vintage for overlap rule, population shares (UN WPP).
 - Owner to spot-check that Verra and Gold Standard registry links open the right project.
 
@@ -27,4 +31,5 @@
 - Test scrapers by pushing the adapter (triggers `refresh` for that source only) or `gh workflow run refresh.yml -f sources=<id> -f force=true`.
 
 ## Open issues
-- (none)
+- Gold Standard registry pages sometimes fail to load ("Some error occurred while loading") — the GS site itself; links are correct.
+- VROD "Project Listed" dates were empty; date parser now accepts years/Excel serials — re-check after the next VROD fetch.

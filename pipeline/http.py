@@ -66,3 +66,10 @@ class PoliteClient:
             raise PermissionError(f"robots.txt disallows {url}")
         self._wait(url)
         return self.client.head(url, **kw)
+
+    def post_json(self, url: str, payload: dict, **kw) -> httpx.Response:
+        """POST a JSON body (used for public JSON APIs that only accept POST)."""
+        if not self._allowed(url):
+            raise PermissionError(f"robots.txt disallows {url}")
+        self._wait(url)
+        return self.client.post(url, json=payload, headers={"Accept": "application/json"}, **kw)

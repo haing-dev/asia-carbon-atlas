@@ -19,13 +19,13 @@ sources:
     label: Global Carbon Council
     registries: [GCC]
     url: https://www.globalcarboncouncil.com/
-    enabled: false
+    enabled: false   # site returns 403 to automated requests (no bypass, per policy)
     cadence_days: 10
   ucr:
     label: Universal Carbon Registry
     registries: [UCR]
-    url: null  # discover at M2
-    enabled: false
+    url: https://www.ucarbonregistry.io/
+    enabled: true
     cadence_days: 10
   puro:
     label: Puro.earth Registry
@@ -43,12 +43,12 @@ sources:
     label: Joint Crediting Mechanism (Japan) — registered projects
     registries: [JCM]
     url: https://www.jcm.go.jp/
-    enabled: false
+    enabled: true
     cadence_days: 10
   a6pipeline:
     label: UNEP-CCC Article 6 Pipeline
-    registries: [PACM]
+    registries: [PACM, A62]
     url: https://a6pipeline.unepccc.org/
     license: UNEP-CCC (attribution)
-    enabled: false
+    enabled: true
     cadence_days: 10

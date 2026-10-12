@@ -95,8 +95,17 @@ def to_date(v) -> str | None:
         if isinstance(v, dt.datetime) and v.year < 1900:
             return None
         return v.date().isoformat() if isinstance(v, dt.datetime) else v.isoformat()
+    if isinstance(v, (int, float)) and not isinstance(v, bool):
+        if 1900 <= v <= 2100:  # a bare year
+            return str(int(v))
+        if 20000 <= v <= 80000:  # Excel serial date
+            return (dt.date(1899, 12, 30) + dt.timedelta(days=int(v))).isoformat()
+        return None
     s = str(v).strip()
-    for fmt in ("%Y-%m-%d", "%d/%m/%Y", "%m/%d/%Y", "%d %b %Y", "%d %B %Y", "%Y-%m-%d %H:%M:%S"):
+    if re.fullmatch(r"(19|20)\d\d", s):
+        return s
+    for fmt in ("%Y-%m-%d", "%d/%m/%Y", "%m/%d/%Y", "%d %b %Y", "%d %B %Y", "%d %b %y", "%Y-%m-%d %H:%M:%S",
+                "%Y-%m-%dT%H:%M:%S", "%d-%b-%Y", "%b %d, %Y"):
         try:
             return dt.datetime.strptime(s, fmt).date().isoformat()
         except ValueError:

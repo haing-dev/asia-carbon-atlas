@@ -47,3 +47,19 @@ map:
     under validation: pipeline
     validation unsuccessful: inactive
     cancelled: inactive
+  JCM:
+    project registered: registered
+  UCR:
+    active: registered
+    registered: registered
+    verified: registered
+    inactive: inactive
+    withdrawn: inactive
+    rejected: inactive
+  PACM:
+    registered (cdm transition): registered
+    registered: registered
+  A62:                       # Article 6.2 status in the UNEP-CCC A6 Pipeline
+    registered: registered
+    mo issued: registered      # mitigation outcomes issued (issued > 0 => issuing)
+    published: pipeline

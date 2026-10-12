@@ -17,13 +17,13 @@ STAGES = ["pipeline", "registered", "issuing", "inactive"]
 REGISTRY_LABELS = {
     "VCS": "Verra (VCS)", "GS": "Gold Standard", "CDM": "CDM", "PACM": "Article 6.4 (PACM)",
     "GCC": "Global Carbon Council", "UCR": "Universal Carbon Registry", "PURO": "Puro.earth",
-    "ISO": "Isometric", "JCM": "JCM (Japan)",
+    "ISO": "Isometric", "JCM": "JCM (Japan)", "A62": "Article 6.2 (bilateral)",
 }
 REGISTRIES = list(REGISTRY_LABELS)
 REGISTRY_GROUP = {"VCS": "Independent standards", "GS": "Independent standards", "ISO": "Independent standards",
                   "PURO": "Independent standards", "GCC": "Independent standards", "UCR": "Independent standards",
                   "CDM": "Government & UN mechanisms", "PACM": "Government & UN mechanisms",
-                  "JCM": "Government & UN mechanisms"}
+                  "JCM": "Government & UN mechanisms", "A62": "Government & UN mechanisms"}
 
 
 def _write_hashed(dirpath, stem: str, obj) -> str:
