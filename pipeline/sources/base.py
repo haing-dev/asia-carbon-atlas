@@ -35,3 +35,20 @@ def get_adapter(source_id: str, config: dict) -> Source:
     adapter = module.Adapter(config)
     adapter.id = source_id
     return adapter
+
+
+STABLE_IGNORE = ("first_seen", "last_changed", "source_version", "raw_hash")
+
+
+def carry_over(rec: dict, prev: dict[str, dict], today: str) -> dict:
+    """Keep first_seen; keep last_changed/source_version/raw_hash when the record's content is unchanged
+    (so a new source release doesn't rewrite every line of the stored file)."""
+    old = prev.get(rec["record_id"])
+    rec["first_seen"] = old.get("first_seen") if old else today
+    same = bool(old) and all(old.get(k) == rec.get(k) for k in set(rec) | set(old) if k not in STABLE_IGNORE)
+    if same:
+        rec["last_changed"] = old.get("last_changed")
+        rec["source_version"], rec["raw_hash"] = old.get("source_version"), old.get("raw_hash")
+    else:
+        rec["last_changed"] = today
+    return rec

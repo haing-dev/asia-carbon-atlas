@@ -7,13 +7,13 @@ sources:
     registries: [VCS, GS, ISO]
     url: https://gspp.berkeley.edu/berkeley-carbon-trading-project/offsets-database
     license: CC BY 4.0
-    enabled: false
+    enabled: true
     cadence_days: 10
   cdm:
-    label: UNFCCC Clean Development Mechanism
+    label: UNFCCC Clean Development Mechanism (via UNEP-CCC CDM Pipeline)
     registries: [CDM]
-    url: https://cdm.unfccc.int/
-    enabled: false
+    url: https://unepccc.org/cdm-ji-pipeline/
+    enabled: true
     cadence_days: 10
   gcc:
     label: Global Carbon Council
@@ -31,7 +31,7 @@ sources:
     label: Puro.earth Registry
     registries: [PURO]
     url: https://registry.puro.earth/
-    enabled: false
+    enabled: true
     cadence_days: 10
   isometric:
     label: Isometric Registry (API; needs ISOMETRIC_API_KEY)

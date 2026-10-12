@@ -35,7 +35,7 @@ def classify(rec: dict, mmap: dict) -> str:
 def stage_of(rec: dict, stage_map: dict) -> str:
     if (rec.get("issued_tco2e") or 0) > 0:
         return "issuing"
-    raw = (rec.get("registry_status_raw") or "").strip().lower()
+    raw = str(rec.get("registry_status_raw") or "").strip().lower()
     return stage_map.get(rec["registry"], {}).get(raw, "registered" if raw else "pipeline")
 
 
@@ -88,7 +88,8 @@ def build_projects() -> list[dict]:
             "offtakers": [],
             "project_url": None,
             "developer_url": None,
-            "flags": ["multi_country"] if len(countries) > 1 else [],
+            "flags": (["multi_country"] if len(countries) > 1 else [])
+            + (["retired_gt_issued"] if any((m.get("retired_tco2e") or 0) > (m.get("issued_tco2e") or 0) for m in members) else []),
         })
     projects.sort(key=lambda p: p["project_id"])
     return projects

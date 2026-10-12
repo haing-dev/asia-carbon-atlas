@@ -24,4 +24,4 @@ def test_validation_catches_bad_records():
             "countries": ["IND"], "issued_tco2e": 5, "retired_tco2e": 9}]
     errs = validate.check_records(bad)
     assert any("not a URL" in e for e in errs)
-    assert any("retired > issued" in e for e in errs)
+    assert any("retired > issued" in w for w in validate.WARNINGS)

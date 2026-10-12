@@ -52,10 +52,18 @@ jobs:
         run: |
           ARGS="--sources ${{ steps.pick.outputs.sources }}"
           [ "${{ steps.pick.outputs.force }}" = "true" ] && ARGS="$ARGS --force"
-          uv run python -m pipeline.refresh $ARGS
+          mkdir -p work/logs
+          uv run python -m pipeline.refresh $ARGS 2>&1 | tee work/logs/refresh.log
       - name: Validate
         if: steps.run.outputs.changed == 'true'
-        run: uv run python -m pipeline.validate
+        run: uv run python -m pipeline.validate 2>&1 | tee work/logs/validate.log
+      - name: Publish logs to ci-logs branch (readable from chat sessions)
+        if: always() && steps.pick.outputs.sources != 'none'
+        run: |
+          mkdir -p /tmp/out/logs && cp -r work/logs/. /tmp/out/logs/ 2>/dev/null || true
+          ls data/records > /tmp/out/logs/records.txt 2>/dev/null; wc -l data/records/*.jsonl >> /tmp/out/logs/records.txt 2>/dev/null || true
+          cd /tmp/out && git init -q -b ci-logs && git config user.name atlas-bot && git config user.email atlas-bot@users.noreply.github.com
+          git add -A && git commit -qm "refresh run ${{ github.run_id }}" && git push -qf "https://x-access-token:${{ github.token }}@github.com/${{ github.repository }}.git" ci-logs
       - name: Commit
         if: steps.run.outputs.commit == 'true'
         run: |

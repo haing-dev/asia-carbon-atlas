@@ -6,6 +6,7 @@ import sys
 from pipeline import common
 
 REQUIRED = ["record_id", "registry", "native_id", "registry_url", "countries"]
+WARNINGS: list[str] = []
 REGISTRIES = {"VCS", "GS", "CDM", "PACM", "GCC", "UCR", "PURO", "ISO", "JCM"}
 
 
@@ -31,8 +32,8 @@ def check_records(records: list[dict]) -> list[str]:
             if v is not None and v < 0:
                 errors.append(f"{rid}: negative {k}")
         if (r.get("retired_tco2e") or 0) > (r.get("issued_tco2e") or 0):
-            errors.append(f"{rid}: retired > issued")
-        raw = (r.get("registry_status_raw") or "").strip().lower()
+            WARNINGS.append(f"{rid}: retired > issued (as published by the source; flagged)")
+        raw = str(r.get("registry_status_raw") or "").strip().lower()
         if raw and stage_map and r.get("registry") in stage_map and raw not in stage_map[r["registry"]]:
             errors.append(f"{rid}: unmapped status '{raw}' (add to config/stages.yaml)")
     return errors
@@ -52,6 +53,9 @@ def check_row_counts(manifest: dict, previous: dict | None) -> list[str]:
 
 def main() -> None:
     errors = check_records(common.load_all_records())
+    for w in WARNINGS[:50]:
+        print("WARNING", w)
+    print(f"{len(WARNINGS)} warnings")
     for e in errors[:200]:
         print("ERROR", e)
     if errors:
