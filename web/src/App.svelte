@@ -29,7 +29,7 @@
     const t = ids("t");
     if (t) f.l2 = new Set(t.map((id) => idx.l2.findIndex((x) => x.id === id)).filter((i) => i >= 0));
     const st = ids("st");
-    if (st) f.stages = new Set(st.map((s) => idx.stages.indexOf(s)).filter((i) => i >= 0));
+    if (st) f.stages = st[0] === "all" ? null : new Set(st.map((s) => idx.stages.indexOf(s)).filter((i) => i >= 0));
     const r = ids("r");
     if (r) f.registries = new Set(r.map((id) => idx.registries.findIndex((x) => x.id === id)).filter((i) => i >= 0));
     f.a6 = p.get("a6") === "1";
@@ -41,7 +41,7 @@
     if (metric !== "is") p.set("m", metric);
     if (country) p.set("c", country);
     if (f.l2) p.set("t", [...f.l2].map((i) => index.l2[i].id).join(","));
-    const st = [...f.stages].sort().map((i) => index.stages[i]).join(",");
+    const st = f.stages ? [...f.stages].sort().map((i) => index.stages[i]).join(",") : "all";
     if (st !== "pipeline,registered,issuing") p.set("st", st);
     if (f.registries) p.set("r", [...f.registries].map((i) => index.registries[i].id).join(","));
     if (f.a6) p.set("a6", "1");
@@ -122,6 +122,16 @@
     document.documentElement.dataset.theme = theme;
     try { localStorage.setItem("theme", theme); } catch (e) {}
   }
+  // Footnotes, numbered in reading order. Markers in the page link to #note-N.
+  const NOTES = [
+    "Circle area is proportional to the value (not a log scale): a country with a quarter of the volume has half the radius. Totals include only the filters currently selected.",
+    "Projects hosted in several countries appear once in the table. For country totals on the map, their volumes are split across host countries in proportion to population (UN World Population Prospects 2024).",
+    "A project listed in several registries (e.g. CDM → Verra, or CDM → Article 6.4) is merged into one row; a vintage issued in two registries is counted once. Verra and Gold Standard records come via the Berkeley Voluntary Registry Offsets Database.",
+    "Pipeline: listed or under validation. Registered: registered with no issuance yet. Issuing: at least one issuance. Inactive: withdrawn, rejected or crediting period ended (hidden by default).",
+    "The registry's own ex-ante estimate of annual reductions or removals, which often exceeds what is later issued.",
+    "One credit = one tonne of CO₂e reduced or removed. Issued and retired volumes are cumulative.",
+    "Offtakers are limited to public registry retirement records, government publications and public announcements, and are therefore not exhaustive.",
+  ];
   const asOf = (s) => s.last_changed ? s.last_changed.slice(0, 10) : s.enabled ? "pending" : "not yet connected";
 </script>
 
@@ -131,8 +141,8 @@
     <p class="muted">Carbon credit projects in Asia (excl. mainland China) across registries and Paris Agreement mechanisms. Research use only.</p>
   </div>
   <nav>
-    <a href="#methods">Methods</a>
     <a href="#sources">Sources</a>
+    <a href="#notes">Notes</a>
     <button class="theme" onclick={toggleTheme} aria-label="Toggle dark mode">◐</button>
   </nav>
 </header>
@@ -147,7 +157,7 @@
       <p class="notice">Registry data is being connected source by source. The map and table fill in as each source goes live.</p>
     {/if}
     <div class="maphead">
-      <label>Circle size
+      <label>Circle size<sup class="fn"><a href="#note-1">1</a></sup>
         <select bind:value={metric}>
           {#each Object.entries(METRICS) as [k, m]}<option value={k}>{m.label} ({m.unit})</option>{/each}
         </select>
@@ -168,18 +178,6 @@
       <Table {rows} {index} loading={loadingRows} />
     </section>
 
-    <section id="methods" class="prose">
-      <h2>Methods</h2>
-      <ul>
-        <li><strong>Units.</strong> One credit = one tonne of CO₂e reduced or removed. “Estimated annual” is the registry's own ex-ante estimate, which often exceeds what is later issued.</li>
-        <li><strong>Stages.</strong> Pipeline (listed or under validation), Registered (no issuance yet), Issuing (at least one issuance), Inactive (withdrawn, rejected or expired; hidden by default).</li>
-        <li><strong>Multi-country projects</strong> appear once in the table. For country totals on the map, their volumes are split across host countries in proportion to population (UN World Population Prospects 2024).</li>
-        <li><strong>Duplicates across registries</strong> (e.g. CDM → Verra, or CDM → Article 6.4) are merged into one project; a vintage issued in two registries is counted once.</li>
-        <li><strong>Offtakers</strong> are limited to public registry retirement records, government publications and public announcements, with a source link for each. They are not exhaustive.</li>
-        <li><strong>Circle size.</strong> Circle area is proportional to the value (not a log scale), so a country with a quarter of the volume has half the radius.</li>
-      </ul>
-    </section>
-
     <section id="sources" class="prose">
       <h2>Sources and data freshness</h2>
       <table class="src">
@@ -194,7 +192,16 @@
           {/each}
         </tbody>
       </table>
-      <p class="muted small">Verra and Gold Standard data come via the Berkeley Carbon Trading Project, <em>Voluntary Registry Offsets Database</em>, UC Berkeley (CC BY 4.0). Article 6 data: UNEP Copenhagen Climate Centre, <em>Article 6 Pipeline</em>. Basemap: Natural Earth. Population: UN DESA, World Population Prospects 2024. Research use only; not investment advice.</p>
+    </section>
+
+    <section id="notes" class="notes">
+      <h2>Notes</h2>
+      <ol>
+        {#each NOTES as n, i}
+          <li id="note-{i + 1}">{@html n}</li>
+        {/each}
+      </ol>
+      <p>Verra and Gold Standard data come via the Berkeley Carbon Trading Project, <em>Voluntary Registry Offsets Database</em>, UC Berkeley (CC BY 4.0). Article 6 data: UNEP Copenhagen Climate Centre, <em>Article 6 Pipeline</em>. Basemap: Natural Earth. Population: UN DESA, <em>World Population Prospects 2024</em>. Research use only; not investment advice.</p>
     </section>
   {/if}
 </main>
@@ -218,6 +225,11 @@
   .dl { border: 1px solid var(--accent); color: var(--accent); background: var(--surface); border-radius: 999px; padding: 4px 14px; cursor: pointer; font-size: 13px; }
   .dl:disabled { opacity: 0.4; cursor: default; }
   .prose { margin-top: 36px; max-width: 860px; font-size: 14px; }
+  .notes { margin-top: 36px; padding-top: 12px; border-top: 1px solid var(--line); max-width: 860px; font-size: 12px; color: var(--muted); }
+  .notes h2 { font-size: 13px; text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 4px; }
+  .notes ol { padding-left: 18px; margin: 0 0 10px; }
+  .notes li { margin-bottom: 3px; scroll-margin-top: 16px; }
+  .notes li:target { color: var(--ink); background: var(--accent-soft); }
   .prose h2 { margin-bottom: 8px; }
   .prose li { margin-bottom: 4px; }
   .src { border-collapse: collapse; width: 100%; font-size: 13.5px; }

@@ -42,7 +42,7 @@ export async function loadRows(meta, iso) {
 export function makePredicate(f) {
   return (p) =>
     (!f.l2 || f.l2.has(p.l2)) &&
-    f.stages.has(p.st) &&
+    (!f.stages || f.stages.has(p.st)) &&
     (!f.registries || [...f.registries].some((ri) => p.rg & (1 << ri))) &&
     (!f.a6 || p.a6 === 1);
 }

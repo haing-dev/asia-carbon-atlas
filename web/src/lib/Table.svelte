@@ -9,10 +9,10 @@
   let limit = $state(200);
 
   const cols = [
-    { k: "name", label: "Project" }, { k: "dev", label: "Developer" }, { k: "country", label: "Country" },
-    { k: "type", label: "Credit type" }, { k: "reg", label: "Registry" }, { k: "st", label: "Stage" },
-    { k: "ea", label: "Est. annual", num: true, unit: "tCO₂e/yr" }, { k: "is", label: "Issued", num: true, unit: "tCO₂e" },
-    { k: "re", label: "Retired", num: true, unit: "tCO₂e" }, { k: "off", label: "Announced offtaker(s)" },
+    { k: "name", label: "Project" }, { k: "dev", label: "Developer" }, { k: "country", label: "Country", fn: 2 },
+    { k: "type", label: "Credit type" }, { k: "reg", label: "Registry", fn: 3 }, { k: "st", label: "Stage", fn: 4 },
+    { k: "ea", label: "Est. annual", num: true, unit: "tCO₂e/yr", fn: 5 }, { k: "is", label: "Issued", num: true, unit: "tCO₂e", fn: 6 },
+    { k: "re", label: "Retired", num: true, unit: "tCO₂e", fn: 6 }, { k: "off", label: "Announced offtaker(s)", fn: 7 },
   ];
 
   const sorted = $derived.by(() => {
@@ -36,7 +36,7 @@
       <tr>
         {#each cols as c}
           <th class:num={c.num} aria-sort={sortKey === c.k ? (sortDir > 0 ? "ascending" : "descending") : "none"}>
-            <button onclick={() => sortBy(c.k)}>{c.label}{#if c.unit}<small>{c.unit}</small>{/if}{sortKey === c.k ? (sortDir > 0 ? " ↑" : " ↓") : ""}</button>
+            <button onclick={() => sortBy(c.k)}>{c.label}{sortKey === c.k ? (sortDir > 0 ? " ↑" : " ↓") : ""}{#if c.unit}<small>{c.unit}</small>{/if}</button>{#if c.fn}<sup class="fn"><a href="#note-{c.fn}" aria-label="Note {c.fn}">{c.fn}</a></sup>{/if}
           </th>
         {/each}
       </tr>
@@ -102,9 +102,12 @@
   .scroller { overflow-x: auto; border: 1px solid var(--line); border-radius: var(--radius); background: var(--surface); }
   table { border-collapse: collapse; width: 100%; min-width: 1100px; font-size: 13.5px; }
   th { text-align: left; font-weight: 600; border-bottom: 1px solid var(--line); position: sticky; top: 0; background: var(--surface); }
-  th button { background: none; border: 0; padding: 9px 10px; font-weight: 600; cursor: pointer; text-align: inherit; width: 100%; }
+  th { white-space: nowrap; }
+  th sup { margin-left: -6px; }
+  th button { background: none; border: 0; padding: 9px 8px 9px 10px; font-weight: 600; cursor: pointer; text-align: inherit; }
   th small { display: block; font-weight: 400; color: var(--faint); font-size: 11px; }
   th.num, td.num { text-align: right; }
+  th.num { font-family: var(--font); font-size: inherit; }
   td { padding: 7px 10px; border-bottom: 1px solid var(--line); vertical-align: top; }
   tr.main:hover td { background: var(--chip); }
   .name { min-width: 240px; }

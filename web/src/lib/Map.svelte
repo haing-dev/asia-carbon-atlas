@@ -93,7 +93,7 @@
     {#if hover}
       <strong>{hover.name}</strong> · <span class="num">{fmt(hover.v)}</span> {unit}
     {:else}
-      Circle area is proportional to {metricLabel.toLowerCase()} ({unit}). Click a country to see its projects.
+      Circles show {metricLabel.toLowerCase()} per country ({unit}). Click a country to see its projects.
     {/if}
   </figcaption>
 </figure>
