@@ -1,0 +1,57 @@
+# Two-level credit-type taxonomy. ids are stable (used in data files); labels are shown on the site.
+l1:
+  forestry: {label: Forestry & land use, nature_or_tech: nature}
+  agriculture: {label: Agriculture, nature_or_tech: nature}
+  engineered: {label: Engineered & hybrid removal, nature_or_tech: tech}
+  renewables: {label: Renewable energy, nature_or_tech: tech}
+  efficiency: {label: Energy efficiency, nature_or_tech: tech}
+  household: {label: Household & community, nature_or_tech: tech}
+  waste: {label: Waste & methane, nature_or_tech: tech}
+  industrial: {label: Industrial & fuel switch, nature_or_tech: tech}
+  transport: {label: Transport, nature_or_tech: tech}
+  other: {label: Other, nature_or_tech: tech}
+l2:
+  redd: {l1: forestry, label: REDD+ (avoided deforestation), removal_type: reduction}
+  arr: {l1: forestry, label: ARR (afforestation/reforestation), removal_type: removal}
+  ifm: {l1: forestry, label: Improved forest management, removal_type: mixed}
+  blue_carbon: {l1: forestry, label: Blue carbon (mangrove/seagrass), removal_type: mixed}
+  peat_wetland: {l1: forestry, label: Peatland & wetland, removal_type: mixed}
+  other_land: {l1: forestry, label: Other land use, removal_type: mixed}
+  rice_methane: {l1: agriculture, label: Rice methane (AWD/DSR), removal_type: reduction}
+  soil_carbon: {l1: agriculture, label: Soil carbon & regenerative ag, removal_type: removal}
+  agroforestry: {l1: agriculture, label: Agroforestry, removal_type: removal}
+  livestock: {l1: agriculture, label: Livestock & manure, removal_type: reduction}
+  fertilizer: {l1: agriculture, label: Fertilizer / N2O, removal_type: reduction}
+  biochar: {l1: engineered, label: Biochar, removal_type: removal}
+  erw: {l1: engineered, label: Enhanced rock weathering, removal_type: removal}
+  dac: {l1: engineered, label: DAC/DACCS, removal_type: removal}
+  beccs: {l1: engineered, label: BECCS, removal_type: removal}
+  mineralization: {l1: engineered, label: Mineralization / carbonated materials, removal_type: removal}
+  biomass_storage: {l1: engineered, label: Biomass storage / wood products, removal_type: removal}
+  solar: {l1: renewables, label: Solar, removal_type: reduction}
+  wind: {l1: renewables, label: Wind, removal_type: reduction}
+  hydro: {l1: renewables, label: Hydro, removal_type: reduction}
+  biomass_power: {l1: renewables, label: Biomass power, removal_type: reduction}
+  geothermal: {l1: renewables, label: Geothermal, removal_type: reduction}
+  other_re: {l1: renewables, label: Other RE, removal_type: reduction}
+  industrial_ee: {l1: efficiency, label: Industrial EE, removal_type: reduction}
+  waste_heat: {l1: efficiency, label: Waste heat recovery, removal_type: reduction}
+  buildings: {l1: efficiency, label: Buildings & lighting, removal_type: reduction}
+  grid: {l1: efficiency, label: Grid / T&D, removal_type: reduction}
+  cookstoves: {l1: household, label: Cookstoves, removal_type: reduction}
+  water: {l1: household, label: Water purification, removal_type: reduction}
+  household_biogas: {l1: household, label: Household biogas, removal_type: reduction}
+  offgrid_solar: {l1: household, label: Solar home / off-grid lighting, removal_type: reduction}
+  landfill: {l1: waste, label: Landfill gas, removal_type: reduction}
+  wastewater: {l1: waste, label: Wastewater, removal_type: reduction}
+  biogas_ad: {l1: waste, label: Biogas / anaerobic digestion, removal_type: reduction}
+  composting: {l1: waste, label: Composting, removal_type: reduction}
+  coal_mine_methane: {l1: waste, label: Coal mine methane, removal_type: reduction}
+  oil_gas_methane: {l1: waste, label: Oil & gas methane, removal_type: reduction}
+  industrial_gases: {l1: industrial, label: Industrial gases (HFC-23, N2O, SF6), removal_type: reduction}
+  cement: {l1: industrial, label: Cement / clinker, removal_type: reduction}
+  fuel_switch: {l1: industrial, label: Fuel switching, removal_type: reduction}
+  e_mobility: {l1: transport, label: E-mobility, removal_type: reduction}
+  mass_transit: {l1: transport, label: Mass transit, removal_type: reduction}
+  fleet: {l1: transport, label: Fleet efficiency, removal_type: reduction}
+  other: {l1: other, label: Other, removal_type: mixed}

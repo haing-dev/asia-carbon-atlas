@@ -1,0 +1,67 @@
+# Build website data + site from committed records and deploy to Cloudflare Pages.
+# Skips the upload when the built output is identical to the last deployed build.
+name: deploy
+on:
+  workflow_call:
+  workflow_dispatch:
+concurrency:
+  group: deploy
+  cancel-in-progress: false
+permissions:
+  contents: read
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+      - uses: astral-sh/setup-uv@v6
+        with:
+          enable-cache: true
+      - run: uv sync --frozen
+      - run: uv run python -m pipeline.validate
+      - run: uv run python -m pipeline.build
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+          cache-dependency-path: web/package-lock.json
+      - run: npm ci --no-audit --no-fund
+        working-directory: web
+      - run: npm run build
+        working-directory: web
+      - name: Hash the built site
+        id: hash
+        run: |
+          H=$(cd web/dist && find . -type f -print0 | sort -z | xargs -0 sha256sum | sha256sum | cut -c1-16)
+          echo "hash=$H" >> "$GITHUB_OUTPUT"
+          echo "Build hash: $H"
+      - name: Was this exact build already deployed?
+        id: seen
+        uses: actions/cache/restore@v4
+        with:
+          path: .deployed
+          key: deployed-${{ steps.hash.outputs.hash }}
+          lookup-only: true
+      - name: Deploy to Cloudflare Pages
+        if: steps.seen.outputs.cache-hit != 'true'
+        working-directory: web
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+        run: |
+          npx wrangler pages project create asia-carbon-atlas --production-branch main \
+            || echo "Project exists (or creation failed; the deploy below will say)."
+          npx wrangler pages deploy dist --project-name asia-carbon-atlas --branch main --commit-dirty=true
+      - name: Remember this build
+        if: steps.seen.outputs.cache-hit != 'true'
+        run: mkdir -p .deployed && echo "${{ steps.hash.outputs.hash }}" > .deployed/hash
+      - if: steps.seen.outputs.cache-hit != 'true'
+        uses: actions/cache/save@v4
+        with:
+          path: .deployed
+          key: deployed-${{ steps.hash.outputs.hash }}
+      - if: steps.seen.outputs.cache-hit == 'true'
+        run: echo "Site unchanged since last deploy; nothing uploaded."

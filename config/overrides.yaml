@@ -1,0 +1,4 @@
+# Manual corrections; always win. Keyed by record_id (or project_id).
+# Example:
+# "VCS:1234": {l2: hydro, developer_url: "https://example.com"}
+records: {}

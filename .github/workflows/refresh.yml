@@ -1,0 +1,72 @@
+# Probe every source; fetch only the ones whose change signal moved; commit + deploy only if data changed.
+name: refresh
+on:
+  schedule:
+    - cron: "0 2 1,11,21 * *"   # ~every 10 days
+  workflow_dispatch:
+    inputs:
+      sources:
+        description: "Comma-separated source ids, or 'all'"
+        default: all
+      force:
+        description: "Fetch even if the probe says unchanged"
+        type: boolean
+        default: false
+  push:
+    branches: [main]
+    paths:
+      - "pipeline/sources/**"     # a changed adapter re-fetches only that source
+concurrency:
+  group: pipeline
+  cancel-in-progress: false
+permissions:
+  contents: write
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    timeout-minutes: 120
+    outputs:
+      changed: ${{ steps.run.outputs.changed }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 2
+      - uses: astral-sh/setup-uv@v6
+        with:
+          enable-cache: true
+      - run: uv sync --frozen
+      - name: Choose sources
+        id: pick
+        run: |
+          if [ "${{ github.event_name }}" = "push" ]; then
+            S=$(git diff --name-only HEAD~1 HEAD -- pipeline/sources/ | xargs -r -n1 basename | sed 's/\.py$//' \
+                | grep -v -e '^base$' -e '^__init__$' | paste -sd, -)
+            echo "sources=${S:-none}" >> "$GITHUB_OUTPUT"; echo "force=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "sources=${{ inputs.sources || 'all' }}" >> "$GITHUB_OUTPUT"
+            echo "force=${{ inputs.force && 'true' || 'false' }}" >> "$GITHUB_OUTPUT"
+          fi
+      - name: Probe and fetch
+        id: run
+        if: steps.pick.outputs.sources != 'none'
+        run: |
+          ARGS="--sources ${{ steps.pick.outputs.sources }}"
+          [ "${{ steps.pick.outputs.force }}" = "true" ] && ARGS="$ARGS --force"
+          uv run python -m pipeline.refresh $ARGS
+      - name: Validate
+        if: steps.run.outputs.changed == 'true'
+        run: uv run python -m pipeline.validate
+      - name: Commit
+        if: steps.run.outputs.commit == 'true'
+        run: |
+          git config user.name "atlas-bot"
+          git config user.email "atlas-bot@users.noreply.github.com"
+          git add data state
+          git diff --cached --quiet && exit 0
+          git commit -m "data: refresh $(date -u +%Y-%m-%d)"
+          git push
+  deploy:
+    needs: refresh
+    if: needs.refresh.outputs.changed == 'true'
+    uses: ./.github/workflows/deploy.yml
+    secrets: inherit

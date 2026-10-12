@@ -1,0 +1,5 @@
+max_items_per_run: 150
+gate: {min_queue: 25, max_oldest_days: 30}
+project_website: {top_n_by_volume: 500, include_article6: true}
+offtakers: {top_n_by_issued: 300, include_article6: true, issued_growth_trigger: 0.25, recheck_days: 180, backoff_days: [180, 365]}
+websites: {retry_not_found_days: [180, 365], dead_checks_before_research: 2}

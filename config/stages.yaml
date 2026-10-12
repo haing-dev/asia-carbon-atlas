@@ -1,0 +1,5 @@
+# Raw registry status -> stage. Keys are registry codes; values map lowercase raw status -> stage.
+# Stages: pipeline | registered | issuing | inactive. "issuing" is also set automatically when issued > 0.
+# An unmapped status fails validation (add it here).
+stages: [pipeline, registered, issuing, inactive]
+map: {}

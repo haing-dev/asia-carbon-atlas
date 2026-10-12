@@ -1,0 +1,33 @@
+# Countries in scope (ISO3 -> details). numeric = ISO 3166-1 numeric (matches the basemap ids).
+# Excluded on purpose: mainland China, North Korea, Middle East (incl. Iran), Turkey, Caucasus, Russia, Oceania/PNG.
+countries:
+  JPN: {name: Japan, numeric: "392", region: East Asia}
+  KOR: {name: South Korea, numeric: "410", region: East Asia}
+  MNG: {name: Mongolia, numeric: "496", region: East Asia}
+  TWN: {name: Taiwan, numeric: "158", region: East Asia}
+  HKG: {name: Hong Kong, numeric: "344", region: East Asia}
+  MAC: {name: Macau, numeric: "446", region: East Asia}
+  BRN: {name: Brunei, numeric: "096", region: Southeast Asia}
+  KHM: {name: Cambodia, numeric: "116", region: Southeast Asia}
+  IDN: {name: Indonesia, numeric: "360", region: Southeast Asia}
+  LAO: {name: Laos, numeric: "418", region: Southeast Asia}
+  MYS: {name: Malaysia, numeric: "458", region: Southeast Asia}
+  MMR: {name: Myanmar, numeric: "104", region: Southeast Asia}
+  PHL: {name: Philippines, numeric: "608", region: Southeast Asia}
+  SGP: {name: Singapore, numeric: "702", region: Southeast Asia}
+  THA: {name: Thailand, numeric: "764", region: Southeast Asia}
+  TLS: {name: Timor-Leste, numeric: "626", region: Southeast Asia}
+  VNM: {name: Vietnam, numeric: "704", region: Southeast Asia}
+  AFG: {name: Afghanistan, numeric: "004", region: South Asia}
+  BGD: {name: Bangladesh, numeric: "050", region: South Asia}
+  BTN: {name: Bhutan, numeric: "064", region: South Asia}
+  IND: {name: India, numeric: "356", region: South Asia}
+  MDV: {name: Maldives, numeric: "462", region: South Asia}
+  NPL: {name: Nepal, numeric: "524", region: South Asia}
+  PAK: {name: Pakistan, numeric: "586", region: South Asia}
+  LKA: {name: Sri Lanka, numeric: "144", region: South Asia}
+  KAZ: {name: Kazakhstan, numeric: "398", region: Central Asia}
+  KGZ: {name: Kyrgyzstan, numeric: "417", region: Central Asia}
+  TJK: {name: Tajikistan, numeric: "762", region: Central Asia}
+  TKM: {name: Turkmenistan, numeric: "795", region: Central Asia}
+  UZB: {name: Uzbekistan, numeric: "860", region: Central Asia}

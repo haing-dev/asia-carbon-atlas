@@ -1,0 +1,54 @@
+# One entry per source adapter (pipeline/sources/<id>.py).
+# enabled: false until the adapter is built and spot-checked.
+# label: shown on the site. cadence_days: minimum days between probes (the 10-day schedule probes everything due).
+sources:
+  vrod:
+    label: Berkeley Voluntary Registry Offsets Database (Verra, Gold Standard, Isometric)
+    registries: [VCS, GS, ISO]
+    url: https://gspp.berkeley.edu/berkeley-carbon-trading-project/offsets-database
+    license: CC BY 4.0
+    enabled: false
+    cadence_days: 10
+  cdm:
+    label: UNFCCC Clean Development Mechanism
+    registries: [CDM]
+    url: https://cdm.unfccc.int/
+    enabled: false
+    cadence_days: 10
+  gcc:
+    label: Global Carbon Council
+    registries: [GCC]
+    url: https://www.globalcarboncouncil.com/
+    enabled: false
+    cadence_days: 10
+  ucr:
+    label: Universal Carbon Registry
+    registries: [UCR]
+    url: null  # discover at M2
+    enabled: false
+    cadence_days: 10
+  puro:
+    label: Puro.earth Registry
+    registries: [PURO]
+    url: https://registry.puro.earth/
+    enabled: false
+    cadence_days: 10
+  isometric:
+    label: Isometric Registry (API; needs ISOMETRIC_API_KEY)
+    registries: [ISO]
+    url: https://registry.isometric.com/
+    enabled: false
+    cadence_days: 10
+  jcm:
+    label: Joint Crediting Mechanism (Japan) — registered projects
+    registries: [JCM]
+    url: https://www.jcm.go.jp/
+    enabled: false
+    cadence_days: 10
+  a6pipeline:
+    label: UNEP-CCC Article 6 Pipeline
+    registries: [PACM]
+    url: https://a6pipeline.unepccc.org/
+    license: UNEP-CCC (attribution)
+    enabled: false
+    cadence_days: 10

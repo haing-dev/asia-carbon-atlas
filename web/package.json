@@ -1,0 +1,24 @@
+{
+  "name": "asia-carbon-atlas-web",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "basemap": "node scripts/make-basemap.mjs"
+  },
+  "dependencies": {
+    "d3-geo": "^3.1.1",
+    "topojson-client": "^3.1.0"
+  },
+  "devDependencies": {
+    "@sveltejs/vite-plugin-svelte": "^7.3.1",
+    "svelte": "^5.57.2",
+    "topojson-server": "^3.0.1",
+    "topojson-simplify": "^3.0.3",
+    "vite": "^8.3.4",
+    "world-atlas": "^2.0.2",
+    "wrangler": "^4.149.0"
+  }
+}
