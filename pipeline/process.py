@@ -93,7 +93,7 @@ def country_shares(countries: list[str], in_scope: set[str], population: dict[st
 
 
 # Which record supplies the display name / estimate when a project is in several registries.
-LEAD_PRIORITY = {"VCS": 0, "GS": 0, "ISO": 0, "PURO": 0, "GCC": 1, "UCR": 1, "PACM": 1, "JCM": 1, "A62": 1, "CDM": 2}
+LEAD_PRIORITY = {"VCS": 0, "GS": 0, "ISO": 0, "PURO": 0, "ACR": 0, "CAR": 0, "ART": 0, "GCC": 1, "UCR": 1, "PACM": 1, "JCM": 1, "A62": 1, "CDM": 2}
 
 
 def merge_article6(items: list[dict]) -> dict | None:

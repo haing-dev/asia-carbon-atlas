@@ -10,14 +10,15 @@
   })));
   const stageGroups = $derived([{ items: index.stages.map((s, i) => ({ i, label: STAGE_LABELS[s] })) }]);
   const registryGroups = $derived(["Independent standards", "Government & UN mechanisms", "Announcements"].map((g) => ({
-    label: g, items: index.registries.map((r, i) => ({ i, label: r.label, group: r.group })).filter((x) => x.group === g),
-  })));
+    label: g, items: index.registries.map((r, i) => ({ i, label: r.label, group: r.group, present: r.present !== false }))
+      .filter((x) => x.group === g && x.present),
+  })).filter((g) => g.items.length));
 </script>
 
 <div class="filters">
   <Dropdown label="Credit type" groups={typeGroups} total={index.l2.length} bind:selected={f.l2} wide />
   <Dropdown label="Project stage" groups={stageGroups} total={index.stages.length} bind:selected={f.stages} />
-  <Dropdown label="Registry" groups={registryGroups} total={index.registries.length} bind:selected={f.registries} />
+  <Dropdown label="Registry" groups={registryGroups} total={index.registries.filter((r) => r.present !== false).length} bind:selected={f.registries} />
   <label class="toggle"><input type="checkbox" bind:checked={f.a6} /> Article 6 only</label>
   <input class="search" type="search" placeholder="Search project, developer or offtaker" bind:value={f.q} aria-label="Search" />
   <button class="link" onclick={onclear}>Clear filters</button>

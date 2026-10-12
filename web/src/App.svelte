@@ -4,7 +4,7 @@
   import Ranking from "./lib/Ranking.svelte";
   import Filters from "./lib/Filters.svelte";
   import Table from "./lib/Table.svelte";
-  import { aggregate, fmt, loadIndex, loadMeta, loadRows, makePredicate } from "./lib/data.js";
+  import { aggregate, fmt, loadBasemap, loadIndex, loadMeta, loadRows, makePredicate } from "./lib/data.js";
 
   const METRICS = {
     is: { label: "Issued (cumulative)", unit: "tCO₂e" },
@@ -13,6 +13,8 @@
 
   let meta = $state(null);
   let index = $state(null);
+  let area = $state("asia");
+  let basemap = $state(null);
   let error = $state(null);
   let metric = $state("is");
   let country = $state(null);
@@ -40,6 +42,7 @@
   $effect(() => {
     if (!index) return;
     const p = new URLSearchParams();
+    if (area !== "asia") p.set("a", area);
     if (metric !== "is") p.set("m", metric);
     if (country) p.set("c", country);
     if (f.l2) p.set("t", [...f.l2].map((i) => index.l2[i].id).join(","));
@@ -55,13 +58,30 @@
   onMount(async () => {
     try {
       meta = await loadMeta();
-      const idx = await loadIndex(meta);
+      const a = new URLSearchParams(location.search).get("a");
+      if (meta.areas.some((x) => x.id === a)) area = a;
+      const [idx, bm] = await Promise.all([loadIndex(meta, area), loadBasemap(area)]);
       readUrl(idx);
+      basemap = bm;
       index = idx;
     } catch (e) {
       error = e.message;
     }
   });
+  async function switchArea(a) {
+    if (a === area || !meta) return;
+    area = a;
+    country = null;
+    mapHl = rankHl = null;
+    const [idx, bm] = await Promise.all([loadIndex(meta, a), loadBasemap(a)]);
+    if (area !== a) return;   // switched again meanwhile
+    // Keep filters that still make sense (credit types, stages); registry choice resets.
+    f.registries = null;
+    basemap = bm;
+    index = idx;
+  }
+  const areaInfo = $derived(meta?.areas.find((x) => x.id === area));
+  const headlines = $derived(meta?.headlines?.areas?.[area] || []);
 
   const pred = $derived(makePredicate(f));
   const totals = $derived(index ? aggregate(index.projects, pred, metric) : new globalThis.Map());
@@ -114,7 +134,7 @@
       index.stages[r.st], r.years?.listed, r.years?.registered, r.years?.first_issuance, r.ea, r.is, r.re, r.offtakers.map((o) => o.name).join("; "), r.project_url, r.developer_url].map(esc).join(",")));
     const a = document.createElement("a");
     a.href = URL.createObjectURL(new Blob([lines.join("\n")], { type: "text/csv" }));
-    a.download = `asia-carbon-atlas-${country || "all"}.csv`;
+    a.download = `carbon-credit-atlas-${country || area}.csv`;
     a.click();
   }
   // Footnotes come from content/notes.md (owner-editable). Markers refer to notes by key; numbers follow file order.
@@ -141,29 +161,39 @@
 
 <header class="wrap top">
   <div>
-    <h1>Asia Carbon Credit Atlas</h1>
-    <p class="muted">Carbon credit projects in Asia (excl. mainland China) across registries and Paris Agreement mechanisms. Research use only.</p>
+    <h1>Carbon Credit Atlas <span class="where">· {areaInfo?.label || "Asia"}</span></h1>
+    <p class="muted">Carbon credit projects in {areaInfo?.scope || "Asia, excluding mainland China"}, across registries and Paris Agreement mechanisms. Research use only.</p>
   </div>
   <nav>
     <a href="#sources">Sources</a>
     <a href="#notes">Notes</a>
   </nav>
 </header>
+{#if meta?.areas}
+  <div class="wrap">
+    <div class="regions" role="tablist" aria-label="Region" style:--n={meta.areas.length} style:--i={meta.areas.findIndex((x) => x.id === area)}>
+      <span class="thumb" aria-hidden="true"></span>
+      {#each meta.areas as a}
+        <button role="tab" aria-selected={a.id === area} onclick={() => switchArea(a.id)}>{a.label}</button>
+      {/each}
+    </div>
+  </div>
+{/if}
 
 <main class="wrap">
   {#if error}
     <p class="notice">Could not load data ({error}).</p>
-  {:else if !index}
+  {:else if !index || !basemap}
     <p class="muted">Loading…</p>
   {:else}
     {#if meta.project_count === 0}
       <p class="notice">Registry data is being connected source by source. The map and table fill in as each source goes live.</p>
     {/if}
-    {#if meta.headlines?.items?.length}
+    {#if headlines.length}
       <section class="news" aria-labelledby="news-h">
         <h2 id="news-h">Weekly headlines <span class="muted wk">week to {meta.headlines.week_ending}</span></h2>
         <ol>
-          {#each meta.headlines.items.slice(0, 10) as h}
+          {#each headlines.slice(0, 10) as h}
             <li><a href={h.url} target="_blank" rel="noopener">{h.title}</a> <span class="muted meta">{h.source} · {h.date.slice(5)}</span></li>
           {/each}
         </ol>
@@ -178,7 +208,7 @@
       <span class="muted">Total in view: <span class="num">{fmt(total)}</span> {METRICS[metric].unit}</span>
     </div>
     <div class="mapgrid">
-      <Map {totals} countries={index.countries} selected={country} highlight={mapHl} metricLabel={METRICS[metric].label} unit={METRICS[metric].unit} onselect={selectCountry} onhover={(iso) => (rankHl = iso)} />
+      <Map {basemap} {totals} countries={index.countries} selected={country} highlight={mapHl} metricLabel={METRICS[metric].label} unit={METRICS[metric].unit} onselect={selectCountry} onhover={(iso) => (rankHl = iso)} />
       <Ranking {totals} countries={index.countries} selected={country} highlight={rankHl} unit={METRICS[metric].unit} onselect={selectCountry} onhover={(iso) => (mapHl = iso)} />
     </div>
 
@@ -223,7 +253,7 @@
   {/if}
 </main>
 
-<footer class="wrap muted small">Asia Carbon Credit Atlas · non-commercial research project · registry data checked weekly</footer>
+<footer class="wrap muted small">Carbon Credit Atlas · non-commercial research project · registry data checked weekly</footer>
 
 <style>
   .top { display: flex; justify-content: space-between; align-items: flex-start; gap: 16px; padding-top: 22px; padding-bottom: 6px; }
@@ -231,6 +261,15 @@
   h1 + p { margin: 0; font-size: 14px; max-width: 640px; }
   nav { display: flex; gap: 14px; align-items: center; font-size: 14px; white-space: nowrap; }
   .notice { background: var(--chip); border: 1px solid var(--line); border-radius: var(--radius); padding: 8px 12px; font-size: 14px; }
+  .where { color: var(--accent); font-weight: 600; }
+  .regions { position: relative; display: grid; grid-template-columns: repeat(var(--n), 1fr); max-width: 520px; margin: 10px 0 2px;
+    background: var(--chip); border: 1px solid var(--line); border-radius: 999px; padding: 3px; }
+  .regions button { position: relative; z-index: 1; border: 0; background: none; padding: 6px 10px; border-radius: 999px; cursor: pointer;
+    font-size: 14px; font-weight: 600; color: var(--muted); transition: color 0.2s; }
+  .regions button[aria-selected="true"] { color: #0d2023; }
+  .regions .thumb { position: absolute; top: 3px; bottom: 3px; left: 3px; width: calc((100% - 6px) / var(--n)); border-radius: 999px;
+    background: var(--choro-hi); transform: translateX(calc(100% * var(--i))); transition: transform 0.25s ease; }
+  @media (prefers-reduced-motion: reduce) { .regions .thumb, .regions button { transition: none; } }
   .news { margin: 12px 0 6px; padding: 10px 14px 8px; border: 1px solid var(--line); border-radius: var(--radius); background: var(--surface); }
   .news h2 { font-size: 15px; margin-bottom: 6px; }
   .news .wk { font-size: 12.5px; font-weight: 400; }

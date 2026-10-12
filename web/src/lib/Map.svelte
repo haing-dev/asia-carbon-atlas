@@ -1,28 +1,41 @@
 <script>
-  import { geoMercator, geoPath } from "d3-geo";
+  import { geoConicEqualArea, geoMercator, geoPath } from "d3-geo";
   import { feature } from "topojson-client";
-  import basemap from "./basemap.json";
   import { fmt } from "./data.js";
 
-  let { totals, countries, selected = null, highlight = null, metricLabel, unit, onselect, onhover = () => {} } = $props();
+  let { basemap, totals, countries, selected = null, highlight = null, metricLabel, unit, onselect, onhover = () => {} } = $props();
 
   const W = 960, H = 600;
-  const all = feature(basemap.topo, basemap.topo.objects.countries).features;
-  const inScope = all.filter((f) => f.properties.iso);
-  const projection = geoMercator().fitExtent([[16, 16], [W - 16, H - 16]], { type: "FeatureCollection", features: inScope });
-  const path = geoPath(projection);
-  const shapes = all.map((f) => ({ iso: f.properties.iso, name: f.properties.n, d: path(f), area: path.area(f), b: path.bounds(f) }));
-  const shapeOf = Object.fromEntries(shapes.filter((s) => s.iso).map((s) => [s.iso, s]));
-
   // Tiny places get a dot + nudged label so they stay visible and clickable.
-  const SMALL = new Set(["HKG", "MAC", "SGP", "BRN", "MDV", "TLS", "BTN"]);
   const NUDGE = { HKG: [22, 8], MAC: [-26, 18], SGP: [-10, 30], BRN: [26, -18], MDV: [-20, 18] };
-  const anchors = {};
-  for (const [iso, lonlat] of Object.entries(basemap.points)) {
-    const [x, y] = projection(lonlat);
-    const [dx, dy] = NUDGE[iso] || [0, 0];
-    anchors[iso] = { x, y, lx: x + dx, ly: y + dy };
-  }
+
+  const geo = $derived.by(() => {
+    const all = feature(basemap.topo, basemap.topo.objects.countries).features;
+    const inScope = all.filter((f) => f.properties.iso);
+    const pr = basemap.proj || { type: "mercator" };
+    const projection = pr.type === "conic"
+      ? geoConicEqualArea().rotate(pr.rotate).parallels(pr.parallels)
+      : geoMercator();
+    const target = pr.fitBox ? { type: "MultiPoint", coordinates: pr.fitBox } : { type: "FeatureCollection", features: inScope };
+    projection.fitExtent([[16, 16], [W - 16, H - 16]], target);
+    const path = geoPath(projection);
+    const shapes = all.map((f) => ({ iso: f.properties.iso, name: f.properties.n, d: path(f), area: path.area(f), b: path.bounds(f) }));
+    const shapeOf = Object.fromEntries(shapes.filter((x) => x.iso).map((x) => [x.iso, x]));
+    const small = new Set(shapes.filter((x) => x.iso && x.area < 60).map((x) => x.iso));
+    const anchors = {};
+    for (const [iso, lonlat] of Object.entries(basemap.points)) {
+      const p = projection(lonlat);
+      if (!p) continue;
+      const [x, y] = p;
+      const [dx, dy] = NUDGE[iso] || [0, 0];
+      anchors[iso] = { x, y, lx: x + dx, ly: y + dy };
+    }
+    return { shapes, shapeOf, small, anchors };
+  });
+  const shapes = $derived(geo.shapes);
+  const shapeOf = $derived(geo.shapeOf);
+  const SMALL = $derived(geo.small);
+  const anchors = $derived(geo.anchors);
   const nameOf = (iso) => countries.find((c) => c.id === iso)?.name || iso;
 
   let hoverIso = $state(null);
@@ -53,7 +66,7 @@
   // Every covered country gets a label: name (+ value when it has one). Greedy placement, biggest first,
   // trying a few positions around the label point; tiny places sit beside their dot.
   const labels = $derived.by(() => {
-    const ranked = countries.map((c) => [c.id, values.get(c.id) || 0]).filter(([iso]) => anchors[iso])
+    const ranked = countries.map((c) => [c.id, values.get(c.id) || 0]).filter(([iso, v]) => v > 0 && anchors[iso])
       .sort((a, b) => b[1] - a[1]);
     const placed = [];
     const hit = (box) => placed.some((p) => box[0] < p.box[2] && box[2] > p.box[0] && box[1] < p.box[3] && box[3] > p.box[1]);
@@ -72,13 +85,13 @@
     }
     return placed;
   });
-  const dots = $derived([...values.entries()].filter(([iso]) => SMALL.has(iso) && anchors[iso]).map(([iso, v]) => ({ iso, v, ...anchors[iso] })));
+  const dots = $derived([...values.entries()].filter(([iso, v]) => v > 0 && SMALL.has(iso) && anchors[iso]).map(([iso, v]) => ({ iso, v, ...anchors[iso] })));
 
   const ticks = $derived(vmax > 0 ? [0.01, 0.1, 0.25, 0.5, 1].map((f) => f * vmax) : []);
 </script>
 
 <figure class="map">
-  <svg viewBox="0 0 {W} {H}" role="img" aria-label="Map of Asia shaded by {metricLabel} per country">
+  <svg viewBox="0 0 {W} {H}" role="img" aria-label="Map shaded by {metricLabel} per country">
     <g class="land" class:focusing={!!focus}>
       {#each shapes as s}
         {#if s.iso}

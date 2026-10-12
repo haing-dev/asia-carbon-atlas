@@ -16,14 +16,15 @@ Footnotes shown at the bottom of the website. Edit freely, then "Commit changes"
 - Hover a name for details; click for the source.
 
 ## countries
+- Asia excludes mainland China. North America includes Central America and the Caribbean.
 - Multi-country projects appear once in the table.
-- Map totals split them by population (UN World Population Prospects 2024, 2025); non-Asian shares are excluded.
+- Map totals split them by population (UN World Population Prospects 2024, 2025); shares outside the selected region are excluded.
 - If the project name names one host country, all volume goes to that country. Hover "multi" for the split.
 
 ## registries
 - One row per project: records are merged when registries cross-reference each other or names closely match (same country and type, no conflicting capacity, place or phase).
 - Issued is summed across registries; a vintage year issued in two registries counts once.
-- Verra, Gold Standard, Isometric: Berkeley Voluntary Registry Offsets Database. CDM: UNEP-CCC CDM Pipeline (links to UNFCCC). JCM, UCR, Puro: their public registries. GCC: approved-projects export (no issuance data). Article 6: UNEP-CCC Article 6 Pipeline.
+- Verra, Gold Standard, Isometric, American Carbon Registry, Climate Action Reserve, ART TREES: Berkeley Voluntary Registry Offsets Database (ACR and ART links open the registry's project list; search the ID). CDM: UNEP-CCC CDM Pipeline (links to UNFCCC). JCM, UCR, Puro: their public registries. GCC: approved-projects export (no issuance data). Article 6: UNEP-CCC Article 6 Pipeline.
 - Article 6.4 activities merge with their CDM record; Article 6.2 is a tag and never adds volume.
 
 ## stages

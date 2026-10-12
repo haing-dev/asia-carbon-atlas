@@ -15,8 +15,18 @@ export async function loadMeta() {
   return r.json();
 }
 
-export async function loadIndex(meta) {
-  const r = await fetch("/data/" + meta.files.index);
+const indexCache = new Map();
+export function loadIndex(meta, area) {
+  if (!indexCache.has(area)) indexCache.set(area, fetchIndex(meta.files.index[area]));
+  return indexCache.get(area);
+}
+const basemaps = import.meta.glob("./basemaps/*.json", { import: "default" });
+export function loadBasemap(area) {
+  return basemaps[`./basemaps/${area}.json`]();
+}
+
+async function fetchIndex(file) {
+  const r = await fetch("/data/" + file);
   const idx = await r.json();
   const c = idx.cols;
   const n = (c.id || []).length;

@@ -7,7 +7,7 @@ from pipeline import common
 
 REQUIRED = ["record_id", "registry", "native_id", "registry_url", "countries"]
 WARNINGS: list[str] = []
-REGISTRIES = {"VCS", "GS", "CDM", "PACM", "GCC", "UCR", "PURO", "ISO", "JCM", "A62"}
+REGISTRIES = {"VCS", "GS", "CDM", "PACM", "GCC", "UCR", "PURO", "ISO", "JCM", "A62", "ACR", "CAR", "ART"}
 
 
 def check_records(records: list[dict]) -> list[str]:

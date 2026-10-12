@@ -1,33 +1,71 @@
-# Countries in scope (ISO3 -> details). numeric = ISO 3166-1 numeric (matches the basemap ids).
+# Countries in scope (ISO3 -> details), grouped by area (asia | north_america | south_america). numeric = ISO 3166-1 numeric (matches the basemap ids).
 # Excluded on purpose: mainland China, North Korea, Middle East (incl. Iran), Turkey, Caucasus, Russia, Oceania/PNG.
 countries:
-  JPN: {name: Japan, numeric: "392", region: East Asia}
-  KOR: {name: South Korea, numeric: "410", region: East Asia}
-  MNG: {name: Mongolia, numeric: "496", region: East Asia}
-  TWN: {name: Taiwan, numeric: "158", region: East Asia}
-  HKG: {name: Hong Kong, numeric: "344", region: East Asia}
-  MAC: {name: Macau, numeric: "446", region: East Asia}
-  BRN: {name: Brunei, numeric: "096", region: Southeast Asia}
-  KHM: {name: Cambodia, numeric: "116", region: Southeast Asia}
-  IDN: {name: Indonesia, numeric: "360", region: Southeast Asia}
-  LAO: {name: Laos, numeric: "418", region: Southeast Asia}
-  MYS: {name: Malaysia, numeric: "458", region: Southeast Asia}
-  MMR: {name: Myanmar, numeric: "104", region: Southeast Asia}
-  PHL: {name: Philippines, numeric: "608", region: Southeast Asia}
-  SGP: {name: Singapore, numeric: "702", region: Southeast Asia}
-  THA: {name: Thailand, numeric: "764", region: Southeast Asia}
-  TLS: {name: Timor-Leste, numeric: "626", region: Southeast Asia}
-  VNM: {name: Vietnam, numeric: "704", region: Southeast Asia}
-  AFG: {name: Afghanistan, numeric: "004", region: South Asia}
-  BGD: {name: Bangladesh, numeric: "050", region: South Asia}
-  BTN: {name: Bhutan, numeric: "064", region: South Asia}
-  IND: {name: India, numeric: "356", region: South Asia}
-  MDV: {name: Maldives, numeric: "462", region: South Asia}
-  NPL: {name: Nepal, numeric: "524", region: South Asia}
-  PAK: {name: Pakistan, numeric: "586", region: South Asia}
-  LKA: {name: Sri Lanka, numeric: "144", region: South Asia}
-  KAZ: {name: Kazakhstan, numeric: "398", region: Central Asia}
-  KGZ: {name: Kyrgyzstan, numeric: "417", region: Central Asia}
-  TJK: {name: Tajikistan, numeric: "762", region: Central Asia}
-  TKM: {name: Turkmenistan, numeric: "795", region: Central Asia}
-  UZB: {name: Uzbekistan, numeric: "860", region: Central Asia}
+  JPN: {name: Japan, numeric: "392", region: East Asia, area: asia}
+  KOR: {name: South Korea, numeric: "410", region: East Asia, area: asia}
+  MNG: {name: Mongolia, numeric: "496", region: East Asia, area: asia}
+  TWN: {name: Taiwan, numeric: "158", region: East Asia, area: asia}
+  HKG: {name: Hong Kong, numeric: "344", region: East Asia, area: asia}
+  MAC: {name: Macau, numeric: "446", region: East Asia, area: asia}
+  BRN: {name: Brunei, numeric: "096", region: Southeast Asia, area: asia}
+  KHM: {name: Cambodia, numeric: "116", region: Southeast Asia, area: asia}
+  IDN: {name: Indonesia, numeric: "360", region: Southeast Asia, area: asia}
+  LAO: {name: Laos, numeric: "418", region: Southeast Asia, area: asia}
+  MYS: {name: Malaysia, numeric: "458", region: Southeast Asia, area: asia}
+  MMR: {name: Myanmar, numeric: "104", region: Southeast Asia, area: asia}
+  PHL: {name: Philippines, numeric: "608", region: Southeast Asia, area: asia}
+  SGP: {name: Singapore, numeric: "702", region: Southeast Asia, area: asia}
+  THA: {name: Thailand, numeric: "764", region: Southeast Asia, area: asia}
+  TLS: {name: Timor-Leste, numeric: "626", region: Southeast Asia, area: asia}
+  VNM: {name: Vietnam, numeric: "704", region: Southeast Asia, area: asia}
+  AFG: {name: Afghanistan, numeric: "004", region: South Asia, area: asia}
+  BGD: {name: Bangladesh, numeric: "050", region: South Asia, area: asia}
+  BTN: {name: Bhutan, numeric: "064", region: South Asia, area: asia}
+  IND: {name: India, numeric: "356", region: South Asia, area: asia}
+  MDV: {name: Maldives, numeric: "462", region: South Asia, area: asia}
+  NPL: {name: Nepal, numeric: "524", region: South Asia, area: asia}
+  PAK: {name: Pakistan, numeric: "586", region: South Asia, area: asia}
+  LKA: {name: Sri Lanka, numeric: "144", region: South Asia, area: asia}
+  KAZ: {name: Kazakhstan, numeric: "398", region: Central Asia, area: asia}
+  KGZ: {name: Kyrgyzstan, numeric: "417", region: Central Asia, area: asia}
+  TJK: {name: Tajikistan, numeric: "762", region: Central Asia, area: asia}
+  TKM: {name: Turkmenistan, numeric: "795", region: Central Asia, area: asia}
+  UZB: {name: Uzbekistan, numeric: "860", region: Central Asia, area: asia}
+  # North America (incl. Central America and the Caribbean)
+  USA: {name: United States, numeric: "840", region: North America, area: north_america}
+  CAN: {name: Canada, numeric: "124", region: North America, area: north_america}
+  MEX: {name: Mexico, numeric: "484", region: North America, area: north_america}
+  GTM: {name: Guatemala, numeric: "320", region: Central America, area: north_america}
+  BLZ: {name: Belize, numeric: "084", region: Central America, area: north_america}
+  HND: {name: Honduras, numeric: "340", region: Central America, area: north_america}
+  SLV: {name: El Salvador, numeric: "222", region: Central America, area: north_america}
+  NIC: {name: Nicaragua, numeric: "558", region: Central America, area: north_america}
+  CRI: {name: Costa Rica, numeric: "188", region: Central America, area: north_america}
+  PAN: {name: Panama, numeric: "591", region: Central America, area: north_america}
+  CUB: {name: Cuba, numeric: "192", region: Caribbean, area: north_america}
+  DOM: {name: Dominican Republic, numeric: "214", region: Caribbean, area: north_america}
+  HTI: {name: Haiti, numeric: "332", region: Caribbean, area: north_america}
+  JAM: {name: Jamaica, numeric: "388", region: Caribbean, area: north_america}
+  BHS: {name: Bahamas, numeric: "044", region: Caribbean, area: north_america}
+  TTO: {name: Trinidad & Tobago, numeric: "780", region: Caribbean, area: north_america}
+  BRB: {name: Barbados, numeric: "052", region: Caribbean, area: north_america}
+  DMA: {name: Dominica, numeric: "212", region: Caribbean, area: north_america}
+  GRD: {name: Grenada, numeric: "308", region: Caribbean, area: north_america}
+  LCA: {name: Saint Lucia, numeric: "662", region: Caribbean, area: north_america}
+  VCT: {name: St Vincent & Grenadines, numeric: "670", region: Caribbean, area: north_america}
+  ATG: {name: Antigua & Barbuda, numeric: "028", region: Caribbean, area: north_america}
+  KNA: {name: St Kitts & Nevis, numeric: "659", region: Caribbean, area: north_america}
+  PRI: {name: Puerto Rico, numeric: "630", region: Caribbean, area: north_america}
+  # South America
+  BRA: {name: Brazil, numeric: "076", region: South America, area: south_america}
+  ARG: {name: Argentina, numeric: "032", region: South America, area: south_america}
+  CHL: {name: Chile, numeric: "152", region: South America, area: south_america}
+  COL: {name: Colombia, numeric: "170", region: South America, area: south_america}
+  PER: {name: Peru, numeric: "604", region: South America, area: south_america}
+  ECU: {name: Ecuador, numeric: "218", region: South America, area: south_america}
+  BOL: {name: Bolivia, numeric: "068", region: South America, area: south_america}
+  PRY: {name: Paraguay, numeric: "600", region: South America, area: south_america}
+  URY: {name: Uruguay, numeric: "858", region: South America, area: south_america}
+  VEN: {name: Venezuela, numeric: "862", region: South America, area: south_america}
+  GUY: {name: Guyana, numeric: "328", region: South America, area: south_america}
+  SUR: {name: Suriname, numeric: "740", region: South America, area: south_america}

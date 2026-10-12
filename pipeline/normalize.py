@@ -130,6 +130,8 @@ XREF_PATTERNS = [
     ("VCS", re.compile(r"\bVCS\s*(?:ID|#|no\.?)?\s*:?\s*(\d{2,5})\b", re.I)),
     ("GS", re.compile(r"\b(?:GS|Gold Standard)\s*(?:ID|#|no\.?)?\s*:?\s*(\d{2,5})\b", re.I)),
     ("GCC", re.compile(r"\bGCC\s*(?:ID|#|no\.?)?\s*:?\s*S?\d*?(\d{2,5})\b", re.I)),
+    ("ACR", re.compile(r"\bACR\s*(?:ID|#|no\.?)?\s*:?\s*(\d{2,4})\b")),
+    ("CAR", re.compile(r"\bCAR\s*(?:ID|#|no\.?)?\s*:?\s*(\d{3,4})\b")),
     ("UCR", re.compile(r"\bUCR\s*(?:ID|#|no\.?)?\s*:?-?\s*(\d{2,5})\b", re.I)),
 ]
 

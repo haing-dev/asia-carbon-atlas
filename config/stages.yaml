@@ -67,3 +67,29 @@ map:
     registered: registered
   ANN:                       # announced offtake, no registry record yet (config/offtakers.yaml)
     announced: announced
+  ACR:                       # American Carbon Registry (via VROD)
+    registered: registered
+    listed: pipeline
+    completed: registered
+    active: registered
+    inactive: inactive
+    canceled: inactive
+    cancelled: inactive
+    withdrawn: inactive
+    suspended: inactive
+    transitioned: registered
+  CAR:                       # Climate Action Reserve (via VROD)
+    registered: registered
+    listed: pipeline
+    completed: registered
+    transitioned: registered
+    inactive: inactive
+    canceled: inactive
+    cancelled: inactive
+    withdrawn: inactive
+    suspended: inactive
+  ART:                       # ART TREES (via VROD)
+    registered: registered
+    listed: pipeline
+    inactive: inactive
+    withdrawn: inactive

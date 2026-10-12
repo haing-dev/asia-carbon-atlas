@@ -18,7 +18,10 @@ from pipeline.sources.base import Source, SourceError, carry_over
 
 PAGE = "https://gspp.berkeley.edu/berkeley-carbon-trading-project/offsets-database"
 LINK_RE = re.compile(r'href="([^"]*Voluntary-Registry-Offsets-Database--v([0-9A-Za-z.-]+?)\.xlsx)"')
-REGISTRY = {"VCS": "VCS", "GOLD": "GS", "GS": "GS", "ISO": "ISO", "ISOMETRIC": "ISO"}
+REGISTRY = {"VCS": "VCS", "GOLD": "GS", "GS": "GS", "ISO": "ISO", "ISOMETRIC": "ISO",
+            "ACR": "ACR", "CAR": "CAR", "ART": "ART", "ART TREES": "ART"}
+# ACR and ART moved to ICE GreenTrace (per-project pages are not linkable without a session): link the public project list.
+LIST_PAGES = {"ACR": "https://greentrace.ice.com/acr/projects", "ART": "https://greentrace.ice.com/art/projects"}
 HEADER_ROW = 3  # zero-based row index of the column headers in the PROJECTS sheet
 
 
@@ -27,6 +30,10 @@ def registry_url(reg: str, native: str, docs: str | None) -> str:
         return f"https://registry.verra.org/app/projectDetail/VCS/{native}"
     if reg == "GS":
         return f"https://registry.goldstandard.org/projects/details/{native}"
+    if reg == "CAR":
+        return f"https://thereserve2.apx.com/mymodule/reg/prjView.asp?id1={native}"
+    if reg in LIST_PAGES:
+        return docs if docs and docs.startswith("http") and native.lower() in docs.lower() else LIST_PAGES[reg]
     if docs and docs.startswith("http") and native.lower() in docs.lower():
         return docs
     return docs if docs and docs.startswith("http") else "https://registry.isometric.com/"
@@ -100,7 +107,7 @@ class Adapter(Source):
             if not in_scope(countries):
                 continue
             pid = str(row[c["Project ID"]]).strip()
-            native = re.sub(r"^(VCS|GS|GOLD|ISO)[-_ ]?", "", pid, flags=re.I)
+            native = re.sub(r"^(VCS|GS|GOLD|ISO|ACR|CAR|ART)[-_ ]?", "", pid, flags=re.I)
             vint = {y: to_int(row[j]) for j, y in years if to_int(row[j])}
             name = str(row[c["Project Name"]] or "").strip()
             rec = {

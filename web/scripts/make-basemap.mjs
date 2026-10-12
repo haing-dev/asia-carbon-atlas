@@ -1,6 +1,6 @@
-// Builds a small Asia basemap (TopoJSON) + label points from Natural Earth 1:50m (world-atlas).
-// Run once (npm run basemap); outputs are committed: src/lib/basemap.json
-import { readFileSync, writeFileSync } from "node:fs";
+// Builds one small basemap per area (TopoJSON + label points + projection spec) from Natural Earth 1:50m (world-atlas).
+// Run when countries.yaml changes (npm run basemap); outputs are committed: src/lib/basemaps/<area>.json
+import { mkdirSync, readFileSync, writeFileSync } from "node:fs";
 import { createRequire } from "node:module";
 import { feature } from "topojson-client";
 import { topology } from "topojson-server";
@@ -11,39 +11,60 @@ const require = createRequire(import.meta.url);
 const world = JSON.parse(readFileSync(require.resolve("world-atlas/countries-50m.json"), "utf8"));
 const yamlText = readFileSync(new URL("../../config/countries.yaml", import.meta.url), "utf8");
 
-// numeric code -> ISO3 for in-scope countries (tiny YAML parse: "  ISO: {name: X, numeric: "123", ...}")
-const inScope = {};
-for (const m of yamlText.matchAll(/^\s{2}([A-Z]{3}):\s*\{[^}]*numeric:\s*"(\d{3})"/gm)) inScope[m[2]] = m[1];
+// numeric code -> {iso, area} (tiny YAML parse of lines like `  ISO: {name: X, numeric: "123", ..., area: asia}`)
+const countries = {};
+for (const m of yamlText.matchAll(/^\s{2}([A-Z]{3}):\s*\{[^}]*numeric:\s*"(\d{3})"[^}]*area:\s*(\w+)/gm)) countries[m[2]] = { iso: m[1], area: m[3] };
 
-// Keep countries whose bounds touch the Asia window (context + in-scope).
-const W = [42, -14, 152, 58];
+const AREAS = {
+  asia: {
+    window: [42, -14, 152, 58],
+    proj: { type: "mercator" },
+    overrides: { MYS: [102.2, 4.0], IDN: [113.5, -1.5], PHL: [122.5, 12.0], JPN: [138.5, 36.5] },
+  },
+  north_america: {
+    window: [-172, 5, -50, 76],
+    // Equal-area conic centred on the continent; fitted to a box so Canada's Arctic islands don't shrink the map.
+    proj: { type: "conic", rotate: [100, 0], parallels: [20, 60], fitBox: [[-165, 52], [-60, 50], [-120, 70], [-75, 9], [-110, 15], [-58, 12]] },
+    overrides: { USA: [-98.5, 39.5], CAN: [-104, 56], MEX: [-102.5, 23.8], BHS: [-77.4, 24.6] },
+  },
+  south_america: {
+    window: [-95, -57, -28, 15],
+    proj: { type: "mercator" },
+    overrides: { CHL: [-71, -33], ECU: [-78.4, -1.5] },
+  },
+};
+
 const fc = feature(world, world.objects.countries);
-const kept = fc.features.filter((f) => {
-  const [[x0, y0], [x1, y1]] = geoBounds(f);
-  return x1 >= W[0] && x0 <= W[2] && y1 >= W[1] && y0 <= W[3] && !(x0 < -150 && x1 > 150);
-});
-for (const f of kept) {
-  f.properties = { n: f.properties.name };
-  if (inScope[f.id]) f.properties.iso = inScope[f.id];
+mkdirSync(new URL("../src/lib/basemaps/", import.meta.url), { recursive: true });
+for (const [area, cfg] of Object.entries(AREAS)) {
+  const W = cfg.window;
+  const kept = [];
+  for (const f0 of fc.features) {
+    const c = countries[f0.id];
+    const ours = c && c.area === area;
+    const [[x0, y0], [x1, y1]] = geoBounds(f0);
+    const wraps = x0 > x1 || (x0 < -150 && x1 > 150);
+    const touches = !wraps && x1 >= W[0] && x0 <= W[2] && y1 >= W[1] && y0 <= W[3];
+    if (!ours && !touches) continue;
+    if (!ours && c) {} // a covered country from another area: context only
+    const f = { ...f0, properties: { n: f0.properties.name } };
+    if (ours) f.properties.iso = c.iso;
+    kept.push(f);
+  }
+  const points = {};
+  for (const f of kept) {
+    const iso = f.properties.iso;
+    if (!iso) continue;
+    const p = cfg.overrides[iso] || geoCentroid(f);
+    points[iso] = [Math.round(p[0] * 100) / 100, Math.round(p[1] * 100) / 100];
+  }
+  let topo = topology({ countries: { type: "FeatureCollection", features: kept } }, 2e4);
+  topo = presimplify(topo);
+  topo = simplify(topo, quantile(topo, 0.12));
+  const out = { area, proj: cfg.proj, topo, points };
+  const text = JSON.stringify(out);
+  writeFileSync(new URL(`../src/lib/basemaps/${area}.json`, import.meta.url), text);
+  const wanted = Object.values(countries).filter((c) => c.area === area).map((c) => c.iso);
+  const missing = wanted.filter((iso) => !points[iso]);
+  console.log(`${area}: kept ${kept.length} countries, ${Object.keys(points).length} in scope, ${(text.length / 1024).toFixed(0)} KB${missing.length ? "; MISSING " + missing.join(",") : ""}`);
 }
-
-// Label points: geographic centroid, with a few hand overrides where the centroid falls in the sea.
-const overrides = { MYS: [102.2, 4.0], IDN: [113.5, -1.5], PHL: [122.5, 12.0], JPN: [138.5, 36.5] };
-const points = {};
-for (const f of kept) {
-  const iso = f.properties.iso;
-  if (!iso) continue;
-  const c = overrides[iso] || geoCentroid(f);
-  points[iso] = [Math.round(c[0] * 100) / 100, Math.round(c[1] * 100) / 100];
-}
-
-let topo = topology({ countries: { type: "FeatureCollection", features: kept } }, 2e4);
-topo = presimplify(topo);
-topo = simplify(topo, quantile(topo, 0.12));
-// Re-quantize to shrink coordinates.
-const out = { topo, points, inScope: Object.values(inScope).sort() };
-const text = JSON.stringify(out);
-writeFileSync(new URL("../src/lib/basemap.json", import.meta.url), text);
-console.log(`kept ${kept.length} countries, ${Object.keys(points).length} in scope, ${(text.length / 1024).toFixed(0)} KB`);
-const missing = Object.values(inScope).filter((iso) => !points[iso]);
-if (missing.length) console.log("MISSING in basemap:", missing.join(","));
