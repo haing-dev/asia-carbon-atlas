@@ -6,8 +6,16 @@
   - Site: Asia map (area-scaled circles, metric dropdown), filters, sortable/expandable table, CSV export, Methods/Sources.
   - Workflows: `refresh` (no-op run ≈ 6 s, no commit), `publish` (≈ 30 s), `deploy` (skips upload when build unchanged).
 
+- **M1 (first sources): done** (2026-10-12). VROD 3,125 Asian records (VCS 1,734 / GS 1,371 / ISO 20), CDM 3,024 (via UNEP-CCC pipeline;
+  UNFCCC robots.txt forbids scraping), Puro 7. 5,848 projects after cross-reference dedupe (78 merged clusters).
+  - Credit types: `config/type_rules.yaml` (exact registry types first, then keywords); 2 projects left as "Other".
+  - Stages: `config/stages.yaml` for CDM/VCS/GS/ISO/PURO.
+  - Site: dropdown filters (credit type with sub-types, project stage, registry), numbered footnotes at the end.
+
 ## Next
-- M1: adapters with probes for Berkeley VROD (Verra/GS/Isometric), CDM baseline, Puro.
+- M2: GCC, UCR, JCM (registered only), UNEP Article 6 Pipeline / PACM.
+- M3: fuzzy dedupe (VCS↔CDM rarely cross-reference), CDM issuance by vintage for overlap rule, population shares (UN WPP).
+- Owner to spot-check that Verra and Gold Standard registry links open the right project.
 
 ## Decisions
 - Private repo `haing-dev/asia-carbon-atlas`; Cloudflare Pages project `asia-carbon-atlas`; target cost $0.
