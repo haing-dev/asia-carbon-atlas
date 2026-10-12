@@ -113,7 +113,7 @@ def country_of(text: str, codes: list[str], grid_location: str | None) -> list[s
 
 
 def developer_of(title: str, text: str) -> str | None:
-    m = re.search(r"\bby (.+?)\s*\(UCR ID", title)
+    m = re.search(r"\bby (.+?)\s*\(UCR ID", title, re.I)
     if m:
         dev = re.sub(r"\s*\([^)]*\)\s*$", "", m.group(1).strip())
         dev = re.sub(r",?\s*(India|Bangladesh|Viet ?nam|Indonesia|Thailand)\s*$", "", dev, flags=re.I)

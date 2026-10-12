@@ -54,23 +54,24 @@ rules:
   - {re: 'compost', l2: composting}
   - {re: 'coal ?mine methane|coal bed|\bCMM\b|VAM\b', l2: coal_mine_methane}
   - {re: 'flaring|fugitive|gas leak|pipeline leak|oil field|natural gas pipelines|oil and gas', l2: oil_gas_methane}
-  - {re: 'biogas|anaerobic digest|methane avoidance|methane recovery|Waste Management|combustion of MSW|solid waste', l2: biogas_ad}
+  - {re: 'biogas|anaerobic digest|methane avoidance|methane recovery|Waste Management|combustion of MSW|solid waste|waste to energy project|\bRDF\b|refuse.derived|CBG project|animal dung|dung2power', l2: biogas_ad}
   # Industrial
   - {re: 'cement|clinker|blended cement', l2: cement}
   - {re: 'fuel switch|coal to (natural )?gas|oil to (natural )?gas|natural gas plant', l2: fuel_switch}
   # Transport
   - {re: 'electric vehicle|e-mobility|motorbike|EV charging|electric (bus|two|three)', l2: e_mobility}
   - {re: 'mass transit|metro|\bBRT\b|rail|bus rapid|mode shift', l2: mass_transit}
+  - {re: 'eco-?driving|tachograph|\bbus(es)?\b|\bCNG\b', l2: fleet}
   - {re: 'transport|fleet|vehicle|fuel efficiency', l2: fleet}
   # Renewable energy
   - {re: 'wind', l2: wind}
   - {re: 'solar|photovoltaic|\bPV\b', l2: solar}
-  - {re: 'hydro|run of river|run-of-river|\bdam\b', l2: hydro}
+  - {re: 'hydro|hydel|run of river|run-of-river|\bdam\b', l2: hydro}
   - {re: 'geothermal', l2: geothermal}
-  - {re: 'biomass|bagasse|rice husk|agricultural residue|forest residue|black liquor|briquette|gasification', l2: biomass_power}
-  - {re: 'tidal|wave energy|mixed renewables|renewable energy|ACM0002|AMS-I\.D|AMS-I\.F', l2: other_re}
+  - {re: 'biomass|bagasse|sugars? (ltd|mill|factory)|rice husk|agricultural residue|forest residue|black liquor|briquette|gasification', l2: biomass_power}
+  - {re: 'tidal|wave energy|mixed renewables|tribrid|hybrid (power )?project|renewable energy|ACM0002|AMS-I\.D|AMS-I\.F', l2: other_re}
   # Energy efficiency
-  - {re: 'waste heat|heat recovery|own generation|WHR|coke oven gas|cogeneration', l2: waste_heat}
-  - {re: 'building|lighting|HVAC|street light|appliance|EE service|EE households|chiller|LED', l2: buildings}
+  - {re: 'waste heat|heat recovery|own generation|WHR|coke oven gas|co-?generation', l2: waste_heat}
+  - {re: 'building|lighting|HVAC|air.condition|hospital|hotel|street light|appliance|EE service|EE households|chiller|LED', l2: buildings}
   - {re: 'distribution|transmission|grid|T&D|energy distribution', l2: grid}
-  - {re: 'energy efficiency|EE Industry|EE supply side|EE industry|efficient|boiler|industrial', l2: industrial_ee}
+  - {re: 'energy efficiency|EE Industry|EE supply side|EE industry|efficient|high.efficiency|energy saving|boiler|industrial|loom|refrigerat|heat pump|burner|refiner(y|ies)|autoclave|furnace|pump|recycling|optimi[sz]', l2: industrial_ee}
