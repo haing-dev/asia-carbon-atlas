@@ -8,47 +8,47 @@ sources:
     url: https://gspp.berkeley.edu/berkeley-carbon-trading-project/offsets-database
     license: CC BY 4.0
     enabled: true
-    cadence_days: 10
+    cadence_days: 7
   cdm:
     label: UNFCCC Clean Development Mechanism (via UNEP-CCC CDM Pipeline)
     registries: [CDM]
     url: https://unepccc.org/cdm-ji-pipeline/
     enabled: true
-    cadence_days: 10
+    cadence_days: 7
   gcc:
     label: Global Carbon Council (approved-projects export)
     registries: [GCC]
     url: https://gcc2.globalcarboncouncil.com/search/registration
     enabled: true   # site is behind a bot challenge: read from the owner's export in data/manual/gcc/
-    cadence_days: 10
+    cadence_days: 7
   ucr:
     label: Universal Carbon Registry
     registries: [UCR]
     url: https://www.ucarbonregistry.io/
     enabled: true
-    cadence_days: 10
+    cadence_days: 7
   puro:
     label: Puro.earth Registry
     registries: [PURO]
     url: https://registry.puro.earth/
     enabled: true
-    cadence_days: 10
+    cadence_days: 7
   isometric:
     label: Isometric Registry (API; needs ISOMETRIC_API_KEY)
     registries: [ISO]
     url: https://registry.isometric.com/
     enabled: false
-    cadence_days: 10
+    cadence_days: 7
   jcm:
     label: Joint Crediting Mechanism (Japan) — registered projects
     registries: [JCM]
     url: https://www.jcm.go.jp/
     enabled: true
-    cadence_days: 10
+    cadence_days: 7
   a6pipeline:
     label: UNEP-CCC Article 6 Pipeline
     registries: [PACM, A62]
     url: https://a6pipeline.unepccc.org/
     license: UNEP-CCC (attribution)
     enabled: true
-    cadence_days: 10
+    cadence_days: 7

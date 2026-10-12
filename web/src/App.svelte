@@ -85,7 +85,8 @@
     for (const r of rawRows) {
       const p = byId.get(r.project_id);
       if (!p || !pred(p)) continue;
-      if (q && !(r.display_name.toLowerCase().includes(q) || (r.developer || "").toLowerCase().includes(q))) continue;
+      if (q && !(r.display_name.toLowerCase().includes(q) || (r.developer || "").toLowerCase().includes(q)
+        || r.offtakers.some((o) => o.name.toLowerCase().includes(q)))) continue;
       const l2 = index.l2[p.l2];
       const l1 = index.l1.find((x) => x.id === l2.l1);
       out.push({ ...r, st: p.st, ea: p.ea, is: p.is, re: p.re, l1: l1.id, typeLabel: `${l1.label} – ${l2.label}` });
@@ -125,13 +126,22 @@
   }
   // Footnotes, numbered in reading order. Markers in the page link to #note-N.
   const NOTES = [
-    "Map shading uses a square-root scale so smaller countries remain visible; the ranking bars beside the map are linear, so their lengths compare volumes directly. Totals include only the filters currently selected.",
-    "Projects hosted in several countries appear once in the table. For country totals on the map, their volumes are split across host countries in proportion to population (UN World Population Prospects 2024, 1 July 2025); shares of non-Asian hosts are left off the map. If the project's name names one host country, all of it is counted there (hover \"multi\" for the split).",
-    "A project listed in several registries (e.g. CDM → Gold Standard, or CDM → Article 6.4) is merged into one row where the registries cross-reference each other, or where names match closely (same country and credit type, no conflicting capacity, place or phase number, and an unambiguous best match). Issued volumes are summed across registries, except that a vintage year issued in more than one registry is counted once (the larger figure), so converted credits are not double-counted. Verra, Gold Standard and Isometric records come via the Berkeley Voluntary Registry Offsets Database; CDM records via the UNEP Copenhagen Climate Centre CDM Pipeline (compiled from UNFCCC data), linked to each project's UNFCCC page. JCM and UCR records come from their public registries. Global Carbon Council records come from the GCC approved-projects export (registration data only: no issued volumes, and links go to the GCC project search). Article 6 data come from the UNEP Copenhagen Climate Centre Article 6 Pipeline: Article 6.4 (PACM) activities merge with their CDM records; Article 6.2 status and buyer country are shown as a tag on the matching registry project (6.2 volumes are never added on top), and an authorised 6.2 activity with no other registry record appears as its own row.",
-    "Listed: listed, under development or under validation. Validated: validated and registered, nothing issued yet. Issuing: at least one issuance to date (including projects whose crediting period has since ended). Inactive: withdrawn, rejected, deregistered, or crediting period ended with nothing issued (hidden by default). Announced deal: a public purchase announcement with no single registry record yet. Year columns: year first listed, year validated/registered, and year of first issuance, as published by the registry (— where the source gives no date; Verra and Gold Standard listing dates are not in the Berkeley database).",
-    "The registry's own ex-ante estimate of annual reductions or removals, which often exceeds what is later issued.",
-    "One credit = one tonne of CO₂e reduced or removed. Issued and retired volumes are cumulative.",
-    "Offtakers are limited to public records and announcements, and are therefore not exhaustive: CDM credit buyers as listed in the UNEP-CCC CDM Pipeline (often traders or government purchase programmes), and announced purchase/offtake agreements whose source names the buyer, the project or supplier, and the date (hover a name for type, date and volume; click for the source). Announcements naming only a supplier, or a project not yet in a covered registry, appear as separate \"Announced deal\" rows with no volumes on the map.",
+    ["Shading uses a square-root scale; ranking bars are linear.", "Totals reflect the current filters."],
+    ["Public sources only; not exhaustive.", "CDM credit buyers: UNEP-CCC CDM Pipeline (often traders or government programmes).",
+      "Announcements: the source names the buyer, the project or supplier, and the date.", "Hover a name for details; click for the source."],
+    ["Multi-country projects appear once in the table.",
+      "Map totals split them by population (UN World Population Prospects 2024, 2025); non-Asian shares are excluded.",
+      "If the project name names one host country, all volume goes to that country. Hover \"multi\" for the split."],
+    ["One row per project: records are merged when registries cross-reference each other or names closely match (same country and type, no conflicting capacity, place or phase).",
+      "Issued is summed across registries; a vintage year issued in two registries counts once.",
+      "Verra, Gold Standard, Isometric: Berkeley Voluntary Registry Offsets Database. CDM: UNEP-CCC CDM Pipeline (links to UNFCCC). JCM, UCR, Puro: their public registries. GCC: approved-projects export (no issuance data). Article 6: UNEP-CCC Article 6 Pipeline.",
+      "Article 6.4 activities merge with their CDM record; Article 6.2 is a tag and never adds volume."],
+    ["Listed: listed, under development or under validation.", "Validated: registered, nothing issued yet.",
+      "Issuing: at least one issuance.", "Inactive: withdrawn, rejected, deregistered, or crediting period ended with no issuance (hidden by default).",
+      "Announced deal: public purchase announcement with no single registry record.",
+      "Year columns: as published by the registry; — where not published."],
+    ["Registry's ex-ante estimate; often higher than what is later issued."],
+    ["1 credit = 1 tCO₂e.", "Issued and retired are cumulative."],
   ];
   const asOf = (s) => s.last_changed ? s.last_changed.slice(0, 10) : s.enabled ? "pending" : "not yet connected";
 </script>
@@ -156,6 +166,16 @@
   {:else}
     {#if meta.project_count === 0}
       <p class="notice">Registry data is being connected source by source. The map and table fill in as each source goes live.</p>
+    {/if}
+    {#if meta.headlines?.items?.length}
+      <section class="news" aria-labelledby="news-h">
+        <h2 id="news-h">Weekly headlines <span class="muted wk">week to {meta.headlines.week_ending}</span></h2>
+        <ol>
+          {#each meta.headlines.items.slice(0, 10) as h}
+            <li><a href={h.url} target="_blank" rel="noopener">{h.title}</a> <span class="muted meta">{h.source} · {h.date.slice(5)}</span></li>
+          {/each}
+        </ol>
+      </section>
     {/if}
     <div class="maphead">
       <label>Show<sup class="fn"><a href="#note-1">1</a></sup>
@@ -185,11 +205,12 @@
     <section id="sources" class="prose">
       <h2>Sources and data freshness</h2>
       <table class="src">
-        <thead><tr><th>Source</th><th>Data as of</th><th>Status</th></tr></thead>
+        <thead><tr><th>Source</th><th>Source data as of</th><th>Last updated here</th><th>Status</th></tr></thead>
         <tbody>
           {#each Object.entries(meta.built_from) as [id, s]}
             <tr>
-              <td>{#if s.url}<a href={s.url} target="_blank" rel="noopener">{s.label}</a>{:else}{s.label}{/if}{#if s.license} <span class="muted">({s.license})</span>{/if}</td>
+              <td>{#if s.url}<a href={s.url} target="_blank" rel="noopener">{s.label}</a>{:else}{s.label}{/if}{#if s.license}<span class="muted" style="margin-left:5px">({s.license})</span>{/if}</td>
+              <td class="num" title={s.live ? "Live registry: date last read" : "Date of the source's release/export"}>{s.source_date || "—"}{#if s.live && s.source_date}<span class="muted" style="margin-left:6px">(live)</span>{/if}</td>
               <td class="num">{asOf(s)}</td>
               <td>{s.stale ? "⚠ stale — last good data shown" : s.enabled ? "live" : "coming"}</td>
             </tr>
@@ -202,15 +223,15 @@
       <h2>Notes</h2>
       <ol>
         {#each NOTES as n, i}
-          <li id="note-{i + 1}">{@html n}</li>
+          <li id="note-{i + 1}"><ul>{#each n as pt}<li>{pt}</li>{/each}</ul></li>
         {/each}
       </ol>
-      <p>Verra and Gold Standard data come via the Berkeley Carbon Trading Project, <em>Voluntary Registry Offsets Database</em>, UC Berkeley (CC BY 4.0). Article 6 data: UNEP Copenhagen Climate Centre, <em>Article 6 Pipeline</em>. Basemap: Natural Earth. Population: UN DESA, <em>World Population Prospects 2024</em>. Research use only; not investment advice.</p>
+      <p>Credits: Berkeley Carbon Trading Project, <em>Voluntary Registry Offsets Database</em> (CC BY 4.0); UNEP Copenhagen Climate Centre, <em>CDM Pipeline</em> and <em>Article 6 Pipeline</em>; Natural Earth; UN DESA, <em>World Population Prospects 2024</em>. Research use only; not investment advice.</p>
     </section>
   {/if}
 </main>
 
-<footer class="wrap muted small">Asia Carbon Credit Atlas · non-commercial research project · data checked every 10 days</footer>
+<footer class="wrap muted small">Asia Carbon Credit Atlas · non-commercial research project · registry data checked weekly</footer>
 
 <style>
   .top { display: flex; justify-content: space-between; align-items: flex-start; gap: 16px; padding-top: 22px; padding-bottom: 6px; }
@@ -219,6 +240,12 @@
   nav { display: flex; gap: 14px; align-items: center; font-size: 14px; white-space: nowrap; }
   .theme { border: 1px solid var(--line); background: var(--surface); border-radius: 999px; width: 30px; height: 30px; cursor: pointer; }
   .notice { background: var(--chip); border: 1px solid var(--line); border-radius: var(--radius); padding: 8px 12px; font-size: 14px; }
+  .news { margin: 12px 0 6px; padding: 10px 14px 8px; border: 1px solid var(--line); border-radius: var(--radius); background: var(--surface); }
+  .news h2 { font-size: 15px; margin-bottom: 6px; }
+  .news .wk { font-size: 12.5px; font-weight: 400; }
+  .news ol { margin: 0; padding-left: 20px; columns: 2 380px; column-gap: 28px; font-size: 13.5px; }
+  .news li { break-inside: avoid; margin-bottom: 5px; line-height: 1.35; }
+  .news .meta { font-size: 11.5px; white-space: nowrap; }
   .maphead { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 8px; margin: 10px 0 8px; font-size: 14px; }
   .mapgrid { display: grid; grid-template-columns: minmax(0, 2.3fr) minmax(220px, 1fr); gap: 12px; align-items: start; }
   .mapgrid :global(.ranking) { max-height: 560px; }
@@ -235,8 +262,9 @@
   .notes { margin-top: 36px; padding-top: 12px; border-top: 1px solid var(--line); max-width: 860px; font-size: 12px; color: var(--muted); }
   .notes h2 { font-size: 13px; text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 4px; }
   .notes ol { padding-left: 18px; margin: 0 0 10px; }
-  .notes li { margin-bottom: 3px; scroll-margin-top: 16px; }
-  .notes li:target { color: var(--ink); background: var(--accent-soft); }
+  .notes > ol > li { margin-bottom: 4px; scroll-margin-top: 16px; }
+  .notes ul { margin: 0; padding-left: 14px; list-style: "– "; }
+  .notes > ol > li:target { color: var(--ink); background: var(--accent-soft); }
   .prose h2 { margin-bottom: 8px; }
   .prose li { margin-bottom: 4px; }
   .src { border-collapse: collapse; width: 100%; font-size: 13.5px; }

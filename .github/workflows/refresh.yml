@@ -2,7 +2,7 @@
 name: refresh
 on:
   schedule:
-    - cron: "0 2 1,11,21 * *"   # ~every 10 days
+    - cron: "0 2 * * 0"   # weekly (Sunday); the weekly Claude task runs Monday
   workflow_dispatch:
     inputs:
       sources:

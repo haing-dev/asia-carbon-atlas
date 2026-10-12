@@ -9,12 +9,13 @@
   let limit = $state(200);
 
   const cols = [
-    { k: "name", label: "Project" }, { k: "dev", label: "Developer" }, { k: "country", label: "Country", fn: 2 },
-    { k: "type", label: "Credit type" }, { k: "reg", label: "Registry", fn: 3 }, { k: "st", label: "Stage", fn: 4 },
-    { k: "y_listed", label: "Listed", unit: "year", yr: true, fn: 4 }, { k: "y_registered", label: "Validated", unit: "year", yr: true, fn: 4 },
-    { k: "y_first_issuance", label: "1st issued", unit: "year", yr: true, fn: 4 },
-    { k: "ea", label: "Est. annual", num: true, unit: "tCO₂e/yr", fn: 5 }, { k: "is", label: "Issued", num: true, unit: "tCO₂e", fn: 6 },
-    { k: "re", label: "Retired", num: true, unit: "tCO₂e", fn: 6 }, { k: "off", label: "Announced offtaker(s)", fn: 7 },
+    { k: "name", label: "Project" }, { k: "dev", label: "Developer" }, { k: "off", label: "Announced offtaker(s)", fn: 2 },
+    { k: "country", label: "Country", fn: 3 },
+    { k: "type", label: "Credit type" }, { k: "reg", label: "Registry", fn: 4 }, { k: "st", label: "Stage", fn: 5 },
+    { k: "y_listed", label: "Listed", unit: "year", yr: true, fn: 5 }, { k: "y_registered", label: "Validated", unit: "year", yr: true, fn: 5 },
+    { k: "y_first_issuance", label: "1st issued", unit: "year", yr: true, fn: 5 },
+    { k: "ea", label: "Est. annual", num: true, unit: "tCO₂e/yr", fn: 6 }, { k: "is", label: "Issued", num: true, unit: "tCO₂e", fn: 7 },
+    { k: "re", label: "Retired", num: true, unit: "tCO₂e", fn: 7 },
   ];
 
   const sorted = $derived.by(() => {
@@ -61,6 +62,10 @@
             {#if r.project_url}<a href={r.project_url} target="_blank" rel="noopener">{r.display_name}</a>{:else}{r.display_name}{/if}
           </td>
           <td>{#if r.developer_url}<a href={r.developer_url} target="_blank" rel="noopener">{r.developer || "—"}</a>{:else}{r.developer || "—"}{/if}</td>
+          <td class="off">
+            {#each r.offtakers.slice(0, 4) as o, i}{#if i}, {/if}<a href={o.source_url} target="_blank" rel="noopener" title={offTip(o)}>{o.name}</a>{/each}{#if r.offtakers.length > 4} <span class="muted">+{r.offtakers.length - 4}</span>{/if}
+            {#if !r.offtakers.length}<span class="muted">—</span>{/if}
+          </td>
           <td>{r.countries.join(", ")}{#if r.countries.length > 1} <span class="badge" title={"Map split (by population, UN WPP 2024; Asian hosts only): " + Object.entries(r.country_shares || {}).map(([c, v]) => `${c} ${(v * 100).toFixed(v < 0.01 ? 2 : 0)}%`).join(", ")}>multi</span>{/if}</td>
           <td><span class="sw" style="background:{L1_COLORS[r.l1]}"></span>{r.typeLabel}</td>
           <td class="regs">
@@ -74,10 +79,7 @@
           <td class="num">{fmt(r.ea)}</td>
           <td class="num">{fmt(r.is)}</td>
           <td class="num">{fmt(r.re)}</td>
-          <td>
-            {#each r.offtakers.slice(0, 4) as o, i}{#if i}, {/if}<a href={o.source_url} target="_blank" rel="noopener" title={offTip(o)}>{o.name}</a>{/each}{#if r.offtakers.length > 4} <span class="muted">+{r.offtakers.length - 4}</span>{/if}
-            {#if !r.offtakers.length}<span class="muted">—</span>{/if}
-          </td>
+
         </tr>
         {#if open === r.project_id}
           <tr class="detail">
@@ -135,6 +137,7 @@
   dd { margin: 0; }
   .vint { display: flex; flex-wrap: wrap; gap: 4px 12px; }
   .yr { color: var(--muted); }
+  .off { min-width: 130px; }
   .empty { text-align: center; color: var(--muted); padding: 28px; }
   .more { text-align: center; }
   .more button { border: 1px solid var(--line); background: var(--surface); border-radius: 999px; padding: 4px 14px; cursor: pointer; }

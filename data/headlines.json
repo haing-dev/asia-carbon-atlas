@@ -1,0 +1,16 @@
+{
+  "week_ending": "2026-10-12",
+  "updated": "2026-10-12",
+  "items": [
+    {"title": "South Korea plans to launch Global Verified Carbon Market (GVCM) in 2027, with credits that may link to K-ETS", "url": "https://en.sedaily.com/finance/2026/10/12/korea-to-launch-international-carbon-market-next-year", "source": "Seoul Economic Daily", "date": "2026-10-12", "countries": ["KOR"], "type": "policy"},
+    {"title": "Singapore and Mongolia to open Article 6 project applications on 30 October", "url": "https://carbon-pulse.com/558541/", "source": "Carbon Pulse", "date": "2026-10-08", "countries": ["SGP", "MNG"], "type": "article6"},
+    {"title": "India extends deadline for first CCTS compliance data submission by three months", "url": "https://carbon-pulse.com/558683/", "source": "Carbon Pulse", "date": "2026-10-08", "countries": ["IND"], "type": "policy"},
+    {"title": "Japan proposes criteria to trigger GX-ETS market stabilisation measures", "url": "https://carbon-pulse.com/559000/", "source": "Carbon Pulse", "date": "2026-10-09", "countries": ["JPN"], "type": "policy"},
+    {"title": "Vietnam draft decree sets ETS stabilisation measures and 5% allowance auctions in 2029-30", "url": "https://carbon-pulse.com/559032/", "source": "Carbon Pulse", "date": "2026-10-09", "countries": ["VNM"], "type": "policy"},
+    {"title": "India and Japan publish JCM operational manual with project-specific credit allocation", "url": "https://carbon-pulse.com/558214/", "source": "Carbon Pulse", "date": "2026-10-07", "countries": ["IND", "JPN"], "type": "article6"},
+    {"title": "Singapore and Laos list 58 approved methodologies for Article 6 credit projects", "url": "https://carboncredits.com/singapore-laos-58-article-6-carbon-credit-methodologies/", "source": "CarbonCredits.com", "date": "2026-10-07", "countries": ["SGP", "LAO"], "type": "article6"},
+    {"title": "Philippines and South Korea fast-track Article 6 talks, aiming for a deal in November", "url": "https://carbon-pulse.com/558546/", "source": "Carbon Pulse", "date": "2026-10-08", "countries": ["PHL", "KOR"], "type": "article6"},
+    {"title": "Indian developer registers first project under Verra's CCP-approved VM0051 rice methane method", "url": "https://carbon-pulse.com/559066/", "source": "Carbon Pulse", "date": "2026-10-09", "countries": ["IND"], "type": "registration"},
+    {"title": "India's agriculture ministry issues safeguard guides for carbon projects involving farmers", "url": "https://carbon-pulse.com/559583/", "source": "Carbon Pulse", "date": "2026-10-12", "countries": ["IND"], "type": "policy"}
+  ]
+}

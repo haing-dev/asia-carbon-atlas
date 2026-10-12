@@ -25,6 +25,7 @@
   const nameOf = (iso) => countries.find((c) => c.id === iso)?.name || iso;
 
   let hover = $state(null);
+  const hoverShape = $derived(hover ? shapes.find((x) => x.iso === hover.iso) : null);
 
   const values = $derived(new Map(countries.map((c, i) => [c.id, totals.get(i) || 0])));
   const vmax = $derived(Math.max(0, ...values.values()));
@@ -72,7 +73,7 @@
             aria-label="{nameOf(s.iso)}: {fmt(v)} {unit}"
             onclick={() => onselect(selected === s.iso ? null : s.iso)}
             onkeydown={(e) => (e.key === "Enter" || e.key === " ") && onselect(selected === s.iso ? null : s.iso)}
-            onmouseenter={() => (hover = { name: nameOf(s.iso), v })}
+            onmouseenter={() => (hover = { iso: s.iso, name: nameOf(s.iso), v })}
             onmouseleave={() => (hover = null)}
           ><title>{nameOf(s.iso)}: {fmt(v)} {unit}</title></path>
         {:else}
@@ -80,6 +81,10 @@
         {/if}
       {/each}
     </g>
+    {#if hover && hoverShape}
+      <!-- Hovered country redrawn on top, lifted with a shadow (pointer events pass through to the real shape). -->
+      <path d={hoverShape.d} class="lift" style:fill={fill(hover.v) || "var(--land-in)"} aria-hidden="true" />
+    {/if}
     <g class="dots">
       {#each dots as d (d.iso)}
         {#if d.lx !== d.x || d.ly !== d.y}<line x1={d.x} y1={d.y} x2={d.lx} y2={d.ly} />{/if}
@@ -87,7 +92,7 @@
           role="button" tabindex="0" aria-label="{nameOf(d.iso)}: {fmt(d.v)} {unit}"
           onclick={() => onselect(selected === d.iso ? null : d.iso)}
           onkeydown={(e) => (e.key === "Enter" || e.key === " ") && onselect(selected === d.iso ? null : d.iso)}
-          onmouseenter={() => (hover = { name: nameOf(d.iso), v: d.v })} onmouseleave={() => (hover = null)}
+          onmouseenter={() => (hover = { iso: d.iso, name: nameOf(d.iso), v: d.v })} onmouseleave={() => (hover = null)}
         ><title>{nameOf(d.iso)}: {fmt(d.v)} {unit}</title></circle>
       {/each}
     </g>
@@ -110,11 +115,7 @@
     {/if}
   </svg>
   <figcaption>
-    {#if hover}
-      <strong>{hover.name}</strong> · <span class="num">{fmt(hover.v)}</span> {unit}
-    {:else}
-      Stronger shading = more {metricLabel.toLowerCase()}; exact figures in the ranking. Click a country to see its projects.
-    {/if}
+    {#if hover}<strong>{hover.name}</strong> · <span class="num">{fmt(hover.v)}</span> {unit}{/if}
   </figcaption>
 </figure>
 
@@ -124,7 +125,8 @@
   .ctx { fill: var(--land); stroke: var(--surface); stroke-width: 0.6; }
   .in { fill: var(--land-in); stroke: var(--surface); stroke-width: 0.8; cursor: pointer; transition: fill 0.2s; }
   .in.zero { fill: var(--land-in); }
-  .in:hover { stroke: var(--ink); stroke-width: 1.2; }
+  .lift { stroke: var(--ink); stroke-width: 1; pointer-events: none; transform: translate(-1.5px, -3px);
+    filter: drop-shadow(0 4px 5px rgba(0, 0, 0, 0.35)); transition: transform 0.12s ease-out; }
   .in.sel { stroke: var(--ink); stroke-width: 2; }
   .dots line { stroke: var(--muted); stroke-width: 0.8; }
   .dots circle { stroke: var(--ink); stroke-width: 0.8; cursor: pointer; }

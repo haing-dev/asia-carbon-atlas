@@ -7,6 +7,7 @@
 from __future__ import annotations
 
 import json
+import re
 import shutil
 from collections import defaultdict
 
@@ -26,6 +27,21 @@ REGISTRY_GROUP = {"VCS": "Independent standards", "GS": "Independent standards",
                   "CDM": "Government & UN mechanisms", "PACM": "Government & UN mechanisms",
                   "JCM": "Government & UN mechanisms", "A62": "Government & UN mechanisms",
                   "ANN": "Announcements"}
+
+
+def source_date(sid: str, state: dict) -> str | None:
+    """Date of the data at the source: a release/version date where the source publishes one, otherwise the date we
+    last read the live registry (or imported the export)."""
+    sig = state.get("signal") or {}
+    if sid == "vrod" and sig.get("version"):
+        return sig["version"]                                     # VROD release, e.g. 2026-08
+    if sid == "cdm":
+        m = re.search(r"/uploads/(\d{4})/(\d{2})/", sig.get("url") or "")
+        if m:
+            return f"{m.group(1)}-{m.group(2)}"                    # UNEP-CCC workbook upload month
+    if sid == "gcc":
+        return (state.get("last_changed") or "")[:10] or None     # date the owner's export was imported
+    return (state.get("last_checked") or "")[:10] or None         # live registry, read on this date
 
 
 def _write_hashed(dirpath, stem: str, obj) -> str:
@@ -94,9 +110,13 @@ def main() -> None:
             "last_changed": (manifest["sources"].get(sid) or {}).get("last_changed"),
             "last_checked": (manifest["sources"].get(sid) or {}).get("last_checked"),
             "stale": bool((manifest["sources"].get(sid) or {}).get("stale")),
+            "source_date": source_date(sid, manifest["sources"].get(sid) or {}),
+            "live": sid not in ("vrod", "cdm", "gcc"),
             "url": s.get("url"), "license": s.get("license"),
         } for sid, s in sources.items()},
         "project_count": len(projects),
+        "headlines": json.loads((common.ROOT / "data" / "headlines.json").read_text(encoding="utf-8"))
+        if (common.ROOT / "data" / "headlines.json").exists() else None,
         "files": files,
     }
     (out / "meta.json").write_text(json.dumps(meta, ensure_ascii=False, separators=(",", ":")), encoding="utf-8")

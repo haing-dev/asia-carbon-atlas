@@ -29,6 +29,11 @@
 - **Offtakers (M5 part 1): done.** CDM credit buyers (UNEP-CCC column, ~1,360 projects) + 14 verified public deals on registry
   projects and 11 "Announced deal" rows (supplier-level deals, World Bank FCPF ERPAs) in `config/offtakers.yaml`.
 
+- **Session 2026-10-12 (UI + weekly):** offtaker search + column after Developer; bullet-point notes; source-date column;
+  "Weekly headlines" (data/headlines.json → meta.json); map hover lift; dedupe review page = private artifact
+  https://claude.ai/artifact/HMJAiyx5ZAXieaE3j72qFi (db collection `decisions`; apply with `python -m pipeline.review_page --apply`).
+  Refresh is now weekly (Sun); weekly Claude scheduled task (Mon) per `docs/weekly-task.md`.
+
 ## Next
 - Owner: send a fresh GCC export when wanted (replace the file in `data/manual/gcc/`); spot-check `review/dedupe_pending.csv` pairs.
 - M5 rest: monthly scheduled Claude task for offtaker/website enrichment (queue + review flow per SPEC §10); Puro retirement beneficiaries.

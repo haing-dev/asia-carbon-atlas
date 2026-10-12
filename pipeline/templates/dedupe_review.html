@@ -1,0 +1,197 @@
+<title>Atlas Duplicate Review</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@400;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+  /* Layout: one working column — progress bar on top, then a stack of side-by-side record comparisons. */
+  :root {
+    --bg: #f5f7f6; --surface: #ffffff; --ink: #18302f; --muted: #5d716f; --line: #d9e2e0;
+    --accent: #0b5a62; --accent-soft: #e1efee; --same: #1f7a4d; --same-soft: #e3f3ea; --diff: #a2412b; --diff-soft: #f8e7e2;
+    --diffmark: #fff3c4;
+    --sans: "Source Sans 3", "Segoe UI", system-ui, sans-serif; --mono: "IBM Plex Mono", ui-monospace, Menlo, monospace;
+  }
+  @media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) {
+    --bg: #111a1b; --surface: #182324; --ink: #e2ecea; --muted: #93a6a3; --line: #2a3a3b;
+    --accent: #74d3d9; --accent-soft: #1d3436; --same: #6fd39d; --same-soft: #183126; --diff: #f0957d; --diff-soft: #36211c;
+    --diffmark: #3b3416; color-scheme: dark } }
+  :root[data-theme="dark"] {
+    --bg: #111a1b; --surface: #182324; --ink: #e2ecea; --muted: #93a6a3; --line: #2a3a3b;
+    --accent: #74d3d9; --accent-soft: #1d3436; --same: #6fd39d; --same-soft: #183126; --diff: #f0957d; --diff-soft: #36211c;
+    --diffmark: #3b3416; color-scheme: dark }
+  body { background: var(--bg); color: var(--ink); font: 15px/1.45 var(--sans); }
+  .wrap { max-width: 1040px; margin: 0 auto; padding-inline: 16px; padding-block: 18px 48px; }
+  h1 { font-size: 22px; margin: 0; text-wrap: balance; }
+  .lede { color: var(--muted); margin: 4px 0 14px; max-width: 70ch; }
+  .bar { position: sticky; top: env(safe-area-inset-top, 0px); z-index: 2; background: var(--bg); padding-block: 8px; display: flex; flex-wrap: wrap; gap: 10px 16px; align-items: center; border-bottom: 1px solid var(--line); }
+  .progress { flex: 1 1 220px; min-width: 0; }
+  .track { height: 6px; border-radius: 3px; background: var(--line); overflow: hidden; }
+  .fill { height: 100%; background: var(--accent); width: 0; transition: width .2s; }
+  .counts { font-size: 13px; color: var(--muted); margin-top: 4px; font-variant-numeric: tabular-nums; }
+  .tabs { display: flex; gap: 4px; flex-wrap: wrap; }
+  .tabs button { border: 1px solid var(--line); background: var(--surface); color: var(--ink); border-radius: 999px; padding: 3px 12px; font: inherit; font-size: 13px; cursor: pointer; }
+  .tabs button[aria-pressed="true"] { background: var(--accent); border-color: var(--accent); color: var(--surface); }
+  .notice { margin: 12px 0; padding: 8px 12px; border: 1px solid var(--line); border-radius: 8px; background: var(--surface); font-size: 14px; }
+  .list { display: grid; gap: 12px; margin-top: 14px; }
+  .pair { background: var(--surface); border: 1px solid var(--line); border-radius: 10px; padding: 12px; outline: none; }
+  .pair:focus-visible { box-shadow: 0 0 0 2px var(--accent); }
+  .pair.same { border-color: var(--same); background: var(--same-soft); }
+  .pair.different { border-color: var(--diff); background: var(--diff-soft); }
+  .head { display: flex; justify-content: space-between; align-items: center; gap: 8px; margin-bottom: 8px; font-size: 13px; color: var(--muted); }
+  .score { font-family: var(--mono); }
+  .cols { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+  @media (max-width: 640px) { .cols { grid-template-columns: 1fr; } }
+  .rec { min-width: 0; }
+  .rec a.id { font: 500 12px var(--mono); color: var(--accent); }
+  .rec .nm { font-weight: 600; margin: 2px 0 6px; overflow-wrap: anywhere; }
+  dl { display: grid; grid-template-columns: 92px 1fr; gap: 2px 8px; margin: 0; font-size: 13px; }
+  dt { color: var(--muted); }
+  dd { margin: 0; min-width: 0; overflow-wrap: anywhere; font-variant-numeric: tabular-nums; }
+  dd.d { background: var(--diffmark); border-radius: 3px; padding-inline: 3px; }
+  .actions { display: flex; gap: 8px; margin-top: 10px; flex-wrap: wrap; }
+  .actions button { font: inherit; font-size: 14px; border-radius: 8px; padding: 5px 14px; cursor: pointer; border: 1px solid var(--line); background: var(--surface); color: var(--ink); }
+  .actions .y { border-color: var(--same); color: var(--same); }
+  .actions .n { border-color: var(--diff); color: var(--diff); }
+  .actions button[aria-pressed="true"].y { background: var(--same); color: var(--surface); }
+  .actions button[aria-pressed="true"].n { background: var(--diff); color: var(--surface); }
+  .actions button:disabled { opacity: .45; cursor: default; }
+  .keys { font-size: 12px; color: var(--muted); margin-left: auto; align-self: center; }
+  kbd { font: 11px var(--mono); border: 1px solid var(--line); border-radius: 3px; padding: 0 4px; }
+  .more { margin: 16px auto 0; display: block; font: inherit; border: 1px solid var(--line); background: var(--surface); color: var(--ink); border-radius: 999px; padding: 5px 16px; cursor: pointer; }
+  .empty { text-align: center; color: var(--muted); padding: 40px 0; }
+  @media (prefers-reduced-motion: reduce) { .fill { transition: none; } }
+</style>
+
+<div class="wrap">
+  <h1>Possible duplicate projects</h1>
+  <p class="lede">Each card shows two registry records the atlas thinks may be the same project. Mark <strong>Same project</strong> to merge them into one row, or <strong>Different</strong> to keep them apart. Highlighted: developer, country or state differ. Your answers save automatically; Claude applies them to the site.</p>
+  <div class="bar">
+    <div class="progress">
+      <div class="track"><div class="fill" id="fill"></div></div>
+      <div class="counts" id="counts">Loading saved answers…</div>
+    </div>
+    <div class="tabs" role="group" aria-label="Show">
+      <button id="t-todo" aria-pressed="true" data-v="todo">To review</button>
+      <button id="t-same" aria-pressed="false" data-v="same">Same</button>
+      <button id="t-different" aria-pressed="false" data-v="different">Different</button>
+      <button id="t-all" aria-pressed="false" data-v="all">All</button>
+    </div>
+  </div>
+  <p class="notice" id="ro" hidden>Answers can't be saved in this view (you may be signed out or have view-only access).</p>
+  <div class="list" id="list"></div>
+  <button class="more" id="more" hidden>Show more</button>
+</div>
+
+<script>
+const PAIRS = /*__PAIRS__*/[];
+const PAGE = 30;
+let decisions = new Map();   // pair key -> "same" | "different"
+let view = "todo", shown = PAGE, db = null, col = null;
+
+const $ = (id) => document.getElementById(id);
+const fmt = (v) => v == null ? "—" : v >= 1e6 ? (v / 1e6).toFixed(2) + "M" : v >= 1e3 ? (v / 1e3).toFixed(1) + "k" : String(v);
+const esc = (s) => String(s ?? "").replace(/[&<>"]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
+const FIELDS = [
+  ["Developer", (r) => r.dev], ["Country", (r) => (r.c || []).join(", ")], ["State", (r) => r.state], ["Type", (r) => r.type],
+  ["Methodology", (r) => (r.meth || []).join(", ")], ["Status", (r) => r.status], ["Start", (r) => r.start],
+  ["Est. annual", (r) => fmt(r.est)], ["Issued", (r) => fmt(r.iss)],
+];
+const norm = (v) => String(v ?? "—").toLowerCase().replace(/[^a-z0-9]/g, "");
+
+function recHtml(r, other) {
+  const rows = FIELDS.map(([k, f]) => {
+    const v = f(r), d = ["Developer", "Country", "State"].includes(k) && norm(v) !== norm(f(other)) && v != null && f(other) != null && v !== "—" && f(other) !== "—";
+    return `<dt>${k}</dt><dd class="${d ? "d" : ""}">${esc(v || "—")}</dd>`;
+  }).join("");
+  return `<div class="rec"><a class="id" href="${esc(r.url)}" target="_blank" rel="noopener">${esc(r.id)} ↗</a>
+    <div class="nm">${esc(r.name)}</div><dl>${rows}</dl></div>`;
+}
+
+function visible() {
+  return PAIRS.filter((p) => {
+    const d = decisions.get(p.key);
+    return view === "all" || (view === "todo" ? !d : d === view);
+  });
+}
+
+function render() {
+  const done = PAIRS.filter((p) => decisions.has(p.key)).length;
+  const same = [...decisions.values()].filter((d) => d === "same").length;
+  $("fill").style.width = (PAIRS.length ? (100 * done / PAIRS.length) : 0) + "%";
+  $("counts").textContent = `${done} of ${PAIRS.length} reviewed · ${same} same · ${done - same} different`;
+  const items = visible();
+  const list = $("list");
+  if (!items.length) {
+    list.innerHTML = `<p class="empty">${view === "todo" ? "All pairs reviewed. Tell Claude “apply dedupe decisions” to update the site." : "Nothing here yet."}</p>`;
+  } else {
+    list.innerHTML = items.slice(0, shown).map((p) => {
+      const d = decisions.get(p.key) || "";
+      return `<article class="pair ${d}" tabindex="0" data-key="${esc(p.key)}">
+        <div class="head"><span>Name match <span class="score">${p.score.toFixed(2)}</span></span><span>${d ? (d === "same" ? "Marked same" : "Marked different") : ""}</span></div>
+        <div class="cols">${recHtml(p.a, p.b)}${recHtml(p.b, p.a)}</div>
+        <div class="actions">
+          <button class="y" aria-pressed="${d === "same"}" data-d="same" ${col ? "" : "disabled"}>Same project</button>
+          <button class="n" aria-pressed="${d === "different"}" data-d="different" ${col ? "" : "disabled"}>Different</button>
+          ${d ? `<button data-d="" ${col ? "" : "disabled"}>Undo</button>` : ""}
+          <span class="keys"><kbd>Y</kbd> same · <kbd>N</kbd> different</span>
+        </div></article>`;
+    }).join("");
+  }
+  $("more").hidden = items.length <= shown;
+}
+
+async function decide(key, d) {
+  if (!col) return;
+  const prev = decisions.get(key);
+  if (d) decisions.set(key, d); else decisions.delete(key);   // optimistic; the snapshot confirms
+  render();
+  try {
+    if (d) await col.doc(key).set({ pair: key, decision: d, at: new Date().toISOString() });
+    else await col.doc(key).delete();
+  } catch (e) {
+    if (prev) decisions.set(key, prev); else decisions.delete(key);
+    render();
+    $("ro").hidden = false;
+    $("ro").textContent = "Couldn't save that answer (" + (e && e.code || "error") + "). Check your access and try again.";
+  }
+}
+
+$("list").addEventListener("click", (e) => {
+  const b = e.target.closest("button[data-d]");
+  if (!b || b.disabled) return;
+  const card = b.closest(".pair");
+  decide(card.dataset.key, b.dataset.d);
+  focusNext(card);
+});
+$("list").addEventListener("keydown", (e) => {
+  const card = e.target.closest(".pair");
+  if (!card || e.target.tagName === "BUTTON" && (e.key === "Enter" || e.key === " ")) return;
+  const k = e.key.toLowerCase();
+  if (k === "y" || k === "n") { e.preventDefault(); decide(card.dataset.key, k === "y" ? "same" : "different"); focusNext(card); }
+});
+function focusNext(card) {
+  const key = card.dataset.key;
+  requestAnimationFrame(() => {
+    const cards = [...document.querySelectorAll(".pair")];
+    const i = cards.findIndex((c) => c.dataset.key === key);
+    (cards[i + 1] || cards[i] || cards[0])?.focus({ preventScroll: false });
+  });
+}
+document.querySelectorAll(".tabs button").forEach((b) => b.addEventListener("click", () => {
+  view = b.dataset.v; shown = PAGE;
+  document.querySelectorAll(".tabs button").forEach((x) => x.setAttribute("aria-pressed", String(x === b)));
+  render();
+}));
+$("more").addEventListener("click", () => { shown += PAGE; render(); });
+
+render();
+(async () => {
+  db = window.claude ? await window.claude.use("db") : null;
+  if (!db) { $("ro").hidden = false; $("counts").textContent = `${PAIRS.length} pairs to review`; render(); return; }
+  col = db.collection("decisions");
+  col.onSnapshot((snap) => {
+    const m = new Map();
+    for (const d of snap.docs) { const x = d.data(); if (x && x.decision) m.set(d.id, x.decision); }
+    decisions = m;
+    render();
+  }, () => { $("ro").hidden = false; });
+})();
+</script>
