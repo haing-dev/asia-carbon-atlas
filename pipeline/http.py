@@ -1,4 +1,5 @@
-"""Polite HTTP client: descriptive User-Agent, robots.txt, ≤1 request/sec per host, conditional requests."""
+"""Polite HTTP client: descriptive User-Agent, robots.txt (incl. Crawl-delay), ≤1 request/sec per host,
+conditional requests."""
 from __future__ import annotations
 
 import time
@@ -38,11 +39,16 @@ class PoliteClient:
         rp = self._robots[base]
         return True if rp is None else rp.can_fetch(USER_AGENT, url)
 
-    def _wait(self, host: str) -> None:
-        elapsed = time.monotonic() - self._last.get(host, 0.0)
-        if elapsed < MIN_INTERVAL:
-            time.sleep(MIN_INTERVAL - elapsed)
-        self._last[host] = time.monotonic()
+    def _wait(self, url: str) -> None:
+        parts = urlsplit(url)
+        rp = self._robots.get(f"{parts.scheme}://{parts.netloc}")
+        delay = MIN_INTERVAL
+        if rp is not None:
+            delay = max(delay, float(rp.crawl_delay(USER_AGENT) or 0))
+        elapsed = time.monotonic() - self._last.get(parts.netloc, 0.0)
+        if elapsed < delay:
+            time.sleep(delay - elapsed)
+        self._last[parts.netloc] = time.monotonic()
 
     def get(self, url: str, etag: str | None = None, last_modified: str | None = None, **kw) -> httpx.Response:
         if not self._allowed(url):
@@ -52,11 +58,11 @@ class PoliteClient:
             headers["If-None-Match"] = etag
         if last_modified:
             headers["If-Modified-Since"] = last_modified
-        self._wait(urlsplit(url).netloc)
+        self._wait(url)
         return self.client.get(url, headers=headers, **kw)
 
     def head(self, url: str, **kw) -> httpx.Response:
         if not self._allowed(url):
             raise PermissionError(f"robots.txt disallows {url}")
-        self._wait(urlsplit(url).netloc)
+        self._wait(url)
         return self.client.head(url, **kw)

@@ -1,0 +1,28 @@
+# Manual helper while building adapters: fetch URLs politely and publish summaries to the `ci-logs` branch.
+name: discover
+on:
+  workflow_dispatch:
+    inputs:
+      urls:
+        description: "Space-separated URLs"
+        required: true
+permissions:
+  contents: write
+jobs:
+  discover:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v5
+      - uses: astral-sh/setup-uv@v6
+        with:
+          enable-cache: true
+      - run: uv sync --frozen
+      - run: uv run python -m pipeline.discover ${{ inputs.urls }}
+      - name: Publish to ci-logs branch
+        run: |
+          mkdir -p /tmp/out && cp -r work/discover /tmp/out/
+          cd /tmp/out
+          git init -q -b ci-logs && git config user.name atlas-bot && git config user.email atlas-bot@users.noreply.github.com
+          git add -A && git commit -qm "discover run ${{ github.run_id }}"
+          git push -qf "https://x-access-token:${{ github.token }}@github.com/${{ github.repository }}.git" ci-logs
