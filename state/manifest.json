@@ -1,5 +1,5 @@
 {
-  "last_commit_at": "2026-10-12T07:04:15+00:00",
+  "last_commit_at": "2026-10-12T07:07:09+00:00",
   "sources": {
     "cdm": {
       "error": null,
@@ -25,9 +25,15 @@
       "stale": false
     },
     "vrod": {
-      "error": "ValueError: 'Total Credits Issued' is not in list",
-      "last_checked": "2026-10-12T07:04:15+00:00",
-      "stale": true
+      "error": null,
+      "last_changed": "2026-10-12T07:07:09+00:00",
+      "last_checked": "2026-10-12T07:07:09+00:00",
+      "rows": 3125,
+      "signal": {
+        "url": "https://gspp.berkeley.edu/assets/uploads/page/Voluntary-Registry-Offsets-Database--v2026-08.xlsx",
+        "version": "2026-08"
+      },
+      "stale": false
     }
   }
 }
