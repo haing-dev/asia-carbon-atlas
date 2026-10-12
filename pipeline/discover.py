@@ -60,6 +60,9 @@ def main(urls: list[str]) -> None:
             ctype = r.headers.get("content-type", "")
             if "json" in ctype:
                 body = r.text[:400_000]
+            elif url.split("?")[0].endswith(".js") or "javascript" in ctype:
+                strings = sorted(set(re.findall(r'["\'`]([^"\'`\s]{0,200}(?:api|public|/v\d/)[^"\'`\s]{0,200})["\'`]', r.text)))
+                body = "JS STRINGS mentioning api/public:\n" + "\n".join(strings[:3000])
             elif url.endswith((".xlsx", ".xlsm")) or "spreadsheet" in ctype:
                 body = summarize_xlsx(r.content)
             else:
