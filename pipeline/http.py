@@ -18,7 +18,7 @@ MIN_INTERVAL = 1.0  # seconds between requests to the same host
 class PoliteClient:
     def __init__(self, timeout: float = 60.0):
         self.client = httpx.Client(
-            headers={"User-Agent": USER_AGENT, "Accept-Encoding": "gzip, deflate, br"},
+            headers={"User-Agent": USER_AGENT, "Accept-Encoding": "gzip, deflate"},
             timeout=timeout,
             follow_redirects=True,
         )

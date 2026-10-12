@@ -21,7 +21,7 @@ def summarize_xlsx(data: bytes, rows: int = 12) -> str:
     wb = openpyxl.load_workbook(io.BytesIO(data), read_only=True, data_only=True)
     parts = []
     for ws in wb.worksheets:
-        parts.append(f"=== SHEET {ws.title!r} dims={ws.dimensions} max_row={ws.max_row} max_col={ws.max_column}")
+        parts.append(f"=== SHEET {ws.title!r} max_row={ws.max_row} max_col={ws.max_column}")
         for i, row in enumerate(ws.iter_rows(values_only=True)):
             if i >= rows:
                 break
