@@ -1,14 +1,14 @@
 {
-  "last_commit_at": "2026-10-12T16:14:14+00:00",
+  "last_commit_at": "2026-10-12T16:24:46+00:00",
   "sources": {
     "a6pipeline": {
       "error": null,
-      "last_changed": "2026-10-12T08:07:56+00:00",
-      "last_checked": "2026-10-12T08:07:56+00:00",
-      "rows": 153,
+      "last_changed": "2026-10-12T16:24:46+00:00",
+      "last_checked": "2026-10-12T16:24:46+00:00",
+      "rows": 174,
       "signal": {
         "a6p2": "c55adb3158b3514d",
-        "pacm": "e54e480896100076",
+        "pacm": "a6dd5b62b4e35d9c",
         "rows": {
           "a6p2": 309,
           "pacm": 179
@@ -18,9 +18,9 @@
     },
     "cdm": {
       "error": null,
-      "last_changed": "2026-10-12T13:59:42+00:00",
-      "last_checked": "2026-10-12T13:59:42+00:00",
-      "rows": 3024,
+      "last_changed": "2026-10-12T16:24:46+00:00",
+      "last_checked": "2026-10-12T16:24:46+00:00",
+      "rows": 4230,
       "signal": {
         "etag": "\"1182fd5-632f6ba395d70\"",
         "last_modified": "Thu, 17 Apr 2025 10:18:47 GMT",
@@ -30,9 +30,9 @@
     },
     "gcc": {
       "error": null,
-      "last_changed": "2026-10-12T13:51:25+00:00",
-      "last_checked": "2026-10-12T13:59:42+00:00",
-      "rows": 138,
+      "last_changed": "2026-10-12T16:24:46+00:00",
+      "last_checked": "2026-10-12T16:24:46+00:00",
+      "rows": 171,
       "signal": {
         "file": "ApprovedProjects_ProjectsExport.xlsx",
         "sha256": "931f7d200679c8f4"
@@ -41,9 +41,9 @@
     },
     "jcm": {
       "error": null,
-      "last_changed": "2026-10-12T08:07:56+00:00",
-      "last_checked": "2026-10-12T08:07:56+00:00",
-      "rows": 83,
+      "last_changed": "2026-10-12T16:24:46+00:00",
+      "last_checked": "2026-10-12T16:24:46+00:00",
+      "rows": 87,
       "signal": {
         "issues": "W/\"5437b377e5fc2d32829d5bea29cc0723\"",
         "list": "W/\"19bb3703b4455cebc41b876278b00cb5\""
@@ -52,9 +52,9 @@
     },
     "puro": {
       "error": null,
-      "last_changed": "2026-10-12T07:46:44+00:00",
-      "last_checked": "2026-10-12T07:46:44+00:00",
-      "rows": 7,
+      "last_changed": "2026-10-12T16:24:46+00:00",
+      "last_checked": "2026-10-12T16:24:46+00:00",
+      "rows": 53,
       "signal": {
         "newest_issuance": "30 Sept 2026 10823 Exomad Green, Concepción Exomad Industria Maderera S.A. Biochar, 2022 ",
         "projects_hash": "d594df3848e72148"
@@ -63,9 +63,9 @@
     },
     "ucr": {
       "error": null,
-      "last_changed": "2026-10-12T08:18:04+00:00",
-      "last_checked": "2026-10-12T08:18:04+00:00",
-      "rows": 301,
+      "last_changed": "2026-10-12T16:24:46+00:00",
+      "last_checked": "2026-10-12T16:24:46+00:00",
+      "rows": 314,
       "signal": {
         "grid_hash": "9f1a7b9ea336ebc4",
         "month": "2026-10",
