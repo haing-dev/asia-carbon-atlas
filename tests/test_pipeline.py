@@ -55,8 +55,40 @@ def test_article6_annotation_tags_without_adding_volume(monkeypatch):
         base | {"record_id": "A62:XX-JP-0001", "registry": "A62", "role": "annotation", "cross_refs": ["JCM:XX001"]},
     ]
     monkeypatch.setattr(process.common, "load_all_records", lambda: recs)
+    monkeypatch.setattr(process, "load_offtakes", lambda: ({}, []))
     projects = process.build_projects()
     assert len(projects) == 1
     p = projects[0]
     assert p["issued_tco2e"] == 100 and [r["registry"] for r in p["registries"]] == ["VCS"]
     assert p["article6"]["mechanism"] == "Art. 6.2"
+
+
+def test_vintage_overlap_counts_once():
+    from pipeline.process import rollup
+    cdm = {"issued_tco2e": 300, "retired_tco2e": 0, "issuance_by_vintage": {"2010": 100, "2011": 200}}
+    vcs = {"issued_tco2e": 250, "retired_tco2e": 50, "issuance_by_vintage": {"2011": 200, "2012": 50}}
+    issued, retired, by_vintage, overlap = rollup([cdm, vcs])
+    assert (issued, overlap) == (350, True) and by_vintage == {"2010": 100, "2011": 200, "2012": 50}
+
+
+def test_fuzzy_guards():
+    from pipeline import dedupe
+    def rec(rid, reg, name, **kw):
+        r = {"record_id": rid, "registry": reg, "name": name, "countries": ["IND"], **kw}
+        return r
+    recs = [
+        rec("CDM:1", "CDM", "Nam Mo 3 Hydropower Project, Vietnam"), rec("VCS:1", "VCS", "Nam Mo 3 Hydro Power Project"),
+        rec("CDM:2", "CDM", "Distribution of Improved cook stove - Phase IV"), rec("VCS:2", "VCS", "Distribution of Improved cook stove - Phase VI"),
+        rec("CDM:3", "CDM", "Enercon Wind Farm in Karnataka"), rec("VCS:3", "VCS", "Enercon Wind Farm in Rajasthan"),
+        rec("CDM:4", "CDM", "Wind Power Project in Gujarat"), rec("VCS:4", "VCS", "Wind Power Project in Gujarat, India"),
+    ]
+    merge, _ = dedupe.fuzzy_links(recs, lambda r: "renewables")
+    pairs = {tuple(sorted(p[:2])) for p in merge}
+    assert ("CDM:1", "VCS:1") in pairs
+    assert not pairs & {("CDM:2", "VCS:2"), ("CDM:3", "VCS:3"), ("CDM:4", "VCS:4")}
+
+
+def test_cdm_buyers_parsed():
+    from pipeline.process import cdm_buyers
+    out = cdm_buyers({"registry": "CDM", "credit_buyer_raw": "Netherlands (AES AgriVerde), Switzerland (ACE-Asia) "})
+    assert [(o["name"], o["country"]) for o in out] == [("AES AgriVerde", "Netherlands"), ("ACE-Asia", "Switzerland")]

@@ -17,10 +17,13 @@ CDM:4437|GS:7685,1.0,"GREEN ENERGY TO GRID at Dhule, Maharashtra",GREEN ENERGY T
 CDM:4437|VCS:331,1.0,"GREEN ENERGY TO GRID at Dhule, Maharashtra",Green Energy to Grid at Dhule Maharashtra,1.0,,False,False,False
 CDM:5486|GS:5632,1.0,Bundled 9.00 MW Wind Power Generation Project by Gangadhar Narsingdas Agrawal Group,Bundled 9.00 MW Wind Power Generation Project by Gangadhar Narsingdas Agrawal Group,1.0,True,False,False,True
 CDM:5486|GS:5633,1.0,Bundled 9.00 MW Wind Power Generation Project by Gangadhar Narsingdas Agrawal Group,Bundled 9.00 MW wind power Generation project in Rajasthan India by M/s. Gangadhar Narsingdas Agrawal Group,0.931,True,False,False,False
+CDM:6909|GS:7793,1.0,"Grid connected solar PV power plant in Jodhpur, Rajasthan",5 MW Solar Photovoltaic based Power Generation in Jodhpur Rajasthan,0.913,True,False,False,True
 CDM:7215|GS:5632,1.0,"Bundled 9.00 MW wind power Generation project in Rajasthan, India by M/s. Gangadhar Narsingdas Agrawal Group",Bundled 9.00 MW Wind Power Generation Project by Gangadhar Narsingdas Agrawal Group,0.931,True,False,False,True
 CDM:7215|GS:5633,1.0,"Bundled 9.00 MW wind power Generation project in Rajasthan, India by M/s. Gangadhar Narsingdas Agrawal Group",Bundled 9.00 MW wind power Generation project in Rajasthan India by M/s. Gangadhar Narsingdas Agrawal Group,1.0,True,False,False,False
 CDM:8495|GS:7628,1.0,Lalpur wind farm in Gujarat,Wind farm at Lalpur Gujarat,1.0,,False,False,False
 CDM:8495|VCS:2244,1.0,Lalpur wind farm in Gujarat,Lalpur wind farm in Gujarat,1.0,,False,False,False
+CDM:9266|GS:7793,1.0,"Solar power project at Jodhpur, Rajasthan",5 MW Solar Photovoltaic based Power Generation in Jodhpur Rajasthan,0.883,True,False,False,True
+CDM:9404|GS:7793,1.0,"5MW Solar PV Power Project in Jodhpur District, Rajasthan",5 MW Solar Photovoltaic based Power Generation in Jodhpur Rajasthan,0.913,True,False,False,True
 CDM:9630|GS:7793,1.0,"5 MW Solar Photovoltaic based Power Generation in Jodhpur, Rajasthan",5 MW Solar Photovoltaic based Power Generation in Jodhpur Rajasthan,1.0,True,False,False,True
 UCR:511|VCS:599,1.0,Enercon Wind Farms in Karnataka Bundled Project,Enercon Wind Farms in Karnataka Bundled Project-30.40 MW,1.0,,False,False,False
 UCR:511|VCS:757,1.0,Enercon Wind Farms in Karnataka Bundled Project,Enercon Wind Farms in Karnataka Bundled Project  73.60 MW,1.0,,False,False,False
@@ -38,14 +41,11 @@ CDM:10431|GS:11572,1.0,Improved cookstove program in Bangladesh supported by the
 CDM:8142|GS:11616,1.0,MicroEnergy Credits  Microfinance for Clean Energy Product Lines - Mongolia,MicroEnergy Credits – Microfinance for Clean Energy Product Lines - Mongolia,1.0,,False,False,False
 CDM:8142|GS:1343,1.0,MicroEnergy Credits  Microfinance for Clean Energy Product Lines - Mongolia,MicroEnergy Credits - Microfinance for Clean Energy Product Lines - Mongolia,1.0,,False,False,True
 CDM:8142|GS:2434,0.984,MicroEnergy Credits  Microfinance for Clean Energy Product Lines - Mongolia,MicroEnergy Credits - Mongolia - Microfinance for Clean Energy Product Lines VER Project,0.984,,False,False,False
-CDM:6909|GS:7793,0.976,"Grid connected solar PV power plant in Jodhpur, Rajasthan",5 MW Solar Photovoltaic based Power Generation in Jodhpur Rajasthan,0.856,True,False,False,True
-CDM:9404|GS:7793,0.976,"5MW Solar PV Power Project in Jodhpur District, Rajasthan",5 MW Solar Photovoltaic based Power Generation in Jodhpur Rajasthan,0.856,True,False,False,True
 CDM:2562|VCS:377,0.971,"Bundled Wind Power Project in Tirunelveli, Tamil Nadu","11.60 MW Bundled grid-connected wind electricity generation project at Tirunelveli, Tamil Nadu, India",0.851,True,False,False,True
 CDM:9531|VCS:1411,0.968,Grid Connected Solar Power Project in Bikaner,"Solar PV power project at Bikaner,India",0.948,,False,False,True
 CDM:1841|VCS:1451,0.964,Yeong Yang 61.5MW Wind Farm Project,Yeong Yang 61.5MW Wind Farm Project - CER Conversion,0.864,True,False,False,False
 CDM:593|VCS:1519,0.951,"15.4 MW wind farm at Satara District, Maharashtra.","Satara Wind Power Project in Maharashtra, India",0.951,,False,False,False
 CDM:991|VCS:1751,0.95,"Bundled Wind power project in Tamilnadu, India co-ordinated by the TamilNadu Spinning Mills Association (TASMA)","Bundled Wind power project in Tamilnadu, India co-ordinated by the TamilNadu Spinning Mills Association (TASMA) - CER Conversion",0.95,,False,False,False
-CDM:9266|GS:7793,0.949,"Solar power project at Jodhpur, Rajasthan",5 MW Solar Photovoltaic based Power Generation in Jodhpur Rajasthan,0.829,True,False,False,True
 CDM:9376|VCS:2247,0.944,"Wind Power Project at Tadas, Karnataka",Tadas Wind Farm in Karnataka,0.944,,False,False,False
 CDM:10077|VCS:2478,0.944,Reducing Gas Leakages within the Titas Gas Distribution Network in Bangladesh,Reducing Gas Leakages within the Titas Gas Distribution Network in Bangladesh - CER Conversion,0.944,,False,False,False
 CDM:2556|GS:7303,0.944,Bangna Starch Wastewater Treatment and Biogas Utilization Project,Bangna Starch Wastewater Treatment and Biogas Utilization Project (300084) (GS565 CER to VER conversion),0.924,,False,False,True
@@ -55,12 +55,13 @@ CDM:2141|GS:775,0.931,"CYY Biopower Wastewater treatment plant including biogas 
 GS:775|VCS:2261,0.931,CYY Biopower Wastewater treatment plant including biogas reuse for thermal oil replacement and electricity generation Project Thailand (300059)_pre-CDM VER,"CYY Biopower Wastewater treatment plant including biogas reuse for thermal oil replacement and electricity generation Project, Thailand",0.931,,False,False,False
 CDM:2076|GS:866,0.926,Univanich Lamthap POME Biogas Project,Univanich Lamthap POME Biogas Project PreCDMVER,0.926,,False,False,False
 CDM:9699|GS:7790,0.918,"24 MW Wind Energy based Power Generation In Theni, Tamil Nadu",Wind energy project in Theni Tamil Nadu,0.918,,False,False,False
-GS:10656|VCS:490,0.914,Enercon Wind Farm (Hindustan) Ltd in Rajasthan (GS2483 CER to VER conversion),Enercon Wind Farms (Hindustan) Pvt Ltd in Rajasthan,0.894,,False,False,True
+GS:10656|VCS:490,0.918,Enercon Wind Farm (Hindustan) Ltd in Rajasthan (GS2483 CER to VER conversion),Enercon Wind Farms (Hindustan) Pvt Ltd in Rajasthan,0.898,,False,False,True
 CDM:991|VCS:1353,0.906,"Bundled Wind power project in Tamilnadu, India co-ordinated by the TamilNadu Spinning Mills Association (TASMA)","Bundled Wind Power Project in Tamilnadu, India, co-ordinated by Tamilnadu Spinning Mills Association (TASMA-V2)",0.906,,False,False,False
 CDM:2970|GS:865,0.904,TBEC Tha Chang Biogas Project,TBEC Tha Chang Biogas Project PreCDMVER,0.904,,False,False,False
 CDM:4867|GS:773,0.904,Chantaburi Starch Wastewater Treatment and Biogas Utilization Project,Chantaburi Starch Wastewater Treatment and Biogas Utilization Project (300085)_pre-CDM VER,0.884,,False,False,True
 CDM:991|VCS:1352,0.902,"Bundled Wind power project in Tamilnadu, India co-ordinated by the TamilNadu Spinning Mills Association (TASMA)","Bundled Wind Power Project in Tamilnadu, India, co-ordinated by Tamilnadu Spinning Mills Association (TASMA V1A)",0.902,,False,False,False
 CDM:2556|GS:777,0.902,Bangna Starch Wastewater Treatment and Biogas Utilization Project,Bangna Starch Wastewater Treatment and Biogas Utilization Project (300084)_pre-CDM VER,0.882,,False,False,True
+CDM:9185|VCS:1411,0.901,"Grid connected solar photovoltaic power plant in Bikaner, Rajasthan, India","Solar PV power project at Bikaner,India",0.881,,False,False,True
 GS:10662|VCS:1120,0.9,Vaayu India Wind Power Project in Jaisalmer Rajasthan (GS5013 CER to VER conversion),"Vaayu India Wind Power Project in Jaisalmer, Rajasthan",0.88,,False,False,True
 CDM:1168|GS:10656,0.898,Enercon Wind Farm (Hindustan) Ltd in Rajasthan,Enercon Wind Farm (Hindustan) Ltd in Rajasthan (GS2483 CER to VER conversion),0.898,,False,False,False
 GS:10656|UCR:105,0.898,Enercon Wind Farm (Hindustan) Ltd in Rajasthan,Enercon Wind Farm (Hindustan) Ltd in Rajasthan (GS2483 CER to VER conversion),0.898,,False,False,False
@@ -68,7 +69,7 @@ CDM:5364|GS:795,0.898,Wastewater Treatment and Methane Recovery at Green Field J
 CDM:7379|GS:6586,0.893,Solar Thermal Power Plant by Godawari Green Energy Limited,Solar thermal power plant by Godawari Green Energy Limited (GS3429 CER to VER conversion),0.893,,False,False,False
 CDM:9802|VCS:1303,0.893,"Biomass Based Co-generation project at Karnal, Haryana",Biomass based Renewable Energy Generation at Karnal,0.873,,False,False,True
 GS:12302|VCS:2942,0.888,Clean Cooking Program in Rural India,Clean Cooking - Cook Stove for Rural India,0.888,,False,False,False
-GS:3014|VCS:1699,0.888,Song Chung Hydropower Project,Song Chung Hydropower Project - CER Conversion,0.868,,False,False,True
+CDM:1252|VCS:1691,0.886,"5 MW Upper Awa small hydroelectric project, Himachal Pradesh, India",5 MW Upper Awa Hydro Power Project in Himachal Pradesh by M/s Astha Projects (India) Limited,0.766,True,False,False,True
 CDM:10547|UCR:492,0.886,Integrated Municipal Solid Waste Management Activities Programme in India,"Integrated Municipal Solid Waste Management Activities Programme, Nashik, India",0.886,,False,False,False
 CDM:2636|GS:10887,0.886,"AVN08-S-01, Methane Recovery and Biogas Utilization Project, Nghe An Province, Vietnam",AVN08-S-01 Methane Recovery and Biogas Utilization Project Nghe An Province Vietna,0.866,,False,False,True
 CDM:6648|GS:774,0.885,Saraff Biogas Wastewater Treatment and Biogas Utilisation Project,Saraff Biogas Wastewater Treatment and Biogas Utilisation project (300177)_pre-CDM VER,0.865,,False,False,True
@@ -80,6 +81,7 @@ GS:10662|UCR:501,0.88,"Vaayu India Wind Power Project in Jaisalmer, Rajasthan",V
 GS:7685|VCS:895,0.88,GREEN ENERGY TO GRID at Dhule Maharashtra,"20.8 MW Grid connected wind electricity generation project at Dhule, Maharashtra.",0.86,,False,False,True
 CDM:4888|GS:772,0.88,Pitak Palm Wastewater Treatment and Biogas Utilization Project,Pitak Palm Wastewater Treatment and Biogas Utilization Project (300335)_pre-CDM VER,0.88,,False,False,False
 CDM:5219|VCS:784,0.878,1.6 MW Bundled Rice Husk Based Cogeneration Plant by M/s Milkfood Limited in Patiala (Punjab) & Moradabad (U.P) Districts,1.6 MW Bundled Rice Husk Based Cogeneration Plant by M/s Milk food Limited (MFL) in Patiala (Punjab) & Moradabad (U.P) Districts,0.758,True,False,False,True
+CDM:10738|GS:12979,0.878,Providing water purifiers and improved cook-stoves to prevent deforestation and to enhance livelihoods for Timor-Leste,Providing improved cookstoves to prevent deforestation and to enhance livelihoods for Timor-Leste,0.878,,False,False,False
 GS:3958|VCS:1677,0.873,Vaayu India Wind Power Project in Gujarat,Vaayu India Wind Power Project in Gujarat - CER Conversion,0.853,,False,False,True
 GS:7078|VCS:1815,0.873,216 MWac Adani Green Energy (Tamilnadu) Solar Power Project,Renewable Solar Power Project by Adani Green Energy Limited,0.853,,False,False,True
 GS:11450|VCS:4196,0.87,MicroEnergy Credits – Microfinance for Clean Energy Product Lines – India,MicroEnergy Credits - Microfinance for Efficient Lighting Product Lines - India,0.82,,True,False,False
@@ -110,15 +112,14 @@ GS:11897|VCS:4196,0.87,GS11450 - MicroEnergy Credits – Microfinance for Clean 
 GS:11898|VCS:4196,0.87,GS11450 - MicroEnergy Credits – Microfinance for Clean Energy Product Lines – India - CPA 39 - GS11898,MicroEnergy Credits - Microfinance for Efficient Lighting Product Lines - India,0.82,,True,False,False
 GS:1204|VCS:4196,0.87,MicroEnergy Credits Microfinance For Clean Energy Product Lines India,MicroEnergy Credits - Microfinance for Efficient Lighting Product Lines - India,0.82,,True,False,False
 GS:1233|VCS:4196,0.87,MicroEnergy Credits - Microfinance for Clean Energy Product Lines - India,MicroEnergy Credits - Microfinance for Efficient Lighting Product Lines - India,0.82,,True,False,False
-CDM:3532|VCS:1699,0.868,Song Chung Hydropower Project,Song Chung Hydropower Project - CER Conversion,0.868,,False,False,False
-CDM:1549|VCS:132,0.862,"9 MW Neria Hydroelectric project, Karnataka, India","9 MW Neria Hyrdroelectric project, Karnataka, India",0.742,True,False,False,True
 CDM:4677|GS:10410,0.862,Vaayu India Wind Power Project in Andhra Pradesh,Vaayu India Wind Power Project in Andhra Pradesh (GS4603 CER to VER conversion),0.862,,False,False,False
 CDM:5380|VCS:563,0.862,Biomass based Co-generation project by Sterling Agro Industries Ltd,Biomass based steam generation project by Sterling Agro Industries Ltd.,0.842,,False,False,True
 CDM:4301|GS:7685,0.86,"20.8 MW Grid connected wind electricity generation project at Dhule, Maharashtra",GREEN ENERGY TO GRID at Dhule Maharashtra,0.86,,False,False,False
 CDM:4301|VCS:331,0.86,"20.8 MW Grid connected wind electricity generation project at Dhule, Maharashtra",Green Energy to Grid at Dhule Maharashtra,0.86,,False,False,False
+GS:3014|VCS:1699,0.86,Song Chung Hydropower Project,Song Chung Hydropower Project - CER Conversion,0.84,,False,False,True
 CDM:4867|VCS:417,0.86,Chantaburi Starch Wastewater Treatment and Biogas Utilization Project,P.S.C Starch Wastewater Treatment and Biogas Utilization Project,0.84,,False,False,True
 CDM:931|GS:2477,0.86,San Carlos Renewable Energy Project,San Carlos Solar Energy Project,0.86,,False,False,False
-CDM:10738|GS:12979,0.858,Providing water purifiers and improved cook-stoves to prevent deforestation and to enhance livelihoods for Timor-Leste,Providing improved cookstoves to prevent deforestation and to enhance livelihoods for Timor-Leste,0.858,,False,False,False
+CDM:3854|VCS:477,0.858,20 MW Enercon Wind farms (SAI) Pvt. Limited in Maharashtra,20 MW Enercon Windfarms (SAI) Pvt. Limited in Maharashtra,0.758,True,False,False,False
 CDM:2556|VCS:417,0.858,Bangna Starch Wastewater Treatment and Biogas Utilization Project,P.S.C Starch Wastewater Treatment and Biogas Utilization Project,0.838,,False,False,True
 GS:565|VCS:417,0.858,Bangna Starch Wastewater Treatment and Biogas Utilization Project (300084),P.S.C Starch Wastewater Treatment and Biogas Utilization Project,0.838,,False,False,True
 CDM:2400|UCR:378,0.857,"12 MW Wind Power Project in Kutch, Gujarat",Small Scale Wind Power Project in Kutch District,0.857,,False,False,False
@@ -128,7 +129,6 @@ CDM:10583|VCS:1815,0.853,216 MWac Adani Green Energy (Tamilnadu) Solar Power Pro
 CDM:4700|VCS:1677,0.853,Vaayu India Wind Power Project in Gujarat.,Vaayu India Wind Power Project in Gujarat - CER Conversion,0.853,,False,False,False
 CDM:8789|VCS:1163,0.853,"Wind Power Project at Tirupur District, Tamilnadu,India",Wind Power Project in Tirupur District,0.853,,False,False,False
 UCR:500|VCS:1677,0.853,Vaayu India Wind Power Project in Gujarat,Vaayu India Wind Power Project in Gujarat - CER Conversion,0.853,,False,False,False
-CDM:3854|VCS:477,0.851,20 MW Enercon Wind farms (SAI) Pvt. Limited in Maharashtra,20 MW Enercon Windfarms (SAI) Pvt. Limited in Maharashtra,0.751,True,False,False,False
 CDM:865|VCS:1388,0.851,26 MW Biomass (Cogeneration) based Power generation Project activity,"Biomass based cogeneration project at Bihar, India",0.851,,False,False,False
 CDM:10189|GS:12056,0.85,"Waste Heat Recovery based power generation by Shree Cement Limited at Ras, Rajasthan, India",Waste Heat Recovery based power generation by Shree Cement Limited at Ras Rajasthan India,1.0,,False,False,False
 CDM:10026|VCS:1551,0.85,Wind Power Project by Rajasthan Gum Private Limited (EKIESL-CDM.September-12-02),Wind Power Project by Rajasthan Gum Private Limited (EKIESL-CDM.September-12-02),1.0,,False,False,True
@@ -258,22 +258,23 @@ GS:7725|VCS:1805,0.85,330 MW Solar Power project in Rajasthan by SB Energy,Solar
 GS:7791|VCS:930,0.85,Wind power project by TVS Energy Limited in Theni Tamil Nadu,"Wind power project by TVS Energy Limited in Theni, Tamil Nadu",1.0,,True,False,True
 CDM:1002|VCS:387,0.85,Electricity generation by utilization of waste heat from calcined petroleum coke production process,Electricity generation by utilization of waste heat from calcined petroleum coke production process,1.0,,False,False,False
 GS:7080|VCS:1783,0.849,72 MWac Ramnad Solar Power Project,72 MWac Ramnad Renewable Energy Project,0.729,True,False,False,True
-CDM:1252|VCS:1691,0.844,"5 MW Upper Awa small hydroelectric project, Himachal Pradesh, India",5 MW Upper Awa Hydro Power Project in Himachal Pradesh by M/s Astha Projects (India) Limited,0.724,True,False,False,True
+CDM:7997|GS:4270,0.848,BioLite Improved Cook stoves Programme,GS1366 Micro Energy PoA VPA 5 BioLite Improved Stove Programme India,0.848,,False,False,False
 GS:12456|VCS:4032,0.844,Sustainable agricultural practices for rice cultivation in India,Improved Agricultural Practices for Rice Cultivation in India,0.794,,True,False,False
 GS:12457|VCS:4032,0.844,GS12456 VPA 01 Sustainable agricultural practices for rice cultivation in India,Improved Agricultural Practices for Rice Cultivation in India,0.794,,True,False,False
 CDM:4219|GS:662,0.844,Blue Fire Bio wastewater treatment and biogas utilization project,Blue Fire Bio wastewater treatment and biogas utilisation project (300147),0.824,,False,False,True
-CDM:7997|GS:4270,0.843,BioLite Improved Cook stoves Programme,GS1366 Micro Energy PoA VPA 5 BioLite Improved Stove Programme India,0.843,,False,False,False
 CDM:4964|VCS:1441,0.84,"Bundled Wind Power Project in Jamnagar, Gujarat","Bundled clean energy project in jamnagar, Gujarat",0.82,,False,False,True
 CDM:4964|VCS:1442,0.84,"Bundled Wind Power Project in Jamnagar, Gujarat","Grid connected clean energy project in Jamnagar, Gujarat",0.82,,False,False,True
 CDM:6621|VCS:1079,0.84,"Grid connected clean energy project in Jamnagar, Gujarat","Bundled Wind Power Project in Jamnagar, Gujarat",0.82,,False,False,True
 CDM:7610|VCS:1079,0.84,"Bundled clean energy project in jamnagar, Gujarat","Bundled Wind Power Project in Jamnagar, Gujarat",0.82,,False,False,True
 CDM:9757|VCS:1441,0.84,"1.25 MW Wind Power Project in Jamnagar, Gujarat","Bundled clean energy project in jamnagar, Gujarat",0.82,,False,False,True
 CDM:9757|VCS:1442,0.84,"1.25 MW Wind Power Project in Jamnagar, Gujarat","Grid connected clean energy project in Jamnagar, Gujarat",0.82,,False,False,True
+CDM:3532|VCS:1699,0.84,Song Chung Hydropower Project,Song Chung Hydropower Project - CER Conversion,0.84,,False,False,False
 GS:521|VCS:417,0.84,Chantaburi Starch Wastewater Treatment and Biogas Utilization Project (300085),P.S.C Starch Wastewater Treatment and Biogas Utilization Project,0.84,,False,False,False
 CDM:8448|VCS:1410,0.833,Solar Power project at Patan District in Gujarat,"Solar PV power project at Patan,India",0.833,,False,False,False
 CDM:10582|VCS:1783,0.829,72 MWac Ramnad Solar Power Project,72 MWac Ramnad Renewable Energy Project,0.729,True,False,False,False
 CDM:591|GS:382,0.828,Shalivahana Non-Conventional Renewable Sources Biomass Power Project,*Sri Balaji 6 MW Non-Conventional Renewable Sources Biomass Power Project,0.708,True,False,False,True
-CDM:9185|VCS:1411,0.828,"Grid connected solar photovoltaic power plant in Bikaner, Rajasthan, India","Solar PV power project at Bikaner,India",0.808,,False,False,True
+CDM:6012|VCS:1701,0.828,"Nam Mo 3 Hydro Power Project, Vietnam",Nam Mo 3 Hydro Power Project - CER Conversion,0.808,,False,False,True
+GS:2673|VCS:1701,0.828,Nam Mo 3 Hydropower Project,Nam Mo 3 Hydro Power Project - CER Conversion,0.808,,False,False,True
 CDM:4700|GS:10661,0.827,Vaayu India Wind Power Project in Gujarat.,Vaayu India Wind Power Project in Gujarat (GS3958 CER to VER conversion),0.827,,False,False,False
 CDM:531|GS:7685,0.827,"11.25 MW wind power project in Dhule, Maharashtra, India",GREEN ENERGY TO GRID at Dhule Maharashtra,0.827,,False,False,False
 CDM:531|VCS:331,0.827,"11.25 MW wind power project in Dhule, Maharashtra, India",Green Energy to Grid at Dhule Maharashtra,0.827,,False,False,False
@@ -294,11 +295,9 @@ CDM:3555|VCS:5124,0.813,"Waste Heat Recovery based 15 MW Power Generation Projec
 GS:7078|VCS:2043,0.811,216 MWac Adani Green Energy (Tamilnadu) Solar Power Project,Renewable Solar Power Project by Adani,0.791,,False,False,True
 CDM:4867|VCS:407,0.809,Chantaburi Starch Wastewater Treatment and Biogas Utilization Project,Chakangrao Starch wastewater treatment and biogas utilization project,0.789,,False,False,True
 CDM:9181|GS:12067,0.808,MicroEnergy Credits  Microfinance for Clean Energy Product Lines  India,GS12066 - MicroEnergy Credits – Microfinance for Clean Cooking Product Lines - India - Clean Cooking Project - VPA01,0.808,,False,False,False
-CDM:9991|GS:10355,0.806,Nam Long Hydropower project,Nam Long Hydropower Project (GS2707 CER to VER conversion),0.806,,False,False,False
 CDM:10560|VCS:2737,0.806,Reducing Gas Leakages within the Karnaphuli Gas Distribution Network in Bangladesh,Reducing Gas Leakages within the Jalalabad Gas Distribution Network in Bangladesh,0.806,,False,False,False
 CDM:10561|VCS:2738,0.806,Reducing Gas Leakages within the Jalalabad Gas Distribution Network in Bangladesh,Reducing Gas Leakages within the Karnaphuli Gas Distribution Network in Bangladesh,0.806,,False,False,False
 CDM:3742|VCS:1679,0.803,Bundled Wind Power Project by M/s. D. J. Malpani,"Bundled Wind Power Project in Madhya Pradesh, Gujarat and Kerala by D.J. Malpani",0.803,,False,False,False
-CDM:8955|VCS:1257,0.802,Wind based renewable energy project by CLP Wind Farms India Private Limited in Gujarat,Wind Power Project of CLP Wind Farms (India) Private Limited,0.802,,False,False,False
 UCR:183|VCS:234,0.8,14 MW small-scale bundled wind power project by M/s Shah Promoters and Developers,14 MW Wind Power Project in Maharashtra,,True,True,,
 GS:3669|UCR:431,0.8,3.0 MW Bundled Small Scale Wind Power Project by Energy Development Company Limited,3 MW bundled wind Power Project in Tamil Nadu,,True,True,,
 GS:5644|UCR:51,0.8,15 MW Wind Energy Project in Maharashtra,Bundled 15 MW Wind Power Project in India,,True,True,,
@@ -306,9 +305,10 @@ GS:5377|VCS:1020,0.8,15 MW Solar Photovoltaic Power Project at Gujarat,Solar Pow
 CDM:3700|GS:7757,0.799,"13.75 MW wind power project in Davangere, Karnataka, India.",13.75 MW wind power project at Bellary & Davangere district in the state Karnataka India,0.679,True,False,False,True
 CDM:9113|VCS:927,0.799,"13.75 MW wind power project at Bellary & Davangere district in the state Karnataka, India","13.75 MW wind power project in Davangere, Karnataka, India",0.679,True,False,False,True
 GS:7757|VCS:927,0.799,13.75 MW wind power project at Bellary & Davangere district in the state Karnataka India,"13.75 MW wind power project in Davangere, Karnataka, India",0.679,True,False,False,True
+CDM:9991|GS:10355,0.798,Nam Long Hydropower project,Nam Long Hydropower Project (GS2707 CER to VER conversion),0.798,,False,False,False
 CDM:5938|GS:4505,0.796,Grid Connected Wind Power Project by M/s Giriraj Enterprises in Madhya Pradesh,Wind Power Project by M/s. Giriraj Enterprises at Sandla Madhya Pradesh,0.796,,False,False,False
 GS:4505|VCS:1023,0.796,Wind Power Project by M/s. Giriraj Enterprises at Sandla Madhya Pradesh,Grid Connected Wind Power Project by M/s Giriraj Enterprises in Madhya Pradesh,0.796,,False,False,False
-CDM:5616|GS:790,0.796,Sustainable Small Hydropower Programme of Activities (PoA) in Indonesia,GS790_Sustainable Small Hydropower Programme of Activities (PoA) in Indonesia (300218),0.796,,False,False,False
+CDM:8955|VCS:1257,0.795,Wind based renewable energy project by CLP Wind Farms India Private Limited in Gujarat,Wind Power Project of CLP Wind Farms (India) Private Limited,0.795,,False,False,False
 GCC:1320|VCS:681,0.795,Renewable Wind and Solar Project by the Tata Power Group,50.4 MW Tata Wind Farm in Maharashtra,0.775,,False,False,True
 CDM:1059|VCS:287,0.794,Substitution of coal with jute biomass residue (caddies) in the steam generating boiler for use on-site,Susbtitution of coal with jute biomass residue (caddies) in the steam generating boiler for use onsite.,0.774,,False,False,True
 CDM:10077|VCS:2736,0.792,Reducing Gas Leakages within the Titas Gas Distribution Network in Bangladesh,Reducing Gas Leakages within the Bakhrabad Gas Distribution Network in Bangladesh,0.792,,False,False,False
@@ -318,6 +318,7 @@ CDM:10561|VCS:2930,0.792,Reducing Gas Leakages within the Jalalabad Gas Distribu
 CDM:10583|VCS:2043,0.791,216 MWac Adani Green Energy (Tamilnadu) Solar Power Project,Renewable Solar Power Project by Adani,0.791,,False,False,False
 CDM:1774|GS:1689,0.791,"Electricity generation from mustard crop residues: Tonk, India",Biomass in Rajasthan - Electricity generation from mustard crop residues,0.771,,False,False,True
 CDM:58|GS:441,0.791,Biomass in Rajasthan - Electricity generation from mustard crop residues,Electricity generation from mustard crop residues: Tonk India,0.771,,False,False,True
+CDM:5616|GS:790,0.79,Sustainable Small Hydropower Programme of Activities (PoA) in Indonesia,GS790_Sustainable Small Hydropower Programme of Activities (PoA) in Indonesia (300218),0.79,,False,False,False
 GS:521|VCS:407,0.789,Chantaburi Starch Wastewater Treatment and Biogas Utilization Project (300085),Chakangrao Starch wastewater treatment and biogas utilization project,0.789,,False,False,False
 CDM:10077|VCS:2738,0.788,Reducing Gas Leakages within the Titas Gas Distribution Network in Bangladesh,Reducing Gas Leakages within the Karnaphuli Gas Distribution Network in Bangladesh,0.788,,False,False,False
 CDM:10560|VCS:2930,0.788,Reducing Gas Leakages within the Karnaphuli Gas Distribution Network in Bangladesh,Reducing Gas Leakages within the Titas Gas Distribution Network in Bangladesh,0.788,,False,False,False
@@ -325,11 +326,11 @@ GS:7790|VCS:930,0.787,Wind energy project in Theni Tamil Nadu,"Wind power projec
 GCC:409|UCR:378,0.786,"Wind Energy Project in Kutch, Gujarat",Small Scale Wind Power Project in Kutch District,0.786,,False,False,False
 CDM:6610|GS:7790,0.783,Bundled Wind Power Project at Theni,Wind energy project in Theni Tamil Nadu,0.763,,False,False,True
 CDM:10392|GS:7361,0.782,"20 MW Solar Project in Sanwreej, Jodhpur, Rajasthan",20 MW Solar Project in Sanwreej Jodhpur Rajasthan- Pre CDM Clone,0.682,True,False,False,False
+CDM:1549|VCS:132,0.782,"9 MW Neria Hydroelectric project, Karnataka, India","9 MW Neria Hyrdroelectric project, Karnataka, India",0.662,True,False,False,True
 CDM:4487|VCS:749,0.781,9 MW wind power project of M/s. L.S.Mills Limited in Tamilnadu,Grid Connected Renewable Power Generation from Wind Mills by L.S Mills,0.761,,False,False,True
 CDM:2400|VCS:311,0.779,"12 MW Wind Power Project in Kutch, Gujarat","12.15 MW Wind Power Project located at Kutch, Gujarat",0.659,True,False,False,True
 CDM:10559|VCS:2737,0.778,Reducing Gas Leakages within the Bakhrabad Gas Distribution Network in Bangladesh,Reducing Gas Leakages within the Jalalabad Gas Distribution Network in Bangladesh,0.778,,False,False,False
 CDM:10561|VCS:2736,0.778,Reducing Gas Leakages within the Jalalabad Gas Distribution Network in Bangladesh,Reducing Gas Leakages within the Bakhrabad Gas Distribution Network in Bangladesh,0.778,,False,False,False
-CDM:6012|VCS:1701,0.778,"Nam Mo 3 Hydro Power Project, Vietnam",Nam Mo 3 Hydro Power Project - CER Conversion,0.758,,False,False,True
 GS:777|VCS:417,0.778,Bangna Starch Wastewater Treatment and Biogas Utilization Project (300084)_pre-CDM VER,P.S.C Starch Wastewater Treatment and Biogas Utilization Project,0.758,,False,False,True
 GS:12557|VCS:3238,0.776,Core Carbon Sustainable Rice Initiative India,Core Carbon Sustainable Rice Productions,0.726,,True,False,False
 CDM:2819|GCC:1320,0.775,50.4 MW Tata Wind Farm - in Maharashtra,Renewable Wind and Solar Project by the Tata Power Group,0.775,,False,False,False
@@ -343,10 +344,12 @@ GS:565|VCS:407,0.772,Bangna Starch Wastewater Treatment and Biogas Utilization P
 CDM:8910|VCS:663,0.771,8.0 MW Wind Power Project activity by Sree Iswarya Textiles Private Limited,"8.0 MW Wind Power Project activity by Sree Iswarya Textiles Private Limited, at Dist Erode, Tamil Nadu",0.651,True,False,False,True
 CDM:10393|GS:4895,0.769,Renewable Power Project by Emami Power Ltd,Bundled Solar Power Project by Emami Power Limited,0.769,,False,False,False
 CDM:10568|GS:5830,0.769,Bundled Solar Power Project by Emami Power Limited,Renewable Power Project by Emami Power Ltd,0.769,,False,False,False
+GS:11219|VCS:1843,0.767,SOLAR PHOTOVOLTAIC PROJECT BY GIRIRAJ RENEWABLES PRIVATE LIMITED,100 MW SOLAR BY GIRIRAJ RENEWABLES PVT. LTD.- SATARA.,0.747,,False,False,True
 CDM:10559|VCS:2739,0.762,Reducing Gas Leakages within the Bakhrabad Gas Distribution Network in Bangladesh,Reducing Gas Leakages within the Pashchimanchal Gas Distribution Network in Bangladesh,0.762,,False,False,False
 CDM:10561|VCS:2739,0.762,Reducing Gas Leakages within the Jalalabad Gas Distribution Network in Bangladesh,Reducing Gas Leakages within the Pashchimanchal Gas Distribution Network in Bangladesh,0.762,,False,False,False
 CDM:10562|VCS:2736,0.762,Reducing Gas Leakages within the Pashchimanchal Gas Distribution Network in Bangladesh,Reducing Gas Leakages within the Bakhrabad Gas Distribution Network in Bangladesh,0.762,,False,False,False
 CDM:10562|VCS:2737,0.762,Reducing Gas Leakages within the Pashchimanchal Gas Distribution Network in Bangladesh,Reducing Gas Leakages within the Jalalabad Gas Distribution Network in Bangladesh,0.762,,False,False,False
+CDM:10425|VCS:3986,0.761,Nam Ngao Hydropower Project,15 MW Nam The Hydropower Project,0.641,True,False,False,True
 GS:773|VCS:417,0.761,Chantaburi Starch Wastewater Treatment and Biogas Utilization Project (300085)_pre-CDM VER,P.S.C Starch Wastewater Treatment and Biogas Utilization Project,0.761,,False,False,False
 CDM:546|GS:382,0.76,SRGEL Non-Conventional Energy Sources Biomass Power Project,*Sri Balaji 6 MW Non-Conventional Renewable Sources Biomass Power Project,0.64,True,False,False,True
 CDM:6214|VCS:411,0.76,Korat S.W. Group 2007 Wastewater Treatment and Biogas Utilization Project,Chorchaiwat Wastewater Treatment and Biogas Utilization Project,0.74,,False,False,True
@@ -376,7 +379,7 @@ CDM:5291|GS:530,0.744,Maesod Wastewater Treatment and Biogas Utilisation Project
 CDM:6648|VCS:2527,0.744,Saraff Biogas Wastewater Treatment and Biogas Utilisation Project,Maesod Wastewater Treatment and Biogas Utilisation Project,0.724,,False,False,True
 CDM:8712|GS:530,0.744,Maesod Wastewater Treatment and Biogas Utilisation Project,Saraff Biogas Wastewater Treatment and Biogas Utilisation project (300177),0.724,,False,False,True
 GS:530|VCS:2527,0.744,Saraff Biogas Wastewater Treatment and Biogas Utilisation project (300177),Maesod Wastewater Treatment and Biogas Utilisation Project,0.724,,False,False,True
-GS:2673|VCS:1701,0.742,Nam Mo 3 Hydropower Project,Nam Mo 3 Hydro Power Project - CER Conversion,0.722,,False,False,True
+CDM:5504|UCR:64,0.741,"2 MW Kalm Small Hydro Electric Project in Himachal Pradesh, India","2.00 MW Kalm Small Hydro Power project by Sunshine Hydro Power Limited, Himachal Pradesh, India",0.641,True,False,False,False
 CDM:9321|GS:6003,0.741,"GHG abatement through solar power generation in Bikaner, Rajasthan, India",GHG abatement through Solar Power Generation at Jaisalmer Rajasthan India,0.721,,False,False,True
 CDM:10560|VCS:2478,0.741,Reducing Gas Leakages within the Karnaphuli Gas Distribution Network in Bangladesh,Reducing Gas Leakages within the Titas Gas Distribution Network in Bangladesh - CER Conversion,0.741,,False,False,False
 CDM:10077|VCS:3021,0.74,Reducing Gas Leakages within the Titas Gas Distribution Network in Bangladesh,Reducing Gas Leakages within North West and other sub-areas of the Titas Gas Distribution Network in Bangladesh,0.74,,False,False,False
@@ -393,7 +396,9 @@ GS:13134|VCS:2960,0.731,Changing Lives Via Improved Cooking - Bharat,Changing Li
 CDM:10562|VCS:2478,0.73,Reducing Gas Leakages within the Pashchimanchal Gas Distribution Network in Bangladesh,Reducing Gas Leakages within the Titas Gas Distribution Network in Bangladesh - CER Conversion,0.73,,False,False,False
 GS:7620|VCS:701,0.729,50.6 MW Wind Power Project at Umrali Gujarat by Powerica Limited,Wind power project at Gujarat by Powerica Limited,0.679,,True,False,False
 CDM:5234|VCS:1816,0.726,"2.4 MW Wind Power Project at Tirunelveli Dist., Tamilnadu",Wind power project in Tirunelveli Tamilnadu,0.706,,False,False,True
+CDM:9881|VCS:4934,0.722,Nam Ngiep 3A Hydropower Project,Nam Ngiep 2A Hydropower project,0.722,,False,False,False
 CDM:7864|VCS:5975,0.721,Recovery and Avoidance of Methane from Industrial Wastewater Treatment Projects,"Recovery and Avoidance of Methane from Industrial Wastewater Treatment Projects at Bina Pitri Jaya mill, Indonesia",0.701,,False,False,True
+CDM:10516|VCS:3954,0.718,Improved cook stoves and sustainable charcoal initiative,SUSTAINABLE CHARCOAL AND IMPROVED COOKSTOVE INITIATIVE USING MICRO-GASIFIER IN INDIA,0.698,,False,False,True
 CDM:6000|VCS:585,0.718,Jaroensompong Corporation Panomsarakham Landfill Gas to Energy Project,JAROENSOMPONG CORPORATION RACHATHEWA LANDFILL GAS TO ENERGY,0.718,,False,False,False
 CDM:7864|VCS:5962,0.718,Recovery and Avoidance of Methane from Industrial Wastewater Treatment Projects,"Recovery and Avoidance of methane from Industrial wastewater treatment  project at Agro Muara Rupit mill, Indonesia.",0.698,,False,False,True
 GS:12550|VCS:4115,0.717,GS12542 VPA-002 Core Carbon Sustainable Rice Initiative Telangana,Core Carbon Sustainable Rice Productions 02,0.667,,True,False,False
@@ -404,16 +409,14 @@ CDM:10150|VCS:1670,0.713,Grid Connected Solar PV Project by M/s. Giriraj Enterpr
 CDM:4867|GS:777,0.712,Chantaburi Starch Wastewater Treatment and Biogas Utilization Project,Bangna Starch Wastewater Treatment and Biogas Utilization Project (300084)_pre-CDM VER,0.692,,False,False,True
 GS:773|VCS:407,0.712,Chantaburi Starch Wastewater Treatment and Biogas Utilization Project (300085)_pre-CDM VER,Chakangrao Starch wastewater treatment and biogas utilization project,0.712,,False,False,False
 GS:777|VCS:407,0.712,Bangna Starch Wastewater Treatment and Biogas Utilization Project (300084)_pre-CDM VER,Chakangrao Starch wastewater treatment and biogas utilization project,0.692,,False,False,True
+CDM:10377|GS:6018,0.711,Nam Hinboun Hydropower Project,Nam Hinboun Downstream Hydro power Project,0.711,,False,False,False
+GS:2707|VCS:3986,0.711,Nam Long Hydropower Project,15 MW Nam The Hydropower Project,0.641,,True,False,True
 GS:4195|VCS:1171,0.71,Biomass based Steam Generation plant at Chanakya Dairy Products Limited,Biomass based steam generation project by Indapur Dairy and Milk Products Limited,0.64,,True,False,True
 CDM:1166|VCS:145,0.706,Bundled wind energy power projects (2004 policy) in Rajasthan,Enercon Bundled Wind power projects (2004 Policy) in Rajasthan,0.706,,False,False,False
 CDM:1167|VCS:145,0.706,Bundled wind energy power projects (2003 policy) in Rajasthan,Enercon Bundled Wind power projects (2004 Policy) in Rajasthan,0.706,,False,False,False
-GS:11219|VCS:1843,0.706,SOLAR PHOTOVOLTAIC PROJECT BY GIRIRAJ RENEWABLES PRIVATE LIMITED,100 MW SOLAR BY GIRIRAJ RENEWABLES PVT. LTD.- SATARA.,0.686,,False,False,True
 GS:12321|VCS:3431,0.705,Sustainable agricultural practices in tea plantations,SUSTAINABLE AGRICULTURAL PRACTICES IN INDIA,0.705,,False,False,False
 CDM:10017|VCS:1670,0.704,Grid Connected Solar PV Project by M/s. Giriraj Enterprises in Maharashtra,Bundled Solar Power Project by D.J. Malpani and Giriraj Enterprises,0.704,,False,False,False
 CDM:6648|VCS:4848,0.703,Saraff Biogas Wastewater Treatment and Biogas Utilisation Project,Starch Plus Wastewater Treatment And Biogas Utilisation Project,0.683,,False,False,True
-CDM:10516|VCS:3954,0.702,Improved cook stoves and sustainable charcoal initiative,SUSTAINABLE CHARCOAL AND IMPROVED COOKSTOVE INITIATIVE USING MICRO-GASIFIER IN INDIA,0.682,,False,False,True
-GS:3664|VCS:599,0.701,Enercon Wind Farm (Hindustan) Ltd in Karnataka,Enercon Wind Farms in Karnataka Bundled Project-30.40 MW,0.681,,False,False,True
-GS:3664|VCS:757,0.701,Enercon Wind Farm (Hindustan) Ltd in Karnataka,Enercon Wind Farms in Karnataka Bundled Project  73.60 MW,0.681,,False,False,True
 CDM:4888|VCS:417,0.701,Pitak Palm Wastewater Treatment and Biogas Utilization Project,P.S.C Starch Wastewater Treatment and Biogas Utilization Project,0.681,,False,False,True
 GS:515|VCS:417,0.701,Pitak Palm Wastewater Treatment and Biogas Utilization Project (300335),P.S.C Starch Wastewater Treatment and Biogas Utilization Project,0.681,,False,False,True
 GS:12456|VCS:3431,0.7,Sustainable agricultural practices for rice cultivation in India,SUSTAINABLE AGRICULTURAL PRACTICES IN INDIA,0.7,,False,False,False

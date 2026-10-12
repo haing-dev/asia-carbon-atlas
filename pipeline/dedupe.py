@@ -22,8 +22,8 @@ AUTO = 0.90
 REVIEW = 0.70
 STOP = set("""
 project projects programme program power plant plants the of in at by and for with from to a an on
-ltd limited pvt private co company ms corporation inc llc plc jsc group india indian vietnam viet nam
-indonesia thailand pakistan bangladesh philippines cambodia lao laos nepal sri lanka myanmar mongolia
+ltd limited pvt private co company ms corporation inc llc plc jsc group india indian
+indonesia thailand pakistan bangladesh philippines cambodia lao laos nepal sri lanka myanmar mongolia vietnam
 malaysia china republic district state province village
 bundled grid connected grid-connected based activity cdm vcs gs gold standard verra gcc ucr bundled
 scale small large mw kw mwp mwac mwdc capacity installed total
@@ -55,8 +55,12 @@ PENDING = common.ROOT / "review" / "dedupe_pending.csv"
 def norm_name(name: str | None) -> str:
     name = re.sub(r"\bGS\d+\b|\bVPA\s*\d+\b|\bCPA\s*\d+\b", " ", name or "", flags=re.I)
     s = re.sub(r"\d+(?:\.\d+)?\s*(mw|mwp|mwac|mwdc|kw|kwp)\b", " ", name.lower())
+    s = re.sub(r"viet\s*nam", "vietnam", s)
     s = re.sub(r"[^a-z0-9]+", " ", s)
-    return " ".join(t for t in s.split() if t not in STOP and not t.isdigit())
+    s = re.sub(r"\bhydro (power|electric)\b", "hydro", s)
+    syn = {"hydropower": "hydro", "hydroelectric": "hydro", "hydel": "hydro", "cookstove": "stove", "cookstoves": "stove",
+           "stoves": "stove", "farms": "farm", "photovoltaic": "pv", "spv": "pv"}
+    return " ".join(syn.get(t, t) for t in s.split() if t not in STOP and not t.isdigit())
 
 
 def distinct(n: str) -> set[str]:
@@ -164,7 +168,7 @@ def fuzzy_links(records: list[dict], l1_of) -> tuple[list[tuple[str, str, float]
     decisions = load_decisions()
     blocks: dict[tuple, list[dict]] = defaultdict(list)
     for r in records:
-        if r.get("role") == "annotation" or r["registry"] in ("A62", "PACM"):
+        if r.get("role") == "annotation" or r["registry"] in ("A62", "PACM", "ANN"):
             continue
         r["_n"], r["_cap"], r["_ord"] = norm_name(r.get("name")), capacities(r), ordinals(r.get("name"))
         r["_d"] = distinct(r["_n"])

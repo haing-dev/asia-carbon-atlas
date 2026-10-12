@@ -29,6 +29,8 @@
   // Missing years sort last in both directions.
   const yr = (r, k) => r.years?.[k] ?? (sortDir > 0 ? 9999 : 0);
 
+  const offTip = (o) => [o.type, o.country, o.date, o.volume_tco2e ? fmt(o.volume_tco2e) + " tCO₂e" : "", o.note].filter(Boolean).join(" · ");
+
   function sortBy(k) {
     if (sortKey === k) sortDir = -sortDir;
     else { sortKey = k; sortDir = ["name", "dev", "country", "type", "reg"].includes(k) ? 1 : -1; }
@@ -59,10 +61,10 @@
             {#if r.project_url}<a href={r.project_url} target="_blank" rel="noopener">{r.display_name}</a>{:else}{r.display_name}{/if}
           </td>
           <td>{#if r.developer_url}<a href={r.developer_url} target="_blank" rel="noopener">{r.developer || "—"}</a>{:else}{r.developer || "—"}{/if}</td>
-          <td>{r.countries.join(", ")}{#if r.countries.length > 1} <span class="badge">multi</span>{/if}</td>
+          <td>{r.countries.join(", ")}{#if r.countries.length > 1} <span class="badge" title={"Map split (by population, UN WPP 2024; Asian hosts only): " + Object.entries(r.country_shares || {}).map(([c, v]) => `${c} ${(v * 100).toFixed(v < 0.01 ? 2 : 0)}%`).join(", ")}>multi</span>{/if}</td>
           <td><span class="sw" style="background:{L1_COLORS[r.l1]}"></span>{r.typeLabel}</td>
           <td class="regs">
-            {#each r.registries as g}<a class="badge" href={g.url} target="_blank" rel="noopener" title="Open registry record">{g.record_id}</a>{/each}
+            {#each r.registries as g}<a class="badge" href={g.url} target="_blank" rel="noopener" title={g.registry === "ANN" ? "Open the announcement" : "Open registry record"}>{g.registry === "ANN" ? "announcement" : g.record_id}</a>{/each}
             {#if r.article6}<span class="badge a6" title={["Article 6", r.article6.status, r.article6.buyer_countries?.length ? "buyer: " + r.article6.buyer_countries.join(", ") : "", r.article6.itmos_transferred ? fmt(r.article6.itmos_transferred) + " ITMOs transferred" : ""].filter(Boolean).join(" · ")}>{r.article6.mechanism}{#if r.article6.buyer_countries?.length} → {r.article6.buyer_countries.join(", ")}{/if}</span>{/if}
           </td>
           <td>{STAGE_LABELS[index.stages[r.st]]}</td>
@@ -73,7 +75,7 @@
           <td class="num">{fmt(r.is)}</td>
           <td class="num">{fmt(r.re)}</td>
           <td>
-            {#each r.offtakers as o, i}{#if i}, {/if}<a href={o.source_url} target="_blank" rel="noopener" title={o.type}>{o.name}</a>{/each}
+            {#each r.offtakers.slice(0, 4) as o, i}{#if i}, {/if}<a href={o.source_url} target="_blank" rel="noopener" title={offTip(o)}>{o.name}</a>{/each}{#if r.offtakers.length > 4} <span class="muted">+{r.offtakers.length - 4}</span>{/if}
             {#if !r.offtakers.length}<span class="muted">—</span>{/if}
           </td>
         </tr>
@@ -90,6 +92,10 @@
                   <dd class="vint">
                     {#each Object.entries(r.issuance_by_vintage) as [y, v]}<span class="num">{y}: {fmt(v)}</span>{/each}
                   </dd>
+                {/if}
+                {#if r.offtakers.length}
+                  <dt>Offtakers</dt>
+                  <dd>{#each r.offtakers as o}<div><a href={o.source_url} target="_blank" rel="noopener">{o.name}</a> <span class="muted">— {offTip(o)}</span></div>{/each}</dd>
                 {/if}
                 {#if r.methodology_codes?.length}<dt>Methodology</dt><dd class="num">{r.methodology_codes.join(", ")}</dd>{/if}
                 {#if r.crediting?.[0]}<dt>Crediting period</dt><dd class="num">{r.crediting[0]} → {r.crediting[1] || "?"}</dd>{/if}

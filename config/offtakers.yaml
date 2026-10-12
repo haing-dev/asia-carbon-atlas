@@ -1,0 +1,220 @@
+# Publicly announced offtakes / purchases (SPEC §10.4). Hand-curated; every item needs buyer, project or supplier,
+# date and a source that states all three. No inference. Volumes are the announced totals (often multi-year).
+#
+# offtakes:        deals that name (or unambiguously identify) one registry project -> shown on that project's row.
+# announced_rows:  deals at supplier level, or for projects not (yet) in a covered registry -> one row per supplier
+#                  and credit type, stage "Announced", linked to the announcement (no volumes added to the map).
+# Researched 2026-10-12 (web); each source was opened and the quoted sentence checked.
+
+offtakes:
+  - record: VCS:4811
+    buyer: Microsoft
+    volume_tco2e: 1500000
+    date: 2025-03-07
+    source_url: https://carboncredits.com/microsoft-and-climate-impact-partners-reveal-biggest-carbon-removal-deal-in-asia/
+    source_title: Microsoft and Climate Impact Partners Reveal Biggest Carbon Removal Deal in Asia
+  - record: VCS:2250
+    buyer: Microsoft
+    date: 2022-03-10
+    source_url: https://www.trafigura.com/press-releases/landmark-carbon-transaction-marks-turning-point-for-global-blue-carbon-market/
+    source_title: Landmark carbon transaction marks turning point for global blue carbon market (Trafigura)
+  - record: VCS:2250
+    buyer: Carbon Growth Partners
+    date: 2022-03-10
+    source_url: https://www.trafigura.com/press-releases/landmark-carbon-transaction-marks-turning-point-for-global-blue-carbon-market/
+    source_title: Landmark carbon transaction marks turning point for global blue carbon market (Trafigura)
+  - record: VCS:2250
+    buyer: Trafigura
+    date: 2022-03-10
+    source_url: https://www.trafigura.com/press-releases/landmark-carbon-transaction-marks-turning-point-for-global-blue-carbon-market/
+    source_title: Landmark carbon transaction marks turning point for global blue carbon market (Trafigura)
+  - record: VCS:2250
+    buyer: Respira International
+    date: 2022-03-10
+    source_url: https://www.trafigura.com/press-releases/landmark-carbon-transaction-marks-turning-point-for-global-blue-carbon-market/
+    source_title: Landmark carbon transaction marks turning point for global blue carbon market (Trafigura)
+  - record: VCS:1650
+    buyer: The Walt Disney Company
+    date: 2016-07-23
+    source_url: https://cambodia.wcs.org/about-us/latest-news/articletype/articleview/articleid/9129/cambodias-keo-seima-wildlife-sanctuary-sells-first-carbon-credits.aspx
+    source_title: Cambodia's Keo Seima Wildlife Sanctuary sells first carbon credits (WCS)
+  - record: VCS:674
+    buyer: INPEX
+    volume_tco2e: 5000000
+    date: 2021-02-22
+    source_url: https://inpex.com/english/sustainability/2021/20210222.html
+    source_title: INPEX to Support Rimba Raya REDD+ Project in Indonesia, Acquire Carbon Credits
+  - record: GS:12793
+    buyer: Google
+    volume_tco2e: 1000000
+    date: 2026-09-10
+    source_url: https://www.esgtoday.com/google-signs-its-largest-ever-superpollutant-carbon-credit-deal/
+    source_title: Google Signs its Largest-Ever Superpollutant Carbon Credit Deal (Mitti Labs)
+    note: Source names the supplier (Mitti Labs, India rice); Mitti Labs has one rice programme in the registries.
+  - record: GS:23213
+    buyer: Sumitomo Corporation
+    volume_tco2e: 600000
+    date: 2023-11-01
+    source_url: https://www.sumitomocorp.com/en/jp/news/topics/2023/group/20231101
+    source_title: Sumitomo Corporation — mangrove carbon credits in Sumatra (Value Network Ventures)
+    note: Source names the supplier and Sumatra mangroves; the supplier's only Indonesian mangrove project is matched.
+  - record: ISO:prj_1JCZCRW2S1S06KN0
+    buyer: Frontier
+    date: 2024-09-19
+    source_url: https://esgpost.com/alt-carbon-secures-indias-first-carbon-removal-deal-from-frontier/
+    source_title: Alt Carbon secures India's first carbon removal deal from Frontier
+  - record: ISO:prj_1JCZCRW2S1S06KN0
+    buyer: NextGen CDR
+    date: 2024-10-16
+    source_url: https://www.spglobal.com/commodityinsights/en/market-insights/latest-news/energy-transition/101624-nextgen-to-buy-carbon-removal-credits-from-indian-enhanced-rock-weathering-project
+    source_title: NextGen to buy carbon removal credits from Indian enhanced rock weathering project (S&P Global)
+  - record: ISO:prj_1JCZCRW2S1S06KN0
+    buyer: Microsoft
+    volume_tco2e: 36920
+    date: 2026-06-11
+    source_url: https://www.cdr.fyi/blog/cdr-deal-alert-2026-06-11
+    source_title: CDR.fyi Deal Alert, June 11, 2026 (Alt Carbon / Microsoft)
+  - record: ISO:prj_1JYCV03BW1S0RTE5
+    buyer: Mitsui O.S.K. Lines (MOL)
+    volume_tco2e: 10000
+    date: 2025-04-25
+    source_url: https://www.cdr.fyi/blog/cdr-deal-alert-2025-04-25-alt-carbon-mol
+    source_title: "CDR.fyi Deal Alert, April 25, 2025: Alt Carbon / MOL"
+  - record: A62:TH-CH-5002
+    buyer: KliK Foundation
+    volume_tco2e: 49717
+    date: 2026-04-02
+    source_url: https://www.klik.ch/en/news/news-article/new-itmo-issuances-for-ndc-use-from-bangkok-e-bus-programme
+    source_title: New ITMO issuances for NDC use from Bangkok E-Bus Programme (KliK)
+
+announced_rows:
+  - id: ANN:varaha-biochar-ind
+    name: Varaha — biochar carbon removal (supplier-level deals)
+    developer: Varaha
+    countries: [IND]
+    l2: biochar
+    offtakes:
+      - buyer: Microsoft
+        volume_tco2e: 100000
+        date: 2026-01-15
+        source_url: https://agfundernews.com/varaha-signs-major-offtake-agreement-with-microsoft-for-biochar-carbon-removal-in-india
+        source_title: Varaha signs major offtake agreement with Microsoft for biochar carbon removal in India
+      - buyer: Google
+        volume_tco2e: 100000
+        date: 2025-01-16
+        source_url: https://www.esgtoday.com/google-signs-largest-ever-biochar-carbon-removal-purchase-deals/
+        source_title: Google Signs Largest-Ever Biochar Carbon Removal Purchase Deals
+  - id: ANN:varaha-regenag-ind
+    name: Varaha — regenerative agriculture (supplier-level deal)
+    developer: Varaha
+    countries: [IND]
+    l2: soil_carbon
+    offtakes:
+      - buyer: Louis Dreyfus Company
+        date: 2025-08-18
+        source_url: https://trellis.net/article/louis-dreyfus-regenerative-ag-project-india/
+        source_title: Louis Dreyfus regenerative ag project in India (Trellis)
+  - id: ANN:mati-erw-ind
+    name: Mati Carbon — enhanced rock weathering (supplier-level deal)
+    developer: Mati Carbon
+    countries: [IND]
+    l2: erw
+    offtakes:
+      - buyer: Shopify
+        volume_tco2e: 5000
+        date: 2025-01-18
+        source_url: https://www.cdr.fyi/blog/cdr-deal-alert-2025-01-18
+        source_title: CDR.fyi Deal Alert, January 18, 2025 (Mati Carbon / Shopify)
+        note: Source does not split the volume between India and Mati's African sites.
+  - id: ANN:equilibrium-biochar-ind
+    name: Equilibrium — biochar (supplier-level deal)
+    developer: Equilibrium (Climeverse)
+    countries: [IND]
+    l2: biochar
+    offtakes:
+      - buyer: Altitude
+        volume_tco2e: 180000
+        date: 2026-06-04
+        source_url: https://www.argusmedia.com/pt/news-and-insights/latest-market-news/2835225-india-s-equilibrium-inks-biochar-credit-offtake-deal
+        source_title: India's Equilibrium inks biochar credit offtake deal (Argus)
+  - id: ANN:alcom-biochar
+    name: Alcom — biochar facilities in the Philippines and India (supplier-level deal)
+    developer: Alcom Carbon Markets
+    countries: [PHL, IND]
+    l2: biochar
+    offtakes:
+      - buyer: Altitude
+        volume_tco2e: 360000
+        date: 2026-02-09
+        source_url: https://cleantechnica.com/2026/02/09/altitude-partners-with-alcom-for-360-000t-carbon-removals/
+        source_title: Altitude Partners With Alcom For +360,000t Carbon Removals
+  - id: ANN:thryve-idn
+    name: Thryve.Earth — agroforestry carbon removal, Indonesia (supplier-level deals)
+    developer: Thryve.Earth
+    countries: [IDN]
+    l2: agroforestry
+    offtakes:
+      - buyer: Tencent
+        volume_tco2e: 300000
+        date: 2026-07-08
+        source_url: https://www.esgtoday.com/google-mckinsey-tencent-sign-large-scale-nature-based-carbon-removal-deals/
+        source_title: Google, McKinsey, Tencent Sign Large-Scale Nature-Based Carbon Removal Deals
+      - buyer: Google and McKinsey (Symbiosis Coalition)
+        volume_tco2e: 335000
+        date: 2026-07-08
+        source_url: https://www.esgtoday.com/google-mckinsey-tencent-sign-large-scale-nature-based-carbon-removal-deals/
+        source_title: Google, McKinsey, Tencent Sign Large-Scale Nature-Based Carbon Removal Deals
+  - id: ANN:faeger-jcm-phl
+    name: Faeger — rice water management, Philippines (JCM credits, supplier-level deal)
+    developer: Faeger Co. Ltd.
+    countries: [PHL]
+    l2: rice_methane
+    offtakes:
+      - buyer: Yanmar Holdings
+        date: 2025-12-17
+        source_url: https://www.yanmar.com/global/news/2025/12/18/159874.html
+        source_title: Yanmar signs contract for the sale and purchase of JCM credits generated in the Philippines
+  - id: ANN:fcpf-vnm
+    name: Vietnam Emission Reductions Program, North Central Region (World Bank FCPF)
+    developer: Government of Viet Nam
+    countries: [VNM]
+    l2: redd
+    offtakes:
+      - buyer: World Bank FCPF Carbon Fund
+        volume_tco2e: 10300000
+        date: 2020-10-22
+        source_url: https://www.worldbank.org/en/news/press-release/2020/10/22/vietnam-signs-landmark-deal-with-world-bank-to-cut-carbon-emissions-and-reduce-deforestation
+        source_title: Vietnam Signs Landmark Deal with World Bank to Cut Carbon Emissions and Reduce Deforestation
+  - id: ANN:fcpf-idn
+    name: East Kalimantan Emission Reductions Program (World Bank FCPF)
+    developer: Government of Indonesia
+    countries: [IDN]
+    l2: redd
+    offtakes:
+      - buyer: World Bank FCPF Carbon Fund
+        volume_tco2e: 22000000
+        date: 2020-11-27
+        source_url: https://www.worldbank.org/en/news/press-release/2020/12/08/indonesia-and-the-world-bank-sign-milestone-agreement-on-emission-reductions
+        source_title: Indonesia and the World Bank Sign Milestone Agreement on Emission Reductions
+  - id: ANN:fcpf-lao
+    name: Northern Laos REDD+ Emission Reductions Program (World Bank FCPF)
+    developer: Government of Lao PDR
+    countries: [LAO]
+    l2: redd
+    offtakes:
+      - buyer: World Bank FCPF Carbon Fund
+        volume_tco2e: 8400000
+        date: 2021-01-27
+        source_url: https://www.worldbank.org/en/news/press-release/2021/01/27/lao-pdr-signs-agreement-to-protect-forests-and-reduce-carbon-emissions
+        source_title: Lao PDR Signs Agreement to Protect Forests and Reduce Carbon Emissions
+  - id: ANN:fcpf-npl
+    name: Nepal Emission Reductions Program, Terai Arc Landscape (World Bank FCPF)
+    developer: Government of Nepal
+    countries: [NPL]
+    l2: redd
+    offtakes:
+      - buyer: World Bank FCPF Carbon Fund
+        volume_tco2e: 9000000
+        date: 2021-02-24
+        source_url: https://www.worldbank.org/en/news/press-release/2021/02/26/nepal-and-world-bank-sign-innovative-financing-agreement-on-forests-and-climate-change-for-building-back-greener
+        source_title: Nepal and World Bank Sign Innovative Financing Agreement on Forests and Climate Change

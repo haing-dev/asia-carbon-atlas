@@ -12,7 +12,7 @@ from collections import defaultdict
 
 from pipeline import common, dedupe
 
-STAGE_ORDER = {"inactive": 0, "pipeline": 1, "registered": 2, "issuing": 3}
+STAGE_ORDER = {"inactive": 0, "announced": 0.5, "pipeline": 1, "registered": 2, "issuing": 3}
 
 
 def load_methodology_map() -> dict[tuple[str, str], str]:
@@ -31,6 +31,8 @@ def load_type_rules() -> list[tuple[re.Pattern, str]]:
 
 def classify(rec: dict, mmap: dict, rules: list) -> str:
     """Methodology dictionary first, then ordered regex rules over type/methodology/name."""
+    if rec.get("l2_override"):
+        return rec["l2_override"]
     for code in rec.get("methodology_codes") or []:
         c = code.strip().upper()
         l2 = mmap.get((rec["registry"], c)) or mmap.get(("*", c))
@@ -67,6 +69,18 @@ def load_population() -> dict[str, float]:
         return {}
     with open(path, encoding="utf-8") as f:
         return {r["iso3"]: float(r["population"]) for r in csv.DictReader(line for line in f if not line.startswith("#"))}
+
+
+def share_countries(lead: dict, countries: list[str], cfg: dict) -> list[str]:
+    """Host countries used for the map split: the lead record's hosts; if the project's name names exactly one of
+    them (e.g. "Dagachhu Hydropower Project, Bhutan"), that country only."""
+    hosts = [c for c in (lead.get("countries") or []) if c in countries] or countries
+    if len(hosts) > 1:
+        name = (lead.get("name") or "").lower()
+        named = [c for c in hosts if c in cfg and re.search(r"\b" + re.escape(cfg[c]["name"].lower()) + r"\b", name)]
+        if len(named) == 1:
+            return named
+    return hosts
 
 
 def country_shares(countries: list[str], in_scope: set[str], population: dict[str, float]) -> dict[str, float]:
@@ -172,8 +186,49 @@ def _min_year(members: list[dict], field: str) -> int | None:
     return min(years) if years else None
 
 
+CDM_BUYER_RE = re.compile(r"([^,()]+?)\s*\(([^()]+)\)")
+UNEP_CDM = "https://unepccc.org/cdm-ji-pipeline/"
+
+
+def cdm_buyers(rec: dict) -> list[dict]:
+    """'Switzerland (Vitol), United K. (EcoSecurities)' -> offtaker entries (UNEP-CCC 'Credit buyer' column)."""
+    raw = rec.get("credit_buyer_raw")
+    if rec["registry"] != "CDM" or not raw:
+        return []
+    out = []
+    for country, name in CDM_BUYER_RE.findall(str(raw)):
+        out.append({"name": name.strip(), "type": "CDM credit buyer", "country": country.strip(),
+                    "source_url": UNEP_CDM, "source_title": "UNEP-CCC CDM Pipeline, 'Credit buyer' column"})
+    return out
+
+
+def _deal(d: dict) -> dict:
+    return {"name": d["buyer"], "type": "Announced offtake", "date": str(d.get("date") or "") or None,
+            "volume_tco2e": d.get("volume_tco2e"), "source_url": d["source_url"],
+            "source_title": d.get("source_title"), "note": d.get("note")}
+
+
+def load_offtakes() -> tuple[dict[str, list[dict]], list[dict]]:
+    """config/offtakers.yaml -> (deals by record_id, pseudo-records for announced rows)."""
+    cfg = common.load_yaml("offtakers.yaml") if (common.CONFIG / "offtakers.yaml").exists() else {}
+    by_record: dict[str, list[dict]] = defaultdict(list)
+    for d in cfg.get("offtakes") or []:
+        by_record[d["record"]].append(_deal(d))
+    rows = []
+    for a in cfg.get("announced_rows") or []:
+        deals = [_deal(d) for d in a.get("offtakes") or []]
+        rows.append({
+            "record_id": a["id"], "registry": "ANN", "native_id": a["id"].split(":", 1)[-1],
+            "registry_url": deals[0]["source_url"] if deals else None, "name": a["name"],
+            "developer_raw": a.get("developer"), "countries": a["countries"], "l2_override": a["l2"],
+            "registry_status_raw": "announced", "issued_tco2e": 0, "retired_tco2e": 0, "_deals": deals,
+        })
+    return by_record, rows
+
+
 def build_projects(write_review: bool = False) -> list[dict]:
-    records = common.load_all_records()
+    deals_by_record, announced = load_offtakes()
+    records = common.load_all_records() + announced
     countries_cfg = common.load_yaml("countries.yaml")["countries"]
     in_scope = set(countries_cfg)
     stage_map = (common.load_yaml("stages.yaml").get("map") or {})
@@ -200,7 +255,7 @@ def build_projects(write_review: bool = False) -> list[dict]:
         members.sort(key=lambda r: (LEAD_PRIORITY.get(r["registry"], 9), r["record_id"]))
         lead = members[0]
         countries = sorted({c for m in members for c in (m.get("countries") or [])})
-        shares = country_shares(countries, in_scope, population)
+        shares = country_shares(share_countries(lead, countries, countries_cfg), in_scope, population)
         if not shares:
             continue
         stages = [stage_of(m, stage_map, today) for m in members]
@@ -222,7 +277,10 @@ def build_projects(write_review: bool = False) -> list[dict]:
             "crediting": [lead.get("crediting_start"), lead.get("crediting_end")],
             "years": {k: _min_year(members, f"{k}_date") for k in ("listed", "registered", "first_issuance")},
             "article6": merge_article6([m.get("article6") for m in members + notes]),
-            "offtakers": [],
+            "offtakers": sorted(sorted(
+                [o for m in members for o in deals_by_record.get(m["record_id"], []) + m.get("_deals", [])]
+                + [o for m in members for o in cdm_buyers(m)],
+                key=lambda o: str(o.get("date") or ""), reverse=True), key=lambda o: o["type"] != "Announced offtake"),
             "project_url": None,
             "developer_url": None,
             "flags": (["multi_country"] if len(countries) > 1 else [])
@@ -231,6 +289,10 @@ def build_projects(write_review: bool = False) -> list[dict]:
             + (["vintage_overlap"] if overlap else [])
             + (["retired_gt_issued"] if any((m.get("retired_tco2e") or 0) > (m.get("issued_tco2e") or 0) for m in members) else []),
         })
+    known = {r["record_id"] for r in records}
+    for rid in deals_by_record:
+        if rid not in known:
+            print(f"WARNING offtakers.yaml: unknown record {rid}")
     projects.sort(key=lambda p: p["project_id"])
     return projects
 

@@ -13,17 +13,19 @@ from collections import defaultdict
 from pipeline import common
 from pipeline.process import STAGE_ORDER, build_projects
 
-STAGES = ["pipeline", "registered", "issuing", "inactive"]
+STAGES = ["pipeline", "registered", "issuing", "inactive", "announced"]
 REGISTRY_LABELS = {
     "VCS": "Verra (VCS)", "GS": "Gold Standard", "CDM": "CDM", "PACM": "Article 6.4 (PACM)",
     "GCC": "Global Carbon Council", "UCR": "Universal Carbon Registry", "PURO": "Puro.earth",
     "ISO": "Isometric", "JCM": "JCM (Japan)", "A62": "Article 6.2 (bilateral)",
+    "ANN": "Announced deal (no registry record)",
 }
 REGISTRIES = list(REGISTRY_LABELS)
 REGISTRY_GROUP = {"VCS": "Independent standards", "GS": "Independent standards", "ISO": "Independent standards",
                   "PURO": "Independent standards", "GCC": "Independent standards", "UCR": "Independent standards",
                   "CDM": "Government & UN mechanisms", "PACM": "Government & UN mechanisms",
-                  "JCM": "Government & UN mechanisms", "A62": "Government & UN mechanisms"}
+                  "JCM": "Government & UN mechanisms", "A62": "Government & UN mechanisms",
+                  "ANN": "Announcements"}
 
 
 def _write_hashed(dirpath, stem: str, obj) -> str:
@@ -67,7 +69,7 @@ def main() -> None:
         cols["is"].append(p.get("issued_tco2e") or 0)
         cols["re"].append(p.get("retired_tco2e") or 0)
         row = {k: p[k] for k in (
-            "project_id", "display_name", "developer", "developer_url", "project_url", "countries",
+            "project_id", "display_name", "developer", "developer_url", "project_url", "countries", "country_shares",
             "registries", "issuance_by_vintage", "methodology_codes", "crediting", "years", "article6",
             "offtakers", "flags")}
         for c in p["country_shares"]:

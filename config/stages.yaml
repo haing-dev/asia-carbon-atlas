@@ -4,7 +4,7 @@
 #   - otherwise issued > 0 => "issuing";
 #   - "registered" with crediting period ended and nothing issued => "inactive".
 # An unmapped status fails validation: add it here.
-stages: [pipeline, registered, issuing, inactive]
+stages: [pipeline, registered, issuing, inactive, announced]
 map:
   CDM:
     registered: registered
@@ -65,3 +65,5 @@ map:
     published: pipeline
   GCC:
     registered: registered
+  ANN:                       # announced offtake, no registry record yet (config/offtakers.yaml)
+    announced: announced

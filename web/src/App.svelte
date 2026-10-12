@@ -16,7 +16,7 @@
   let error = $state(null);
   let metric = $state("is");
   let country = $state(null);
-  let f = $state({ l2: null, stages: new Set([0, 1, 2]), registries: null, a6: false, q: "" });
+  let f = $state({ l2: null, stages: new Set([0, 1, 2, 4]), registries: null, a6: false, q: "" });
   let rawRows = $state([]);
   let loadingRows = $state(false);
   let theme = $state(null);
@@ -43,7 +43,7 @@
     if (country) p.set("c", country);
     if (f.l2) p.set("t", [...f.l2].map((i) => index.l2[i].id).join(","));
     const st = f.stages ? [...f.stages].sort().map((i) => index.stages[i]).join(",") : "all";
-    if (st !== "pipeline,registered,issuing") p.set("st", st);
+    if (st !== "pipeline,registered,issuing,announced") p.set("st", st);
     if (f.registries) p.set("r", [...f.registries].map((i) => index.registries[i].id).join(","));
     if (f.a6) p.set("a6", "1");
     if (f.q) p.set("q", f.q);
@@ -97,7 +97,7 @@
   const total = $derived([...totals.values()].reduce((a, b) => a + b, 0));
 
   function clearFilters() {
-    f = { l2: null, stages: new Set([0, 1, 2]), registries: null, a6: false, q: "" };
+    f = { l2: null, stages: new Set([0, 1, 2, 4]), registries: null, a6: false, q: "" };
   }
   function selectCountry(iso) {
     country = iso;
@@ -126,12 +126,12 @@
   // Footnotes, numbered in reading order. Markers in the page link to #note-N.
   const NOTES = [
     "Map shading uses a square-root scale so smaller countries remain visible; the ranking bars beside the map are linear, so their lengths compare volumes directly. Totals include only the filters currently selected.",
-    "Projects hosted in several countries appear once in the table. For country totals on the map, their volumes are split across host countries in proportion to population (UN World Population Prospects 2024).",
-    "A project listed in several registries (e.g. CDM → Gold Standard, or CDM → Article 6.4) is merged into one row where the registries cross-reference each other; volumes are shown per registry in the row details. Verra, Gold Standard and Isometric records come via the Berkeley Voluntary Registry Offsets Database; CDM records via the UNEP Copenhagen Climate Centre CDM Pipeline (compiled from UNFCCC data), linked to each project's UNFCCC page. JCM and UCR records come from their public registries. Article 6 data come from the UNEP Copenhagen Climate Centre Article 6 Pipeline: Article 6.4 (PACM) activities merge with their CDM records; Article 6.2 status and buyer country are shown as a tag on the matching registry project (6.2 volumes are never added on top), and an authorised 6.2 activity with no other registry record appears as its own row.",
-    "Listed: listed, under development or under validation. Validated: validated and registered, nothing issued yet. Issuing: at least one issuance to date (including projects whose crediting period has since ended). Inactive: withdrawn, rejected, deregistered, or crediting period ended with nothing issued (hidden by default). Year columns: year first listed, year validated/registered, and year of first issuance, as published by the registry (— where the source gives no date; Verra and Gold Standard listing dates are not in the Berkeley database).",
+    "Projects hosted in several countries appear once in the table. For country totals on the map, their volumes are split across host countries in proportion to population (UN World Population Prospects 2024, 1 July 2025); shares of non-Asian hosts are left off the map. If the project's name names one host country, all of it is counted there (hover \"multi\" for the split).",
+    "A project listed in several registries (e.g. CDM → Gold Standard, or CDM → Article 6.4) is merged into one row where the registries cross-reference each other, or where names match closely (same country and credit type, no conflicting capacity, place or phase number, and an unambiguous best match). Issued volumes are summed across registries, except that a vintage year issued in more than one registry is counted once (the larger figure), so converted credits are not double-counted. Verra, Gold Standard and Isometric records come via the Berkeley Voluntary Registry Offsets Database; CDM records via the UNEP Copenhagen Climate Centre CDM Pipeline (compiled from UNFCCC data), linked to each project's UNFCCC page. JCM and UCR records come from their public registries. Global Carbon Council records come from the GCC approved-projects export (registration data only: no issued volumes, and links go to the GCC project search). Article 6 data come from the UNEP Copenhagen Climate Centre Article 6 Pipeline: Article 6.4 (PACM) activities merge with their CDM records; Article 6.2 status and buyer country are shown as a tag on the matching registry project (6.2 volumes are never added on top), and an authorised 6.2 activity with no other registry record appears as its own row.",
+    "Listed: listed, under development or under validation. Validated: validated and registered, nothing issued yet. Issuing: at least one issuance to date (including projects whose crediting period has since ended). Inactive: withdrawn, rejected, deregistered, or crediting period ended with nothing issued (hidden by default). Announced deal: a public purchase announcement with no single registry record yet. Year columns: year first listed, year validated/registered, and year of first issuance, as published by the registry (— where the source gives no date; Verra and Gold Standard listing dates are not in the Berkeley database).",
     "The registry's own ex-ante estimate of annual reductions or removals, which often exceeds what is later issued.",
     "One credit = one tonne of CO₂e reduced or removed. Issued and retired volumes are cumulative.",
-    "Offtakers are limited to public registry retirement records, government publications and public announcements, and are therefore not exhaustive.",
+    "Offtakers are limited to public records and announcements, and are therefore not exhaustive: CDM credit buyers as listed in the UNEP-CCC CDM Pipeline (often traders or government purchase programmes), and announced purchase/offtake agreements whose source names the buyer, the project or supplier, and the date (hover a name for type, date and volume; click for the source). Announcements naming only a supplier, or a project not yet in a covered registry, appear as separate \"Announced deal\" rows with no volumes on the map.",
   ];
   const asOf = (s) => s.last_changed ? s.last_changed.slice(0, 10) : s.enabled ? "pending" : "not yet connected";
 </script>
