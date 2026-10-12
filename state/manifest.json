@@ -1,10 +1,10 @@
 {
-  "last_commit_at": "2026-10-12T07:07:09+00:00",
+  "last_commit_at": "2026-10-12T07:46:44+00:00",
   "sources": {
     "cdm": {
       "error": null,
-      "last_changed": "2026-10-12T07:04:15+00:00",
-      "last_checked": "2026-10-12T07:04:15+00:00",
+      "last_changed": "2026-10-12T07:46:44+00:00",
+      "last_checked": "2026-10-12T07:46:44+00:00",
       "rows": 3024,
       "signal": {
         "etag": "\"1182fd5-632f6ba395d70\"",
@@ -15,8 +15,8 @@
     },
     "puro": {
       "error": null,
-      "last_changed": "2026-10-12T07:04:15+00:00",
-      "last_checked": "2026-10-12T07:04:15+00:00",
+      "last_changed": "2026-10-12T07:46:44+00:00",
+      "last_checked": "2026-10-12T07:46:44+00:00",
       "rows": 7,
       "signal": {
         "newest_issuance": "30 Sept 2026 10823 Exomad Green, Concepción Exomad Industria Maderera S.A. Biochar, 2022 ",
@@ -26,8 +26,8 @@
     },
     "vrod": {
       "error": null,
-      "last_changed": "2026-10-12T07:07:09+00:00",
-      "last_checked": "2026-10-12T07:07:09+00:00",
+      "last_changed": "2026-10-12T07:46:44+00:00",
+      "last_checked": "2026-10-12T07:46:44+00:00",
       "rows": 3125,
       "signal": {
         "url": "https://gspp.berkeley.edu/assets/uploads/page/Voluntary-Registry-Offsets-Database--v2026-08.xlsx",
