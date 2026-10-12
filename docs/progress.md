@@ -17,9 +17,21 @@
   (PACM rows merged with CDM; 6.2 status/buyer tags on matching JCM/Verra projects; unmatched authorised 6.2 activities as rows).
   GCC blocked (403) → disabled. Site: shaded map + ranked bars with flags, "Listed"/"Validated", separate Listed/Validated/1st issued year columns, grouped registry filter.
 
+- **M3 (dedupe, population): done** (2026-10-12). Fuzzy cross-registry matching (`pipeline/dedupe.py`: rapidfuzz on
+  normalised names, blocked by country + L1; hard guards on capacity, place, phase number, technology; mutual-best rule;
+  ≥0.90 merge, 0.70–0.90 → `review/dedupe_pending.csv`; owner decisions in `review/dedupe_decisions.csv`). 395 projects merged by
+  name. CDM issuance by vintage (UNFCCC_issuances, spread over monitoring periods); a vintage issued in two registries counts once
+  (219 projects flagged `vintage_overlap`). Population split from UN WPP 2024 (`config/population.csv`, `tools` workflow);
+  lead record's hosts, or the single country named in the title.
+- **GCC: done** via the owner's approved-projects export (`data/manual/gcc/*.xlsx`; site is behind a Cloudflare challenge).
+  138 Asian projects. No issuance, developer or per-project links in the export. GCC issuances live on S&P's registry
+  (registry.spglobal.com/gccregistry, undocumented JSON API) — not used.
+- **Offtakers (M5 part 1): done.** CDM credit buyers (UNEP-CCC column, ~1,360 projects) + 14 verified public deals on registry
+  projects and 11 "Announced deal" rows (supplier-level deals, World Bank FCPF ERPAs) in `config/offtakers.yaml`.
+
 ## Next
-- GCC: owner will upload a GCC export manually (site blocks bots) → add a file-based GCC adapter reading it from the repo.
-- M3: fuzzy dedupe (VCS↔CDM rarely cross-reference), CDM issuance by vintage for overlap rule, population shares (UN WPP).
+- Owner: send a fresh GCC export when wanted (replace the file in `data/manual/gcc/`); spot-check `review/dedupe_pending.csv` pairs.
+- M5 rest: monthly scheduled Claude task for offtaker/website enrichment (queue + review flow per SPEC §10); Puro retirement beneficiaries.
 - Owner to spot-check that Verra and Gold Standard registry links open the right project.
 
 ## Decisions

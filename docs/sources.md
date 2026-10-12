@@ -43,4 +43,12 @@
 - Buyer country = middle code of the A6 ID (e.g. `TH-CH-5002`); `ND` = not disclosed.
 
 ## gcc — Global Carbon Council
-- Whole domain (incl. robots.txt, sitemap) returns HTTP 403 to the atlas User-Agent. Disabled; no bypass. Revisit if they publish an export.
+- gcc2.globalcarboncouncil.com (and the old domain) answer bots with a Cloudflare challenge (HTTP 403, `cf-mitigated: challenge`). No bypass.
+- Source: the owner's "Approved Projects → Export" from https://gcc2.globalcarboncouncil.com/search/registration, committed to
+  `data/manual/gcc/`. Adapter reads the newest .xlsx; probe = file hash. Fields: submission no., title, validated ER/yr, methodology,
+  activity type, country, market eligibility (CORSIA / Article 6.2 CA+ label), validator, crediting period, registration date.
+- Not in the export: developer, issued/retired, project page URL (rows link to the GCC search page).
+
+## Offtakers
+- CDM: "Credit buyer" column of the UNEP-CCC CDM Pipeline, parsed as `Country (Entity)`; shown as "CDM credit buyer".
+- Announcements: `config/offtakers.yaml`, researched by web search; each source must name buyer, project/supplier and date.
