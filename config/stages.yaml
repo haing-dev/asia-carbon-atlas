@@ -1,5 +1,18 @@
-# Raw registry status -> stage. Keys are registry codes; values map lowercase raw status -> stage.
-# Stages: pipeline | registered | issuing | inactive. "issuing" is also set automatically when issued > 0.
-# An unmapped status fails validation (add it here).
+# Raw registry status -> stage (docs/SPEC.md §5). Keys: registry code -> lowercase raw status -> stage.
+# Rules applied in pipeline/process.py:
+#   - mapped "inactive" always wins;
+#   - otherwise issued > 0 => "issuing";
+#   - "registered" with crediting period ended and nothing issued => "inactive".
+# An unmapped status fails validation: add it here.
 stages: [pipeline, registered, issuing, inactive]
-map: {}
+map:
+  CDM:
+    registered: registered
+    rejected: inactive
+    withdrawn: inactive
+    deregistered: inactive
+    pending publication: inactive    # CDM closed to new registrations; stale requests
+    provisional: inactive
+  PURO:
+    issuing: issuing
+    registered: registered

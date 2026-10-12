@@ -58,7 +58,7 @@ class Adapter(Source):
         header = None
         for i, row in enumerate(rows):
             if i == HEADER_ROW:
-                header = [str(h).replace("\n", " ").strip() if h is not None else "" for h in row]
+                header = [" ".join(str(h).split()) if h is not None else "" for h in row]
                 break
         if not header or "Project ID" not in header:
             raise SourceError("VROD PROJECTS header not found")

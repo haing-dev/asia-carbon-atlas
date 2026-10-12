@@ -1,0 +1,56 @@
+# Credit-type classification rules (docs/SPEC.md §6). First match wins.
+# Each rule's regex is tested (case-insensitive) against "<registry type> | <methodology> | <project name>".
+# Registry types: Berkeley VROD "Scope / Type", UNEP-CCC "Type / Sub-type", Puro methodology names.
+rules:
+  # Forestry & land use
+  - {re: 'REDD|avoided (planned |unplanned )?deforestation|avoided conversion|VM0007|VM0009|VM0015|VM0048', l2: redd}
+  - {re: 'mangrove|seagrass|blue carbon|tidal wetland|VM0033', l2: blue_carbon}
+  - {re: 'peat|wetland restoration|VM0036', l2: peat_wetland}
+  - {re: 'improved forest management|\bIFM\b|VM0010|VM0012|forest management', l2: ifm}
+  - {re: 'agroforestry', l2: agroforestry}
+  - {re: 'afforestation|reforestation|revegetation|\bARR\b|AR-A[CM]|AR-AMS|tree planting|Forestry & Land Use / (A/R|ARR)', l2: arr}
+  # Industrial gases (before agriculture so 'N2O at fertilizer plant' stays industrial)
+  - {re: 'HFC|PFC|SF6|nitric acid|adipic acid|caprolactam|industrial gas|ozone depleting|N2O / ', l2: industrial_gases}
+  # Agriculture
+  - {re: 'rice (cultivation|paddy|field|farm|methane|water)|paddy|alternate wetting|\bAWD\b|direct seeded rice|AMS-III\.AU', l2: rice_methane}
+  - {re: 'soil carbon|sustainable agricultural land|regenerative (agri|farm|grazing)|grassland|grazing|VM0017|VM0021|VM0042|sustainable land management', l2: soil_carbon}
+  - {re: 'manure|livestock|enteric|feed additive|animal waste|poultry litter|digester', l2: livestock}
+  - {re: 'fertili[sz]er (management|use|application)|nitrogen management|nitrogen use efficiency|N2O.*(agri|soil)', l2: fertilizer}
+  # Engineered & hybrid removal
+  - {re: 'biochar|bio-char', l2: biochar}
+  - {re: 'rock weathering|\bERW\b|enhanced weathering', l2: erw}
+  - {re: 'direct air capture|\bDAC(CS)?\b', l2: dac}
+  - {re: 'BECCS|bioenergy with carbon capture|geologically stored carbon', l2: beccs}
+  - {re: 'carbonated materials|mineraliz|mineralis|concrete curing', l2: mineralization}
+  - {re: 'wooden building|terrestrial storage of biomass|biomass storage|wood products', l2: biomass_storage}
+  # Household & community
+  - {re: 'cook ?stove|stoves|clean cooking|TPDDTEC|AMS-II\.G|improved cooking|solar cooking', l2: cookstoves}
+  - {re: 'water purification|water filter|safe water|borehole|AMS-III\.AV', l2: water}
+  - {re: 'household biogas|domestic biogas|domestic manure|biogas digesters? for households', l2: household_biogas}
+  - {re: 'solar (home|lantern|lamp)|off-grid lighting|EE households / Lighting|lighting in households|AMS-III\.AR', l2: offgrid_solar}
+  # Waste & methane
+  - {re: 'landfill', l2: landfill}
+  - {re: 'waste ?water|POME|palm oil (mill )?effluent|Methane avoidance / Palm oil waste', l2: wastewater}
+  - {re: 'compost', l2: composting}
+  - {re: 'coal ?mine methane|coal bed|\bCMM\b|VAM\b', l2: coal_mine_methane}
+  - {re: 'flaring|fugitive|gas leak|pipeline leak|oil field|natural gas pipelines|oil and gas', l2: oil_gas_methane}
+  - {re: 'biogas|anaerobic digest|methane avoidance|methane recovery|Waste Management|combustion of MSW|solid waste', l2: biogas_ad}
+  # Industrial
+  - {re: 'cement|clinker|blended cement', l2: cement}
+  - {re: 'fuel switch|coal to (natural )?gas|oil to (natural )?gas|natural gas plant', l2: fuel_switch}
+  # Transport
+  - {re: 'electric vehicle|e-mobility|motorbike|EV charging|electric (bus|two|three)', l2: e_mobility}
+  - {re: 'mass transit|metro|\bBRT\b|rail|bus rapid|mode shift', l2: mass_transit}
+  - {re: 'transport|fleet|vehicle|fuel efficiency', l2: fleet}
+  # Renewable energy
+  - {re: 'wind', l2: wind}
+  - {re: 'solar|photovoltaic|\bPV\b', l2: solar}
+  - {re: 'hydro|run of river|run-of-river|\bdam\b', l2: hydro}
+  - {re: 'geothermal', l2: geothermal}
+  - {re: 'biomass|bagasse|rice husk|agricultural residue|forest residue|black liquor|briquette|gasification', l2: biomass_power}
+  - {re: 'tidal|wave energy|mixed renewables|renewable energy|ACM0002|AMS-I\.D|AMS-I\.F', l2: other_re}
+  # Energy efficiency
+  - {re: 'waste heat|heat recovery|own generation|WHR|coke oven gas|cogeneration', l2: waste_heat}
+  - {re: 'building|lighting|HVAC|street light|appliance|EE service|EE households|chiller|LED', l2: buildings}
+  - {re: 'distribution|transmission|grid|T&D|energy distribution', l2: grid}
+  - {re: 'energy efficiency|EE Industry|EE supply side|EE industry|efficient|boiler|industrial', l2: industrial_ee}

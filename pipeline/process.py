@@ -7,6 +7,7 @@ population-weighted country shares (docs/SPEC.md §5–8).
 from __future__ import annotations
 
 import csv
+import re
 from collections import defaultdict
 
 from pipeline import common
@@ -23,20 +24,40 @@ def load_methodology_map() -> dict[tuple[str, str], str]:
     return out
 
 
-def classify(rec: dict, mmap: dict) -> str:
+def load_type_rules() -> list[tuple[re.Pattern, str]]:
+    rules = common.load_yaml("type_rules.yaml")["rules"]
+    return [(re.compile(r["re"], re.I), r["l2"]) for r in rules]
+
+
+def classify(rec: dict, mmap: dict, rules: list) -> str:
+    """Methodology dictionary first, then ordered regex rules over type/methodology/name."""
     for code in rec.get("methodology_codes") or []:
         c = code.strip().upper()
         l2 = mmap.get((rec["registry"], c)) or mmap.get(("*", c))
         if l2:
             return l2
+    text = " | ".join(str(x or "") for x in (
+        rec.get("registry_type_raw"), " ".join(rec.get("methodology_codes") or []),
+        rec.get("methodology_raw"), rec.get("name")))
+    for rx, l2 in rules:
+        if rx.search(text):
+            return l2
     return "other"
 
 
-def stage_of(rec: dict, stage_map: dict) -> str:
+def stage_of(rec: dict, stage_map: dict, today: str) -> str:
+    raw = str(rec.get("registry_status_raw") or "").strip().lower()
+    mapped = stage_map.get(rec["registry"], {}).get(raw)
+    if mapped == "inactive":
+        return "inactive"
     if (rec.get("issued_tco2e") or 0) > 0:
         return "issuing"
-    raw = str(rec.get("registry_status_raw") or "").strip().lower()
-    return stage_map.get(rec["registry"], {}).get(raw, "registered" if raw else "pipeline")
+    if mapped is None:
+        mapped = "registered" if raw else "pipeline"
+    end = rec.get("crediting_end")
+    if mapped == "registered" and end and end < today:
+        return "inactive"
+    return mapped
 
 
 def country_shares(countries: list[str], in_scope: set[str], population: dict[str, float]) -> dict[str, float]:
@@ -54,6 +75,8 @@ def build_projects() -> list[dict]:
     in_scope = set(countries_cfg)
     stage_map = (common.load_yaml("stages.yaml").get("map") or {})
     mmap = load_methodology_map()
+    rules = load_type_rules()
+    today = common.today()
     population: dict[str, float] = {}  # M3: UN WPP 2024 (2025) from config/population.csv
 
     clusters: dict[str, list[dict]] = defaultdict(list)
@@ -68,14 +91,14 @@ def build_projects() -> list[dict]:
         shares = country_shares(countries, in_scope, population)
         if not shares:
             continue
-        stages = [stage_of(m, stage_map) for m in members]
+        stages = [stage_of(m, stage_map, today) for m in members]
         projects.append({
             "project_id": lead["record_id"],
             "display_name": lead.get("name") or lead["record_id"],
             "developer": lead.get("developer_raw"),
             "countries": countries,
             "country_shares": shares,
-            "l2": classify(lead, mmap),
+            "l2": classify(lead, mmap, rules),
             "stage": max(stages, key=lambda s: STAGE_ORDER[s]),
             "registries": [{"record_id": m["record_id"], "registry": m["registry"], "url": m["registry_url"]} for m in members],
             "est_annual_tco2e": lead.get("est_annual_tco2e"),
