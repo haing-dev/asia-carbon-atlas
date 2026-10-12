@@ -1,5 +1,5 @@
 {
-  "last_commit_at": "2026-10-12T13:51:25+00:00",
+  "last_commit_at": "2026-10-12T13:59:42+00:00",
   "sources": {
     "a6pipeline": {
       "error": null,
@@ -18,8 +18,8 @@
     },
     "cdm": {
       "error": null,
-      "last_changed": "2026-10-12T07:46:44+00:00",
-      "last_checked": "2026-10-12T07:46:44+00:00",
+      "last_changed": "2026-10-12T13:59:42+00:00",
+      "last_checked": "2026-10-12T13:59:42+00:00",
       "rows": 3024,
       "signal": {
         "etag": "\"1182fd5-632f6ba395d70\"",
@@ -31,7 +31,7 @@
     "gcc": {
       "error": null,
       "last_changed": "2026-10-12T13:51:25+00:00",
-      "last_checked": "2026-10-12T13:51:25+00:00",
+      "last_checked": "2026-10-12T13:59:42+00:00",
       "rows": 138,
       "signal": {
         "file": "ApprovedProjects_ProjectsExport.xlsx",
