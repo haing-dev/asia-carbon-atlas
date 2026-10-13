@@ -56,6 +56,7 @@
     latest registry issuances (VROD v2026-08 snapshot timing).
   - Offtaker backfill (2026-10-13): GSK–Varaha plus ~30 older verified deals (41 mapped offtakes, 36 announced rows).
     Weekly task now also sweeps 5 listed suppliers per week for deals older than 7 days.
+  - Gold Standard links fixed: registry pages use an internal id, not the GS number (new `gsreg` lookup source).
 
 ## Next
 - Owner: send a fresh GCC export when wanted (replace the file in `data/manual/gcc/`); spot-check `review/dedupe_pending.csv` pairs.

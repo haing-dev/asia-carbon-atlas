@@ -142,3 +142,17 @@ def test_compact_row_drops_rebuildable_fields():
     row = compact_row(p)
     assert row == {"id": "VCS:1", "n": "X", "c": ["IND"], "rg": ["VCS:1", ["CDM:9", "https://cdm.unfccc.int/x"]],
                    "y": [None, 2020, None]}
+
+
+def test_gs_links_use_registry_page_id(tmp_path, monkeypatch):
+    from pipeline import common, process
+    monkeypatch.setattr(common, "ROOT", tmp_path)
+    (tmp_path / "data" / "lookups").mkdir(parents=True)
+    (tmp_path / "data" / "lookups" / "gsreg.jsonl").write_text('{"record_id": "GS:23411", "registry_id": "5335"}\n')
+    recs = [{"record_id": "GS:23411", "registry": "GS", "native_id": "23411", "registry_url": "x", "cross_refs": []},
+            {"record_id": "GS:99", "registry": "GS", "native_id": "99", "registry_url": "x", "cross_refs": []},
+            {"record_id": "A62:X", "registry": "A62", "native_id": "X", "registry_url": "y", "cross_refs": ["GSREG:5335"]}]
+    out = process.fix_gs_links(recs)
+    assert out[0]["registry_url"] == "https://registry.goldstandard.org/projects/details/5335"
+    assert out[1]["registry_url"] == "https://assurance-platform.goldstandard.org/project-documents/GS99"
+    assert out[2]["cross_refs"] == ["GS:23411"]

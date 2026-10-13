@@ -48,7 +48,7 @@ def run(selected: list[str] | None, force: bool) -> dict:
             if not force and signal == state.get("signal") and not state.get("stale"):
                 print(f"[{sid}] unchanged")
                 continue
-            path = common.RECORDS_DIR / f"{sid}.jsonl"
+            path = getattr(adapter, "output_path", None) or common.RECORDS_DIR / f"{sid}.jsonl"
             previous = common.read_jsonl(path)
             records = adapter.fetch(previous, signal)
             # Gate (SPEC §11): a source that suddenly returns far fewer rows is more likely broken than shrinking.

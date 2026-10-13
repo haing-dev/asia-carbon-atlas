@@ -257,9 +257,29 @@ def load_offtakes() -> tuple[dict[str, list[dict]], list[dict]]:
     return by_record, rows
 
 
+GS_PAGE = "https://registry.goldstandard.org/projects/details/{}"
+GS_DOCS = "https://assurance-platform.goldstandard.org/project-documents/GS{}"
+
+
+def fix_gs_links(records: list[dict]) -> list[dict]:
+    """Gold Standard registry pages are addressed by an internal id, not the GS number the sources use.
+    Link each GS record to its registry page via data/lookups/gsreg.jsonl; without a mapping, link GS's own
+    project-documents page for that GS number. Cross-refs to registry pages ("GSREG:<page id>") become GS numbers."""
+    rows = common.read_jsonl(common.ROOT / "data" / "lookups" / "gsreg.jsonl")
+    page = {r["record_id"]: r["registry_id"] for r in rows}
+    gs_of_page = {v: k for k, v in page.items()}
+    for r in records:
+        if r.get("registry") == "GS":
+            pid = page.get(r["record_id"])
+            r["registry_url"] = GS_PAGE.format(pid) if pid else GS_DOCS.format(r["native_id"])
+        if any(c.startswith("GSREG:") for c in r.get("cross_refs") or []):
+            r["cross_refs"] = [gs_of_page.get(c[6:], c) if c.startswith("GSREG:") else c for c in r["cross_refs"]]
+    return records
+
+
 def build_projects(write_review: bool = False) -> list[dict]:
     deals_by_record, announced = load_offtakes()
-    records = common.load_all_records() + announced
+    records = fix_gs_links(common.load_all_records()) + announced
     countries_cfg = common.load_yaml("countries.yaml")["countries"]
     in_scope = set(countries_cfg)
     stage_map = (common.load_yaml("stages.yaml").get("map") or {})

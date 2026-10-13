@@ -9,6 +9,12 @@ sources:
     license: CC BY 4.0
     enabled: true
     cadence_days: 7
+  gsreg:
+    label: Gold Standard registry API (project page links only)
+    registries: []
+    url: https://registry.goldstandard.org/projects
+    enabled: true
+    cadence_days: 7
   cdm:
     label: UNFCCC Clean Development Mechanism (via UNEP-CCC CDM Pipeline)
     registries: [CDM]

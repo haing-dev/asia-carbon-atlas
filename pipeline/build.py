@@ -58,7 +58,6 @@ def load_notes() -> list[dict]:
 # Registry links the browser can rebuild from the record id ({id} = the part after "REG:"); rows omit such links.
 URL_TEMPLATES = {
     "VCS": "https://registry.verra.org/app/projectDetail/VCS/{id}",
-    "GS": "https://registry.goldstandard.org/projects/details/{id}",
     "CAR": "https://thereserve2.apx.com/mymodule/reg/prjView.asp?id1={id}",
     "ACR": "https://greentrace.ice.com/acr/projects",
     "ART": "https://greentrace.ice.com/art/projects",

@@ -52,3 +52,8 @@
 ## Offtakers
 - CDM: the UNEP-CCC "Credit buyer" column is kept in the records but NOT shown: it mixes Annex I participants, traders and even host companies, and its only public source is the Excel file.
 - Announcements: `config/offtakers.yaml`, researched by web search; each source must name buyer, project/supplier and date.
+
+## Gold Standard registry page ids (`gsreg`)
+- Public API `https://public-api.goldstandard.org/projects?page=N&size=150` (no key; robots.txt 404). ~4,200 projects, ~30 requests.
+- VROD gives the GS number (`sustaincert_id`, e.g. 23411); the registry page uses the API `id` (5335). Lookup stored in
+  `data/lookups/gsreg.jsonl`; `process.fix_gs_links` applies it. Unmapped → `assurance-platform.goldstandard.org/project-documents/GS<n>`.
