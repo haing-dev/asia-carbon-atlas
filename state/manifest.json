@@ -1,14 +1,14 @@
 {
-  "last_commit_at": "2026-10-12T20:30:39+00:00",
+  "last_commit_at": "2026-10-13T03:55:55+00:00",
   "sources": {
     "a6pipeline": {
       "error": null,
       "last_changed": "2026-10-12T16:36:42+00:00",
-      "last_checked": "2026-10-12T16:36:42+00:00",
+      "last_checked": "2026-10-13T03:55:55+00:00",
       "rows": 174,
       "signal": {
         "a6p2": "c55adb3158b3514d",
-        "pacm": "a6dd5b62b4e35d9c",
+        "pacm": "faf20bb9191315ce",
         "rows": {
           "a6p2": 309,
           "pacm": 179
@@ -36,6 +36,18 @@
       "signal": {
         "file": "ApprovedProjects_ProjectsExport.xlsx",
         "sha256": "931f7d200679c8f4"
+      },
+      "stale": false
+    },
+    "gsreg": {
+      "error": null,
+      "last_changed": "2026-10-13T03:55:55+00:00",
+      "last_checked": "2026-10-13T03:55:55+00:00",
+      "rows": 4231,
+      "signal": {
+        "newest": "5759",
+        "total": 4231,
+        "updated": "2026-10-12T06:44:30Z"
       },
       "stale": false
     },
@@ -75,8 +87,8 @@
     },
     "vrod": {
       "error": null,
-      "last_changed": "2026-10-12T20:30:39+00:00",
-      "last_checked": "2026-10-12T20:30:39+00:00",
+      "last_changed": "2026-10-13T03:55:55+00:00",
+      "last_checked": "2026-10-13T03:55:55+00:00",
       "rows": 6764,
       "signal": {
         "url": "https://gspp.berkeley.edu/assets/uploads/page/Voluntary-Registry-Offsets-Database--v2026-08.xlsx",
