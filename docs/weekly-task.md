@@ -17,6 +17,8 @@ Budget: ~25 web searches, no page fetches beyond verifying items. Never touch `d
    the buyer, the project or supplier, and the date (SPEC §10.4: no inference; partnerships/investments without a credit
    purchase don't count). If one registry project is unambiguous (`grep -i` the name/developer in `data/records/*.jsonl`),
    add to `offtakes:` with its `record`; otherwise add or extend an `announced_rows:` entry (id `ANN:<supplier>-<type>-<iso>`).
+   **Supplier sweep (rotating):** also search "<supplier> carbon credit offtake" for 5 suppliers already in
+   `config/offtakers.yaml` (rotate alphabetically by week number), any date, to catch deals older than 7 days.
 4. **Duplicate review** — if the `ArtifactData` tool is available, `list` collection `decisions` of
    https://claude.ai/artifact/HMJAiyx5ZAXieaE3j72qFi (all pages), save the rows as JSON and run
    `uv run python -m pipeline.review_page --apply <file>`. Skip silently if the tool is unavailable.

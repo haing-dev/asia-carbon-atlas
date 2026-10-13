@@ -54,6 +54,8 @@
     raw (Asia); refresh gate keeps previous data if a source's row count drops >20%; publish skips non-site files.
   - External spot-checks: Onsan/Paulínia CDM, Guyana ART match public figures; Katingan (50.9M) and CAR totals lag the
     latest registry issuances (VROD v2026-08 snapshot timing).
+  - Offtaker backfill (2026-10-13): GSK–Varaha plus ~30 older verified deals (41 mapped offtakes, 36 announced rows).
+    Weekly task now also sweeps 5 listed suppliers per week for deals older than 7 days.
 
 ## Next
 - Owner: send a fresh GCC export when wanted (replace the file in `data/manual/gcc/`); spot-check `review/dedupe_pending.csv` pairs.
