@@ -95,7 +95,7 @@ class Adapter(Source):
             time.sleep(SPACING)
             r = client.get(API.format(id=i), headers=dict(headers))
             if r.status_code == 429:
-                time.sleep(180)
+                time.sleep(60)
                 r = client.get(API.format(id=i), headers=dict(headers))
                 if r.status_code == 429:
                     print(f"[verradesc] rate limited after {done} projects; continuing next run")

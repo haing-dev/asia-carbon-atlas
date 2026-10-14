@@ -23,6 +23,6 @@ for (const url of process.argv.slice(2)) {
   const text = (await p.evaluate(() => document.body.innerText).catch(() => "")).slice(0, 6000);
   fs.writeFileSync(`work/discover/browse-${n++}.txt`, `URL: ${url}\n\nPAGE TEXT:\n${text}\n\nREQUESTS:\n${log.join("\n")}`);
   await p.close();
-  await new Promise((r) => setTimeout(r, 2000));
+  await new Promise((r) => setTimeout(r, Number(process.env.BROWSE_GAP_MS || 2000)));
 }
 await b.close();
