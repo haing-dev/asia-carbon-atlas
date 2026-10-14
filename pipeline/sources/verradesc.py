@@ -29,22 +29,34 @@ PRIORITY = ["rice_methane", "soil_carbon", "agroforestry", "blue_carbon", "peat_
             "mineralization", "wastewater", "biogas_ad", "composting", "landfill", "buildings", "biomass_power"]
 
 
-def find_text(obj, keys=("description", "projectDescription", "summary")) -> str | None:
-    """First non-empty description-like string anywhere in the JSON."""
+def find_text(obj) -> str | None:
+    """The project description: the longest string under a key containing "desc" (any depth)."""
+    best = ""
+
+    def walk(o):
+        nonlocal best
+        if isinstance(o, dict):
+            for k, v in o.items():
+                if isinstance(v, str) and "desc" in k.lower() and len(v.strip()) > len(best):
+                    best = v.strip()
+                elif isinstance(v, (dict, list)):
+                    walk(v)
+        elif isinstance(o, list):
+            for v in o:
+                walk(v)
+    walk(obj)
+    return best if len(best) > 20 else None
+
+
+def all_keys(obj, prefix="") -> list[str]:
+    out = []
     if isinstance(obj, dict):
         for k, v in obj.items():
-            if k in keys and isinstance(v, str) and len(v.strip()) > 20:
-                return v
-        for v in obj.values():
-            r = find_text(v, keys)
-            if r:
-                return r
-    elif isinstance(obj, list):
-        for v in obj:
-            r = find_text(v, keys)
-            if r:
-                return r
-    return None
+            out.append(prefix + k)
+            out += all_keys(v, prefix + k + ".")
+    elif isinstance(obj, list) and obj:
+        out += all_keys(obj[0], prefix + "[0].")
+    return out
 
 
 def wanted() -> list[str]:
@@ -94,11 +106,9 @@ class Adapter(Source):
             if r.status_code != 200:
                 raise SourceError(f"Verra project {i}: HTTP {r.status_code}")
             data = r.json()
-            if done == 0:
-                print("[verradesc] response keys:", list(data)[:40] if isinstance(data, dict) else type(data).__name__)
             desc = find_text(data)
             if desc is None and done == 0:
-                raise SourceError(f"Verra project {i}: no description field found; keys {str(data)[:600]}")
+                raise SourceError(f"Verra project {i}: no description field found; keys {all_keys(data)}")
             out[f"VCS:{i}"] = {"record_id": f"VCS:{i}", "description": " ".join(desc.split())[:4000] if desc else None,
                                "fetched": common.today()}
             done += 1
