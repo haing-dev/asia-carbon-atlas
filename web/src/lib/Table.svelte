@@ -31,6 +31,13 @@
   const vol = (v) => v ?? (sortDir > 0 ? Infinity : -Infinity);
   const yr = (r, k) => r.years?.[k] ?? (sortDir > 0 ? 9999 : 0);
 
+  // Collapsed rows show only the first few items of long lists; clicking the row (outside links) expands it.
+  const LIM = { off: 2, reg: 1, tag: 2, cty: 3 };
+  const toggle = (id) => (open = open === id ? null : id);
+  function rowClick(e, id) {
+    if (e.target.closest("a, button") || window.getSelection()?.toString()) return;
+    toggle(id);
+  }
   const offTip = (o) => [o.type, o.country, o.date, o.volume_tco2e ? fmt(o.volume_tco2e) + " tCO₂e" : "", o.note].filter(Boolean).join(" · ");
 
   function sortBy(k) {
@@ -57,20 +64,22 @@
         <tr><td colspan={cols.length} class="empty">No projects match these filters.</td></tr>
       {/if}
       {#each sorted.slice(0, limit) as r (r.project_id)}
-        <tr class="main" class:open={open === r.project_id}>
-          <td class="name">
-            <button class="exp" aria-expanded={open === r.project_id} aria-label="Details" onclick={() => (open = open === r.project_id ? null : r.project_id)}>{open === r.project_id ? "−" : "+"}</button>
-            {#if r.project_url}<a href={r.project_url} target="_blank" rel="noopener">{r.display_name}</a>{:else}{r.display_name}{/if}
-          </td>
-          <td>{#if r.developer_url}<a href={r.developer_url} target="_blank" rel="noopener">{r.developer || "—"}</a>{:else}{r.developer || "—"}{/if}</td>
+        {@const ex = open === r.project_id}
+        {@const cn = r.country_names || r.countries}
+        <tr class="main" class:open={ex} onclick={(e) => rowClick(e, r.project_id)} title={ex ? "" : "Click to expand"}>
+          <td class="name"><div class="nw">
+            <button class="exp" aria-expanded={open === r.project_id} aria-label="Details" onclick={() => toggle(r.project_id)}>{open === r.project_id ? "−" : "+"}</button>
+            <span class="clamp" class:full={ex}>{#if r.project_url}<a href={r.project_url} target="_blank" rel="noopener">{r.display_name}</a>{:else}{r.display_name}{/if}</span>
+          </div></td>
+          <td><span class="clamp" class:full={ex}>{#if r.developer_url}<a href={r.developer_url} target="_blank" rel="noopener">{r.developer || "—"}</a>{:else}{r.developer || "—"}{/if}</span></td>
           <td class="off">
-            {#each r.offtakers.slice(0, 4) as o, i}{#if i}, {/if}<a href={o.source_url} target="_blank" rel="noopener" title={offTip(o)}>{o.name}</a>{/each}{#if r.offtakers.length > 4} <span class="muted">+{r.offtakers.length - 4}</span>{/if}
+            {#each ex ? r.offtakers : r.offtakers.slice(0, LIM.off) as o, i}{#if i}, {/if}<a href={o.source_url} target="_blank" rel="noopener" title={offTip(o)}>{o.name}</a>{/each}{#if !ex && r.offtakers.length > LIM.off} <span class="more-n">+{r.offtakers.length - LIM.off}</span>{/if}
             {#if !r.offtakers.length}<span class="muted">—</span>{/if}
           </td>
-          <td>{(r.country_names || r.countries).join(", ")}{#if r.countries.length > 1} <span class="badge" title={"Map split by population (UN WPP 2024), hosts in this region only: " + Object.entries(r.country_shares || {}).map(([c, v]) => `${c} ${(v * 100).toFixed(v < 0.01 ? 2 : 0)}%`).join(", ")}>multi</span>{/if}</td>
-          <td class="type"><span class="sw" style="background:{L1_COLORS[r.l1]}"></span>{r.typeLabel}</td>
+          <td>{(ex ? cn : cn.slice(0, LIM.cty)).join(", ")}{#if !ex && cn.length > LIM.cty} <span class="more-n">+{cn.length - LIM.cty}</span>{/if}{#if r.countries.length > 1} <span class="badge" title={"Map split by population (UN WPP 2024), hosts in this region only: " + Object.entries(r.country_shares || {}).map(([c, v]) => `${c} ${(v * 100).toFixed(v < 0.01 ? 2 : 0)}%`).join(", ")}>multi</span>{/if}</td>
+          <td class="type"><span class="clamp" class:full={ex}><span class="sw" style="background:{L1_COLORS[r.l1]}"></span>{r.typeLabel}</span></td>
           <td class="regs">
-            {#each r.registries as g}<a class="badge" href={g.url} target="_blank" rel="noopener" title={g.registry === "ANN" ? "Open the announcement" : "Open registry record"}>{g.registry === "ANN" ? "announcement" : g.record_id}</a>{/each}
+            {#each ex ? r.registries : r.registries.slice(0, LIM.reg) as g}<a class="badge" href={g.url} target="_blank" rel="noopener" title={g.registry === "ANN" ? "Open the announcement" : "Open registry record"}>{g.registry === "ANN" ? "announcement" : g.record_id}</a>{/each}{#if !ex && r.registries.length > LIM.reg}<span class="more-n">+{r.registries.length - LIM.reg}</span>{/if}
             {#if r.article6}<span class="badge a6" title={["Article 6", r.article6.status, r.article6.buyer_countries?.length ? "buyer: " + r.article6.buyer_countries.join(", ") : "", r.article6.itmos_transferred ? fmt(r.article6.itmos_transferred) + " ITMOs transferred" : ""].filter(Boolean).join(" · ")}>{r.article6.mechanism}{#if r.article6.buyer_countries?.length} → {r.article6.buyer_countries.join(", ")}{/if}</span>{/if}
           </td>
           <td>{STAGE_LABELS[index.stages[r.st]]}</td>
@@ -80,7 +89,7 @@
           <td class="num">{fmt(r.ea)}</td>
           <td class="num">{fmt(r.is)}</td>
           <td class="num">{fmt(r.re)}</td>
-          <td class="tags">{#each r.tagLabels as t}<span class="tag">{t}</span>{/each}{#if !r.tagLabels.length}<span class="muted">—</span>{/if}</td>
+          <td class="tags">{#each ex ? r.tagLabels : r.tagLabels.slice(0, LIM.tag) as t}<span class="tag">{t}</span>{/each}{#if !ex && r.tagLabels.length > LIM.tag}<span class="more-n">+{r.tagLabels.length - LIM.tag}</span>{/if}{#if !r.tagLabels.length}<span class="muted">—</span>{/if}</td>
 
         </tr>
         {#if open === r.project_id}
@@ -127,8 +136,17 @@
   th.num, td.num { text-align: right; }
   th.num { font-family: var(--font); font-size: inherit; }
   td { padding: 7px 10px; border-bottom: 1px solid var(--line); vertical-align: top; }
+  tr.main { cursor: pointer; }
   tr.main:hover td { background: var(--chip); }
+  tr.main.open td { background: var(--chip); }
+  .clamp { display: -webkit-box; -webkit-line-clamp: 2; line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+  .clamp.full { display: inline; -webkit-line-clamp: unset; line-clamp: unset; }
+  .more-n { font-size: 11.5px; color: var(--muted); white-space: nowrap; margin-left: 2px; }
+  .regs { white-space: nowrap; }
+  tr.open .regs { white-space: normal; }
   .name { min-width: 240px; }
+  .nw { display: flex; gap: 6px; align-items: flex-start; }
+  .nw .exp { flex: none; margin-right: 0; }
   .exp { width: 20px; height: 20px; border: 1px solid var(--line); background: var(--surface); border-radius: 4px; margin-right: 6px; cursor: pointer; line-height: 1; }
   .badge { display: inline-block; font: 11px var(--mono); padding: 1px 6px; border-radius: 4px; background: var(--chip); color: var(--ink); margin: 0 4px 3px 0; }
   .badge.a6 { background: var(--accent-soft); }
