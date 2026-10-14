@@ -156,3 +156,14 @@ def test_gs_links_use_registry_page_id(tmp_path, monkeypatch):
     assert out[0]["registry_url"] == "https://registry.goldstandard.org/projects/details/5335"
     assert out[1]["registry_url"] == "https://assurance-platform.goldstandard.org/project-documents/GS99"
     assert out[2]["cross_refs"] == ["GS:23411"]
+
+
+def test_tags_precise():
+    from pipeline import process
+    tags = process.load_tags()
+    awd = [{"name": "Rice Carbon Project - Only Alternate Wetting and Drying (AWD)", "methodology_codes": []}]
+    dsr = [{"name": "Direct Seeded Rice programme", "methodology_codes": []}]
+    t1, t2 = process.tags_of(awd, "rice_methane", tags), process.tags_of(dsr, "rice_methane", tags)
+    assert "awd" in t1 and "dsr" not in t1 and "t_rice" in t1
+    assert "dsr" in t2 and "awd" not in t2
+    assert "erw_tag" in process.tags_of([{"name": "X", "methodology_codes": ["Enhanced Rock Weathering, 2022"]}], "erw", tags)

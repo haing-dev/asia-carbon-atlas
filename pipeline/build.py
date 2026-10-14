@@ -74,6 +74,10 @@ def _template_url(record_id: str) -> str | None:
     return t.format(id=native, lid=native.lower()) if t else None
 
 
+TAGS = common.load_yaml("tags.yaml")["tags"]
+TAG_INDEX = {t["id"]: i for i, t in enumerate(TAGS)}
+
+
 def compact_row(p: dict) -> dict:
     """Display row for the browser, without empty fields or anything the browser can rebuild
     (see web/src/lib/data.js hydrateRow)."""
@@ -82,6 +86,8 @@ def compact_row(p: dict) -> dict:
                   for r in p["registries"]]}
     if p.get("developer"):
         row["d"] = p["developer"]
+    if p.get("tags"):
+        row["t"] = [TAG_INDEX[t] for t in p["tags"]]
     if len(p["countries"]) > 1:
         row["sh"] = p["country_shares"]
     y = [p["years"].get(k) for k in ("listed", "registered", "first_issuance")]
@@ -210,6 +216,7 @@ def main() -> None:
         } for sid, s in sources.items() if s.get("enabled")},
         "names": {c: country_name(c, countries) for c in sorted(names)},
         "url_templates": URL_TEMPLATES,
+        "tags": [{"label": t["label"], "aliases": t.get("aliases") or [], "broad": not t.get("re")} for t in TAGS],
         "project_count": len(projects),
         "areas": [{"id": a, "label": AREAS[a]["label"], "scope": AREAS[a]["scope"], "projects": area_counts[a]} for a in AREAS],
         "notes": load_notes(),

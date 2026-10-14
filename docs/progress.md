@@ -56,6 +56,8 @@
     latest registry issuances (VROD v2026-08 snapshot timing).
   - Offtaker backfill (2026-10-13): GSK–Varaha plus ~30 older verified deals (41 mapped offtakes, 36 announced rows).
     Weekly task now also sweeps 5 listed suppliers per week for deals older than 7 days.
+  - Tags (`config/tags.yaml`): ~100 searchable tags from record evidence (name/methodology/registry type) + broad
+    per-type tags; exact tag/alias search filters to that tag (AWD ≠ DSR). "Tag" column + footnote; CSV includes tags.
   - Gold Standard links fixed: registry pages use an internal id, not the GS number (new `gsreg` lookup source).
 
 ## Next

@@ -4,7 +4,7 @@
   import Ranking from "./lib/Ranking.svelte";
   import Filters from "./lib/Filters.svelte";
   import Table from "./lib/Table.svelte";
-  import { aggregate, fmt, loadBasemap, loadIndex, loadMeta, loadRows, makePredicate } from "./lib/data.js";
+  import { aggregate, fmt, loadBasemap, loadIndex, loadMeta, loadRows, makePredicate, tagsForQuery } from "./lib/data.js";
 
   const METRICS = {
     is: { label: "Issued (cumulative)", unit: "tCO₂e" },
@@ -102,15 +102,18 @@
   const rows = $derived.by(() => {
     if (!index) return [];
     const q = f.q.trim().toLowerCase();
+    const tagHit = q ? tagsForQuery(meta, q) : null;
     const out = [];
     for (const r of rawRows) {
       const p = byId.get(r.project_id);
       if (!p || !pred(p)) continue;
-      if (q && !(r.display_name.toLowerCase().includes(q) || (r.developer || "").toLowerCase().includes(q)
-        || r.offtakers.some((o) => o.name.toLowerCase().includes(q)))) continue;
+      if (tagHit) { if (!r.tags.some((t) => tagHit.has(t))) continue; }
+      else if (q && !(r.display_name.toLowerCase().includes(q) || (r.developer || "").toLowerCase().includes(q)
+        || r.offtakers.some((o) => o.name.toLowerCase().includes(q)) || r.methodology_codes.some((m) => m.toLowerCase().includes(q)))) continue;
       const l2 = index.l2[p.l2];
       const l1 = index.l1.find((x) => x.id === l2.l1);
-      out.push({ ...r, st: p.st, ea: p.ea, is: p.is, re: p.re, l1: l1.id, typeLabel: `${l1.label} – ${l2.label}` });
+      out.push({ ...r, st: p.st, ea: p.ea, is: p.is, re: p.re, l1: l1.id, typeLabel: `${l1.label} – ${l2.label}`,
+        tagLabels: r.tags.map((t) => meta.tags[t]).sort((a, b) => a.broad - b.broad).map((t) => t.label) });
     }
     return out;
   });
@@ -126,11 +129,11 @@
     if (iso) document.getElementById("projects")?.scrollIntoView({ behavior: "smooth", block: "start" });
   }
   function downloadCsv() {
-    const head = ["project_id", "project", "developer", "countries", "credit_type", "registries", "registry_urls", "stage", "listed_year", "validated_year", "first_issued_year",
+    const head = ["project_id", "project", "developer", "countries", "credit_type", "tags", "registries", "registry_urls", "stage", "listed_year", "validated_year", "first_issued_year",
       "est_annual_tco2e", "issued_tco2e", "retired_tco2e", "offtakers", "project_url", "developer_url"];
     const esc = (v) => `"${String(v ?? "").replaceAll('"', '""')}"`;
     const lines = [head.join(",")].concat(rows.map((r) => [r.project_id, r.display_name, r.developer, (r.country_names || r.countries).join("; "),
-      r.typeLabel, r.registries.map((g) => g.record_id).join(" "), r.registries.map((g) => g.url).join(" "),
+      r.typeLabel, r.tagLabels.join("; "), r.registries.map((g) => g.record_id).join(" "), r.registries.map((g) => g.url).join(" "),
       index.stages[r.st], r.years?.listed, r.years?.registered, r.years?.first_issuance, r.ea, r.is, r.re, r.offtakers.map((o) => o.name).join("; "), r.project_url, r.developer_url].map(esc).join(",")));
     const a = document.createElement("a");
     a.href = URL.createObjectURL(new Blob([lines.join("\n")], { type: "text/csv" }));

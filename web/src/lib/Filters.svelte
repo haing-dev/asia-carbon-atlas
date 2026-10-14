@@ -20,7 +20,7 @@
   <Dropdown label="Project stage" groups={stageGroups} total={index.stages.length} bind:selected={f.stages} />
   <Dropdown label="Registry" groups={registryGroups} total={index.registries.filter((r) => r.present !== false).length} bind:selected={f.registries} />
   <label class="toggle"><input type="checkbox" bind:checked={f.a6} /> Article 6 only</label>
-  <input class="search" type="search" placeholder="Search project, developer or offtaker" bind:value={f.q} aria-label="Search" />
+  <input class="search" type="search" placeholder="Search project, developer, offtaker or tag (e.g. AWD, ERW)" bind:value={f.q} aria-label="Search" />
   <button class="link" onclick={onclear}>Clear filters</button>
 </div>
 

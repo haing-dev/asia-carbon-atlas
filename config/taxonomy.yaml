@@ -17,7 +17,7 @@ l2:
   blue_carbon: {l1: forestry, label: Blue carbon (mangrove/seagrass), removal_type: mixed}
   peat_wetland: {l1: forestry, label: Peatland & wetland, removal_type: mixed}
   other_land: {l1: forestry, label: Other land use, removal_type: mixed}
-  rice_methane: {l1: agriculture, label: Rice methane (AWD/DSR), removal_type: reduction}
+  rice_methane: {l1: agriculture, label: Rice methane, removal_type: reduction}
   soil_carbon: {l1: agriculture, label: Soil carbon & regenerative ag, removal_type: removal}
   agroforestry: {l1: agriculture, label: Agroforestry, removal_type: removal}
   livestock: {l1: agriculture, label: Livestock & manure, removal_type: reduction}

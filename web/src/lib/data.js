@@ -70,7 +70,21 @@ export function hydrateRow(meta, r) {
     issuance_by_vintage: r.v || {}, methodology_codes: r.m || [], crediting: r.cr || [null, null],
     article6: r.a6 || null, flags: r.f || [], project_url: r.pu || null, developer_url: r.du || null,
     offtakers: r.o || [],
+    tags: r.t || [],
   };
+}
+
+// Tag search: a query that equals a tag's label or alias (or begins such a term followed by a space,
+// e.g. "solar" -> "solar lantern") selects exactly the projects carrying those tags.
+const normTerm = (s) => s.toLowerCase().replace(/&/g, "and").replace(/[\s_-]+/g, " ").trim();
+export function tagsForQuery(meta, q) {
+  const n = normTerm(q);
+  if (!n) return null;
+  const hit = new Set();
+  (meta.tags || []).forEach((t, i) => {
+    if ([t.label, ...t.aliases].some((term) => { const x = normTerm(term); return x === n || x.startsWith(n + " "); })) hit.add(i);
+  });
+  return hit.size ? hit : null;
 }
 
 // filters: {l2: Set<number>|null, stages: Set<number>, registries: Set<number>|null, a6: bool}

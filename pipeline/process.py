@@ -47,6 +47,28 @@ def classify(rec: dict, mmap: dict, rules: list) -> str:
     return "other"
 
 
+def load_tags() -> list[tuple[str, re.Pattern | None, set | None]]:
+    """config/tags.yaml -> [(id, regex or None, allowed credit types or None)], in display order."""
+    out = []
+    for t in common.load_yaml("tags.yaml")["tags"]:
+        out.append((t["id"], re.compile(t["re"], re.I) if t.get("re") else None, set(t["l2"]) if t.get("l2") else None))
+    return out
+
+
+def tags_of(members: list[dict], l2: str, tags: list) -> list[str]:
+    """Tags whose regex matches any member record's own text (type | methodology | name), limited to the tag's
+    credit types; broad tags (no regex) follow the project's credit type."""
+    texts = [" | ".join(str(x or "") for x in (m.get("registry_type_raw"), " ".join(m.get("methodology_codes") or []),
+                                                  m.get("methodology_raw"), m.get("name"))) for m in members]
+    out = []
+    for tid, rx, l2s in tags:
+        if l2s is not None and l2 not in l2s:
+            continue
+        if rx is None or any(rx.search(t) for t in texts):
+            out.append(tid)
+    return out
+
+
 def stage_of(rec: dict, stage_map: dict, today: str) -> str:
     """Issuing whenever anything has been issued (credits exist even if the project later became inactive);
     otherwise the registry status mapped by config/stages.yaml; registered with the crediting period over and
@@ -287,6 +309,7 @@ def build_projects(write_review: bool = False) -> list[dict]:
     rules = load_type_rules()
     today = common.today()
     population = load_population()
+    tag_rules = load_tags()
 
     taxonomy_l2 = common.load_yaml("taxonomy.yaml")["l2"]
     l2_cache = {r["record_id"]: classify(r, mmap, rules) for r in records}
@@ -318,6 +341,7 @@ def build_projects(write_review: bool = False) -> list[dict]:
             "countries": countries,
             "country_shares": shares,
             "l2": l2_cache[lead["record_id"]],
+            "tags": tags_of(members, l2_cache[lead["record_id"]], tag_rules),
             "stage": max(stages, key=lambda s: STAGE_ORDER[s]),
             "registries": [{"record_id": m["record_id"], "registry": m["registry"], "url": m["registry_url"]} for m in members],
             "est_annual_tco2e": estimate(members),

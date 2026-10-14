@@ -1,7 +1,7 @@
 <!--
 Footnotes shown at the bottom of the website. Edit freely, then "Commit changes": the site updates in about a minute.
-- Each "## key: Title" line starts a footnote. Keep the keys (offtakers, countries, registries, stages, years, estimate,
-  units): the small numbers in the table point to them. Change the title after the colon as you like.
+- Each "## key: Title" line starts a footnote. Keep the keys (offtakers, countries, tags, registries, stages, years,
+  estimate, units): the small numbers in the table point to them. Change the title after the colon as you like.
   The order here sets the footnote numbers.
 - One "- " bullet per point. Links: [text](https://...). Bold: **text**.
 -->
@@ -12,6 +12,10 @@ Footnotes shown at the bottom of the website. Edit freely, then "Commit changes"
 ## countries: Country
 - Asia excludes mainland China. North America includes Central America and the Caribbean.
 - Multi-country projects appear once in the table, and their credit volumes are pro-rated according to country population.
+
+## tags: Tag
+- Tags are assigned only from what the registry record itself states (project name, methodology, registry project type), so a project whose record does not mention a practice (e.g. AWD) is not tagged with it.
+- Search a tag or its alias (e.g. AWD, ERW, enhanced rock weathering) to see only projects with that tag.
 
 ## registries: Registry
 - One project may be cross-registered and is then merged into one row. Merging based on closely matched project names may be subject to a degree of inaccuracy.
