@@ -5,7 +5,14 @@ rules:
   # 1) Name/keyword signals that override the registry's broad type
   - {re: 'mangrove|seagrass|blue carbon|tidal wetland|VM0033', l2: blue_carbon}
   - {re: 'agro-?forestry', l2: agroforestry}
-  # 2) Exact registry types (Berkeley VROD "Scope / Type")
+  # 2) Exact registry types (Berkeley VROD "Scope / Type"; UNEP-CCC CDM "Type / Sub-type")
+  - {re: '^Biomass Energy /', l2: biomass_power}
+  - {re: '^Fugitive / Charcoal|charcoal production', l2: other}
+  - {re: '^EE service|^EE households / (Lighting|Appliances)', l2: buildings}
+  - {re: '^EE own generation', l2: waste_heat}
+  - {re: '^EE (Industry|supply side)|district heating', l2: industrial_ee}
+  - {re: 'bio-?oil (geologic|sequestration|storage)', l2: biomass_storage}
+  - {re: 'plastic (recycl|waste|credit)|recycling plastic', l2: other}
   - {re: '^Household & Community / Biodigesters', l2: household_biogas}
   - {re: '^Household & Community / (Clean Water|Community Boreholes)', l2: water}
   - {re: 'Mine Methane Capture|Coal Mine Methane', l2: coal_mine_methane}
@@ -62,10 +69,10 @@ rules:
   - {re: 'flaring|fugitive|gas leak|pipeline leak|oil field|natural gas pipelines|oil and gas', l2: oil_gas_methane}
   - {re: 'biogas|anaerobic digest|methane avoidance|methane recovery|Waste Management|combustion of MSW|solid waste|waste to energy project|\bRDF\b|refuse.derived|CBG project|animal dung|dung2power', l2: biogas_ad}
   # Industrial
-  - {re: 'cement|clinker|blended cement', l2: cement}
+  - {re: '\bcement|clinker', l2: cement}
   - {re: 'fuel switch|coal to (natural )?gas|oil to (natural )?gas|natural gas plant', l2: fuel_switch}
   # Transport
-  - {re: 'electric vehicle|e-mobility|motorbike|EV charging|electric (bus|two|three)', l2: e_mobility}
+  - {re: 'electric vehicle|e-mobility|micro-?mobility|e-?scooter|motorbike|EV charging|electric (bus|two|three)', l2: e_mobility}
   - {re: 'mass transit|\bmetro\b|\bBRT\b|\brail(way)?s?\b|bus rapid|mode shift|cable car', l2: mass_transit}
   - {re: 'eco-?driving|tachograph|\bbus(es)?\b|\bCNG\b', l2: fleet}
   - {re: '\btransport|\bfleet|\bvehicles?\b|fuel efficiency', l2: fleet}

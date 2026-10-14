@@ -50,10 +50,8 @@ def main() -> None:
         rx = term_rx([t["label"], *(t.get("aliases") or [])])
         miss, weak = [], []
         for p in projects:
-            text = " | ".join(" | ".join(str(x or "") for x in (
-                m.get("name"), m.get("registry_type_raw"), " ".join(m.get("methodology_codes") or []),
-                m.get("methodology_raw"), m.get("description"))) for m in
-                (by_id.get(g["record_id"], {}) for g in p["registries"]))
+            ms = [by_id.get(g["record_id"], {}) for g in p["registries"]]
+            text = " | ".join(process.record_text(m) + " | " + process.background_text(m) for m in ms if m)
             has = t["id"] in p["tags"]
             hit = rx.search(text) if rx else None
             if hit and not has:

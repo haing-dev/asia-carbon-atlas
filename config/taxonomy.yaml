@@ -31,7 +31,7 @@ l2:
   solar: {l1: renewables, label: Solar, removal_type: reduction}
   wind: {l1: renewables, label: Wind, removal_type: reduction}
   hydro: {l1: renewables, label: Hydro, removal_type: reduction}
-  biomass_power: {l1: renewables, label: Biomass power, removal_type: reduction}
+  biomass_power: {l1: renewables, label: Biomass energy (power & heat), removal_type: reduction}
   geothermal: {l1: renewables, label: Geothermal, removal_type: reduction}
   other_re: {l1: renewables, label: Other RE, removal_type: reduction}
   industrial_ee: {l1: efficiency, label: Industrial EE, removal_type: reduction}
@@ -48,7 +48,7 @@ l2:
   composting: {l1: waste, label: Composting, removal_type: reduction}
   coal_mine_methane: {l1: waste, label: Coal mine methane, removal_type: reduction}
   oil_gas_methane: {l1: waste, label: Oil & gas methane, removal_type: reduction}
-  industrial_gases: {l1: industrial, label: Industrial gases (HFC-23, N2O, SF6), removal_type: reduction}
+  industrial_gases: {l1: industrial, label: 'Industrial gases (HFC-23, N2O, SF6)', removal_type: reduction}
   cement: {l1: industrial, label: Cement / clinker, removal_type: reduction}
   fuel_switch: {l1: industrial, label: Fuel switching, removal_type: reduction}
   e_mobility: {l1: transport, label: E-mobility, removal_type: reduction}

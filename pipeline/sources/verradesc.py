@@ -51,7 +51,8 @@ def wanted() -> list[str]:
     """In-scope Verra ids, most tag-relevant credit types first (credit type as classified from the record)."""
     from pipeline import process
     mmap, rules = process.load_methodology_map(), process.load_type_rules()
-    recs = [r for r in common.read_jsonl(common.RECORDS_DIR / "vrod.jsonl") if r.get("registry") == "VCS"]
+    recs = [r for r in common.read_jsonl(common.RECORDS_DIR / "vrod.jsonl")
+            if r.get("registry") == "VCS" and str(r.get("native_id") or "").isdigit()]
     rank = {l2: i for i, l2 in enumerate(PRIORITY)}
     recs.sort(key=lambda r: (rank.get(process.classify(r, mmap, rules), len(PRIORITY)), -int(r["native_id"])))
     return [r["native_id"] for r in recs]
@@ -102,4 +103,4 @@ class Adapter(Source):
                                "fetched": common.today()}
             done += 1
         print(f"[verradesc] fetched {done}; {len([x for x in wanted() if f'VCS:{x}' not in out])} still missing")
-        return sorted(out.values(), key=lambda r: int(r["record_id"][4:]))
+        return sorted(out.values(), key=lambda r: (len(r["record_id"]), r["record_id"]))

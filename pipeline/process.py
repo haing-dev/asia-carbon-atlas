@@ -54,7 +54,8 @@ def load_tags() -> list[dict]:
         out.append({"id": t["id"], "re": re.compile(t["re"], re.I) if t.get("re") else None,
                     "ctx": re.compile(t["ctx"], re.I) if t.get("ctx") else None,
                     "l2": set(t["l2"]) if t.get("l2") else None, "max_mw": t.get("max_mw"),
-                    "near": set(t.get("near") or []), "broad": t["id"].startswith("t_")})  # broad tags: every project of their credit types
+                    "near": set(t.get("near") or []), "broad": t["id"].startswith("t_"),
+                    "implies": t.get("implies") or []})  # broad tags: every project of their credit types
     return out
 
 
@@ -74,10 +75,24 @@ def capacity_mw(rec: dict) -> float | None:
     return float(m.group(1)) if m else None
 
 
+NEGATED = re.compile(r"\b(except|excluding|other than|not including)( on| in)? (lands? )?wetlands?|non-?wetlands?", re.I)
+
+
 def record_text(m: dict) -> str:
-    """The record's own short text: project name, registry project type, methodology codes and name."""
-    return " | ".join(str(x or "") for x in (m.get("name"), m.get("registry_type_raw"),
-                                            " ".join(m.get("methodology_codes") or []), m.get("methodology_raw")))
+    """The record's own short text: project name, registry project type, methodology codes."""
+    return NEGATED.sub(" ", " | ".join(str(x or "") for x in (
+        m.get("name"), m.get("registry_type_raw"), " ".join(m.get("methodology_codes") or []))))
+
+
+GENERIC_METHODOLOGY_REGISTRIES = {"CDM", "PACM", "A62", "JCM", "VCS", "GS", "GCC", "UCR"}
+
+
+def background_text(m: dict) -> str:
+    """Long text read only inside a tag's credit types: the registry's project description, and the methodology title
+    where it names a specific protocol (Isometric, Puro, ACR, CAR). UNFCCC/Verra/GS methodology titles list every
+    option they allow ("... captive use and mini-grid"), so they are not evidence; their codes still are."""
+    title = None if m.get("registry") in GENERIC_METHODOLOGY_REGISTRIES else m.get("methodology_raw")
+    return NEGATED.sub(" ", " | ".join(str(x or "") for x in (title, m.get("description"))))
 
 
 def tags_of(members: list[dict], l2: str, tags: list, overrides: dict | None = None) -> list[str]:
@@ -85,7 +100,7 @@ def tags_of(members: list[dict], l2: str, tags: list, overrides: dict | None = N
     credit type; inside the tag's credit types, context terms (`ctx`) and registry descriptions count too; broad
     tags also follow the credit type; `max_mw` tags also apply to small stated capacities. See config/tags.yaml."""
     short = [record_text(m) for m in members]
-    full = short + [m["description"] for m in members if m.get("description")]
+    full = short + [background_text(m) for m in members]
     out = []
     for t in tags:
         inside = t["l2"] is not None and l2 in t["l2"]
@@ -96,6 +111,11 @@ def tags_of(members: list[dict], l2: str, tags: list, overrides: dict | None = N
                 or (ctx and any(ctx.search(x) for x in full))
                 or (t["max_mw"] and any((c := capacity_mw(m)) is not None and 0 < c <= t["max_mw"] for m in members)))):
             out.append(t["id"])
+    order = {t["id"]: i for i, t in enumerate(tags)}
+    for t in tags:
+        if t["id"] in out:
+            out += [x for x in t["implies"] if x not in out]
+    out.sort(key=order.get)
     if overrides:
         order = {t["id"]: i for i, t in enumerate(tags)}
         for m in members:
