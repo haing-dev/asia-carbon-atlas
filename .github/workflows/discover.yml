@@ -5,7 +5,12 @@ on:
     inputs:
       urls:
         description: "Space-separated URLs"
-        required: true
+        required: false
+        default: ""
+      browse:
+        description: "Space-separated URLs to open in a headless browser (logs the page's API requests)"
+        required: false
+        default: ""
 permissions:
   contents: write
 jobs:
@@ -18,9 +23,16 @@ jobs:
         with:
           enable-cache: true
       - run: uv sync --frozen
-      - env:
+      - if: inputs.urls != ''
+        env:
           URLS: ${{ inputs.urls }}
         run: uv run python -m pipeline.discover $URLS
+      - if: inputs.browse != ''
+        env:
+          URLS: ${{ inputs.browse }}
+        run: |
+          mkdir -p /tmp/pw && cd /tmp/pw && npm init -y >/dev/null && npm i -s playwright@1.48.2 && npx playwright install --with-deps chromium >/dev/null
+          cd "$GITHUB_WORKSPACE" && NODE_PATH=/tmp/pw/node_modules cp scripts/browse.mjs /tmp/pw/ && node /tmp/pw/browse.mjs $URLS
       - name: Publish to ci-logs branch
         run: |
           mkdir -p /tmp/out && cp -r work/discover /tmp/out/
