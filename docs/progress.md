@@ -63,6 +63,9 @@
   - Tag review (2026-10-13): strict `re` (any credit type) vs `ctx` (inside credit types) + `near`; classifier
     keywords made whole-word (LED/REDD/rail/metro/hydro bugs); `python -m pipeline.tag_audit` lists misses/loose hits.
     Verra links moved to the new registry URL; Verra descriptions backfilled daily by `verradesc` (refresh now daily).
+    Independent review (300 random projects, 2 rounds): tag precision 91% -> ~98%, recall 97% -> ~99%.
+    Verra's endpoint rate-limits GitHub runners hard (often 429 on the first request): `verradesc` tries once a day and
+    stops; rice projects' Verra descriptions were fetched page by page via `discover` (browse) and stored in the lookup.
   - Gold Standard links fixed: registry pages use an internal id, not the GS number (new `gsreg` lookup source).
 
 ## Next
