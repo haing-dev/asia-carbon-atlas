@@ -5,7 +5,4 @@
 #     add: [awd]
 #     remove: []
 #     source: https://registry.verra.org/verra/public/program/VCS/projects/5956   # page or document that states it
-overrides:
-  VCS:6166:
-    add: [awd, dsr, rice_water_mgmt]
-    source: https://registry.verra.org/verra/public/program/VCS/projects/6166  # description: "promotes 'Alternate Wetting and Drying' (AWD) and related adjusted water management ... also intends to promote use of direct seeded rice (DSR)"
+overrides: {}
