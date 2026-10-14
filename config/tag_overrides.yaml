@@ -1,0 +1,8 @@
+# Manual tag additions/removals for one registry record, when a public source states the practice but the registry
+# text the atlas reads does not (e.g. a Verra project whose name doesn't say AWD). Always give the source.
+# Example:
+#   VCS:5956:
+#     add: [awd]
+#     remove: []
+#     source: https://registry.verra.org/app/projectDetail/VCS/5956   # page or document that states it
+overrides: {}

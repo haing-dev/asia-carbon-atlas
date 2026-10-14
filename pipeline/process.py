@@ -47,27 +47,59 @@ def classify(rec: dict, mmap: dict, rules: list) -> str:
     return "other"
 
 
-def load_tags() -> list[tuple[str, re.Pattern | None, set | None]]:
-    """config/tags.yaml -> [(id, regex or None, allowed credit types or None)], in display order."""
+def load_tags() -> list[tuple]:
+    """config/tags.yaml -> [(id, regex or None, allowed credit types or None, max MW or None)], in display order."""
     out = []
     for t in common.load_yaml("tags.yaml")["tags"]:
-        out.append((t["id"], re.compile(t["re"], re.I) if t.get("re") else None, set(t["l2"]) if t.get("l2") else None))
+        out.append((t["id"], re.compile(t["re"], re.I) if t.get("re") else None, set(t["l2"]) if t.get("l2") else None,
+                    t.get("max_mw")))
     return out
 
 
-def tags_of(members: list[dict], l2: str, tags: list) -> list[str]:
+MW_X = re.compile(r"(\d+(?:\.\d+)?)\s*[x×]\s*(\d+(?:\.\d+)?)\s*MW\b", re.I)
+MW_1 = re.compile(r"(\d+(?:\.\d+)?)\s*MW\b", re.I)
+
+
+def capacity_mw(rec: dict) -> float | None:
+    """Installed capacity: the registry's own figure (CDM) or the one stated in the project name ("2 x 3.5 MW")."""
+    if rec.get("mw"):
+        return float(rec["mw"])
+    name = str(rec.get("name") or "")
+    m = MW_X.search(name)
+    if m:
+        return float(m.group(1)) * float(m.group(2))
+    m = MW_1.search(name)
+    return float(m.group(1)) if m else None
+
+
+def tags_of(members: list[dict], l2: str, tags: list, overrides: dict | None = None) -> list[str]:
     """Tags whose regex matches any member record's own text (type | methodology | name | registry description),
-    limited to the tag's credit types; broad tags (no regex) follow the project's credit type."""
+    limited to the tag's credit types; broad tags (no regex) follow the project's credit type. A tag with `max_mw`
+    also applies when the record's stated capacity is at most that (e.g. small hydro ≤ 25 MW)."""
     texts = [" | ".join(str(x or "") for x in (m.get("registry_type_raw"), " ".join(m.get("methodology_codes") or []),
                                                   m.get("methodology_raw"), m.get("name"), m.get("description")))
              for m in members]
     out = []
-    for tid, rx, l2s in tags:
+    for tid, rx, l2s, max_mw in tags:
         if l2s is not None and l2 not in l2s:
             continue
         if rx is None or any(rx.search(t) for t in texts):
             out.append(tid)
+        elif max_mw and any((c := capacity_mw(m)) is not None and 0 < c <= max_mw for m in members):
+            out.append(tid)
+    if overrides:
+        order = {t[0]: i for i, t in enumerate(tags)}
+        for m in members:
+            o = overrides.get(m["record_id"]) or {}
+            out = [t for t in out if t not in (o.get("remove") or [])]
+            out += [t for t in (o.get("add") or []) if t in order and t not in out]
+        out.sort(key=order.get)
     return out
+
+
+def load_tag_overrides() -> dict:
+    path = common.CONFIG / "tag_overrides.yaml"
+    return (common.load_yaml("tag_overrides.yaml").get("overrides") or {}) if path.exists() else {}
 
 
 def stage_of(rec: dict, stage_map: dict, today: str) -> str:
@@ -315,6 +347,7 @@ def build_projects(write_review: bool = False) -> list[dict]:
     today = common.today()
     population = load_population()
     tag_rules = load_tags()
+    tag_overrides = load_tag_overrides()
 
     taxonomy_l2 = common.load_yaml("taxonomy.yaml")["l2"]
     l2_cache = {r["record_id"]: classify(r, mmap, rules) for r in records}
@@ -346,7 +379,7 @@ def build_projects(write_review: bool = False) -> list[dict]:
             "countries": countries,
             "country_shares": shares,
             "l2": l2_cache[lead["record_id"]],
-            "tags": tags_of(members, l2_cache[lead["record_id"]], tag_rules),
+            "tags": tags_of(members, l2_cache[lead["record_id"]], tag_rules, tag_overrides),
             "stage": max(stages, key=lambda s: STAGE_ORDER[s]),
             "registries": [{"record_id": m["record_id"], "registry": m["registry"], "url": m["registry_url"]} for m in members],
             "est_annual_tco2e": estimate(members),

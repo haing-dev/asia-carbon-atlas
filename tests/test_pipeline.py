@@ -167,3 +167,12 @@ def test_tags_precise():
     assert "awd" in t1 and "dsr" not in t1 and "t_rice" in t1
     assert "dsr" in t2 and "awd" not in t2
     assert "erw_tag" in process.tags_of([{"name": "X", "methodology_codes": ["Enhanced Rock Weathering, 2022"]}], "erw", tags)
+
+
+def test_tags_capacity_and_overrides():
+    from pipeline import process
+    tags = process.load_tags()
+    assert "small_hydro" in process.tags_of([{"name": "2 x 3.5 MW Ullunkal Hydro Power Project"}], "hydro", tags)
+    assert "small_hydro" not in process.tags_of([{"name": "300MW Hydropower project"}], "hydro", tags)
+    t = process.tags_of([{"record_id": "VCS:1", "name": "Rice project"}], "rice_methane", tags, {"VCS:1": {"add": ["awd"]}})
+    assert t.index("awd") < t.index("t_rice")

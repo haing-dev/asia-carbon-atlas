@@ -39,7 +39,7 @@ rules:
   # Agriculture
   - {re: 'rice (cultivation|paddy|field|farm|methane|water)|paddy|alternate wetting|\bAWD\b|direct seeded rice|AMS-III\.AU', l2: rice_methane}
   - {re: 'soil carbon|sustainable agricultural land|regenerative (agri|farm|grazing)|grassland|grazing|VM0017|VM0021|VM0042|sustainable land management', l2: soil_carbon}
-  - {re: 'manure|livestock|enteric|feed additive|animal waste|poultry litter|digester', l2: livestock}
+  - {re: 'manure|livestock|enteric|feed additive|animal waste|poultry litter|swine|piggery|dairy farm|hog farm', l2: livestock}
   - {re: 'fertili[sz]er (management|use|application)|nitrogen management|nitrogen use efficiency|N2O.*(agri|soil)', l2: fertilizer}
   # Engineered & hybrid removal
   - {re: 'biochar|bio-char', l2: biochar}
