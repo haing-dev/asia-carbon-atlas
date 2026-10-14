@@ -12,8 +12,10 @@ for (const url of process.argv.slice(2)) {
   p.on("response", async (r) => {
     const ct = r.headers()["content-type"] || "";
     if (r.request().resourceType() === "xhr" || r.request().resourceType() === "fetch" || ct.includes("json")) {
-      let body = ""; try { body = (await r.text()).slice(0, 4000); } catch {}
-      log.push(`### ${r.request().method()} ${r.status()} ${r.url()}\nreq: ${(r.request().postData() || "").slice(0, 500)}\n${body}\n`);
+      if (/cookielaw|\/i18n\/|\/images\//.test(r.url())) return;
+      let body = ""; try { body = (await r.body()).toString("utf8").slice(0, 20000); } catch (e) { body = "BODY ERROR " + e.message; }
+      const hdr = JSON.stringify(r.request().headers()).slice(0, 600);
+      log.push(`### ${r.request().method()} ${r.status()} ${r.url()}\nreqheaders: ${hdr}\nreq: ${(r.request().postData() || "").slice(0, 1500)}\n${body}\n`);
     }
   });
   try { await p.goto(url, { waitUntil: "networkidle", timeout: 60000 }); } catch (e) { log.push("GOTO ERROR " + e.message); }
