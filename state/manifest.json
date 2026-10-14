@@ -1,5 +1,5 @@
 {
-  "last_commit_at": "2026-10-14T07:04:59+00:00",
+  "last_commit_at": "2026-10-14T07:09:31+00:00",
   "sources": {
     "a6pipeline": {
       "error": null,
@@ -87,9 +87,15 @@
       "stale": false
     },
     "verradesc": {
-      "error": "SourceError: Verra project 6166: no description field found; keys {'newRecord': False, 'id': 6166, 'trading_name': None, 'account_name': 'GREENGLOBE AGRI VENTURE PRIVATE LIMITED', 'registeredName': None, 'project_name': 'GreenGlobe Sustainable Rice Production Project in Madhya Pradesh, India', 'stat",
-      "last_checked": "2026-10-14T07:04:59+00:00",
-      "stale": true
+      "error": null,
+      "last_changed": "2026-10-14T07:09:31+00:00",
+      "last_checked": "2026-10-14T07:09:31+00:00",
+      "rows": 0,
+      "signal": {
+        "day": "2026-10-14",
+        "missing": 2786
+      },
+      "stale": false
     },
     "vrod": {
       "error": null,
