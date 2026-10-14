@@ -17,7 +17,7 @@ for (const url of process.argv.slice(2)) {
     }
   });
   try { await p.goto(url, { waitUntil: "networkidle", timeout: 60000 }); } catch (e) { log.push("GOTO ERROR " + e.message); }
-  await p.waitForTimeout(3000);
+  await p.waitForTimeout(15000);
   const text = (await p.evaluate(() => document.body.innerText).catch(() => "")).slice(0, 6000);
   fs.writeFileSync(`work/discover/browse-${n++}.txt`, `URL: ${url}\n\nPAGE TEXT:\n${text}\n\nREQUESTS:\n${log.join("\n")}`);
   await p.close();
