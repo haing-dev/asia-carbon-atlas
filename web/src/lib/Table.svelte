@@ -11,11 +11,11 @@
   const cols = [
     { k: "name", label: "Project" }, { k: "dev", label: "Developer" }, { k: "off", label: "Announced offtaker(s)", fn: "offtakers" },
     { k: "country", label: "Country", fn: "countries" },
-    { k: "type", label: "Credit type" }, { k: "tag", label: "Tag", fn: "tags" }, { k: "reg", label: "Registry", fn: "registries" }, { k: "st", label: "Stage", fn: "stages" },
+    { k: "type", label: "Credit type" }, { k: "reg", label: "Registry", fn: "registries" }, { k: "st", label: "Stage", fn: "stages" },
     { k: "y_listed", label: "Listed", unit: "year", yr: true, fn: "years" }, { k: "y_registered", label: "Validated", unit: "year", yr: true, fn: "years" },
     { k: "y_first_issuance", label: "1st issued", unit: "year", yr: true, fn: "years" },
     { k: "ea", label: "Est. annual", num: true, unit: "tCO₂e/yr", fn: "estimate" }, { k: "is", label: "Issued", num: true, unit: "tCO₂e", fn: "units" },
-    { k: "re", label: "Retired", num: true, unit: "tCO₂e", fn: "units" },
+    { k: "re", label: "Retired", num: true, unit: "tCO₂e", fn: "units" }, { k: "tag", label: "Tag", fn: "tags" },
   ];
 
   const sorted = $derived.by(() => {
@@ -69,7 +69,6 @@
           </td>
           <td>{(r.country_names || r.countries).join(", ")}{#if r.countries.length > 1} <span class="badge" title={"Map split by population (UN WPP 2024), hosts in this region only: " + Object.entries(r.country_shares || {}).map(([c, v]) => `${c} ${(v * 100).toFixed(v < 0.01 ? 2 : 0)}%`).join(", ")}>multi</span>{/if}</td>
           <td class="type"><span class="sw" style="background:{L1_COLORS[r.l1]}"></span>{r.typeLabel}</td>
-          <td class="tags">{#each r.tagLabels as t}<span class="tag">{t}</span>{/each}{#if !r.tagLabels.length}<span class="muted">—</span>{/if}</td>
           <td class="regs">
             {#each r.registries as g}<a class="badge" href={g.url} target="_blank" rel="noopener" title={g.registry === "ANN" ? "Open the announcement" : "Open registry record"}>{g.registry === "ANN" ? "announcement" : g.record_id}</a>{/each}
             {#if r.article6}<span class="badge a6" title={["Article 6", r.article6.status, r.article6.buyer_countries?.length ? "buyer: " + r.article6.buyer_countries.join(", ") : "", r.article6.itmos_transferred ? fmt(r.article6.itmos_transferred) + " ITMOs transferred" : ""].filter(Boolean).join(" · ")}>{r.article6.mechanism}{#if r.article6.buyer_countries?.length} → {r.article6.buyer_countries.join(", ")}{/if}</span>{/if}
@@ -81,6 +80,7 @@
           <td class="num">{fmt(r.ea)}</td>
           <td class="num">{fmt(r.is)}</td>
           <td class="num">{fmt(r.re)}</td>
+          <td class="tags">{#each r.tagLabels as t}<span class="tag">{t}</span>{/each}{#if !r.tagLabels.length}<span class="muted">—</span>{/if}</td>
 
         </tr>
         {#if open === r.project_id}

@@ -56,10 +56,11 @@ def load_tags() -> list[tuple[str, re.Pattern | None, set | None]]:
 
 
 def tags_of(members: list[dict], l2: str, tags: list) -> list[str]:
-    """Tags whose regex matches any member record's own text (type | methodology | name), limited to the tag's
-    credit types; broad tags (no regex) follow the project's credit type."""
+    """Tags whose regex matches any member record's own text (type | methodology | name | registry description),
+    limited to the tag's credit types; broad tags (no regex) follow the project's credit type."""
     texts = [" | ".join(str(x or "") for x in (m.get("registry_type_raw"), " ".join(m.get("methodology_codes") or []),
-                                                  m.get("methodology_raw"), m.get("name"))) for m in members]
+                                                  m.get("methodology_raw"), m.get("name"), m.get("description")))
+             for m in members]
     out = []
     for tid, rx, l2s in tags:
         if l2s is not None and l2 not in l2s:
@@ -286,14 +287,18 @@ GS_DOCS = "https://assurance-platform.goldstandard.org/project-documents/GS{}"
 def fix_gs_links(records: list[dict]) -> list[dict]:
     """Gold Standard registry pages are addressed by an internal id, not the GS number the sources use.
     Link each GS record to its registry page via data/lookups/gsreg.jsonl; without a mapping, link GS's own
-    project-documents page for that GS number. Cross-refs to registry pages ("GSREG:<page id>") become GS numbers."""
+    project-documents page for that GS number. Cross-refs to registry pages ("GSREG:<page id>") become GS numbers.
+    Also attaches the registry's project description (used only for tags)."""
     rows = common.read_jsonl(common.ROOT / "data" / "lookups" / "gsreg.jsonl")
     page = {r["record_id"]: r["registry_id"] for r in rows}
+    desc = {r["record_id"]: r.get("description") for r in rows if r.get("description")}
     gs_of_page = {v: k for k, v in page.items()}
     for r in records:
         if r.get("registry") == "GS":
             pid = page.get(r["record_id"])
             r["registry_url"] = GS_PAGE.format(pid) if pid else GS_DOCS.format(r["native_id"])
+            if r["record_id"] in desc:
+                r["description"] = desc[r["record_id"]]
         if any(c.startswith("GSREG:") for c in r.get("cross_refs") or []):
             r["cross_refs"] = [gs_of_page.get(c[6:], c) if c.startswith("GSREG:") else c for c in r["cross_refs"]]
     return records

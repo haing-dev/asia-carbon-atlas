@@ -55,7 +55,7 @@ def run(selected: list[str] | None, force: bool) -> dict:
             # Keep the previous data and mark it stale; a forced run (scope changes) skips the gate.
             if not force and previous and len(records) < 0.8 * len(previous):
                 raise SourceError(f"row count dropped {len(previous)} -> {len(records)} (>20%); kept previous data")
-            changed = common.write_jsonl_if_changed(path, records)
+            changed = common.write_jsonl_if_changed(path, records, ordered=not getattr(adapter, "output_path", None))
             state.update(signal=signal, rows=len(records), stale=False, error=None)
             if changed:
                 state["last_changed"] = now

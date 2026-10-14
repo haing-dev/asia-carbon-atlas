@@ -61,11 +61,12 @@ def read_jsonl(path: Path) -> list[dict]:
         return [json.loads(line) for line in f if line.strip()]
 
 
-def write_jsonl_if_changed(path: Path, rows: Iterable[dict], key: str = "record_id") -> bool:
-    """Write rows sorted by `key`, one compact JSON object per line. Returns True if the file changed."""
+def write_jsonl_if_changed(path: Path, rows: Iterable[dict], key: str = "record_id", ordered: bool = True) -> bool:
+    """Write rows sorted by `key`, one compact JSON object per line (project records in the standard field order
+    unless ordered=False). Returns True if the file changed."""
     rows = sorted(rows, key=lambda r: str(r.get(key, "")))
     text = "".join(
-        json.dumps(order_record(r) if key == "record_id" else r, ensure_ascii=False, separators=(",", ":")) + "\n"
+        json.dumps(order_record(r) if key == "record_id" and ordered else r, ensure_ascii=False, separators=(",", ":")) + "\n"
         for r in rows
     )
     if path.exists() and path.read_text(encoding="utf-8") == text:
