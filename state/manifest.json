@@ -1,14 +1,14 @@
 {
-  "last_commit_at": "2026-10-14T00:41:08+00:00",
+  "last_commit_at": "2026-10-14T06:51:38+00:00",
   "sources": {
     "a6pipeline": {
       "error": null,
       "last_changed": "2026-10-12T16:36:42+00:00",
-      "last_checked": "2026-10-13T03:55:55+00:00",
+      "last_checked": "2026-10-14T06:51:38+00:00",
       "rows": 174,
       "signal": {
         "a6p2": "c55adb3158b3514d",
-        "pacm": "faf20bb9191315ce",
+        "pacm": "7ef4fd128477e79c",
         "rows": {
           "a6p2": 309,
           "pacm": 179
@@ -86,10 +86,15 @@
       },
       "stale": false
     },
+    "verradesc": {
+      "error": "ValueError: invalid literal for int() with base 10: 'OPR10'",
+      "last_checked": "2026-10-14T06:51:38+00:00",
+      "stale": true
+    },
     "vrod": {
       "error": null,
-      "last_changed": "2026-10-13T03:55:55+00:00",
-      "last_checked": "2026-10-13T03:55:55+00:00",
+      "last_changed": "2026-10-14T06:51:38+00:00",
+      "last_checked": "2026-10-14T06:51:38+00:00",
       "rows": 6764,
       "signal": {
         "url": "https://gspp.berkeley.edu/assets/uploads/page/Voluntary-Registry-Offsets-Database--v2026-08.xlsx",
