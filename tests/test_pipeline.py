@@ -132,7 +132,7 @@ def test_vrod_year_block_stops_at_next_block():
 def test_compact_row_drops_rebuildable_fields():
     from pipeline.build import compact_row
     p = {"project_id": "VCS:1", "display_name": "X", "developer": None, "countries": ["IND"], "country_shares": {"IND": 1.0},
-         "registries": [{"record_id": "VCS:1", "registry": "VCS", "url": "https://registry.verra.org/app/projectDetail/VCS/1"},
+         "registries": [{"record_id": "VCS:1", "registry": "VCS", "url": "https://registry.verra.org/verra/public/program/VCS/projects/1"},
                         {"record_id": "CDM:9", "registry": "CDM", "url": "https://cdm.unfccc.int/x"}],
          "years": {"listed": None, "registered": 2020, "first_issuance": None}, "issuance_by_vintage": {},
          "methodology_codes": [], "crediting": [None, None], "article6": None, "flags": [], "project_url": None,

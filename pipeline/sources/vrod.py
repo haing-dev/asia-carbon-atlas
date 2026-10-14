@@ -27,7 +27,7 @@ HEADER_ROW = 3  # zero-based row index of the column headers in the PROJECTS she
 
 def registry_url(reg: str, native: str, docs: str | None) -> str:
     if reg == "VCS":
-        return f"https://registry.verra.org/app/projectDetail/VCS/{native}"
+        return f"https://registry.verra.org/verra/public/program/VCS/projects/{native}"
     if reg == "GS":  # page id differs from the GS number; process.fix_gs_links sets the real registry page
         return f"https://assurance-platform.goldstandard.org/project-documents/GS{native}"
     if reg == "CAR":

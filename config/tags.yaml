@@ -1,168 +1,208 @@
 # Searchable project tags (shown in the "Tag" column). A project can carry several tags.
-# Each tag: label (shown), aliases (extra search terms, matched case-insensitively), and how it is assigned:
-#   re: regex (case-insensitive) tested against each registry record's registry type, methodology codes and name,
-#       project name and the registry's own project description where published (Gold Standard) -- evidence
-#       that is in the public record itself;
-#   l2: credit types (config/taxonomy.yaml). With `re`, the tag applies only to projects of those types;
-#       without `re`, every project of those types gets it (the broad tags at the end).
+# Evidence comes only from the public record: each registry record's project name, registry project type and
+# methodology ("record text"), plus the registry's own project description where one is published (Gold Standard).
+#
+# Each tag has: label (shown), aliases (extra search terms) and up to three rules:
+#   re   explicit terms that state the tag outright (e.g. "alternate wetting and drying"). In the record text they
+#        apply to any project, whatever its credit type (so bundles and odd registry types are still tagged).
+#   ctx  looser context terms (e.g. "farmer", "heat", "mill") that only mean the tag inside its credit types.
+#   l2   the credit types (config/taxonomy.yaml) where the tag is expected. Inside them, `re` and `ctx` are also
+#        read from registry descriptions; outside them descriptions are ignored (they mention things in passing).
+#        A tag with only `l2` (the broad tags at the end) applies to every project of those types.
+#   near credit types where description evidence (`re`/`ctx`) also counts, without the tag being automatic there
+#        (e.g. a wastewater project whose description says it produces biogas -> Biogas).
+#   max_mw  also apply when the record's stated capacity is at most this (small hydro).
+# Broad tags have ids starting with t_ and are given to every project of their credit types.
 # Typing a label or alias in the search box shows exactly the projects with that tag
 # (also tags whose term starts with the query plus a space: "solar" -> "solar lantern", "solar water heater").
+# Check changes with: uv run python -m pipeline.tag_audit   (lists misses and loosely-assigned tags)
 tags:
   # --- Rice ---
-  - {id: awd, label: AWD, aliases: [alternate wetting and drying, alternate wetting & drying, rice methane], l2: [rice_methane, soil_carbon],
-     re: '\bAWD\b|alternat\w* wet|wet(ting)? (and|&|/) ?dry(ing)?'}
-  - {id: dsr, label: DSR, aliases: [direct seeded rice, direct-seeded rice, dry seeded rice, rice methane], l2: [rice_methane, soil_carbon],
-     re: '\bDSR\b|direct[- ]?seed(ed|ing)? rice|dry[- ]seed(ed|ing)? rice'}
-  - {id: rice_water_mgmt, label: Rice water management, aliases: [ams-iii.au, mid-season drainage, rice methane], l2: [rice_methane],
-     re: 'AMS-III\.AU|adjusted water management|water management practice|mid-?(season|summer) drainage|midsummer drainage|intermittent (flooding|irrigation)|water management|drainage|Improved Irrigation Management'}
+  - {id: awd, label: AWD, aliases: [alternate wetting and drying, alternate wetting & drying], l2: [rice_methane, soil_carbon],
+     re: '\bAWD\b|alternat\w* wet\w* (and|&|/) ?dry|wet(ting)? (and|&|/) ?dry(ing)? (rice|irrigation|method|technolog|practice|cultivation)'}
+  - {id: dsr, label: DSR, aliases: [direct seeded rice, direct-seeded rice, dry seeded rice], l2: [rice_methane, soil_carbon],
+     re: '\bDSR\b|direct[- ]?(seed(ed|ing)?|sown|sowing) (of )?rice|dry[- ]seed(ed|ing)? rice'}
+  - {id: rice_water_mgmt, label: Rice water management, aliases: [ams-iii.au, mid-season drainage, adjusted water management], l2: [rice_methane],
+     re: 'AMS-III\.AU|adjusted water management|mid-?(season|summer) drainage|midsummer drainage|intermittent (flooding|irrigation)',
+     ctx: 'water management|drainage|Improved Irrigation Management|irrigation'}
   # --- Soil & agriculture ---
-  - {id: regen_ag, label: Regenerative agriculture, aliases: [regen ag, regenerative farming, regenerative agriculture], l2: [soil_carbon, agroforestry, rice_methane, fertilizer], re: 'regenerative (agri|farm|practice)|regen ag'}
+  - {id: regen_ag, label: Regenerative agriculture, aliases: [regen ag, regenerative farming], l2: [soil_carbon, agroforestry, rice_methane, fertilizer],
+     re: 'regenerative (agri|farm|practice|grazing)|regen ag'}
   - {id: grazing, label: Grazing management, aliases: [rangeland, grassland management, sustainable grazing], l2: [soil_carbon, other_land],
-     re: 'grazing|grassland|rangeland|ranch|VM0026|VM0032'}
-  - {id: cover_crops, label: Cover crops, aliases: [cover cropping], l2: [soil_carbon, rice_methane, fertilizer], re: 'cover[- ]crop'}
-  - {id: no_till, label: No-till, aliases: [zero tillage, conservation tillage, reduced tillage], l2: [soil_carbon, rice_methane, fertilizer], re: 'no[- ]till|zero[- ]till|conservation tillage|reduced tillage'}
-  - {id: sustainable_ag, label: Sustainable land management, aliases: [sustainable agriculture, climate-smart agriculture, carbon farming, salm], l2: [soil_carbon, rice_methane, agroforestry],
-     re: 'sustainable (agricultur|cropland|land|cotton|farm|crop)|climate[- ]smart|carbon farming|VM0017|SALM|cropland management'}
-  - {id: microbial, label: Soil microbes, aliases: [microbial carbon], l2: [soil_carbon, fertilizer], re: 'microb'}
-  - {id: manure_digester, label: Manure digester, aliases: [manure methane, manure management], l2: [livestock, biogas_ad, household_biogas],
-     re: 'manure|dairy|swine|pig farm|hog farm|poultry|animal waste|livestock'}
-  - {id: feed_additive, label: Feed additives, aliases: [enteric methane, 3-nop, bovaer, asparagopsis], l2: [livestock], re: 'feed additive|enteric|3-NOP|bovaer|asparagopsis'}
-  - {id: nitrogen_mgmt, label: Nitrogen management, aliases: [fertilizer management, fertiliser management, n2o soil], l2: [fertilizer, soil_carbon],
-     re: 'nitrogen|fertili[sz]er'}
+     re: 'grazing|rangeland|VM0026|VM0032|grassland management', ctx: 'grassland|ranch|pasture|cattle'}
+  - {id: cover_crops, label: Cover crops, aliases: [cover cropping], l2: [soil_carbon, rice_methane, fertilizer, agroforestry], re: 'cover[- ]crop'}
+  - {id: no_till, label: No-till, aliases: [zero tillage, conservation tillage, reduced tillage], l2: [soil_carbon, rice_methane, fertilizer], re: 'no[- ]till|zero[- ]till|conservation tillage|reduced tillage|minimum tillage'}
+  - {id: sustainable_ag, label: Sustainable land management, aliases: [sustainable agriculture, climate-smart agriculture, carbon farming, salm],
+     l2: [soil_carbon, agroforestry],
+     re: 'sustainable (agricultur|cropland|land management|cotton|farming)|climate[- ]smart (agri|farm|rice)|carbon farming|VM0017|\bSALM\b|cropland management|agricultural land management',
+     ctx: 'sustainable|improved agricultural practices'}
+  - {id: microbial, label: Soil microbes, aliases: [microbial carbon], l2: [soil_carbon, fertilizer], re: 'microbial (carbon|inoculant)', ctx: 'microb'}
+  - {id: manure_digester, label: Manure digester, aliases: [manure methane, manure management, dairy digester], l2: [livestock, biogas_ad, household_biogas, composting, biomass_power],
+     re: 'manure|dairy digester|swine|piggery|pig farm|hog farm|poultry litter|animal waste|cattle (dung|waste)|cow dung',
+     ctx: 'dairy|poultry|livestock|dung|cattle|farm'}
+  - {id: feed_additive, label: Feed additives, aliases: [enteric methane, 3-nop, bovaer, asparagopsis], l2: [livestock, soil_carbon], re: 'feed additive|enteric|3-NOP|bovaer|asparagopsis'}
+  - {id: nitrogen_mgmt, label: Nitrogen management, aliases: [fertilizer management, fertiliser management, nitrogen use efficiency], l2: [fertilizer, soil_carbon],
+     re: 'nitrogen (management|use efficiency)|fertili[sz]er (management|use|reduction|optimi)|N2O.*(agri|soil)', ctx: 'nitrogen|fertili[sz]er'}
   # --- Forestry & land use ---
-  - {id: jurisdictional, label: Jurisdictional REDD+, aliases: [jredd, jurisdictional, jnr, art trees, trees], l2: [redd, arr, ifm], re: 'jurisdictional|\bJNR\b|^ART TREES|REDD\+ Results'}
-  - {id: apd, label: Avoided planned deforestation, aliases: [apd, planned deforestation], l2: [redd], re: '(?<!un)planned deforestation|\bAPD\b'}
-  - {id: aud, label: Avoided unplanned deforestation, aliases: [aud, unplanned deforestation], l2: [redd], re: 'unplanned deforestation|\bAUDD?\b|VM0015'}
+  - {id: jurisdictional, label: Jurisdictional REDD+, aliases: [jredd, jnr, art trees], l2: [redd, arr, ifm], re: 'jurisdictional|\bJNR\b|^ART TREES|REDD\+ Results'}
+  - {id: apd, label: Avoided planned deforestation, aliases: [apd, planned deforestation], l2: [redd, blue_carbon, other_land], re: '(?<!un)planned deforestation|\bAPD\b'}
+  - {id: aud, label: Avoided unplanned deforestation, aliases: [aud, unplanned deforestation], l2: [redd, blue_carbon, other_land], re: 'unplanned deforestation|\bAUDD?\b|VM0015'}
   - {id: mangrove, label: Mangrove, aliases: [mangroves, mangrove restoration], l2: [blue_carbon, arr, peat_wetland, redd, other_land], re: 'mangrove|manglar'}
   - {id: seagrass, label: Seagrass, aliases: [sea grass], l2: [blue_carbon, peat_wetland], re: 'sea ?grass'}
   - {id: tidal_marsh, label: Tidal marsh, aliases: [salt marsh, saltmarsh, tidal wetland], l2: [blue_carbon, peat_wetland], re: 'salt ?marsh|tidal (wetland|marsh)'}
   - {id: peatland, label: Peatland, aliases: [peat, peat swamp, peatland rewetting], l2: [peat_wetland, redd, blue_carbon, ifm, arr], re: '\bpeat|pocosin'}
-  - {id: wetland_restoration, label: Wetland restoration, aliases: [freshwater wetland, marsh restoration], l2: [peat_wetland, blue_carbon], re: 'wetland|marsh|swamp|\bbog\b|lagoon'}
-  - {id: native_restoration, label: Native forest restoration, aliases: [native species, ecological restoration, forest restoration], l2: [arr, other_land, agroforestry],
-     re: 'native (species|forest|tree)|restor|rehabilit|degraded|revegetat|regenerat'}
-  - {id: post_fire, label: Post-fire reforestation, aliases: [wildfire reforestation, fire restoration], l2: [arr], re: 'wildfire|post-?fire|\bfire\b|burn(ed|t) (area|forest)'}
-  - {id: farm_forestry, label: Smallholder / farm forestry, aliases: [farm forestry, smallholder forestry, outgrower], l2: [arr, agroforestry], re: 'farm forestry|smallholder|small group|\bTIST\b|outgrower|farmer'}
-  - {id: plantation, label: Commercial plantation, aliases: [timber plantation, plantation forestry], l2: [arr], re: 'plantation|timber|eucalyptus|\bteak\b|\bpine\b|acacia|rubber'}
+  - {id: wetland_restoration, label: Wetland restoration, aliases: [freshwater wetland, marsh restoration], l2: [peat_wetland, blue_carbon],
+     re: 'wetland restor|restor\w* (of )?(the )?wetland', ctx: 'wetland|marsh|swamp|\bbog\b|lagoon'}
+  - {id: native_restoration, label: Forest restoration, aliases: [native species, ecological restoration, degraded land restoration], l2: [arr, other_land, agroforestry, redd, ifm],
+     re: 'forest restoration|landscape restoration|ecological restoration|native (species|forest|tree)', ctx: 'restor|rehabilit|degraded|revegetat|regenerat'}
+  - {id: post_fire, label: Post-fire reforestation, aliases: [wildfire reforestation, fire restoration], l2: [arr], re: 'wildfire|post-?fire', ctx: '\bfire\b|burn(ed|t) (area|forest)'}
+  - {id: farm_forestry, label: Smallholder / farm forestry, aliases: [farm forestry, smallholder forestry, outgrower], l2: [arr, agroforestry, ifm],
+     re: 'farm forestry|smallholder (tree|forest)|small group|\bTIST\b|outgrower', ctx: 'smallholder|farmer'}
+  - {id: plantation, label: Plantation forestry, aliases: [timber plantation, commercial plantation], l2: [arr],
+     re: 'commercial (tree )?plantation|plantation forest|timber plantation|industrial plantation', ctx: 'timber|eucalyptus|\bteak\b|\bpine\b|acacia|rubber|wood production'}
   - {id: bamboo, label: Bamboo, aliases: [], l2: [arr, agroforestry, biomass_power, biochar, biomass_storage, ifm], re: 'bamboo'}
-  - {id: agroforestry_tag, label: Agroforestry, aliases: [agro-forestry, silvopasture, silvopastoral], l2: [agroforestry, arr, soil_carbon], re: 'agro-?forestry|silvopast'}
+  - {id: agroforestry_tag, label: Agroforestry, aliases: [agro-forestry, silvopasture, silvopastoral], l2: [agroforestry, arr, soil_carbon], re: 'agro[- ]?forestry|silvopast'}
   - {id: urban_forest, label: Urban forestry, aliases: [urban trees], l2: [arr], re: 'urban (fores|tree)'}
-  - {id: ril, label: Reduced-impact logging, aliases: [ril, reduced impact logging], l2: [ifm, redd], re: 'reduced[- ]impact logging|\bRIL\b'}
+  - {id: ril, label: Reduced-impact logging, aliases: [reduced impact logging], l2: [ifm, redd], re: 'reduced[- ]impact logging', ctx: '\bRIL\b'}
   - {id: logged_protected, label: Logged to protected forest, aliases: [ltpf], l2: [ifm, redd], re: 'logged to protected|\bLtPF\b'}
-  - {id: avoided_grassland, label: Avoided grassland conversion, aliases: [grassland conversion], l2: [other_land, soil_carbon], re: 'Avoided Grassland Conversion'}
+  - {id: avoided_grassland, label: Avoided grassland conversion, aliases: [grassland conversion], l2: [other_land, soil_carbon], re: 'Avoided Grassland Conversion|grassland (protection|conversion)'}
   # --- Engineered removal ---
-  - {id: biochar_tag, label: Biochar, aliases: [bio-char, pyrolysis], l2: [biochar], re: 'bio-?char'}
+  - {id: biochar_tag, label: Biochar, aliases: [bio-char], l2: [biochar], re: 'bio-?char', ctx: 'pyrolysis'}
   - {id: erw_tag, label: ERW, aliases: [enhanced rock weathering, enhanced weathering, rock weathering], l2: [erw], re: 'rock weathering|\bERW\b|enhanced weathering'}
   - {id: dac_tag, label: DAC, aliases: [direct air capture, daccs], l2: [dac], re: 'direct air capture|\bDAC(CS)?\b'}
   - {id: beccs_tag, label: BECCS, aliases: [bioenergy with carbon capture, bioenergy carbon capture and storage], l2: [beccs], re: 'BECCS|bioenergy with carbon capture|geologically stored'}
-  - {id: bio_oil, label: Bio-oil, aliases: [bio oil, bio-oil sequestration], l2: [beccs, biomass_storage, other], re: 'bio-?oil'}
-  - {id: oae, label: Ocean alkalinity, aliases: [oae, ocean alkalinity enhancement], l2: [mineralization, other], re: 'ocean alkalinity|\bOAE\b'}
-  - {id: concrete, label: Carbonated concrete, aliases: [concrete, co2 mineralization in concrete], l2: [mineralization, cement], re: 'concrete'}
+  - {id: bio_oil, label: Bio-oil, aliases: [bio oil, bio-oil sequestration], l2: [beccs, biomass_storage, biomass_power, other], re: 'bio-?oil'}
+  - {id: oae, label: Ocean alkalinity, aliases: [oae, ocean alkalinity enhancement], l2: [mineralization, other, cement], re: 'ocean alkalinity|\bOAE\b'}
+  - {id: concrete, label: Carbonated concrete, aliases: [co2 mineralization in concrete, concrete curing], l2: [mineralization, cement], re: 'carbon\w* (in |cured )?concrete|concrete curing', ctx: 'concrete'}
   - {id: biomass_burial, label: Biomass burial, aliases: [terrestrial storage of biomass, wood vault], l2: [biomass_storage], re: 'biomass burial|terrestrial storage|wood vault'}
   - {id: wood_building, label: Wood construction, aliases: [mass timber, wooden building], l2: [biomass_storage], re: 'wood(en)? (building|construction)|mass timber'}
   # --- Renewable energy ---
-  - {id: rooftop_solar, label: Rooftop solar, aliases: [distributed solar, solar rooftop, rooftop pv], l2: [solar, offgrid_solar],
-     re: 'roof ?-?top|Solar - Distributed|PV - distributed'}
+  - {id: rooftop_solar, label: Rooftop / distributed solar, aliases: [rooftop solar, distributed solar, solar rooftop, rooftop pv], l2: [solar, offgrid_solar],
+     re: 'roof ?-?top (solar|pv)|solar roof ?-?top|Solar - Distributed|PV - distributed', ctx: 'roof ?-?top|distributed'}
   - {id: utility_solar, label: Utility-scale solar, aliases: [solar farm, solar park, centralized solar], l2: [solar],
      re: 'Solar - Centralized|PV - centralized|solar (park|farm)'}
   - {id: solar_thermal, label: Solar thermal, aliases: [csp, concentrated solar], l2: [solar, other_re, buildings, industrial_ee], re: 'solar thermal|concentrat\w* solar|\bCSP\b'}
   - {id: solar_water_heater, label: Solar water heater, aliases: [solar water heating], l2: [solar, other_re, buildings, offgrid_solar, industrial_ee], re: 'solar water heat'}
+  - {id: solar_pump, label: Solar water pumps, aliases: [solar irrigation pumps, solar pumping], l2: [solar, other_re, offgrid_solar], re: 'solar (water |irrigation )?pump'}
   - {id: offshore_wind, label: Offshore wind, aliases: [], l2: [wind], re: 'offshore wind|wind.*offshore'}
-  - {id: run_of_river, label: Run-of-river hydro, aliases: [run of river, ror], l2: [hydro], re: 'run[- ]of[- ]river'}
-  - {id: small_hydro, label: Small hydro, aliases: [mini hydro, micro hydro], l2: [hydro], max_mw: 25, re: '(small|mini|micro)[- ]?hydro|small[- ]scale'}
-  - {id: dam_hydro, label: Reservoir hydro, aliases: [dam, reservoir], l2: [hydro], re: '\bdam\b|reservoir'}
-  - {id: bagasse, label: Bagasse, aliases: [sugarcane bagasse, sugar mill cogeneration], l2: [biomass_power, waste_heat, industrial_ee, fuel_switch], re: 'bagasse|sugar ?(cane|mill|factory|industr)|sugars (ltd|limited)|cooperative sugar|sakhar'}
-  - {id: rice_husk, label: Rice husk, aliases: [rice husk power], l2: [biomass_power, fuel_switch, industrial_ee, biochar], re: 'rice husk'}
-  - {id: palm_residue, label: Palm oil residue, aliases: [efb, empty fruit bunch, palm kernel shell], l2: [biomass_power, biogas_ad, wastewater, composting],
-     re: 'palm oil solid|empty fruit|\bEFB\b|kernel shell|palm (oil )?(mill )?(residue|waste)|palm oil mill'}
-  - {id: briquettes, label: Biomass briquettes / pellets, aliases: [briquettes, pellets], l2: [biomass_power, fuel_switch, cookstoves, industrial_ee], re: 'briquett|pellet'}
-  - {id: gasification, label: Biomass gasification, aliases: [gasifier], l2: [biomass_power, fuel_switch, industrial_ee, other_re], re: 'gasifi'}
-  - {id: biomass_thermal, label: Biomass heat / boilers, aliases: [biomass boiler, biomass steam, biomass thermal], l2: [biomass_power, industrial_ee, cement],
-     re: 'boiler|steam|thermal|heat|dryer|kiln'}
+  - {id: run_of_river, label: Run-of-river hydro, aliases: [run of river, ror], l2: [hydro], re: 'run[- ]of[- ](the[- ])?river|\bROR\b'}
+  - {id: small_hydro, label: Small hydro, aliases: [mini hydro, micro hydro], l2: [hydro], max_mw: 25, re: '(small|mini|micro)[- ]?hydro', ctx: 'small[- ]scale'}
+  - {id: dam_hydro, label: Reservoir hydro, aliases: [reservoir hydropower, dam hydro], l2: [hydro], re: 'Hydro / (New|Existing) dam|reservoir', ctx: '\bdam\b'}
+  - {id: bagasse, label: Bagasse, aliases: [sugarcane bagasse, sugar mill cogeneration], l2: [biomass_power, waste_heat, industrial_ee, fuel_switch, biogas_ad],
+     re: 'bagasse', ctx: 'sugar ?(cane|mill|factory|industr)|sugars (ltd|limited)|cooperative sugar|sakhar'}
+  - {id: rice_husk, label: Rice husk, aliases: [rice husk power], l2: [biomass_power, fuel_switch, industrial_ee, biochar, cement], re: 'rice[- ]husk'}
+  - {id: palm_residue, label: Palm oil residue, aliases: [efb, empty fruit bunch, palm kernel shell], l2: [biomass_power, biogas_ad, composting, cement, fuel_switch],
+     re: 'palm oil solid|empty fruit|\bEFB\b|kernel shell|palm (oil )?(mill )?residue|Palm oil solid waste'}
+  - {id: briquettes, label: Biomass briquettes / pellets, aliases: [briquettes, pellets], l2: [biomass_power, fuel_switch, cookstoves, industrial_ee], re: 'briquett|biomass pellet|wood pellet', ctx: 'pellet'}
+  - {id: gasification, label: Biomass gasification, aliases: [gasifier], l2: [biomass_power, fuel_switch, industrial_ee, other_re, cookstoves], re: 'gasifi'}
+  - {id: biomass_thermal, label: Biomass heat / boilers, aliases: [biomass boiler, biomass steam, biomass thermal], l2: [biomass_power],
+     re: 'biomass (based )?(thermal|steam|boiler|heat|fired boiler)|(steam|heat|thermal energy) (generation )?(from|using|based on) (renewable )?biomass',
+     ctx: 'boiler|steam|thermal|\bheat|dryer'}
   - {id: biomass_fuel_switch, label: Fossil-to-biomass switch, aliases: [biomass fuel switch, coal to biomass], l2: [biomass_power, cement, industrial_ee],
-     re: 'fuel switch|substitut|replac|alternat\w* fuel|co-?firing|instead of (coal|oil|diesel)'}
+     re: 'biomass fuel switch|(coal|oil|fossil fuels?|diesel|furnace oil|HFO) (to|with|by) (renewable )?biomass|substitut\w* (of )?(\w+ )?(coal|fossil|fuel oil)\w* (with|by) (renewable )?biomass',
+     ctx: 'fuel switch|substitut|replac|alternat\w* fuel|co-?firing|instead of (coal|oil|diesel)'}
   - {id: cbg, label: Compressed biogas / biomethane, aliases: [cbg, bio-cng, biomethane, rng, renewable natural gas], l2: [biomass_power, biogas_ad, landfill, livestock, wastewater, fuel_switch],
-     re: '\bCBG\b|compressed bio-?gas|bio-?CNG|bio-?methane|\bRNG\b|renewable natural gas|pipeline (quality|injection)'}
+     re: '\bCBG\b|compressed bio-?gas|bio[- ]?CNG|bio[- ]?methane|\bRNG\b|renewable natural gas', ctx: 'pipeline (quality|injection)'}
   # --- Household & community ---
-  - {id: improved_cookstove, label: Improved cookstoves, aliases: [ics, efficient cookstoves, clean cookstoves], l2: [cookstoves],
-     re: 'improved (cook|stove|cooking)|efficien\w* (\w+ )?(cook|stove|wood|biomass)|\bICS\b|TPDDTEC|AMS-II\.G|fuel[- ]efficient|clean cook|wood[- ]burning|rocket stove'}
-  - {id: electric_cooking, label: Electric cooking, aliases: [e-cooking, ecooking, induction cooking], l2: [cookstoves, buildings, offgrid_solar], re: 'electric (cook|pressure)|e-?cook|induction (cook|stove)'}
-  - {id: lpg_cooking, label: LPG cooking, aliases: [lpg], l2: [cookstoves, fuel_switch], re: '\bLPG\b'}
-  - {id: ethanol_cooking, label: Ethanol cooking, aliases: [], l2: [cookstoves], re: 'ethanol'}
+  - {id: improved_cookstove, label: Improved cookstoves, aliases: [ics, efficient cookstoves, clean cookstoves], l2: [cookstoves, buildings],
+     re: 'improved (cook|stove|cooking)|efficien\w* (\w+ )?(cook ?stove|stove)|\bICS\b|TPDDTEC|AMS-II\.G|fuel[- ]efficient (cook|stove)|clean cook ?stove|wood[- ]burning (cook)?stove|rocket stove|\bTLUD\b',
+     ctx: 'efficien\w* (\w+ )?(cook|wood|biomass)|clean cook|fuel[- ]efficient'}
+  - {id: electric_cooking, label: Electric cooking, aliases: [e-cooking, ecooking, induction cooking], l2: [cookstoves, buildings, offgrid_solar], re: 'electric (cook|pressure)|e-?cooking|induction (cook|stove)'}
+  - {id: lpg_cooking, label: LPG cooking, aliases: [lpg], l2: [cookstoves, fuel_switch], re: 'LPG (cook|stove)', ctx: '\bLPG\b'}
+  - {id: ethanol_cooking, label: Ethanol cooking, aliases: [], l2: [cookstoves], re: 'ethanol (cook|stove)', ctx: 'ethanol'}
   - {id: solar_cooking, label: Solar cooking, aliases: [solar cooker], l2: [cookstoves, offgrid_solar, solar], re: 'solar cook'}
-  - {id: water_filter, label: Water filters, aliases: [water purification, safe drinking water], l2: [water], re: 'filter|purif|safe (drinking )?water|Clean Water'}
+  - {id: water_filter, label: Water filters, aliases: [water purification, safe drinking water], l2: [water], near: [buildings, cookstoves],
+     re: 'water (filter|purif|treatment device)|safe (drinking )?water|Clean Water|drinking water', ctx: 'filter|purif'}
   - {id: borehole, label: Boreholes, aliases: [community boreholes], l2: [water], re: 'borehole'}
-  - {id: solar_lantern, label: Solar lanterns / home systems, aliases: [solar home system, shs, solar lantern, solar lighting], l2: [offgrid_solar, solar, buildings], re: 'solar (home|lantern|lamp|light)|\bSHS\b'}
-  - {id: led, label: Efficient lighting, aliases: [led, cfl, led lighting], l2: [buildings, offgrid_solar, grid, industrial_ee], re: '\bLED\b|\bCFL\b|efficient light|Lighting'}
+  - {id: solar_lantern, label: Solar lanterns / home systems, aliases: [solar home system, shs, solar lantern, solar lighting], l2: [offgrid_solar, solar, buildings], near: [cookstoves, water],
+     re: 'solar (home system|lantern|lamp|light)|\bSHS\b'}
+  - {id: led, label: Efficient lighting, aliases: [led, cfl, led lighting], l2: [buildings, offgrid_solar, grid, industrial_ee],
+     re: '\bLED\b (light|lamp|bulb|street)|\bCFL\b|efficient light|LED lighting|street ?light', ctx: '\bLED\b|Lighting'}
   # --- Waste & methane ---
-  - {id: lfg_power, label: Landfill gas to power, aliases: [lfg to energy, landfill power], l2: [landfill], re: 'landfill (gas )?(power|to energy|electric)|Landfill power|(power|electricity|energy|thermal|heat)\b.*generat|generat\w* (of )?(power|electricity|energy)|utili[sz]|\bLFGTE\b|gas to energy'}
-  - {id: lfg_flaring, label: Landfill gas flaring, aliases: [landfill flaring], l2: [landfill], re: 'flar|destruction|incinerat'}
-  - {id: pome, label: POME, aliases: [palm oil mill effluent, palm oil wastewater], l2: [wastewater, biogas_ad, biomass_power, composting], re: '\bPOME\b|palm oil (mill )?effluent|Palm oil waste|palm oil|oil palm'}
-  - {id: industrial_ww, label: Industrial wastewater, aliases: [agro-industrial wastewater, factory effluent], l2: [wastewater, biogas_ad],
-     re: 'starch|tapioca|cassava|ethanol|distiller|vinasse|brewer|food process|slaughter|abattoir|palm oil|oil palm|\bmill\b|factory|industr|effluent|pulp|paper|rubber|dairy|seafood|beverage|sugar'}
-  - {id: municipal_ww, label: Municipal wastewater, aliases: [sewage, wwtp, sewage treatment], l2: [wastewater, biogas_ad], re: 'sewage|\bWWTP\b|municipal|domestic waste ?water|\bcity\b'}
-  - {id: biogas_energy, label: Biogas to energy, aliases: [biogas power, biogas utilization], l2: [wastewater, biogas_ad, livestock, household_biogas],
-     re: 'biogas (utili|power|plant|electric|energy|boiler|heat|recovery)|(power|electricity|energy|heat)\b.*(generat|utili)|cogeneration|captive power|\d ?MW'}
+  - {id: lfg_power, label: Landfill gas to power, aliases: [lfg to energy, landfill power], l2: [landfill],
+     re: 'landfill (gas )?(power|to energy|electric)|Landfill power|LFG to energy|\bLFGTE\b|landfill gas utili',
+     ctx: '(power|electricity|energy|thermal|heat)\b.*generat|generat\w* (of )?(power|electricity|energy)|utili[sz]|gas to energy'}
+  - {id: lfg_flaring, label: Landfill gas flaring, aliases: [landfill flaring], l2: [landfill], re: 'landfill (gas )?flaring|Landfill flaring', ctx: 'flar|destruction|incinerat'}
+  - {id: pome, label: POME, aliases: [palm oil mill effluent, palm oil wastewater], l2: [wastewater, biogas_ad, biomass_power, composting, livestock],
+     re: '\bPOME\b|palm oil (mill )?effluent|Palm oil waste', ctx: 'palm oil|oil palm'}
+  - {id: industrial_ww, label: Industrial wastewater, aliases: [agro-industrial wastewater, factory effluent], l2: [wastewater],
+     re: 'industrial waste ?water|(starch|tapioca|cassava|ethanol|distillery|brewery|slaughterhouse|abattoir|palm oil mill|sugar mill|paper mill|rubber|seafood|food processing)\w* (plant |factory |mill )?(waste ?water|effluent)',
+     ctx: 'starch|tapioca|cassava|ethanol|distiller|vinasse|brewer|food process|slaughter|abattoir|palm oil|oil palm|\bmill\b|factory|industr|effluent|pulp|paper|rubber|seafood|beverage|sugar'}
+  - {id: municipal_ww, label: Municipal wastewater, aliases: [sewage, wwtp, sewage treatment], l2: [wastewater],
+     re: 'sewage|\bWWTP\b|municipal waste ?water|domestic waste ?water', ctx: 'municipal|\bcity\b'}
+  - {id: biogas_energy, label: Biogas to energy, aliases: [biogas power, biogas utilization], l2: [wastewater, biogas_ad, livestock],
+     re: 'biogas (to energy|utili[sz]ation|power|electricity|fired|based power|boiler)|(power|electricity) (generation )?from biogas|biogas (energy|cogeneration)',
+     ctx: 'biogas (plant|recovery|energy|heat)|(power|electricity|energy|heat)\b.*(generat|utili)|cogeneration|captive power|\d ?MW'}
   - {id: msw_compost, label: Municipal organic waste, aliases: [msw composting, municipal solid waste, food waste], l2: [composting, biogas_ad],
-     re: 'municipal|\bMSW\b|solid waste|city|urban|nagar|food waste|organic waste|household waste|market waste'}
-  - {id: agro_compost, label: Agro-industrial residues, aliases: [agricultural residues composting, co-composting], l2: [composting, biogas_ad],
-     re: 'palm|empty fruit|agro|agricultur|crop residue|manure|co-?compost|mill'}
-  - {id: waste_to_energy, label: Waste-to-energy, aliases: [wte, msw incineration, rdf, refuse derived fuel], l2: [biogas_ad, landfill, biomass_power, other_re, composting], re: 'waste[- ]to[- ]energy|incinerat|combustion of MSW|\bRDF\b|refuse.derived'}
+     re: 'municipal solid waste|\bMSW\b (compost|treatment|processing)|food waste|organic (municipal )?waste', ctx: 'municipal|\bMSW\b|solid waste|city|urban|nagar|household waste|market waste'}
+  - {id: agro_compost, label: Agro-industrial residues, aliases: [agricultural residues composting, co-composting], l2: [composting],
+     re: 'co-? ?composting|compost\w* (of )?(EFB|empty fruit|palm|agricultural|crop residue)', ctx: 'palm|empty fruit|agro|agricultur|crop residue|manure|mill'}
+  - {id: waste_to_energy, label: Waste-to-energy, aliases: [wte, msw incineration, rdf, refuse derived fuel], l2: [biogas_ad, landfill, biomass_power, other_re, composting, livestock],
+     re: 'waste[- ]to[- ]energy|incinerat|combustion of MSW|\bRDF\b|refuse.derived', ctx: '\bWTE\b'}
   - {id: plastic, label: Plastic recycling, aliases: [plastic waste, plastic credits], l2: [other, biogas_ad, composting, industrial_ee, landfill], re: 'plastic'}
   - {id: vam, label: Ventilation air methane, aliases: [vam], l2: [coal_mine_methane], re: 'ventilation air|\bVAM\b'}
-  - {id: amm, label: Abandoned mine methane, aliases: [amm, abandoned coal mine], l2: [coal_mine_methane], re: 'abandoned|\bAMM\b|closed mine|DMMC'}
-  - {id: cmm_flaring, label: Mine methane flaring / destruction, aliases: [mine methane flaring], l2: [coal_mine_methane], re: 'flar|incinerat|destruction|oxidi[sz]'}
-  - {id: cmm_power, label: Mine methane to power, aliases: [cmm power, mine methane utilization], l2: [coal_mine_methane], re: 'power|electric|utili[sz]|generat|\bMW\b'}
-  - {id: orphan_wells, label: Orphan well plugging, aliases: [orphan wells, abandoned wells, well plugging], l2: [oil_gas_methane], re: 'plugging|orphan|abandoned (oil|gas)? ?well'}
-  - {id: charcoal_methane, label: Charcoal production methane, aliases: [charcoal production, carbonization], l2: [oil_gas_methane, biomass_power, industrial_ee], re: 'charcoal|carboni[sz]ation'}
-  - {id: flaring_reduction, label: Gas flaring reduction, aliases: [associated gas, flare gas recovery], l2: [oil_gas_methane, fuel_switch, industrial_ee], re: 'flaring reduction|flare gas|associated gas|Oil field flaring|processing flaring'}
-  - {id: ldar, label: Leak reduction, aliases: [ldar, leak detection and repair, methane leaks, gas leaks], l2: [oil_gas_methane, coal_mine_methane], re: 'leak'}
+  - {id: amm, label: Abandoned mine methane, aliases: [amm, abandoned coal mine], l2: [coal_mine_methane], re: 'abandoned (coal )?mine|\bAMM\b|closed mine', ctx: 'abandoned|DMMC'}
+  - {id: cmm_flaring, label: Mine methane flaring / destruction, aliases: [mine methane flaring], l2: [coal_mine_methane], ctx: 'flar|incinerat|destruction|oxidi[sz]'}
+  - {id: cmm_power, label: Mine methane to power, aliases: [cmm power, mine methane utilization], l2: [coal_mine_methane], ctx: 'power|electric|utili[sz]|generat|\bMW\b'}
+  - {id: orphan_wells, label: Orphan well plugging, aliases: [orphan wells, abandoned wells, well plugging], l2: [oil_gas_methane], re: 'orphan(ed)? (oil |gas )?well|plugging (abandoned|orphan|oil|gas)|Plugging Oil', ctx: 'plugging|orphan'}
+  - {id: charcoal_methane, label: Charcoal production methane, aliases: [charcoal production, carbonization], l2: [oil_gas_methane, biomass_power, industrial_ee, fuel_switch],
+     re: 'methane\w* (emissions )?(from|in) (the )?charcoal|charcoal production', ctx: 'charcoal|carboni[sz]ation'}
+  - {id: flaring_reduction, label: Gas flaring reduction, aliases: [associated gas, flare gas recovery], l2: [oil_gas_methane, fuel_switch, industrial_ee, grid],
+     re: 'flaring reduction|flare gas|associated gas|Oil field flaring|processing flaring'}
+  - {id: ldar, label: Leak reduction, aliases: [ldar, leak detection and repair, methane leaks, gas leaks], l2: [oil_gas_methane, coal_mine_methane, grid],
+     re: 'leak (detection|reduction|repair)|\bLDAR\b|gas leak', ctx: 'leak'}
   # --- Industrial ---
-  - {id: hfc23, label: HFC-23, aliases: [hfc23], l2: [industrial_gases], re: 'HFC-?23'}
-  - {id: ods, label: ODS destruction, aliases: [ozone depleting substances, cfc destruction], l2: [industrial_gases, buildings, industrial_ee], re: 'ozone depleting|\bODS\b|CFC'}
+  - {id: hfc23, label: HFC-23, aliases: [hfc23], l2: [industrial_gases], re: 'HFC[- ]?23'}
+  - {id: ods, label: ODS destruction, aliases: [ozone depleting substances, cfc destruction], l2: [industrial_gases, buildings, industrial_ee], re: 'ozone depleting|\bODS\b|\bCFCs?\b'}
   - {id: refrigerant, label: Refrigerants, aliases: [refrigerant reclamation, hfc refrigerant], l2: [industrial_gases, buildings, industrial_ee], re: 'refrigerant'}
-  - {id: foam_blowing, label: Foam blowing agents, aliases: [fba, spray foam, hfo foam, blowing agent], l2: [industrial_gases], re: 'foam|blowing agent|\bFBA\b|\bHFO\b'}
+  - {id: foam_blowing, label: Foam blowing agents, aliases: [fba, spray foam, hfo foam, blowing agent], l2: [industrial_gases], re: 'foam|blowing agent|\bFBA\b', ctx: '\bHFO\b'}
   - {id: n2o_industrial, label: Nitric / adipic acid N2O, aliases: [nitric acid, adipic acid], l2: [industrial_gases], re: 'nitric acid|adipic acid|caprolactam'}
   - {id: sf6, label: SF6, aliases: [], l2: [industrial_gases, grid], re: '\bSF6\b'}
-  - {id: clinker, label: Clinker substitution, aliases: [blended cement, fly ash, slag cement], l2: [cement, mineralization, industrial_ee], re: 'clinker|blended cement|fly ash|slag'}
+  - {id: clinker, label: Clinker substitution, aliases: [blended cement, fly ash, slag cement], l2: [cement, mineralization, industrial_ee, buildings, fuel_switch],
+     re: 'clinker|blended cement|fly ash|slag cement|portland slag|pozzolan', ctx: 'slag'}
   - {id: cement_alt_fuel, label: Cement alternative fuels, aliases: [alternative fuels, afr, co-processing], l2: [cement],
-     re: 'alternat\w* fuel|biomass|substitut\w* (of )?(coal|fossil|fuel|heavy)|waste[- ]derived|\bRDF\b|tyre|tire|co-?processing|husk'}
-  - {id: brick_kiln, label: Brick kilns, aliases: [brick, bricks], l2: [industrial_ee, fuel_switch, biomass_power, cement, other], re: 'brick'}
-  - {id: whr, label: Waste heat recovery, aliases: [whr], l2: [waste_heat, industrial_ee, cement], re: 'waste heat|heat recovery|\bWHR\b'}
-  - {id: cogeneration, label: Cogeneration, aliases: [chp, combined heat and power], l2: [waste_heat, biomass_power, industrial_ee, fuel_switch], re: 'co-?generation|\bCHP\b|combined heat'}
-  - {id: coal_to_gas, label: Coal-to-gas switch, aliases: [coal to gas], l2: [fuel_switch, industrial_ee], re: '(coal|oil) to (natural )?gas|natural gas (plant|electricity)'}
+     re: 'cement\w*.*(alternat\w* fuel|biomass|co-?processing)|(alternat\w* fuel|biomass).*cement',
+     ctx: 'alternat\w* fuel|biomass|substitut\w* (of )?(coal|fossil|fuel|heavy)|waste[- ]derived|\bRDF\b|tyre|tire|co-?processing|husk'}
+  - {id: brick_kiln, label: Brick kilns, aliases: [brick, bricks], l2: [industrial_ee, fuel_switch, biomass_power, cement, other, buildings], re: 'brick'}
+  - {id: whr, label: Waste heat recovery, aliases: [whr], l2: [waste_heat, industrial_ee, cement, fuel_switch, other_re], re: 'waste heat|heat recovery|\bWHR\b'}
+  - {id: cogeneration, label: Cogeneration, aliases: [chp, combined heat and power], l2: [waste_heat, biomass_power, industrial_ee, fuel_switch, cement, wastewater, biogas_ad, livestock, other_re],
+     re: 'co-?generation|\bCHP\b|combined heat'}
+  - {id: coal_to_gas, label: Switch to natural gas, aliases: [coal to gas, gas switch, fuel switch to natural gas], l2: [fuel_switch, industrial_ee],
+     re: '(coal|oil|diesel|fuel oil|HFO|naphtha|LPG) to (natural gas|LNG|CNG)|natural gas plant|fuel switch.*natural gas', ctx: 'natural gas (electricity|based)'}
   # --- Transport ---
-  - {id: e_two_wheeler, label: Electric two/three-wheelers, aliases: [e-bike, e-scooter, electric scooter, motorbike, e-rickshaw], l2: [e_mobility, fleet], re: 'two.?wheeler|three.?wheeler|motorbike|motorcycle|scooter|e-?bike|rickshaw'}
+  - {id: e_two_wheeler, label: Electric two/three-wheelers, aliases: [e-bike, e-scooter, electric scooter, motorbike, e-rickshaw], l2: [e_mobility, fleet],
+     re: 'electric (two|three|2|3)[- ]?wheel|e-?(scooter|bike|rickshaw)|electric (scooter|motorbike|motorcycle|rickshaw)', ctx: 'two.?wheeler|three.?wheeler|motorbike|motorcycle|scooter|rickshaw'}
   - {id: e_bus, label: Electric buses, aliases: [e-bus, ebus], l2: [e_mobility, fleet, mass_transit], re: 'electric bus|e-?bus\b'}
-  - {id: ev_charging, label: EV charging, aliases: [charging stations], l2: [e_mobility, fleet], re: 'charging'}
+  - {id: ev_charging, label: EV charging, aliases: [charging stations], l2: [e_mobility, fleet], re: 'EV charging|charging (station|point|infrastructure|network|hub|system)|\bchargers?\b'}
   - {id: brt, label: BRT, aliases: [bus rapid transit], l2: [mass_transit, fleet], re: '\bBRT\b|bus rapid'}
-  - {id: rail, label: Metro / rail, aliases: [metro, rail, mode shift], l2: [mass_transit], re: '\bmetro\b|\brail|mode shift'}
-  - {id: biofuel, label: Biofuels, aliases: [biodiesel, bioethanol], l2: [fleet, fuel_switch, biomass_power, other_re, e_mobility], re: 'biodiesel|bioethanol|biofuel'}
-  - {id: minigrid, label: Mini-grid, aliases: [microgrid, isolated grid], l2: [solar, other_re, offgrid_solar, hydro, grid, wind, biomass_power], re: 'mini-?grid|micro-?grid|isolated grid'}
-  # --- Broad tags: one per credit type (search aliases for the whole category) ---
-  - {id: t_redd, label: REDD+, aliases: [redd, redd plus, avoided deforestation], l2: [redd]}
-  - {id: t_arr, label: ARR, aliases: [afforestation, reforestation, tree planting, a/r], l2: [arr]}
-  - {id: t_ifm, label: IFM, aliases: [improved forest management], l2: [ifm]}
-  - {id: t_blue, label: Blue carbon, aliases: [], l2: [blue_carbon]}
-  - {id: t_wetland, label: Wetland, aliases: [wetland restoration], l2: [peat_wetland]}
-  - {id: t_rice, label: Rice methane, aliases: [rice, paddy, rice cultivation], l2: [rice_methane]}
-  - {id: t_soil, label: Soil carbon, aliases: [soil organic carbon, soc, carbon farming], l2: [soil_carbon]}
-  - {id: t_livestock, label: Livestock, aliases: [], l2: [livestock]}
-  - {id: t_cdr, label: CDR, aliases: [carbon removal, engineered removal, durable removal], l2: [biochar, erw, dac, beccs, mineralization, biomass_storage]}
-  - {id: t_solar, label: Solar, aliases: [solar pv, photovoltaic, pv], l2: [solar]}
-  - {id: t_wind, label: Wind, aliases: [wind power, wind farm], l2: [wind]}
-  - {id: t_hydro, label: Hydro, aliases: [hydropower, hydroelectric], l2: [hydro]}
-  - {id: t_biomass, label: Biomass power, aliases: [biomass energy, biomass], l2: [biomass_power]}
-  - {id: t_geo, label: Geothermal, aliases: [], l2: [geothermal]}
-  - {id: t_cookstoves, label: Cookstoves, aliases: [clean cooking, cookstove, stoves], l2: [cookstoves]}
-  - {id: t_hh_biogas, label: Household biogas, aliases: [domestic biogas, biodigesters], l2: [household_biogas]}
-  - {id: t_landfill, label: Landfill gas, aliases: [lfg, landfill], l2: [landfill]}
-  - {id: t_wastewater, label: Wastewater methane, aliases: [wastewater], l2: [wastewater]}
-  - {id: t_biogas, label: Biogas, aliases: [anaerobic digestion, ad], l2: [biogas_ad, household_biogas]}
-  - {id: t_compost, label: Composting, aliases: [compost], l2: [composting]}
-  - {id: t_cmm, label: Coal mine methane, aliases: [cmm, mine methane], l2: [coal_mine_methane]}
+  - {id: rail, label: Metro / rail, aliases: [metro, rail, mode shift], l2: [mass_transit], re: 'metro rail|\brailway|mode shift|road to rail', ctx: '\bmetro\b|\brail'}
+  - {id: biofuel, label: Biofuels, aliases: [biodiesel, bioethanol], l2: [fleet, fuel_switch, biomass_power, other_re, e_mobility], re: 'biodiesel (production|use|blend)|bioethanol|biofuel (production|use|blend)', ctx: 'biodiesel|biofuel'}
+  - {id: minigrid, label: Mini-grid, aliases: [microgrid, isolated grid], l2: [solar, other_re, offgrid_solar, hydro, grid, wind, biomass_power], re: 'mini[- ]?grid|micro[- ]?grid|isolated grid'}
+  # --- Broad tags: one per credit type, plus records that name the category outright ---
+  - {id: t_redd, label: REDD+, aliases: [redd, redd plus, avoided deforestation], l2: [redd], re: '\bREDD\b|avoided deforestation'}
+  - {id: t_arr, label: ARR, aliases: [afforestation, reforestation, tree planting, a/r], l2: [arr], re: 'afforestation|reforestation|\bARR\b'}
+  - {id: t_ifm, label: IFM, aliases: [improved forest management], l2: [ifm], re: 'improved forest management|\bIFM\b'}
+  - {id: t_blue, label: Blue carbon, aliases: [], l2: [blue_carbon], re: 'blue ?carbon|mangrove|seagrass'}
+  - {id: t_wetland, label: Wetland, aliases: [wetland restoration], l2: [peat_wetland], near: [blue_carbon], re: 'wetland restoration|peatland|\bwetland'}
+  - {id: t_rice, label: Rice methane, aliases: [rice, paddy, rice cultivation], l2: [rice_methane], re: 'rice (methane|cultivation|farming|production|field)|paddy (cultivation|field|farming)'}
+  - {id: t_soil, label: Soil carbon, aliases: [soil organic carbon, soc, carbon farming], l2: [soil_carbon], re: 'soil (organic )?carbon'}
+  - {id: t_livestock, label: Livestock, aliases: [], l2: [livestock], re: 'livestock'}
+  - {id: t_cdr, label: CDR, aliases: [carbon removal, engineered removal, durable removal], l2: [biochar, erw, dac, beccs, mineralization, biomass_storage], re: 'carbon dioxide removal|\bCDR\b'}
+  - {id: t_solar, label: Solar, aliases: [solar pv, photovoltaic, pv], l2: [solar], near: [water, other_re], re: 'solar (pv|power|photovoltaic|plant|park|farm|project)|photovoltaic'}
+  - {id: t_wind, label: Wind, aliases: [wind power, wind farm], l2: [wind], near: [other_re, solar], re: 'wind (power|farm|energy|turbine|project)'}
+  - {id: t_hydro, label: Hydro, aliases: [hydropower, hydroelectric], l2: [hydro], re: 'hydro ?power|hydroelectric|hydel'}
+  - {id: t_biomass, label: Biomass power, aliases: [biomass energy, biomass], l2: [biomass_power], re: 'biomass (power|energy|based power|cogeneration)'}
+  - {id: t_geo, label: Geothermal, aliases: [], l2: [geothermal], re: 'geothermal'}
+  - {id: t_cookstoves, label: Cookstoves, aliases: [clean cooking, cookstove, stoves], l2: [cookstoves], near: [buildings, water], re: 'cook ?stove'}
+  - {id: t_hh_biogas, label: Household biogas, aliases: [domestic biogas, biodigesters], l2: [household_biogas], near: [livestock], re: '(household|domestic) biogas|biodigester'}
+  - {id: t_landfill, label: Landfill gas, aliases: [lfg, landfill], l2: [landfill], re: 'landfill (gas|methane)|\bLFG\b'}
+  - {id: t_wastewater, label: Wastewater methane, aliases: [wastewater], l2: [wastewater], re: 'waste ?water'}
+  - {id: t_biogas, label: Biogas, aliases: [anaerobic digestion, ad], l2: [biogas_ad, household_biogas], near: [wastewater, livestock], re: 'biogas|anaerobic digest|biodigest'}
+  - {id: t_compost, label: Composting, aliases: [compost], l2: [composting], near: [biogas_ad], re: 'compost'}
+  - {id: t_cmm, label: Coal mine methane, aliases: [cmm, mine methane], l2: [coal_mine_methane], re: 'mine methane|\bCMM\b'}
   - {id: t_oilgas, label: Oil & gas methane, aliases: [oil and gas methane], l2: [oil_gas_methane]}
   - {id: t_indgas, label: Industrial gases, aliases: [hfc, f-gases], l2: [industrial_gases]}
-  - {id: t_cement, label: Cement, aliases: [], l2: [cement]}
-  - {id: t_ee, label: Energy efficiency, aliases: [ee, efficiency], l2: [industrial_ee, waste_heat, buildings, grid]}
-  - {id: t_fuel_switch, label: Fuel switching, aliases: [fuel switch], l2: [fuel_switch]}
-  - {id: t_ev, label: E-mobility, aliases: [electric vehicles, ev, evs], l2: [e_mobility]}
+  - {id: t_cement, label: Cement, aliases: [], l2: [cement], re: '\bcement'}
+  - {id: t_ee, label: Energy efficiency, aliases: [ee, efficiency], l2: [industrial_ee, waste_heat, buildings, grid], re: 'energy efficien'}
+  - {id: t_fuel_switch, label: Fuel switching, aliases: [fuel switch], l2: [fuel_switch], re: 'fuel[- ]switch'}
+  - {id: t_ev, label: E-mobility, aliases: [electric vehicles, ev, evs], l2: [e_mobility], re: 'electric vehicle|e-?mobility'}

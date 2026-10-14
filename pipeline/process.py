@@ -47,12 +47,14 @@ def classify(rec: dict, mmap: dict, rules: list) -> str:
     return "other"
 
 
-def load_tags() -> list[tuple]:
-    """config/tags.yaml -> [(id, regex or None, allowed credit types or None, max MW or None)], in display order."""
+def load_tags() -> list[dict]:
+    """config/tags.yaml -> compiled rules in display order (see the file header for semantics)."""
     out = []
     for t in common.load_yaml("tags.yaml")["tags"]:
-        out.append((t["id"], re.compile(t["re"], re.I) if t.get("re") else None, set(t["l2"]) if t.get("l2") else None,
-                    t.get("max_mw")))
+        out.append({"id": t["id"], "re": re.compile(t["re"], re.I) if t.get("re") else None,
+                    "ctx": re.compile(t["ctx"], re.I) if t.get("ctx") else None,
+                    "l2": set(t["l2"]) if t.get("l2") else None, "max_mw": t.get("max_mw"),
+                    "near": set(t.get("near") or []), "broad": t["id"].startswith("t_")})  # broad tags: every project of their credit types
     return out
 
 
@@ -72,23 +74,30 @@ def capacity_mw(rec: dict) -> float | None:
     return float(m.group(1)) if m else None
 
 
+def record_text(m: dict) -> str:
+    """The record's own short text: project name, registry project type, methodology codes and name."""
+    return " | ".join(str(x or "") for x in (m.get("name"), m.get("registry_type_raw"),
+                                            " ".join(m.get("methodology_codes") or []), m.get("methodology_raw")))
+
+
 def tags_of(members: list[dict], l2: str, tags: list, overrides: dict | None = None) -> list[str]:
-    """Tags whose regex matches any member record's own text (type | methodology | name | registry description),
-    limited to the tag's credit types; broad tags (no regex) follow the project's credit type. A tag with `max_mw`
-    also applies when the record's stated capacity is at most that (e.g. small hydro ≤ 25 MW)."""
-    texts = [" | ".join(str(x or "") for x in (m.get("registry_type_raw"), " ".join(m.get("methodology_codes") or []),
-                                                  m.get("methodology_raw"), m.get("name"), m.get("description")))
-             for m in members]
+    """Tags for one project (all its registry records). Explicit terms (`re`) in the record text apply whatever the
+    credit type; inside the tag's credit types, context terms (`ctx`) and registry descriptions count too; broad
+    tags also follow the credit type; `max_mw` tags also apply to small stated capacities. See config/tags.yaml."""
+    short = [record_text(m) for m in members]
+    full = short + [m["description"] for m in members if m.get("description")]
     out = []
-    for tid, rx, l2s, max_mw in tags:
-        if l2s is not None and l2 not in l2s:
-            continue
-        if rx is None or any(rx.search(t) for t in texts):
-            out.append(tid)
-        elif max_mw and any((c := capacity_mw(m)) is not None and 0 < c <= max_mw for m in members):
-            out.append(tid)
+    for t in tags:
+        inside = t["l2"] is not None and l2 in t["l2"]
+        near = inside or l2 in t["near"]
+        rx, ctx = t["re"], t["ctx"]
+        if (rx and any(rx.search(x) for x in short)) or (inside and t["broad"]) or (near and (
+                (rx and any(rx.search(x) for x in full))
+                or (ctx and any(ctx.search(x) for x in full))
+                or (t["max_mw"] and any((c := capacity_mw(m)) is not None and 0 < c <= t["max_mw"] for m in members)))):
+            out.append(t["id"])
     if overrides:
-        order = {t[0]: i for i, t in enumerate(tags)}
+        order = {t["id"]: i for i, t in enumerate(tags)}
         for m in members:
             o = overrides.get(m["record_id"]) or {}
             out = [t for t in out if t not in (o.get("remove") or [])]
@@ -313,6 +322,7 @@ def load_offtakes() -> tuple[dict[str, list[dict]], list[dict]]:
 
 
 GS_PAGE = "https://registry.goldstandard.org/projects/details/{}"
+VCS_PAGE = "https://registry.verra.org/verra/public/program/VCS/projects/{}"
 GS_DOCS = "https://assurance-platform.goldstandard.org/project-documents/GS{}"
 
 
@@ -320,15 +330,21 @@ def fix_gs_links(records: list[dict]) -> list[dict]:
     """Gold Standard registry pages are addressed by an internal id, not the GS number the sources use.
     Link each GS record to its registry page via data/lookups/gsreg.jsonl; without a mapping, link GS's own
     project-documents page for that GS number. Cross-refs to registry pages ("GSREG:<page id>") become GS numbers.
-    Also attaches the registry's project description (used only for tags)."""
+    Also attaches the registry's project description (Gold Standard, Verra lookups; used only for tags)."""
     rows = common.read_jsonl(common.ROOT / "data" / "lookups" / "gsreg.jsonl")
     page = {r["record_id"]: r["registry_id"] for r in rows}
     desc = {r["record_id"]: r.get("description") for r in rows if r.get("description")}
+    desc.update({r["record_id"]: r["description"] for r in common.read_jsonl(common.ROOT / "data" / "lookups" / "verradesc.jsonl")
+                 if r.get("description")})
     gs_of_page = {v: k for k, v in page.items()}
     for r in records:
+        if r.get("registry") == "VCS":  # Verra moved its registry (2026); old /app/projectDetail links no longer load
+            r["registry_url"] = VCS_PAGE.format(r.get("native_id") or r["record_id"].split(":", 1)[1])
+            if r["record_id"] in desc:
+                r["description"] = desc[r["record_id"]]
         if r.get("registry") == "GS":
             pid = page.get(r["record_id"])
-            r["registry_url"] = GS_PAGE.format(pid) if pid else GS_DOCS.format(r["native_id"])
+            r["registry_url"] = GS_PAGE.format(pid) if pid else GS_DOCS.format(r.get("native_id") or r["record_id"].split(":", 1)[1])
             if r["record_id"] in desc:
                 r["description"] = desc[r["record_id"]]
         if any(c.startswith("GSREG:") for c in r.get("cross_refs") or []):

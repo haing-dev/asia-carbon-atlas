@@ -57,7 +57,7 @@ def load_notes() -> list[dict]:
 
 # Registry links the browser can rebuild from the record id ({id} = the part after "REG:"); rows omit such links.
 URL_TEMPLATES = {
-    "VCS": "https://registry.verra.org/app/projectDetail/VCS/{id}",
+    "VCS": "https://registry.verra.org/verra/public/program/VCS/projects/{id}",
     "CAR": "https://thereserve2.apx.com/mymodule/reg/prjView.asp?id1={id}",
     "ACR": "https://greentrace.ice.com/acr/projects",
     "ART": "https://greentrace.ice.com/art/projects",
@@ -216,7 +216,7 @@ def main() -> None:
         } for sid, s in sources.items() if s.get("enabled")},
         "names": {c: country_name(c, countries) for c in sorted(names)},
         "url_templates": URL_TEMPLATES,
-        "tags": [{"label": t["label"], "aliases": t.get("aliases") or [], "broad": not t.get("re")} for t in TAGS],
+        "tags": [{"label": t["label"], "aliases": t.get("aliases") or [], "broad": t["id"].startswith("t_")} for t in TAGS],
         "project_count": len(projects),
         "areas": [{"id": a, "label": AREAS[a]["label"], "scope": AREAS[a]["scope"], "projects": area_counts[a]} for a in AREAS],
         "notes": load_notes(),

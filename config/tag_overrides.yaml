@@ -1,8 +1,11 @@
 # Manual tag additions/removals for one registry record, when a public source states the practice but the registry
-# text the atlas reads does not (e.g. a Verra project whose name doesn't say AWD). Always give the source.
-# Example:
+# text the atlas reads does not (e.g. a Verra project, whose descriptions the atlas cannot read automatically).
+# Always give the source. Format:
 #   VCS:5956:
 #     add: [awd]
 #     remove: []
-#     source: https://registry.verra.org/app/projectDetail/VCS/5956   # page or document that states it
-overrides: {}
+#     source: https://registry.verra.org/verra/public/program/VCS/projects/5956   # page or document that states it
+overrides:
+  VCS:6166:
+    add: [awd, dsr, rice_water_mgmt]
+    source: https://registry.verra.org/verra/public/program/VCS/projects/6166  # description: "promotes 'Alternate Wetting and Drying' (AWD) and related adjusted water management ... also intends to promote use of direct seeded rice (DSR)"

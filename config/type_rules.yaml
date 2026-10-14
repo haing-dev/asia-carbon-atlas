@@ -16,7 +16,8 @@ rules:
   - {re: '^Household & Community / Cookstoves', l2: cookstoves}
   - {re: '^Household & Community / (Lighting|Bundled Energy Efficiency)', l2: buildings}
   - {re: '^Waste Management / Composting', l2: composting}
-  - {re: '^Agriculture / (Rice Emission Reductions|Improved Irrigation Management)', l2: rice_methane}
+  - {re: '^Agriculture / Rice Emission Reductions', l2: rice_methane}
+  - {re: '^Agriculture / Improved Irrigation Management(?=.*(rice|paddy))', l2: rice_methane}  # irrigation alone is not rice (e.g. solar pumps for salt farmers)
   - {re: '^Agriculture / Sustainable Agriculture', l2: soil_carbon}
   - {re: '^Agriculture / (Manure Methane Digester|Feed Additives)', l2: livestock}
   - {re: '^Forestry & Land Use / Wetland Restoration', l2: peat_wetland}
@@ -28,14 +29,14 @@ rules:
   - {re: '^Renewable Energy / Biomass', l2: biomass_power}
   # 3) Keyword rules (CDM/UNEP types, methodologies, names)
   # Forestry & land use
-  - {re: 'REDD|avoided (planned |unplanned )?deforestation|avoided conversion|VM0007|VM0009|VM0015|VM0048', l2: redd}
+  - {re: '\bREDD\b|avoided (planned |unplanned )?deforestation|avoided conversion|VM0007|VM0009|VM0015|VM0048', l2: redd}
   - {re: 'mangrove|seagrass|blue carbon|tidal wetland|VM0033', l2: blue_carbon}
-  - {re: 'peat|wetland restoration|VM0036', l2: peat_wetland}
+  - {re: '\bpeat|pocosin|wetland restoration|VM0036', l2: peat_wetland}
   - {re: 'improved forest management|\bIFM\b|VM0010|VM0012|forest management', l2: ifm}
   - {re: 'agroforestry', l2: agroforestry}
   - {re: 'afforestation|reforestation|revegetation|\bARR\b|AR-A[CM]|AR-AMS|tree planting|Forestry & Land Use / (A/R|ARR)', l2: arr}
   # Industrial gases (before agriculture so 'N2O at fertilizer plant' stays industrial)
-  - {re: 'HFC|PFC|SF6|nitric acid|adipic acid|caprolactam|industrial gas|ozone depleting|N2O / ', l2: industrial_gases}
+  - {re: '\bHFCs?\b|\bHFC-|\bPFCs?\b|\bSF6\b|nitric acid|adipic acid|caprolactam|industrial gas|ozone depleting|N2O / ', l2: industrial_gases}
   # Agriculture
   - {re: 'rice (cultivation|paddy|field|farm|methane|water)|paddy|alternate wetting|\bAWD\b|direct seeded rice|AMS-III\.AU', l2: rice_methane}
   - {re: 'soil carbon|sustainable agricultural land|regenerative (agri|farm|grazing)|grassland|grazing|VM0017|VM0021|VM0042|sustainable land management', l2: soil_carbon}
@@ -57,7 +58,7 @@ rules:
   - {re: 'landfill', l2: landfill}
   - {re: 'waste ?water|POME|palm oil (mill )?effluent|Methane avoidance / Palm oil waste', l2: wastewater}
   - {re: 'compost', l2: composting}
-  - {re: 'coal ?mine methane|coal bed|\bCMM\b|VAM\b', l2: coal_mine_methane}
+  - {re: 'coal ?mine methane|coal bed|\bCMM\b|\bVAM\b|mine methane', l2: coal_mine_methane}
   - {re: 'flaring|fugitive|gas leak|pipeline leak|oil field|natural gas pipelines|oil and gas', l2: oil_gas_methane}
   - {re: 'biogas|anaerobic digest|methane avoidance|methane recovery|Waste Management|combustion of MSW|solid waste|waste to energy project|\bRDF\b|refuse.derived|CBG project|animal dung|dung2power', l2: biogas_ad}
   # Industrial
@@ -65,18 +66,18 @@ rules:
   - {re: 'fuel switch|coal to (natural )?gas|oil to (natural )?gas|natural gas plant', l2: fuel_switch}
   # Transport
   - {re: 'electric vehicle|e-mobility|motorbike|EV charging|electric (bus|two|three)', l2: e_mobility}
-  - {re: 'mass transit|metro|\bBRT\b|rail|bus rapid|mode shift', l2: mass_transit}
+  - {re: 'mass transit|\bmetro\b|\bBRT\b|\brail(way)?s?\b|bus rapid|mode shift|cable car', l2: mass_transit}
   - {re: 'eco-?driving|tachograph|\bbus(es)?\b|\bCNG\b', l2: fleet}
-  - {re: 'transport|fleet|vehicle|fuel efficiency', l2: fleet}
+  - {re: '\btransport|\bfleet|\bvehicles?\b|fuel efficiency', l2: fleet}
   # Renewable energy
-  - {re: 'wind', l2: wind}
-  - {re: 'solar|photovoltaic|\bPV\b', l2: solar}
-  - {re: 'hydro|hydel|run of river|run-of-river|\bdam\b', l2: hydro}
+  - {re: '\bwind', l2: wind}
+  - {re: '\bsolar|photovoltaic|\bPV\b', l2: solar}
+  - {re: '\bhydro(?!gen)|hydel|run of river|run-of-river|\bdam\b', l2: hydro}
   - {re: 'geothermal', l2: geothermal}
   - {re: 'biomass|bagasse|sugars? (ltd|mill|factory)|rice husk|agricultural residue|forest residue|black liquor|briquette|gasification', l2: biomass_power}
-  - {re: 'tidal|wave energy|mixed renewables|tribrid|hybrid (power )?project|renewable energy|ACM0002|AMS-I\.D|AMS-I\.F', l2: other_re}
+  - {re: '\btidal|wave energy|mixed renewables|tribrid|hybrid (power )?project|renewable energy|ACM0002|AMS-I\.D|AMS-I\.F', l2: other_re}
   # Energy efficiency
-  - {re: 'waste heat|heat recovery|own generation|WHR|coke oven gas|co-?generation', l2: waste_heat}
-  - {re: 'building|lighting|HVAC|air.condition|hospital|hotel|street light|appliance|EE service|EE households|chiller|LED', l2: buildings}
-  - {re: 'distribution|transmission|grid|T&D|energy distribution', l2: grid}
-  - {re: 'energy efficiency|EE Industry|EE supply side|EE industry|efficient|high.efficiency|energy saving|boiler|industrial|loom|refrigerat|heat pump|burner|refiner(y|ies)|autoclave|furnace|pump|recycling|optimi[sz]', l2: industrial_ee}
+  - {re: 'waste heat|heat recovery|own generation|\bWHR\b|coke oven gas|co-?generation', l2: waste_heat}
+  - {re: '\bbuildings?\b|lighting|\bHVAC\b|air.condition|hospital|\bhotel|street ?light|appliance|EE service|EE households|chiller|\bLED\b|\bCFL\b', l2: buildings}
+  - {re: 'distribution|transmission|\bgrids?\b|\bT&D\b|energy distribution', l2: grid}
+  - {re: 'energy efficiency|EE Industry|EE supply side|EE industry|efficient|high.efficiency|energy saving|boiler|industrial|\bloom|refrigerat|heat pump|burner|refiner(y|ies)|autoclave|furnace|pump|recycling|optimi[sz]', l2: industrial_ee}

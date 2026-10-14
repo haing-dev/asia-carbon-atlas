@@ -28,7 +28,7 @@ PAYLOADS = {
 SKIP_62 = {"withdrawn", "rejected", "proposed"}
 STANDALONE_62 = {"registered", "mo issued"}
 LINK_REFS = [
-    (re.compile(r"registry\.verra\.org/app/projectDetail/VCS/(\d+)", re.I), "VCS:{}"),
+    (re.compile(r"registry\.verra\.org/(?:app/projectDetail|verra/public/program)/VCS/(?:projects/)?(\d+)", re.I), "VCS:{}"),
     (re.compile(r"registry\.goldstandard\.org/projects/details/(\d+)", re.I), "GSREG:{}"),  # page id, resolved in process
     (re.compile(r"assurance-platform\.goldstandard\.org/project-documents/GS(\d+)", re.I), "GS:{}"),
     (re.compile(r"jcm\.go\.jp/jc/projects/([a-z]{2}\d{3})", re.I), "JCM:{}"),

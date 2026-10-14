@@ -57,3 +57,9 @@
 - Public API `https://public-api.goldstandard.org/projects?page=N&size=150` (no key; robots.txt 404). ~4,200 projects, ~30 requests.
 - VROD gives the GS number (`sustaincert_id`, e.g. 23411); the registry page uses the API `id` (5335). Lookup stored in
   `data/lookups/gsreg.jsonl`; `process.fix_gs_links` applies it. Unmapped → `assurance-platform.goldstandard.org/project-documents/GS<n>`.
+
+## Verra project descriptions (`verradesc`, tags only)
+- Verra's public project page (`registry.verra.org/verra/public/program/VCS/projects/<id>`, new in 2026; the old
+  `/app/projectDetail/VCS/<id>` links no longer load) reads `prod-us.api.platts.com/.../public-report-manager/getProjectById/<id>/Markit`.
+- Rate-limited (HTTP 429 after a few quick requests): ≤120 projects/run, 20 s apart, stop on repeated 429. Daily
+  refresh until all ~2,800 in-scope Verra projects are cached, then only new ones. Stored in `data/lookups/verradesc.jsonl`.

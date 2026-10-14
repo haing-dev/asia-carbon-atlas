@@ -2,7 +2,7 @@
 name: refresh
 on:
   schedule:
-    - cron: "0 2 * * 0"   # weekly (Sunday); the weekly Claude task runs Monday
+    - cron: "0 2 * * *"   # daily; each source's cadence_days decides whether it is probed (most weekly), so most runs are no-ops
   workflow_dispatch:
     inputs:
       sources:

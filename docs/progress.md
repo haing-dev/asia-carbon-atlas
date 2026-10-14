@@ -60,6 +60,9 @@
     per-type tags; exact tag/alias search filters to that tag (AWD ≠ DSR). "Tag" column (last) + footnote; CSV includes tags.
     Tags also read GS registry descriptions (gsreg lookup) and CDM/name capacity (small hydro ≤25 MW); every specific
     tag is gated by credit type; manual additions with source in `config/tag_overrides.yaml`.
+  - Tag review (2026-10-13): strict `re` (any credit type) vs `ctx` (inside credit types) + `near`; classifier
+    keywords made whole-word (LED/REDD/rail/metro/hydro bugs); `python -m pipeline.tag_audit` lists misses/loose hits.
+    Verra links moved to the new registry URL; Verra descriptions backfilled daily by `verradesc` (refresh now daily).
   - Gold Standard links fixed: registry pages use an internal id, not the GS number (new `gsreg` lookup source).
 
 ## Next

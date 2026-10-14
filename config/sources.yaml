@@ -15,6 +15,12 @@ sources:
     url: https://registry.goldstandard.org/projects
     enabled: true
     cadence_days: 7
+  verradesc:
+    label: Verra registry project descriptions (tags only)
+    registries: []
+    url: https://registry.verra.org/
+    enabled: true
+    cadence_days: 1   # backfills ~120 projects a day until done, then only new projects
   cdm:
     label: UNFCCC Clean Development Mechanism (via UNEP-CCC CDM Pipeline)
     registries: [CDM]
