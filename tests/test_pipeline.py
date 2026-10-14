@@ -165,7 +165,8 @@ def test_tags_precise():
     dsr = [{"name": "Direct Seeded Rice programme", "methodology_codes": []}]
     t1, t2 = process.tags_of(awd, "rice_methane", tags), process.tags_of(dsr, "rice_methane", tags)
     assert "awd" in t1 and "dsr" not in t1 and "t_rice" in t1
-    assert "dsr" in t2 and "awd" not in t2
+    assert "dsr" in t2 and "awd" in t2  # owner rule: every rice-methane project carries AWD
+    assert "awd" not in process.tags_of(dsr, "soil_carbon", tags)
     assert "erw_tag" in process.tags_of([{"name": "X", "methodology_codes": ["Enhanced Rock Weathering, 2022"]}], "erw", tags)
 
 

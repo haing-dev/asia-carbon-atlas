@@ -55,7 +55,7 @@ def load_tags() -> list[dict]:
                     "ctx": re.compile(t["ctx"], re.I) if t.get("ctx") else None,
                     "l2": set(t["l2"]) if t.get("l2") else None, "max_mw": t.get("max_mw"),
                     "near": set(t.get("near") or []), "broad": t["id"].startswith("t_"),
-                    "implies": t.get("implies") or []})  # broad tags: every project of their credit types
+                    "implies": t.get("implies") or [], "all_in": set(t.get("all_in") or [])})  # broad tags: every project of their credit types
     return out
 
 
@@ -106,7 +106,7 @@ def tags_of(members: list[dict], l2: str, tags: list, overrides: dict | None = N
         inside = t["l2"] is not None and l2 in t["l2"]
         near = inside or l2 in t["near"]
         rx, ctx = t["re"], t["ctx"]
-        if (rx and any(rx.search(x) for x in short)) or (inside and t["broad"]) or (near and (
+        if (rx and any(rx.search(x) for x in short)) or (inside and t["broad"]) or l2 in t["all_in"] or (near and (
                 (rx and any(rx.search(x) for x in full))
                 or (ctx and any(ctx.search(x) for x in full))
                 or (t["max_mw"] and any((c := capacity_mw(m)) is not None and 0 < c <= t["max_mw"] for m in members)))):

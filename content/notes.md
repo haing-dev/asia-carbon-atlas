@@ -35,5 +35,5 @@ Footnotes shown at the bottom of the website. Edit freely, then "Commit changes"
 - Issued and retired volumes are cumulative.
 
 ## tags: Tag
-- Tags are assigned only from what the registry record itself states (project name, methodology, registry project type, and the registry's published project description for Gold Standard and Verra; small hydro also from stated capacity ≤ 25 MW), so a project whose record does not mention a practice (e.g. AWD) is not tagged with it.
+- Tags are assigned only from what the registry record itself states (project name, methodology, registry project type, and the registry's published project description for Gold Standard and Verra; small hydro also from stated capacity ≤ 25 MW), so a project whose record does not mention a practice is not tagged with it. Exception: every rice-methane project is tagged AWD, the core practice in practically all of them.
 - Search a tag or its alias (e.g. AWD, ERW, enhanced rock weathering) to see only projects with that tag.

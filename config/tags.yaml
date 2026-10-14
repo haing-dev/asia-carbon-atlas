@@ -15,6 +15,7 @@
 #   near credit types where description evidence (`re`/`ctx`) also counts, without the tag being automatic there
 #        (e.g. a wastewater project whose description says it produces biogas -> Biogas).
 #   implies  tags that always come with this one (e.g. Biogas to energy -> Biogas).
+#   all_in  credit types where every project gets the tag (owner decision, e.g. AWD for all rice methane).
 #   max_mw  also apply when the record's stated capacity is at most this (small hydro).
 # Broad tags have ids starting with t_ and are given to every project of their credit types.
 # Typing a label or alias in the search box shows exactly the projects with that tag
@@ -22,7 +23,8 @@
 # Check changes with: uv run python -m pipeline.tag_audit   (lists misses and loosely-assigned tags)
 tags:
   # --- Rice ---
-  - {id: awd, label: AWD, aliases: [alternate wetting and drying, alternate wetting & drying], l2: [rice_methane, soil_carbon],
+  # Owner decision (2026-10-14): every rice-methane project carries AWD (it is the core practice in practically all of them).
+  - {id: awd, label: AWD, aliases: [alternate wetting and drying, alternate wetting & drying], l2: [rice_methane, soil_carbon], all_in: [rice_methane],
      re: '\bAWD\b|alternat\w* wet\w* (and|&|/) ?dry|wet(ting)? (and|&|/) ?dry(ing)? (rice|irrigation|method|technolog|practice|cultivation)'}
   - {id: dsr, label: DSR, aliases: [direct seeded rice, direct-seeded rice, dry seeded rice], l2: [rice_methane, soil_carbon],
      re: '\bDSR\b|direct[- ]?(seed(ed|ing)?|sown|sowing) (of )?rice|dry[- ]seed(ed|ing)? rice'}

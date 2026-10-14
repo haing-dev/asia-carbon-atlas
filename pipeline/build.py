@@ -24,7 +24,7 @@ REGISTRY_LABELS = {
     "VCS": "Verra (VCS)", "GS": "Gold Standard", "CDM": "CDM", "PACM": "Article 6.4 (PACM)",
     "GCC": "Global Carbon Council", "UCR": "Universal Carbon Registry", "PURO": "Puro.earth",
     "ISO": "Isometric", "JCM": "JCM (Japan)", "A62": "Article 6.2 (bilateral)",
-    "ANN": "Announced deal (no registry record)",
+    "ANN": "Announcement only, unregistered yet",
     "ACR": "American Carbon Registry", "CAR": "Climate Action Reserve", "ART": "ART TREES",
 }
 REGISTRIES = list(REGISTRY_LABELS)
