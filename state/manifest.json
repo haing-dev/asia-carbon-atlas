@@ -1,5 +1,5 @@
 {
-  "last_commit_at": "2026-10-13T03:55:55+00:00",
+  "last_commit_at": "2026-10-14T00:41:08+00:00",
   "sources": {
     "a6pipeline": {
       "error": null,
@@ -41,12 +41,13 @@
     },
     "gsreg": {
       "error": null,
-      "last_changed": "2026-10-13T03:55:55+00:00",
-      "last_checked": "2026-10-13T03:55:55+00:00",
-      "rows": 4231,
+      "last_changed": "2026-10-14T00:41:08+00:00",
+      "last_checked": "2026-10-14T00:41:08+00:00",
+      "rows": 1650,
       "signal": {
+        "bucket": 26425,
         "newest": "5759",
-        "total": 4231,
+        "total": 4232,
         "updated": "2026-10-12T06:44:30Z"
       },
       "stale": false
