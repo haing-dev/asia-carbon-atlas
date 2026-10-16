@@ -70,6 +70,8 @@ offtakes:
     note: Source names the supplier and Sumatra mangroves; the supplier's only Indonesian mangrove project is matched.
   - record: ISO:prj_1JCZCRW2S1S06KN0
     buyer: Frontier
+    volume_tco2e: 1851
+    volume_source: https://frontierclimate.com/writing/fall-2024-prepurchases  # 1,851
     date: 2024-09-19
     source_url: https://esgpost.com/alt-carbon-secures-indias-first-carbon-removal-deal-from-frontier/
     source_title: Alt Carbon secures India's first carbon removal deal from Frontier
@@ -116,6 +118,8 @@ offtakes:
     source_title: Latham Advises on Landmark Forest Carbon Credit Agreements (Costa Rica ERPA)
   - record: ART:0109
     buyer: LEAF Coalition
+    volume_tco2e: 3000000
+    volume_source: https://www.qcintel.com/carbon/article/ecuador-signs-30m-redd-credits-deal-with-leaf-buyers-group-35350.html  # 3,000,000
     date: '2025-05-06'
     source_url: https://iica.int/en/press/news/iica-will-participate-in-a-trailblazing-project-in-ecuador-that-will-enable-the-country-to-mobilize-usd-30-million-in-international-funds-to-preserve-forests-and-strengthen-the-communities-that-protec
     source_title: 'IICA: Ecuador to mobilize USD 30 million (LEAF Coalition, ART TREES)'
@@ -258,6 +262,8 @@ offtakes:
     source_title: Graphyte Secures 60K-Ton Carbon Removal Deal With JPMorganChase (Project Loblolly)
   - record: VCS:5394
     buyer: Government of Singapore
+    volume_tco2e: 625000
+    volume_source: https://www.einpresswire.com/article/849360548/singapore-government-signs-deal-with-boomitra-to-purchase-625-000-tonnes-of-soil-carbon-credits  # 625,000 over 2026-2031
     date: '2025-09-16'
     source_url: https://www.edb.gov.sg/en/news-and-insights/singapore-to-buy-s76-4-million-worth-of-nature-based-carbon-credits-from-projects-in-ghana-peru-and-paraguay
     source_title: Singapore to buy S$76.4 million of nature-based credits (Kowen Antami REDD+, via Mercuria)
@@ -375,6 +381,8 @@ announced_rows:
         source_url: https://trellis.net/article/louis-dreyfus-regenerative-ag-project-india/
         source_title: Louis Dreyfus regenerative ag project in India (Trellis)
       - buyer: GSK
+        volume_tco2e: 600000
+        volume_source: https://www.esgtoday.com/gsk-signs-500000-tonne-carbon-removal-deal-with-varaha/  # 600,000 over 2028-2033
         date: '2026-09-11'
         source_url: https://www.esgtoday.com/gsk-signs-500000-tonne-carbon-removal-deal-with-varaha/
         source_title: GSK Signs Carbon Removal Deal with Varaha (Punjab and Haryana)
@@ -983,6 +991,8 @@ announced_rows:
     l2: other_re
     offtakes:
     - buyer: Government of Norway (NACA Fund via GGGI)
+      volume_tco2e: 3500000
+      volume_source: https://www.regjeringen.no/en/whats-new/norge-og-zambia-skal-samarbeide-om-a-kutte-utslipp/id3147489  # up to 3,500,000 over 10 years (from 2026)
       date: '2026-01-28'
       source_url: https://gggi.org/zambia-and-norway-sign-purchase-agreement-on-emission-reductions/
       source_title: Zambia and Norway Sign Purchase Agreement on Emission Reductions
