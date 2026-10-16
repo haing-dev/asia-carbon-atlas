@@ -262,6 +262,91 @@ offtakes:
     source_url: https://www.edb.gov.sg/en/news-and-insights/singapore-to-buy-s76-4-million-worth-of-nature-based-carbon-credits-from-projects-in-ghana-peru-and-paraguay
     source_title: Singapore to buy S$76.4 million of nature-based credits (Kowen Antami REDD+, via Mercuria)
 
+  # --- Africa & Europe (researched 2026-10-16; each source opened) ---
+  - record: PURO:631817
+    buyer: Swiss Re
+    date: '2021-08-25'
+    source_url: https://www.swissre.com/media/news-releases/nr-20210825-swiss-re-climeworks-partnership.html
+    source_title: Swiss Re and Climeworks launch partnership by signing world's first ten-year carbon removal purchase agreement
+    note: Value is USD 10m. Tonnage not stated.
+  - record: PURO:631817
+    buyer: UBS
+    date: '2022-08-30'
+    source_url: https://www.ubs.com/global/en/media/display-page-ndp/en-20220830-carbonremoval.html
+    source_title: UBS carbon removal agreements with Climeworks and neustark (UBS media release)
+    note: 39,500 t is the combined total for Climeworks (Orca, Iceland) and neustark. The split is not given, so volume is left null. UBS calls these 'long-term collaborations'/'agreements'. The source title
+      is approximate.
+  - record: A62:GH-CH-5004
+    buyer: KliK Foundation
+    volume_tco2e: 11733
+    date: '2025-07-07'
+    source_url: https://klik.ch/news/news-article/first-itmo-transfer-switzerland-ghana
+    source_title: Ghana and Switzerland Pioneer Africa's First ITMO Issuance Under Paris Agreement's Article 6.2 for NDC Use
+    note: Figure is gross of OMGE. Ecofin (17 Jul 2025) also reports it, naming Spark+ Africa Fund and Envirofit.
+  - record: A62:ZM-CH-5129
+    buyer: KliK Foundation
+    date: '2026-08-17'
+    source_url: https://www.klik.ch/en/news/news-article/biolite-improved-cookstoves-activity-zambia-authorised/
+    source_title: First Mitigation Activity in Zambia Authorised
+    note: Authorisation announcement. Says KliK buys the ITMOs but gives no volume.
+  - record: A62:ZM-CH-5126
+    buyer: KliK Foundation
+    date: '2026-08-31'
+    source_url: https://www.klik.ch/en/news/news-article/modern-energy-cooking-zambia-authorised/
+    source_title: Modern Energy Cooking Zambia Authorised by Switzerland and Zambia
+    note: KliK purchases the resulting ITMOs (per page). No volume given.
+  - record: A62:SN-CH-5062
+    buyer: KliK Foundation
+    date: '2026-09-25'
+    source_url: https://www.klik.ch/en/news/news-article/mass-car-senegal-authorised/
+    source_title: Mass Car Electrification Activity Authorised by Senegal and Switzerland
+  - record: VCS:4408
+    buyer: Microsoft
+    volume_tco2e: 350000
+    date: '2024-02-22'
+    source_url: https://www.esgtoday.com/microsoft-signs-350000-tonne-nature-based-carbon-removal-deal-with-catona-climate/
+    source_title: Microsoft Signs Deal to Remove 350,000 Tonnes of Carbon Through Agroforestry
+    note: 6-year offtake.
+  - record: PURO:664457
+    buyer: Microsoft
+    volume_tco2e: 10000
+    date: '2024-02-27'
+    source_url: https://igrownews.com/bio-logical-and-microsoft-partner-for-carbon-removal-in-kenya/
+    source_title: Bio-Logical and Microsoft Partner For Carbon Removal in Kenya
+    note: Puro.earth credits.
+  - record: PURO:664457
+    buyer: Rubicon Carbon
+    volume_tco2e: 15000
+    date: '2025-08-21'
+    source_url: https://www.cdr.fyi/blog/cdr-deal-alert-2025-08-21
+    source_title: CDR Deal Alert, August 21, 2025 (CDR.fyi)
+    note: Date is the blog post date. The source title is approximate.
+  - record: VCS:4475
+    buyer: Microsoft
+    volume_tco2e: 2000000
+    date: '2026-01-14'
+    source_url: https://www.agnavigator.com/Article/2026/01/14/microsoft-continues-esg-strategy-invests-in-carbon-removal-project-in-uganda/
+    source_title: Microsoft doubles down on carbon removal by purchasing 2m tonnes worth of credits
+    note: 2M credits in the initial agreement, within a framework of up to 18 Mt. Sourced through 2035.
+  - record: PURO:816220
+    buyer: Climeworks
+    volume_tco2e: 90000
+    date: '2026-02-06'
+    source_url: https://biochartoday.com/news/climeworks-and-truecoco-partnership-secures-90000-carbon-removal-credits-through-2032/
+    source_title: Climeworks and Truecoco Partnership Secures 90,000 Carbon Removal Credits Through 2032
+    note: Agreement extends until 2032.
+  - record: CDM:10476
+    buyer: ITOCHU Corporation
+    date: '2023-07-28'
+    source_url: https://www.itochu.co.jp/en/news/press/2023/230728_2.html
+    source_title: ITOCHU announces an agreement with KOKO Networks, a Kenya-based climate technology company, to support high-quality carbon credit generation
+    note: KOKO Networks entered administration in early 2026; delivery doubtful.
+  - record: VCS:1775
+    buyer: Eni
+    date: '2019-11-21'
+    source_url: https://www.eni.com/en-IT/media/press-release/2019/11/eni-has-become-an-active-member-of-the-governance-of-the-forest-conservation-redd-luangwa-community-forests-project-lcfp-in-zambia.html
+    source_title: Eni has become an active member of the governance of the forest conservation REDD+ Luangwa Community Forests Project (LCFP) in Zambia
+    note: 20-year credit purchase commitment, VCS+CCB. Volume not stated. The Verra ID was not confirmed, so it is left null.
 announced_rows:
   - id: ANN:varaha-biochar-ind
     name: Varaha — biochar carbon removal (supplier-level deals)
@@ -747,3 +832,269 @@ announced_rows:
         date: '2025-09-16'
         source_url: https://www.edb.gov.sg/en/news-and-insights/singapore-to-buy-s76-4-million-worth-of-nature-based-carbon-credits-from-projects-in-ghana-peru-and-paraguay
         source_title: Singapore to buy S$76.4 million of nature-based carbon credits (Peru, Paraguay, Ghana)
+  # --- Africa & Europe (researched 2026-10-16) ---
+  - id: ANN:stockholmexergi-beccs-swe
+    name: Stockholm Exergi — BECCS at Värtan, Stockholm
+    developer: Stockholm Exergi
+    countries:
+    - SWE
+    l2: beccs
+    offtakes:
+    - buyer: Microsoft
+      volume_tco2e: 3330000
+      date: '2024-05-06'
+      source_url: https://www.stockholmexergi.se/en/?p=42310
+      source_title: Stockholm Exergi announces permanent carbon removal agreement with Microsoft, world's largest to date
+      note: 10-year delivery from 2028.
+    - buyer: Microsoft
+      date: '2025-05-07'
+      source_url: https://www.datacenterdynamics.com/en/news/microsoft-expands-carbon-removal-agreement-with-stockholm-exergi/
+      source_title: Microsoft expands carbon removal agreement with Stockholm Exergi
+      note: Amends the 2024 deal (new total 5.08 Mt); volume not added again.
+    - buyer: Frontier
+      date: '2024-06-18'
+      source_url: https://frontierclimate.com/writing/exergi
+      source_title: Frontier buyers sign $48.6M in offtake agreements with Stockholm Exergi, in first large European deal
+      note: 'Tonnage not disclosed: ''The exact volume of tons going to Frontier buyers, and the price per ton, will be announced''.'
+    - buyer: City of Stockholm
+      volume_tco2e: 750000
+      date: '2026-05-27'
+      source_url: https://www.esgtoday.com/stockholm-becomes-one-of-worlds-largest-carbon-removal-buyers-with-new-750000-tonne-deal/
+      source_title: Stockholm Becomes One of World's Largest Carbon Removal Buyers with New 750,000-Tonne Deal
+      note: Buyer is the city government, which co-owns the supplier.
+  - id: ANN:orsted-beccs-dnk
+    name: Ørsted — BECCS at Kalundborg CO2 Hub (Asnæs, Avedøre)
+    developer: Ørsted
+    countries:
+    - DNK
+    l2: beccs
+    offtakes:
+    - buyer: Microsoft
+      volume_tco2e: 2760000
+      date: '2023-05-16'
+      source_url: https://www.esgtoday.com/microsoft-signs-one-of-the-largest-ever-deals-for-carbon-removal/
+      source_title: Microsoft Signs One of the Largest Ever Carbon Removal Deals
+    - buyer: Microsoft
+      volume_tco2e: 1000000
+      date: '2024-05-23'
+      source_url: https://www.esgtoday.com/microsoft-signs-1-million-tonne-bioenergy-based-carbon-removal-agreement-with-orsted/
+      source_title: Microsoft Signs 1 Million Tonne Bioenergy-based Carbon Removal Agreement with Ørsted
+      note: 10-year term. The fetch tool paraphrased this quote; check it against the page before publishing.
+  - id: ANN:hafslund-beccs-nor
+    name: Hafslund Celsio — waste-to-energy CCS at Klemetsrud, Oslo
+    developer: Hafslund Celsio
+    countries:
+    - NOR
+    l2: beccs
+    offtakes:
+    - buyer: Microsoft
+      volume_tco2e: 1100000
+      date: '2025-06-30'
+      source_url: https://hitecvision.com/news/hafslund-celsio-announces-a-10-year-carbon-removal-agreement-with-microsoft/
+      source_title: Hafslund Celsio announces a 10-year carbon removal agreement with Microsoft
+      note: Facility expected operational from 2029.
+    - buyer: Frontier
+      volume_tco2e: 100000
+      date: '2025-04-01'
+      source_url: https://esgpost.com/frontier-signs-carbon-removal-deal-with-norways-largest-waste-to-energy-plant/
+      source_title: Frontier signs carbon removal deal with Norway's largest waste-to-energy plant
+      note: Frontier's own post (frontierclimate.com/writing/hafslundcelsio) is dated April 1, 2025. esgpost is dated 2 April 2025.
+  - id: ANN:biocirc-beccs-dnk
+    name: BioCirc — biogas CO2 capture and storage, Denmark
+    developer: BioCirc
+    countries:
+    - DNK
+    l2: beccs
+    offtakes:
+    - buyer: Microsoft
+      volume_tco2e: 650000
+      date: '2026-05-20'
+      source_url: https://www.esgtoday.com/microsoft-announces-first-major-carbon-removal-deal-since-reportedly-exiting-the-market/
+      source_title: Microsoft Signs First Major Carbon Removal Deal Since Reportedly Pausing Purchases
+      note: Deliveries from H2 2026 through 2032.
+  - id: ANN:neustark-mineral-che
+    name: neustark — CO2 storage in recycled concrete (Switzerland, Germany)
+    developer: neustark
+    countries:
+    - CHE
+    - DEU
+    l2: mineralization
+    offtakes:
+    - buyer: Microsoft
+      volume_tco2e: 27600
+      date: '2024-02-14'
+      source_url: https://news.microsoft.com/de-ch/2024/02/14/neustark-to-deliver-high-quality-carbon-removal-in-a-multi-year-offtake-agreement-with-microsoft/
+      source_title: Neustark to deliver high-quality carbon removal in a multi-year offtake agreement with Microsoft
+      note: 'Date taken from the URL path. Plants are in Switzerland and Germany: ''14 carbon removal and storage plants in operation in Switzerland and Germany''.'
+  - id: ANN:undo-erw-gbr
+    name: UNDO — enhanced rock weathering, UK farmland
+    developer: UNDO
+    countries:
+    - GBR
+    l2: erw
+    offtakes:
+    - buyer: Microsoft
+      volume_tco2e: 5000
+      date: '2023-04-13'
+      source_url: https://un-do.com/resources/case-studies/undo-becomes-microsofts-first-enhanced-rock-weathering-supplier/
+      source_title: UNDO becomes Microsoft's first enhanced rock weathering supplier
+      note: Supplier's own page. Corroborated by edie ('Microsoft turns to British farms...').
+  - id: ANN:climeworks-dac-isl
+    name: Climeworks — direct air capture, Iceland (Orca/Mammoth)
+    developer: Climeworks
+    countries:
+    - ISL
+    l2: dac
+    offtakes:
+    - buyer: Microsoft
+      volume_tco2e: 10000
+      date: '2022-07-13'
+      source_url: https://www.geekwire.com/2022/heres-a-look-at-the-worlds-biggest-carbon-capture-site-which-just-signed-a-10-year-deal-with-microsoft/
+      source_title: We visited the world's biggest carbon capture plant, which just signed a 10-year deal with Microsoft
+      note: GeekWire ties the deal to the Iceland plant. DCD (same date) says 'remove 10,000 tons of carbon over a decade' but gives no country.
+  - id: ANN:klim-soil-deu
+    name: Klim — regenerative agriculture, Germany
+    developer: Klim
+    countries:
+    - DEU
+    l2: soil_carbon
+    offtakes:
+    - buyer: Lufthansa Group
+      date: '2026-05-22'
+      source_url: https://esgpost.com/lufthansa-group-secures-multi-year-carbon-removal-offtake-via-senken/
+      source_title: Lufthansa Group secures multi-year carbon removal offtake via Senken
+      note: The portfolio also includes Deep Sky (Canada) and Exomad Green (Bolivia), both outside scope. Volume undisclosed.
+  - id: ANN:ghana-solar-a62-gha
+    name: Solar with battery storage for commercial and industrial sites, Ghana (Article 6.2)
+    countries:
+    - GHA
+    l2: solar
+    offtakes:
+    - buyer: Swedish Energy Agency
+      date: '2024-05-29'
+      source_url: https://www.energimyndigheten.se/en/news/2024/swedens-first-legally-binding-agreement-on-emissions-trading-under-the-paris-agreement/
+      source_title: Sweden's first legally binding agreement on emissions trading under the Paris Agreement
+      note: The project developer is not named. The 165,000 t figure is estimated reductions, not a contracted volume. Weakest supplier identification in the set.
+  - id: ANN:zambia-cfip-a62-zmb
+    name: Zambia Carbon Feed-In Premium programme (Article 6.2)
+    developer: Government of Zambia
+    countries:
+    - ZMB
+    l2: other_re
+    offtakes:
+    - buyer: Government of Norway (NACA Fund via GGGI)
+      date: '2026-01-28'
+      source_url: https://gggi.org/zambia-and-norway-sign-purchase-agreement-on-emission-reductions/
+      source_title: Zambia and Norway Sign Purchase Agreement on Emission Reductions
+      note: Government-to-government MOPA. Volume not stated.
+  - id: ANN:delagua-cookstoves-rwa
+    name: DelAgua — Live Well clean cooking, Rwanda
+    developer: DelAgua
+    countries:
+    - RWA
+    l2: cookstoves
+    offtakes:
+    - buyer: TotalEnergies
+      date: '2025-11-13'
+      source_url: https://www.businesswire.com/news/home/20251113312524/en
+      source_title: 'Rwanda : TotalEnergies Joins Forces with DelAgua to Bring Clean Cooking into 200,000 Households'
+      note: The 2.5 Mt figure is projected avoided emissions over 10 years, not a stated credit volume, so volume is left null. The caller may choose to use 2.5 Mt.
+  - id: ANN:cquest-cookstoves-afr
+    name: C-Quest Capital — clean cookstoves (Malawi, Zambia, Zimbabwe, Mozambique, Uganda, Kenya)
+    developer: C-Quest Capital
+    countries:
+    - MWI
+    - ZMB
+    - ZWE
+    - MOZ
+    - UGA
+    - KEN
+    l2: cookstoves
+    offtakes:
+    - buyer: Shell
+      volume_tco2e: 60000000
+      date: '2021-04-16'
+      source_url: https://www.spglobal.com/energy/en/news-research/latest-news/coal/041621-c-quest-capital-signs-60-million-mt-carbon-credit-deal-with-shell
+      source_title: C-Quest Capital signs 60 million mt carbon credit deal with Shell
+      note: Spans six countries with no per-country split. Shell funds the programme, and the credits flow to Shell per the source.
+  - id: ANN:flux-erw-ken
+    name: Flux — enhanced rock weathering, Kenya
+    developer: Flux
+    countries:
+    - KEN
+    l2: erw
+    offtakes:
+    - buyer: Milkywire
+      volume_tco2e: 540
+      date: '2024-09-17'
+      source_url: https://dabafinance.com/en/news/nairobi-based-flux-sells-africas-first-carbon-dioxide-removal-credits
+      source_title: Nairobi-Based Flux Sells Africa's First Carbon Dioxide Removal Credits
+    - buyer: Frontier
+      volume_tco2e: 1142
+      date: '2024-09-18'
+      source_url: https://frontierclimate.com/writing/fall-2024-prepurchases
+      source_title: Frontier facilitates fourth round of carbon removal prepurchases
+      note: The location Frontier lists may be the company HQ. Flux's operations are in Kenya per the Daba row above.
+  - id: ANN:stackcarbon-erw-uga
+    name: Stack Carbon — enhanced rock weathering, Uganda
+    developer: Stack Carbon
+    countries:
+    - UGA
+    l2: erw
+    offtakes:
+    - buyer: Wild Assets
+      date: '2026-08-03'
+      source_url: https://www.argusmedia.com/es/news-and-insights/latest-market-news/2860077-uganda-s-stack-carbon-signs-major-carbon-credits-deal
+      source_title: Uganda's Stack Carbon signs major carbon credits deal
+      note: The volume is only 'tens of thousands of tonnes', so it is left null.
+  - id: ANN:sirona-dac-ken
+    name: Sirona Technologies — Project Jacaranda direct air capture, Kenya
+    developer: Sirona Technologies
+    countries:
+    - KEN
+    l2: dac
+    offtakes:
+    - buyer: IMC
+      date: '2025-11-28'
+      source_url: https://decarbonfuse.com/posts/sirona-technologies-and-imc-announce-purchase-of-permanent-carbon-removal-credits
+      source_title: Sirona Technologies and IMC announce purchase of permanent carbon removal credits
+      note: Says 'has purchased' but the project's first unit was only coming online in 2025, so delivered vs forward is unclear. Volume undisclosed.
+  - id: ANN:imperative-spekboom-zaf
+    name: Imperative — spekboom restoration, Eastern Cape
+    developer: Imperative
+    countries:
+    - ZAF
+    l2: arr
+    offtakes:
+    - buyer: Amazon
+      volume_tco2e: 1950000
+      date: '2026-06-30'
+      source_url: https://www.aboutamazon.com/news/sustainability/amazon-south-africa-land-restoration
+      source_title: Amazon invests in one of the world's largest carbon removal projects (About Amazon)
+      note: Purchases span more than ten years. Linked to a World Bank Spekboom Outcome Bond. The source title is approximate.
+  - id: ANN:vnv-mangrove-mdg
+    name: Value Network Ventures / Bondy — mangrove restoration, north-east Madagascar
+    developer: Value Network Ventures
+    countries:
+    - MDG
+    l2: blue_carbon
+    offtakes:
+    - buyer: Sumitomo Corporation
+      volume_tco2e: 800000
+      date: '2025-04-01'
+      source_url: https://www.sumitomocorp.com/en/jp/news/topics/2025/group/20250401_2
+      source_title: Entering the Carbon Credit Business Through Mangrove Reforestation in Madagascar and Mozambique
+      note: 800k is the first-phase generation target (2024-2044), which Sumitomo procures. The Mozambique part of the same release is an equity investment and is excluded.
+  - id: ANN:kasigau-redd-ken
+    name: Wildlife Works — Kasigau Corridor REDD+ (phase not stated)
+    developer: Wildlife Works
+    countries:
+    - KEN
+    l2: redd
+    offtakes:
+    - buyer: Crédit Agricole
+      volume_tco2e: 2655
+      date: '2012-01-16'
+      source_url: https://www.credit-agricole.com/en/press-releases/credit-agricole-s.a.-continues-its-carbon-offsetting-policy-choosing-a-redd-project-for-the-first-time
+      source_title: Crédit Agricole S.A. continues its carbon offsetting policy, choosing a REDD project for the first time
+      note: Spot purchase of issued VERs. Kasigau has two Verra phases, and the source does not say which, so registry_id is null.

@@ -1,45 +1,88 @@
 id,score,a_name,b_name,name,cap,dev,state,meth
+CDM:1663|GS:7685,1.0,"GREEN ENERGY TO GRID at Dhule, Maharashtra",GREEN ENERGY TO GRID at Dhule Maharashtra,1.0,,False,False,False
+CDM:4437|GS:7685,1.0,"GREEN ENERGY TO GRID at Dhule, Maharashtra",GREEN ENERGY TO GRID at Dhule Maharashtra,1.0,,False,False,False
+CDM:9630|GS:7793,1.0,"5 MW Solar Photovoltaic based Power Generation in Jodhpur, Rajasthan",5 MW Solar Photovoltaic based Power Generation in Jodhpur Rajasthan,1.0,True,False,False,True
+CDM:9266|GS:7793,1.0,"Solar power project at Jodhpur, Rajasthan",5 MW Solar Photovoltaic based Power Generation in Jodhpur Rajasthan,0.883,True,False,False,True
+CDM:1291|UCR:511,1.0,Enercon Wind Farms in Karnataka Bundled Project   30.40 MW,Enercon Wind Farms in Karnataka Bundled Project,1.0,,False,False,False
+CDM:5486|GS:5633,1.0,Bundled 9.00 MW Wind Power Generation Project by Gangadhar Narsingdas Agrawal Group,Bundled 9.00 MW wind power Generation project in Rajasthan India by M/s. Gangadhar Narsingdas Agrawal Group,0.931,True,False,False,False
+CDM:2370|VCS:622,1.0,5.1 MW bundled Wind Power Project in Tirunelveli (Tamil Nadu),"Bundled Wind Power Project in Tirunelveli, Tamil Nadu",1.0,,False,False,True
 CDM:7215|GS:5632,1.0,"Bundled 9.00 MW wind power Generation project in Rajasthan, India by M/s. Gangadhar Narsingdas Agrawal Group",Bundled 9.00 MW Wind Power Generation Project by Gangadhar Narsingdas Agrawal Group,0.931,True,False,False,True
-CDM:2235|VCS:590,1.0,2.25 MW Rice Husk based cogeneration plant at Siddeshwari Industries Pvt Ltd,2.25 MW rice husk based cogeneration plant at Siddeshwari Industries Pvt. Ltd.,1.0,True,False,False,True
+CDM:2937|VCS:2162,1.0,"2 X 3.5 MW Ullunkal Hydro Power Project in Kerala, India.","2 x 3.5 MW Ullunkal Hydro Power Project in Kerala, India",1.0,True,False,False,True
+CDM:8495|VCS:2244,1.0,Lalpur wind farm in Gujarat,Lalpur wind farm in Gujarat,1.0,,False,False,False
+CDM:8495|GS:7628,1.0,Lalpur wind farm in Gujarat,Wind farm at Lalpur Gujarat,1.0,,False,False,False
+CDM:1663|VCS:331,1.0,"GREEN ENERGY TO GRID at Dhule, Maharashtra",Green Energy to Grid at Dhule Maharashtra,1.0,,False,False,False
+CDM:4437|VCS:331,1.0,"GREEN ENERGY TO GRID at Dhule, Maharashtra",Green Energy to Grid at Dhule Maharashtra,1.0,,False,False,False
+CDM:7215|GS:5633,1.0,"Bundled 9.00 MW wind power Generation project in Rajasthan, India by M/s. Gangadhar Narsingdas Agrawal Group",Bundled 9.00 MW wind power Generation project in Rajasthan India by M/s. Gangadhar Narsingdas Agrawal Group,1.0,True,False,False,False
 CDM:10412|VCS:2244,1.0,"Wind farm at Lalpur, Gujarat",Lalpur wind farm in Gujarat,1.0,,False,False,False
 CDM:10412|GS:7628,1.0,"Wind farm at Lalpur, Gujarat",Wind farm at Lalpur Gujarat,1.0,,False,False,False
-CDM:9266|GS:7793,1.0,"Solar power project at Jodhpur, Rajasthan",5 MW Solar Photovoltaic based Power Generation in Jodhpur Rajasthan,0.883,True,False,False,True
-CDM:4437|GS:7685,1.0,"GREEN ENERGY TO GRID at Dhule, Maharashtra",GREEN ENERGY TO GRID at Dhule Maharashtra,1.0,,False,False,False
-CDM:2937|VCS:2162,1.0,"2 X 3.5 MW Ullunkal Hydro Power Project in Kerala, India.","2 x 3.5 MW Ullunkal Hydro Power Project in Kerala, India",1.0,True,False,False,True
-CDM:1291|UCR:511,1.0,Enercon Wind Farms in Karnataka Bundled Project   30.40 MW,Enercon Wind Farms in Karnataka Bundled Project,1.0,,False,False,False
-CDM:1663|GS:7685,1.0,"GREEN ENERGY TO GRID at Dhule, Maharashtra",GREEN ENERGY TO GRID at Dhule Maharashtra,1.0,,False,False,False
-CDM:2370|VCS:525,1.0,5.1 MW bundled Wind Power Project in Tirunelveli (Tamil Nadu),5.1 MW bundled Wind Power Project in Tirunelveli (Tamil Nadu),1.0,True,False,False,True
-UCR:511|VCS:757,1.0,Enercon Wind Farms in Karnataka Bundled Project,Enercon Wind Farms in Karnataka Bundled Project  73.60 MW,1.0,,False,False,False
-UCR:511|VCS:599,1.0,Enercon Wind Farms in Karnataka Bundled Project,Enercon Wind Farms in Karnataka Bundled Project-30.40 MW,1.0,,False,False,False
-CDM:7215|GS:5633,1.0,"Bundled 9.00 MW wind power Generation project in Rajasthan, India by M/s. Gangadhar Narsingdas Agrawal Group",Bundled 9.00 MW wind power Generation project in Rajasthan India by M/s. Gangadhar Narsingdas Agrawal Group,1.0,True,False,False,False
-CDM:4437|VCS:331,1.0,"GREEN ENERGY TO GRID at Dhule, Maharashtra",Green Energy to Grid at Dhule Maharashtra,1.0,,False,False,False
-CDM:2562|VCS:622,1.0,"Bundled Wind Power Project in Tirunelveli, Tamil Nadu","Bundled Wind Power Project in Tirunelveli, Tamil Nadu",1.0,,False,False,True
-CDM:1663|VCS:331,1.0,"GREEN ENERGY TO GRID at Dhule, Maharashtra",Green Energy to Grid at Dhule Maharashtra,1.0,,False,False,False
-CDM:5486|GS:5632,1.0,Bundled 9.00 MW Wind Power Generation Project by Gangadhar Narsingdas Agrawal Group,Bundled 9.00 MW Wind Power Generation Project by Gangadhar Narsingdas Agrawal Group,1.0,True,False,False,True
-CDM:1286|UCR:511,1.0,Enercon Wind Farms in Karnataka Bundled Project - 73.60 MW,Enercon Wind Farms in Karnataka Bundled Project,1.0,,False,False,False
-CDM:2937|VCS:869,1.0,"2 X 3.5 MW Ullunkal Hydro Power Project in Kerala, India.","2 x 3.5 MW Ullunkal Hydro Power Project in Kerala, India.",1.0,True,False,False,True
-CDM:1004|VCS:590,1.0,2.25 MW Rice Husk based cogeneration plant at Siddeshwari Industries Pvt Ltd,2.25 MW rice husk based cogeneration plant at Siddeshwari Industries Pvt. Ltd.,1.0,True,False,False,False
-CDM:9404|GS:7793,1.0,"5MW Solar PV Power Project in Jodhpur District, Rajasthan",5 MW Solar Photovoltaic based Power Generation in Jodhpur Rajasthan,0.913,True,False,False,True
-CDM:9630|GS:7793,1.0,"5 MW Solar Photovoltaic based Power Generation in Jodhpur, Rajasthan",5 MW Solar Photovoltaic based Power Generation in Jodhpur Rajasthan,1.0,True,False,False,True
-CDM:5486|GS:5633,1.0,Bundled 9.00 MW Wind Power Generation Project by Gangadhar Narsingdas Agrawal Group,Bundled 9.00 MW wind power Generation project in Rajasthan India by M/s. Gangadhar Narsingdas Agrawal Group,0.931,True,False,False,False
-CDM:8495|VCS:2244,1.0,Lalpur wind farm in Gujarat,Lalpur wind farm in Gujarat,1.0,,False,False,False
-CDM:1299|UCR:511,1.0,Enercon Wind Farms in Karnataka Bundled Project  33 MW,Enercon Wind Farms in Karnataka Bundled Project,1.0,,False,False,False
-CDM:2370|VCS:622,1.0,5.1 MW bundled Wind Power Project in Tirunelveli (Tamil Nadu),"Bundled Wind Power Project in Tirunelveli, Tamil Nadu",1.0,,False,False,True
-CDM:8495|GS:7628,1.0,Lalpur wind farm in Gujarat,Wind farm at Lalpur Gujarat,1.0,,False,False,False
 CDM:6909|GS:7793,1.0,"Grid connected solar PV power plant in Jodhpur, Rajasthan",5 MW Solar Photovoltaic based Power Generation in Jodhpur Rajasthan,0.913,True,False,False,True
+CDM:2937|VCS:869,1.0,"2 X 3.5 MW Ullunkal Hydro Power Project in Kerala, India.","2 x 3.5 MW Ullunkal Hydro Power Project in Kerala, India.",1.0,True,False,False,True
+CDM:1299|UCR:511,1.0,Enercon Wind Farms in Karnataka Bundled Project  33 MW,Enercon Wind Farms in Karnataka Bundled Project,1.0,,False,False,False
+CDM:2370|VCS:525,1.0,5.1 MW bundled Wind Power Project in Tirunelveli (Tamil Nadu),5.1 MW bundled Wind Power Project in Tirunelveli (Tamil Nadu),1.0,True,False,False,True
+CDM:1286|UCR:511,1.0,Enercon Wind Farms in Karnataka Bundled Project - 73.60 MW,Enercon Wind Farms in Karnataka Bundled Project,1.0,,False,False,False
+CDM:2235|VCS:590,1.0,2.25 MW Rice Husk based cogeneration plant at Siddeshwari Industries Pvt Ltd,2.25 MW rice husk based cogeneration plant at Siddeshwari Industries Pvt. Ltd.,1.0,True,False,False,True
+CDM:2562|VCS:622,1.0,"Bundled Wind Power Project in Tirunelveli, Tamil Nadu","Bundled Wind Power Project in Tirunelveli, Tamil Nadu",1.0,,False,False,True
+CDM:9404|GS:7793,1.0,"5MW Solar PV Power Project in Jodhpur District, Rajasthan",5 MW Solar Photovoltaic based Power Generation in Jodhpur Rajasthan,0.913,True,False,False,True
+CDM:1004|VCS:590,1.0,2.25 MW Rice Husk based cogeneration plant at Siddeshwari Industries Pvt Ltd,2.25 MW rice husk based cogeneration plant at Siddeshwari Industries Pvt. Ltd.,1.0,True,False,False,False
+UCR:511|VCS:757,1.0,Enercon Wind Farms in Karnataka Bundled Project,Enercon Wind Farms in Karnataka Bundled Project  73.60 MW,1.0,,False,False,False
+CDM:5486|GS:5632,1.0,Bundled 9.00 MW Wind Power Generation Project by Gangadhar Narsingdas Agrawal Group,Bundled 9.00 MW Wind Power Generation Project by Gangadhar Narsingdas Agrawal Group,1.0,True,False,False,True
+UCR:511|VCS:599,1.0,Enercon Wind Farms in Karnataka Bundled Project,Enercon Wind Farms in Karnataka Bundled Project-30.40 MW,1.0,,False,False,False
+CDM:9181|GS:11478,1.0,MicroEnergy Credits  Microfinance for Clean Energy Product Lines  India,GS11450 - MicroEnergy Credits – Microfinance for Clean Energy Product Lines – India - CPA 08 - GS11478,1.0,,False,False,True
+CDM:9181|GS:1233,1.0,MicroEnergy Credits  Microfinance for Clean Energy Product Lines  India,MicroEnergy Credits - Microfinance for Clean Energy Product Lines - India,1.0,,False,False,True
+CDM:9181|GS:11450,1.0,MicroEnergy Credits  Microfinance for Clean Energy Product Lines  India,MicroEnergy Credits – Microfinance for Clean Energy Product Lines – India,1.0,,False,False,False
+CDM:9181|GS:1204,1.0,MicroEnergy Credits  Microfinance for Clean Energy Product Lines  India,MicroEnergy Credits Microfinance For Clean Energy Product Lines India,1.0,,False,False,True
+CDM:9181|GS:11452,1.0,MicroEnergy Credits  Microfinance for Clean Energy Product Lines  India,GS11450 - MicroEnergy Credits – Microfinance for Clean Energy Product Lines – India - CPA 32 - GS11452,1.0,,False,False,True
+CDM:9181|GS:11895,1.0,MicroEnergy Credits  Microfinance for Clean Energy Product Lines  India,GS11450 - MicroEnergy Credits – Microfinance for Clean Energy Product Lines – India - CPA 36 - GS11895,1.0,,False,False,True
+CDM:9181|GS:11897,1.0,MicroEnergy Credits  Microfinance for Clean Energy Product Lines  India,GS11450 - MicroEnergy Credits – Microfinance for Clean Energy Product Lines – India - CPA 38 - GS11897,1.0,,False,False,True
+CDM:9181|GS:11505,1.0,MicroEnergy Credits  Microfinance for Clean Energy Product Lines  India,GS11450 - MicroEnergy Credits – Microfinance for Clean Energy Product Lines – India - CPA 06 - GS11505,1.0,,False,False,True
+CDM:9181|GS:11894,1.0,MicroEnergy Credits  Microfinance for Clean Energy Product Lines  India,GS11450 - MicroEnergy Credits – Microfinance for Clean Energy Product Lines – India - CPA 35 - GS11894,1.0,,False,False,False
+CDM:9181|GS:11896,1.0,MicroEnergy Credits  Microfinance for Clean Energy Product Lines  India,GS11450 - MicroEnergy Credits – Microfinance for Clean Energy Product Lines – India - CPA 37 - GS11896,1.0,,False,False,True
+CDM:9181|GS:11898,1.0,MicroEnergy Credits  Microfinance for Clean Energy Product Lines  India,GS11450 - MicroEnergy Credits – Microfinance for Clean Energy Product Lines – India - CPA 39 - GS11898,1.0,,False,False,True
+CDM:9181|GS:11489,1.0,MicroEnergy Credits  Microfinance for Clean Energy Product Lines  India,GS11450 - MicroEnergy Credits – Microfinance for Clean Energy Product Lines – India - CPA 34 - GS11489,1.0,,False,False,True
+CDM:9181|GS:11491,1.0,MicroEnergy Credits  Microfinance for Clean Energy Product Lines  India,GS11450 - MicroEnergy Credits – Microfinance for Clean Energy Product Lines – India - CPA 31 - GS11491,1.0,,False,False,True
+CDM:9181|GS:11504,1.0,MicroEnergy Credits  Microfinance for Clean Energy Product Lines  India,GS11450 - MicroEnergy Credits – Microfinance for Clean Energy Product Lines – India - CPA 05 - GS11504,1.0,,False,False,True
+CDM:9181|GS:11480,1.0,MicroEnergy Credits  Microfinance for Clean Energy Product Lines  India,GS11450 - MicroEnergy Credits – Microfinance for Clean Energy Product Lines – India - CPA 10 - GS11480,1.0,,False,False,True
+CDM:9181|GS:11482,1.0,MicroEnergy Credits  Microfinance for Clean Energy Product Lines  India,GS11450 - MicroEnergy Credits – Microfinance for Clean Energy Product Lines – India - CPA 12 - GS11482,1.0,,False,False,False
+CDM:9181|GS:11484,1.0,MicroEnergy Credits  Microfinance for Clean Energy Product Lines  India,GS11450 - MicroEnergy Credits – Microfinance for Clean Energy Product Lines – India - CPA 14 - GS11484,1.0,,False,False,True
+CDM:9181|GS:11486,1.0,MicroEnergy Credits  Microfinance for Clean Energy Product Lines  India,GS11450 - MicroEnergy Credits – Microfinance for Clean Energy Product Lines – India - CPA 18 - GS11486,1.0,,False,False,False
+CDM:9181|GS:11475,1.0,MicroEnergy Credits  Microfinance for Clean Energy Product Lines  India,GS11450 - MicroEnergy Credits – Microfinance for Clean Energy Product Lines – India - CPA 03 - GS11475,1.0,,False,False,False
+CDM:9181|GS:11490,1.0,MicroEnergy Credits  Microfinance for Clean Energy Product Lines  India,GS11450 - MicroEnergy Credits – Microfinance for Clean Energy Product Lines – India - CPA 33 - GS11490,1.0,,False,False,True
+CDM:9181|GS:11477,1.0,MicroEnergy Credits  Microfinance for Clean Energy Product Lines  India,GS11450 - MicroEnergy Credits – Microfinance for Clean Energy Product Lines – India - CPA 07 - GS11477,1.0,,False,False,False
+CDM:9181|GS:11479,1.0,MicroEnergy Credits  Microfinance for Clean Energy Product Lines  India,GS11450 - MicroEnergy Credits – Microfinance for Clean Energy Product Lines – India - CPA 09 - GS11479,1.0,,False,False,True
+CDM:9181|GS:11481,1.0,MicroEnergy Credits  Microfinance for Clean Energy Product Lines  India,GS11450 - MicroEnergy Credits – Microfinance for Clean Energy Product Lines – India - CPA 11 - GS11481,1.0,,False,False,False
+CDM:9181|GS:11483,1.0,MicroEnergy Credits  Microfinance for Clean Energy Product Lines  India,GS11450 - MicroEnergy Credits – Microfinance for Clean Energy Product Lines – India - CPA 13 - GS11483,1.0,,False,False,True
+CDM:9181|GS:11451,1.0,MicroEnergy Credits  Microfinance for Clean Energy Product Lines  India,GS11450 - MicroEnergy Credits – Microfinance for Clean Energy Product Lines – India - CPA 17 - GS11451,1.0,,False,False,False
+CDM:9181|GS:11485,1.0,MicroEnergy Credits  Microfinance for Clean Energy Product Lines  India,GS11450 - MicroEnergy Credits – Microfinance for Clean Energy Product Lines – India - CPA 15 - GS11485,1.0,,False,False,True
+CDM:9181|GS:11474,1.0,MicroEnergy Credits  Microfinance for Clean Energy Product Lines  India,GS11450 - MicroEnergy Credits – Microfinance for Clean Energy Product Lines – India - CPA 02 - GS11474,1.0,,False,False,True
+CDM:9181|GS:11476,1.0,MicroEnergy Credits  Microfinance for Clean Energy Product Lines  India,GS11450 - MicroEnergy Credits – Microfinance for Clean Energy Product Lines – India - CPA 04 - GS11476,1.0,,False,False,False
+CDM:10053|GS:3513,1.0,Empowering DRC communities through the use of Improved Cook Stoves,Empowering DRC communities through the use of Improved Cook Stoves - CPA 001,1.0,,False,False,True
+CDM:10053|GS:2709,1.0,Empowering DRC communities through the use of Improved Cook Stoves,Empowering DRC communities through the use of Improved Cook Stoves PoA,0.983,,False,False,True
+CDM:10053|GS:4701,1.0,Empowering DRC communities through the use of Improved Cook Stoves,Empowering DRC communities through the use of Improved Cook Stoves - CPA 002,1.0,,False,False,True
+CDM:5033|VCS:1253,1.0,Fuel Efficient Stoves in Zambia,Fuel Efficient Stoves in Zambia CPA 3,1.0,,False,False,True
+CDM:5033|VCS:1252,1.0,Fuel Efficient Stoves in Zambia,Fuel Efficient Stoves in Zambia CPA 2,1.0,,False,False,True
+CDM:5033|VCS:1251,1.0,Fuel Efficient Stoves in Zambia,Fuel Efficient Stoves in Zambia CPA 1,1.0,,False,False,True
+GS:12382|VCS:4032,1.0,Improved agricultural practices for Rice  cultivation in India,Improved Agricultural Practices for Rice Cultivation in India,1.0,,True,False,False
+GS:12383|VCS:4032,1.0,GS12382 VPA 01 Improved agricultural practices for rice cultivation in India,Improved Agricultural Practices for Rice Cultivation in India,1.0,,True,False,False
+CDM:6207|GS:1060,1.0,Improved Cook Stoves programme for Rwanda,Improved Cook Stoves programme for Rwanda,1.0,,False,False,True
+CDM:6207|GS:4259,1.0,Improved Cook Stoves programme for Rwanda,CPA 4 Improved Cook Stoves programme for Rwanda,1.0,,False,False,False
+CDM:10440|GS:6133,1.0,Sustainable Fuelwood and Microgasification Cooking Solutions for rural and urban Households,Sustainable Fuelwood and Microgasification Cooking Solutions for rural and urban Households CPA1,1.0,,False,False,False
+CDM:6207|GS:4261,1.0,Improved Cook Stoves programme for Rwanda,CPA 5 Improved Cook Stoves programme for Rwanda,1.0,,False,False,False
+CDM:6207|GS:6271,1.0,Improved Cook Stoves programme for Rwanda,Improved Cook Stoves programme for Rwanda CPA 0009,1.0,,False,False,False
+CDM:10440|GS:6070,1.0,Sustainable Fuelwood and Microgasification Cooking Solutions for rural and urban Households,Sustainable Fuelwood and Microgasification Cooking Solutions for rural and urban Households,1.0,,False,False,False
+CDM:6207|GS:6264,1.0,Improved Cook Stoves programme for Rwanda,Improved Cook Stoves programme for Rwanda CPA 0008,1.0,,False,False,False
+CDM:6207|GS:1023,1.0,Improved Cook Stoves programme for Rwanda,GS1023 Improved Cook Stoves programme for Rwanda,1.0,,False,False,False
+CDM:6207|GS:6272,1.0,Improved Cook Stoves programme for Rwanda,Improved Cook Stoves programme for Rwanda CPA 0010,1.0,,False,False,False
+CDM:10292|GS:3525,1.0,Dissemination of improved cook stoves and generation of charcoal,Dissemination of improved cook stoves and generation of charcoal - PoA,0.982,,False,False,True
 CDM:10516|GS:7776,1.0,Improved cook stoves and sustainable charcoal initiative,Improved cook stoves and sustainable charcoal initiative,1.0,,False,False,False
 CDM:10516|GS:10716,1.0,Improved cook stoves and sustainable charcoal initiative,Improved cook stoves and sustainable charcoal initiative CPA 1,1.0,,False,False,True
-CDM:10292|GS:3525,1.0,Dissemination of improved cook stoves and generation of charcoal,Dissemination of improved cook stoves and generation of charcoal - PoA,0.982,,False,False,True
 CDM:10292|GS:5291,1.0,Dissemination of improved cook stoves and generation of charcoal,Dissemination of improved cook stoves and generation of charcoal CPA2,1.0,,False,False,True
-GS:12383|VCS:4032,1.0,GS12382 VPA 01 Improved agricultural practices for rice cultivation in India,Improved Agricultural Practices for Rice Cultivation in India,1.0,,True,False,False
-GS:12382|VCS:4032,1.0,Improved agricultural practices for Rice  cultivation in India,Improved Agricultural Practices for Rice Cultivation in India,1.0,,True,False,False
 CDM:2794|VCS:1910,1.0,"Bionersis landfill project in Pasto, Colombia","Bionersis landfill project in Pasto, Colombia",1.0,,False,False,False
 CDM:2794|VCS:491,1.0,"Bionersis landfill project in Pasto, Colombia","Bionersis landfill  project in Pasto, Colombia",1.0,,False,False,True
-CDM:5291|VCS:2527,1.0,Maesod Wastewater Treatment and Biogas Utilisation Project,Maesod Wastewater Treatment and Biogas Utilisation Project,1.0,,False,False,True
 CDM:8712|VCS:2527,1.0,Maesod Wastewater Treatment and Biogas Utilisation Project,Maesod Wastewater Treatment and Biogas Utilisation Project,1.0,,False,False,True
-CDM:10431|GS:11571,1.0,Improved cookstove program in Bangladesh supported by the Republic of Korea,Improved cookstove program in Bangladesh supported by the Republic of Korea-CPA 02,1.0,,False,False,False
+CDM:5291|VCS:2527,1.0,Maesod Wastewater Treatment and Biogas Utilisation Project,Maesod Wastewater Treatment and Biogas Utilisation Project,1.0,,False,False,True
 CDM:10431|GS:11570,1.0,Improved cookstove program in Bangladesh supported by the Republic of Korea,Improved cookstove program in Bangladesh supported by the Republic of Korea,1.0,,False,False,False
 CDM:10431|GS:11572,1.0,Improved cookstove program in Bangladesh supported by the Republic of Korea,Improved cookstove program in Bangladesh supported by the Republic of Korea-CPA 03,1.0,,False,False,False
+CDM:10431|GS:11571,1.0,Improved cookstove program in Bangladesh supported by the Republic of Korea,Improved cookstove program in Bangladesh supported by the Republic of Korea-CPA 02,1.0,,False,False,False
 CDM:8142|GS:11616,1.0,MicroEnergy Credits  Microfinance for Clean Energy Product Lines - Mongolia,MicroEnergy Credits – Microfinance for Clean Energy Product Lines - Mongolia,1.0,,False,False,False
 CDM:8142|GS:1343,1.0,MicroEnergy Credits  Microfinance for Clean Energy Product Lines - Mongolia,MicroEnergy Credits - Microfinance for Clean Energy Product Lines - Mongolia,1.0,,False,False,True
 ACR:0258|CAR:992,1.0,EOS ARB ODS 2013-1,EOS ARB ODS 2013-1,1.0,,True,True,False
@@ -92,94 +135,138 @@ CDM:8142|GS:2434,0.984,MicroEnergy Credits  Microfinance for Clean Energy Prod
 CDM:2562|VCS:377,0.971,"Bundled Wind Power Project in Tirunelveli, Tamil Nadu","11.60 MW Bundled grid-connected wind electricity generation project at Tirunelveli, Tamil Nadu, India",0.851,True,False,False,True
 CDM:9531|VCS:1411,0.968,Grid Connected Solar Power Project in Bikaner,"Solar PV power project at Bikaner,India",0.948,,False,False,True
 CDM:1841|VCS:1451,0.964,Yeong Yang 61.5MW Wind Farm Project,Yeong Yang 61.5MW Wind Farm Project - CER Conversion,0.864,True,False,False,False
+CDM:10476|GS:11440,0.962,KOKO Kenya - Ethanol Cookstoves Program,GS10884 - KOKO Kenya - Ethanol Cookstoves Program - CPA-0002,0.962,,False,False,False
+CDM:10476|GS:10885,0.962,KOKO Kenya - Ethanol Cookstoves Program,GS10884 - KOKO Kenya - Ethanol Cookstoves Program - CPA-0001,0.962,,False,False,False
 CDM:593|VCS:1519,0.951,"15.4 MW wind farm at Satara District, Maharashtra.","Satara Wind Power Project in Maharashtra, India",0.951,,False,False,False
 CDM:991|VCS:1751,0.95,"Bundled Wind power project in Tamilnadu, India co-ordinated by the TamilNadu Spinning Mills Association (TASMA)","Bundled Wind power project in Tamilnadu, India co-ordinated by the TamilNadu Spinning Mills Association (TASMA) - CER Conversion",0.95,,False,False,False
+CDM:545|VCS:1702,0.946,Durban Landfill-gas-to-electricity project  Mariannhill and La Mercy Landfills,Durban Landfill-gas-to-electricity project – Mariannhill and La Mercy Landfills - CER Conversion,0.946,,False,False,False
 CDM:9376|VCS:2247,0.944,"Wind Power Project at Tadas, Karnataka",Tadas Wind Farm in Karnataka,0.944,,False,False,False
 CDM:10077|VCS:2478,0.944,Reducing Gas Leakages within the Titas Gas Distribution Network in Bangladesh,Reducing Gas Leakages within the Titas Gas Distribution Network in Bangladesh - CER Conversion,0.944,,False,False,False
 CDM:2556|GS:7303,0.944,Bangna Starch Wastewater Treatment and Biogas Utilization Project,Bangna Starch Wastewater Treatment and Biogas Utilization Project (300084) (GS565 CER to VER conversion),0.924,,False,False,True
 CDM:3222|VCS:2316,0.944,"BRASCARBON Methane Recovery Project BCA-BRA-08, Brazil.","BRASCARBON Methane Recovery Project BCA-BRA-08, Brazil CDM - CER Conversion",0.924,,False,False,True
 CDM:6936|VCS:2244,0.942,"Wind Power Project in Lalpur, Gujarat",Lalpur wind farm in Gujarat,0.942,,False,False,False
 CDM:6936|GS:7628,0.942,"Wind Power Project in Lalpur, Gujarat",Wind farm at Lalpur Gujarat,0.942,,False,False,False
+CDM:3223|VCS:1731,0.938,CFL lighting scheme  Bachat Lamp Yojana,CFL lighting scheme Bachat Lamp Yojana - CER Conversion,0.918,,False,False,True
 GS:775|VCS:2261,0.931,CYY Biopower Wastewater treatment plant including biogas reuse for thermal oil replacement and electricity generation Project Thailand (300059)_pre-CDM VER,"CYY Biopower Wastewater treatment plant including biogas reuse for thermal oil replacement and electricity generation Project, Thailand",0.931,,False,False,False
 CDM:2141|GS:775,0.931,"CYY Biopower Wastewater treatment plant including biogas reuse for thermal oil replacement and electricity generation Project, Thailand",CYY Biopower Wastewater treatment plant including biogas reuse for thermal oil replacement and electricity generation Project Thailand (300059)_pre-CDM VER,0.931,,False,False,False
 CDM:2076|GS:866,0.926,Univanich Lamthap POME Biogas Project,Univanich Lamthap POME Biogas Project PreCDMVER,0.926,,False,False,False
+CDM:925|VCS:1514,0.924,EnviroServ Chloorkop Landfill Gas Recovery Project.,EnviroServ Chloorkop Landfill Gas Recovery Project - CER Conversion,0.924,,False,False,False
 CDM:9699|GS:7790,0.918,"24 MW Wind Energy based Power Generation In Theni, Tamil Nadu",Wind energy project in Theni Tamil Nadu,0.918,,False,False,False
 GS:10656|VCS:490,0.918,Enercon Wind Farm (Hindustan) Ltd in Rajasthan (GS2483 CER to VER conversion),Enercon Wind Farms (Hindustan) Pvt Ltd in Rajasthan,0.898,,False,False,True
+CDM:9047|GS:10309,0.917,Jbel Sendouq-Khalladi (Khalladi) wind farm project in Morocco,"Jbel Sendouq-Khalladi (""Khalladi"") wind farm project in Morocco (GS5073 CER to VER conversion)",0.917,,False,False,False
+CDM:3223|VCS:1272,0.912,CFL lighting scheme  Bachat Lamp Yojana,CFL Lighting Scheme Bachat Lamp Yojana in Tirur,0.892,,False,False,True
+CDM:5033|VCS:2463,0.911,Fuel Efficient Stoves in Zambia,Fuel Efficient Stoves in Zambia CPA 3. - CER Conversion,0.891,,False,False,True
 CAR:1055|VCS:634,0.907,T&M Bos Dairy,Bos Dairy Farm Project,0.907,,False,False,False
 CDM:991|VCS:1353,0.906,"Bundled Wind power project in Tamilnadu, India co-ordinated by the TamilNadu Spinning Mills Association (TASMA)","Bundled Wind Power Project in Tamilnadu, India, co-ordinated by Tamilnadu Spinning Mills Association (TASMA-V2)",0.906,,False,False,False
+CDM:3223|VCS:1269,0.906,CFL lighting scheme  Bachat Lamp Yojana,CFL LIGHTING SCHEME BACHAT LAMP YOJANA IN KOLLAM,0.886,,False,False,True
+CDM:3223|VCS:1274,0.906,CFL lighting scheme  Bachat Lamp Yojana,CFL lighting scheme Bachat Lamp Yojana in Kannur,0.886,,False,False,True
 ACR:1192|VCS:OPR2,0.906,Corinth Abandoned Mine Methane Recovery Project (2024 ACR),Corinth Abandoned Mine Methane Recovery Project,0.876,,False,True,False
 ACR:1192|VCS:573,0.906,Corinth Abandoned Mine Methane Recovery Project (2024 ACR),Corinth Abandoned Mine Methane Recovery Project,0.876,,False,True,False
+CDM:1921|VCS:2501,0.905,Durban Landfill-Gas Bisasar Road,Durban Landfill-Gas Bisasar Road. - CER Conversion,0.905,,False,False,False
 GS:12028|VCS:2600,0.905,Oeste de Caucaia Landfill Project Activity,Oeste de Caucaia Landfill Project Activity - CER Conversion,0.885,,False,False,True
-CDM:2970|GS:865,0.904,TBEC Tha Chang Biogas Project,TBEC Tha Chang Biogas Project PreCDMVER,0.904,,False,False,False
 CDM:4867|GS:773,0.904,Chantaburi Starch Wastewater Treatment and Biogas Utilization Project,Chantaburi Starch Wastewater Treatment and Biogas Utilization Project (300085)_pre-CDM VER,0.884,,False,False,True
+CDM:2970|GS:865,0.904,TBEC Tha Chang Biogas Project,TBEC Tha Chang Biogas Project PreCDMVER,0.904,,False,False,False
+CDM:9708|VCS:2965,0.903,Niger Acacia Senegal Plantation Project,Niger Acacia Senegal Plantation Project - CER Conversion,0.903,,False,False,False
 CDM:991|VCS:1352,0.902,"Bundled Wind power project in Tamilnadu, India co-ordinated by the TamilNadu Spinning Mills Association (TASMA)","Bundled Wind Power Project in Tamilnadu, India, co-ordinated by Tamilnadu Spinning Mills Association (TASMA V1A)",0.902,,False,False,False
 CDM:2556|GS:777,0.902,Bangna Starch Wastewater Treatment and Biogas Utilization Project,Bangna Starch Wastewater Treatment and Biogas Utilization Project (300084)_pre-CDM VER,0.882,,False,False,True
 CDM:9185|VCS:1411,0.901,"Grid connected solar photovoltaic power plant in Bikaner, Rajasthan, India","Solar PV power project at Bikaner,India",0.881,,False,False,True
+CDM:3223|VCS:1271,0.901,CFL lighting scheme  Bachat Lamp Yojana,CFL LIGHTING SCHEME BACHAT LAMP YOJANA IN SHORNUR,0.881,,False,False,True
+CDM:3223|VCS:1273,0.901,CFL lighting scheme  Bachat Lamp Yojana,CFL lighting scheme Bachat Lamp Yojana in Manjeri,0.881,,False,False,True
 GS:10662|VCS:1120,0.9,Vaayu India Wind Power Project in Jaisalmer Rajasthan (GS5013 CER to VER conversion),"Vaayu India Wind Power Project in Jaisalmer, Rajasthan",0.88,,False,False,True
 CDM:9698|GS:2097,0.9,Replacement of traditional charcoal stoves with efficient EcoRecho stoves in Haiti,GS2096_CPA-Replacement of traditional charcoal stoves with efficient EcoRecho stoves in Haiti,0.88,,False,False,True
 CDM:1168|GS:10656,0.898,Enercon Wind Farm (Hindustan) Ltd in Rajasthan,Enercon Wind Farm (Hindustan) Ltd in Rajasthan (GS2483 CER to VER conversion),0.898,,False,False,False
 GS:10656|UCR:105,0.898,Enercon Wind Farm (Hindustan) Ltd in Rajasthan,Enercon Wind Farm (Hindustan) Ltd in Rajasthan (GS2483 CER to VER conversion),0.898,,False,False,False
 CDM:5364|GS:795,0.898,Wastewater Treatment and Methane Recovery at Green Field Joint Stock Company,Wastewater Treatment and Methane Recovery at Green Field Joint Stock Company (300652)_pre-CDm VER,0.898,,False,False,False
+CDM:961|VCS:1512,0.897,Sasol Nitrous Oxide Abatement Project,Sasol Nitrous Oxide Abatement Project - CER Conversion,0.897,,False,False,False
+CDM:7247|GS:1060,0.897,Efficient Cook Stove Programme: Rwanda,Improved Cook Stoves programme for Rwanda,0.877,,False,False,True
+CDM:3223|VCS:1270,0.896,CFL lighting scheme  Bachat Lamp Yojana,CFL LIGHTING SCHEME BACHAT LAMP YOJANA IN PALAKKAD,0.876,,False,False,True
+CDM:3223|VCS:1276,0.896,CFL lighting scheme  Bachat Lamp Yojana,CFL Lighting Scheme Bachat Lamp Yojana in Vadakara,0.876,,False,False,True
+CDM:3223|VCS:1278,0.896,CFL lighting scheme  Bachat Lamp Yojana,CFL LIGHTING SCHEME BACHAT LAMP YOJANA IN THRISSUR,0.876,,False,False,True
+CDM:3223|VCS:1267,0.896,CFL lighting scheme  Bachat Lamp Yojana,CFL LIGHTING SCHEME BACHAT LAMP YOJANA IN KOTTAYAM,0.876,,False,False,True
 CDM:7379|GS:6586,0.893,Solar Thermal Power Plant by Godawari Green Energy Limited,Solar thermal power plant by Godawari Green Energy Limited (GS3429 CER to VER conversion),0.893,,False,False,False
 CDM:9802|VCS:1303,0.893,"Biomass Based Co-generation project at Karnal, Haryana",Biomass based Renewable Energy Generation at Karnal,0.873,,False,False,True
 CAR:440|VCS:634,0.891,Bos Dairy,Bos Dairy Farm Project,0.891,,False,False,False
+CDM:3223|VCS:1275,0.89,CFL lighting scheme  Bachat Lamp Yojana,CFL lighting scheme Bachat Lamp Yojana in Kozhikode,0.87,,False,False,True
+CDM:3223|VCS:1279,0.89,CFL lighting scheme  Bachat Lamp Yojana,CFL Lighting Scheme Bachat Lamp Yojana in Ernakulam,0.87,,False,False,True
 CDM:9218|GS:1240,0.89,UpEnergy Open Access Improved Cookstoves Program in Latin America,UpEnergy Open Access Improved Cookstoves Program in Latin America- Nicaragua,0.87,,False,False,True
+CDM:6797|VCS:2511,0.888,Joburg Landfill Gas to Energy Project,Joburg Landfill Gas to Energy Project. - CER Conversion,0.888,,False,False,False
 CDM:4996|VCS:1737,0.888,Pampeana and Terra Santa Small Hydropower Plants Project Activity,Pampeana and Terra Santa Small Hydropower Plants Project Activity - CER Conversion,0.888,,False,False,False
 GS:12302|VCS:2942,0.888,Clean Cooking Program in Rural India,Clean Cooking - Cook Stove for Rural India,0.888,,False,False,False
 CAR:498|VCS:1527,0.888,Wolf Creek Landfill,Wolf Creek Landfill - CER Conversion,0.858,,False,True,False
 CDM:1252|VCS:1691,0.886,"5 MW Upper Awa small hydroelectric project, Himachal Pradesh, India",5 MW Upper Awa Hydro Power Project in Himachal Pradesh by M/s Astha Projects (India) Limited,0.766,True,False,False,True
 CDM:10547|UCR:492,0.886,Integrated Municipal Solid Waste Management Activities Programme in India,"Integrated Municipal Solid Waste Management Activities Programme, Nashik, India",0.886,,False,False,False
 CDM:2636|GS:10887,0.886,"AVN08-S-01, Methane Recovery and Biogas Utilization Project, Nghe An Province, Vietnam",AVN08-S-01 Methane Recovery and Biogas Utilization Project Nghe An Province Vietna,0.866,,False,False,True
+CDM:3223|VCS:1282,0.885,CFL lighting scheme  Bachat Lamp Yojana,CFL LIGHTING SCHEME BACHAT LAMP YOJANA IN ALLAPPUZHA,0.865,,False,False,True
 CDM:10261|VCS:2600,0.885,Oeste de Caucaia Landfill Project Activity,Oeste de Caucaia Landfill Project Activity - CER Conversion,0.885,,False,False,False
 CDM:6648|GS:774,0.885,Saraff Biogas Wastewater Treatment and Biogas Utilisation Project,Saraff Biogas Wastewater Treatment and Biogas Utilisation project (300177)_pre-CDM VER,0.865,,False,False,True
 GS:12959|VCS:3196,0.885,Paracel Carbon Forestry Project,Paracel ARR Carbon Forestry Project,0.835,,True,False,False
 GS:12881|VCS:3196,0.885,Paracel Carbon Forestry Project,Paracel ARR Carbon Forestry Project,0.835,,True,False,False
+GS:6264|VCS:5196,0.883,Improved Cook Stoves programme for Rwanda CPA 0008,Improved cookstove distribution in Rwanda,0.883,,False,False,False
+GS:4259|VCS:5196,0.883,CPA 4 Improved Cook Stoves programme for Rwanda,Improved cookstove distribution in Rwanda,0.883,,False,False,False
+CDM:6207|VCS:5196,0.883,Improved Cook Stoves programme for Rwanda,Improved cookstove distribution in Rwanda,0.883,,False,False,False
+GS:6272|VCS:5196,0.883,Improved Cook Stoves programme for Rwanda CPA 0010,Improved cookstove distribution in Rwanda,0.883,,False,False,False
+GS:1023|VCS:5196,0.883,GS1023 Improved Cook Stoves programme for Rwanda,Improved cookstove distribution in Rwanda,0.883,,False,False,False
+GS:1060|VCS:5196,0.883,Improved Cook Stoves programme for Rwanda,Improved cookstove distribution in Rwanda,0.883,,False,False,False
+GS:6271|VCS:5196,0.883,Improved Cook Stoves programme for Rwanda CPA 0009,Improved cookstove distribution in Rwanda,0.883,,False,False,False
+GS:4261|VCS:5196,0.883,CPA 5 Improved Cook Stoves programme for Rwanda,Improved cookstove distribution in Rwanda,0.883,,False,False,False
 GS:10410|VCS:1073,0.882,Vaayu India Wind Power Project in Andhra Pradesh (GS4603 CER to VER conversion),Vaayu India Wind Power Project in Andhra Pradesh,0.862,,False,False,True
 CDM:2792|VCS:567,0.881,"N2O abatement in HP Nitric Acid plants at Rashtriya Chemicals & Fertilizers Limited, India","N2O abatement in MP Nitric Acid plants at Rashtriya Chemicals & Fertilizers Limited, India",0.881,,False,False,False
 CDM:1268|VCS:136,0.881,Tungabhadra wind power project in Karnataka,Tungabhadra Wind Power Project.,0.881,,False,False,False
 GS:10662|UCR:501,0.88,"Vaayu India Wind Power Project in Jaisalmer, Rajasthan",Vaayu India Wind Power Project in Jaisalmer Rajasthan (GS5013 CER to VER conversion),0.88,,False,False,False
-CDM:5186|GS:10662,0.88,"Vaayu India Wind Power Project in Jaisalmer, Rajasthan",Vaayu India Wind Power Project in Jaisalmer Rajasthan (GS5013 CER to VER conversion),0.88,,False,False,False
 GS:7685|VCS:895,0.88,GREEN ENERGY TO GRID at Dhule Maharashtra,"20.8 MW Grid connected wind electricity generation project at Dhule, Maharashtra.",0.86,,False,False,True
+CDM:5186|GS:10662,0.88,"Vaayu India Wind Power Project in Jaisalmer, Rajasthan",Vaayu India Wind Power Project in Jaisalmer Rajasthan (GS5013 CER to VER conversion),0.88,,False,False,False
+CDM:3223|VCS:1283,0.88,CFL lighting scheme  Bachat Lamp Yojana,CFL Lighting Scheme Bachat Lamp Yojana in Perumbavoor,0.86,,False,False,True
 CDM:4888|GS:772,0.88,Pitak Palm Wastewater Treatment and Biogas Utilization Project,Pitak Palm Wastewater Treatment and Biogas Utilization Project (300335)_pre-CDM VER,0.88,,False,False,False
 CDM:799|GS:3976,0.879,Santa Marta Landfill Gas (LFG) Capture Project.,Santa Marta Landfill Gas (LFG) Capture for Electricity Generation Project,0.879,,False,False,False
 CDM:5219|VCS:784,0.878,1.6 MW Bundled Rice Husk Based Cogeneration Plant by M/s Milkfood Limited in Patiala (Punjab) & Moradabad (U.P) Districts,1.6 MW Bundled Rice Husk Based Cogeneration Plant by M/s Milk food Limited (MFL) in Patiala (Punjab) & Moradabad (U.P) Districts,0.758,True,False,False,True
 CDM:10738|GS:12979,0.878,Providing water purifiers and improved cook-stoves to prevent deforestation and to enhance livelihoods for Timor-Leste,Providing improved cookstoves to prevent deforestation and to enhance livelihoods for Timor-Leste,0.878,,False,False,False
 ACR:0115|VCS:774,0.878,Lower Mississippi Valley Reforestation,Reforestation Across the Lower Mississippi Valley,0.858,,False,False,True
+CDM:7247|GS:4261,0.877,Efficient Cook Stove Programme: Rwanda,CPA 5 Improved Cook Stoves programme for Rwanda,0.877,,False,False,False
+CDM:7247|GS:6271,0.877,Efficient Cook Stove Programme: Rwanda,Improved Cook Stoves programme for Rwanda CPA 0009,0.877,,False,False,False
+CDM:7247|GS:6264,0.877,Efficient Cook Stove Programme: Rwanda,Improved Cook Stoves programme for Rwanda CPA 0008,0.877,,False,False,False
+CDM:7247|GS:1023,0.877,Efficient Cook Stove Programme: Rwanda,GS1023 Improved Cook Stoves programme for Rwanda,0.877,,False,False,False
+CDM:7247|GS:6272,0.877,Efficient Cook Stove Programme: Rwanda,Improved Cook Stoves programme for Rwanda CPA 0010,0.877,,False,False,False
+CDM:7247|GS:4259,0.877,Efficient Cook Stove Programme: Rwanda,CPA 4 Improved Cook Stoves programme for Rwanda,0.877,,False,False,False
 CDM:8480|VCS:1720,0.877,Distribution of ONIL StovesGuatemala,ONIL Stoves —Guatemala – CPA 002,0.877,,False,False,False
+CDM:3223|VCS:1268,0.876,CFL lighting scheme  Bachat Lamp Yojana,CFL LIGHTING SCHEME BACHAT LAMP YOJANA IN KOTTARAKKARA,0.856,,False,False,True
 GS:3958|VCS:1677,0.873,Vaayu India Wind Power Project in Gujarat,Vaayu India Wind Power Project in Gujarat - CER Conversion,0.853,,False,False,True
 GS:7078|VCS:1815,0.873,216 MWac Adani Green Energy (Tamilnadu) Solar Power Project,Renewable Solar Power Project by Adani Green Energy Limited,0.853,,False,False,True
-GS:11451|VCS:4196,0.87,GS11450 - MicroEnergy Credits – Microfinance for Clean Energy Product Lines – India - CPA 17 - GS11451,MicroEnergy Credits - Microfinance for Efficient Lighting Product Lines - India,0.82,,True,False,False
-GS:11475|VCS:4196,0.87,GS11450 - MicroEnergy Credits – Microfinance for Clean Energy Product Lines – India - CPA 03 - GS11475,MicroEnergy Credits - Microfinance for Efficient Lighting Product Lines - India,0.82,,True,False,False
-GS:11486|VCS:4196,0.87,GS11450 - MicroEnergy Credits – Microfinance for Clean Energy Product Lines – India - CPA 18 - GS11486,MicroEnergy Credits - Microfinance for Efficient Lighting Product Lines - India,0.82,,True,False,False
+CDM:6083|VCS:2432,0.873,Omnia N2O Abatement Project II,Omnia N2O Abatement Project II - CER Conversion,0.873,,False,False,False
+CDM:3223|VCS:1280,0.871,CFL lighting scheme  Bachat Lamp Yojana,CFL LIGHTING SCHEME BACHAT LAMP YOJANA IN IRINJALAKKUDA,0.851,,False,False,True
 GS:11489|VCS:4196,0.87,GS11450 - MicroEnergy Credits – Microfinance for Clean Energy Product Lines – India - CPA 34 - GS11489,MicroEnergy Credits - Microfinance for Efficient Lighting Product Lines - India,0.82,,True,False,False
-GS:11491|VCS:4196,0.87,GS11450 - MicroEnergy Credits – Microfinance for Clean Energy Product Lines – India - CPA 31 - GS11491,MicroEnergy Credits - Microfinance for Efficient Lighting Product Lines - India,0.82,,True,False,False
-GS:11450|VCS:4196,0.87,MicroEnergy Credits – Microfinance for Clean Energy Product Lines – India,MicroEnergy Credits - Microfinance for Efficient Lighting Product Lines - India,0.82,,True,False,False
-GS:11452|VCS:4196,0.87,GS11450 - MicroEnergy Credits – Microfinance for Clean Energy Product Lines – India - CPA 32 - GS11452,MicroEnergy Credits - Microfinance for Efficient Lighting Product Lines - India,0.82,,True,False,False
-GS:11505|VCS:4196,0.87,GS11450 - MicroEnergy Credits – Microfinance for Clean Energy Product Lines – India - CPA 06 - GS11505,MicroEnergy Credits - Microfinance for Efficient Lighting Product Lines - India,0.82,,True,False,False
-GS:11490|VCS:4196,0.87,GS11450 - MicroEnergy Credits – Microfinance for Clean Energy Product Lines – India - CPA 33 - GS11490,MicroEnergy Credits - Microfinance for Efficient Lighting Product Lines - India,0.82,,True,False,False
-GS:1233|VCS:4196,0.87,MicroEnergy Credits - Microfinance for Clean Energy Product Lines - India,MicroEnergy Credits - Microfinance for Efficient Lighting Product Lines - India,0.82,,True,False,False
+GS:11451|VCS:4196,0.87,GS11450 - MicroEnergy Credits – Microfinance for Clean Energy Product Lines – India - CPA 17 - GS11451,MicroEnergy Credits - Microfinance for Efficient Lighting Product Lines - India,0.82,,True,False,False
 GS:11504|VCS:4196,0.87,GS11450 - MicroEnergy Credits – Microfinance for Clean Energy Product Lines – India - CPA 05 - GS11504,MicroEnergy Credits - Microfinance for Efficient Lighting Product Lines - India,0.82,,True,False,False
-GS:11484|VCS:4196,0.87,GS11450 - MicroEnergy Credits – Microfinance for Clean Energy Product Lines – India - CPA 14 - GS11484,MicroEnergy Credits - Microfinance for Efficient Lighting Product Lines - India,0.82,,True,False,False
+GS:11481|VCS:4196,0.87,GS11450 - MicroEnergy Credits – Microfinance for Clean Energy Product Lines – India - CPA 11 - GS11481,MicroEnergy Credits - Microfinance for Efficient Lighting Product Lines - India,0.82,,True,False,False
+GS:11475|VCS:4196,0.87,GS11450 - MicroEnergy Credits – Microfinance for Clean Energy Product Lines – India - CPA 03 - GS11475,MicroEnergy Credits - Microfinance for Efficient Lighting Product Lines - India,0.82,,True,False,False
+GS:11479|VCS:4196,0.87,GS11450 - MicroEnergy Credits – Microfinance for Clean Energy Product Lines – India - CPA 09 - GS11479,MicroEnergy Credits - Microfinance for Efficient Lighting Product Lines - India,0.82,,True,False,False
+GS:11896|VCS:4196,0.87,GS11450 - MicroEnergy Credits – Microfinance for Clean Energy Product Lines – India - CPA 37 - GS11896,MicroEnergy Credits - Microfinance for Efficient Lighting Product Lines - India,0.82,,True,False,False
+GS:11894|VCS:4196,0.87,GS11450 - MicroEnergy Credits – Microfinance for Clean Energy Product Lines – India - CPA 35 - GS11894,MicroEnergy Credits - Microfinance for Efficient Lighting Product Lines - India,0.82,,True,False,False
+GS:11490|VCS:4196,0.87,GS11450 - MicroEnergy Credits – Microfinance for Clean Energy Product Lines – India - CPA 33 - GS11490,MicroEnergy Credits - Microfinance for Efficient Lighting Product Lines - India,0.82,,True,False,False
 GS:11482|VCS:4196,0.87,GS11450 - MicroEnergy Credits – Microfinance for Clean Energy Product Lines – India - CPA 12 - GS11482,MicroEnergy Credits - Microfinance for Efficient Lighting Product Lines - India,0.82,,True,False,False
+GS:11486|VCS:4196,0.87,GS11450 - MicroEnergy Credits – Microfinance for Clean Energy Product Lines – India - CPA 18 - GS11486,MicroEnergy Credits - Microfinance for Efficient Lighting Product Lines - India,0.82,,True,False,False
+GS:11476|VCS:4196,0.87,GS11450 - MicroEnergy Credits – Microfinance for Clean Energy Product Lines – India - CPA 04 - GS11476,MicroEnergy Credits - Microfinance for Efficient Lighting Product Lines - India,0.82,,True,False,False
+GS:11897|VCS:4196,0.87,GS11450 - MicroEnergy Credits – Microfinance for Clean Energy Product Lines – India - CPA 38 - GS11897,MicroEnergy Credits - Microfinance for Efficient Lighting Product Lines - India,0.82,,True,False,False
+GS:11474|VCS:4196,0.87,GS11450 - MicroEnergy Credits – Microfinance for Clean Energy Product Lines – India - CPA 02 - GS11474,MicroEnergy Credits - Microfinance for Efficient Lighting Product Lines - India,0.82,,True,False,False
+GS:11485|VCS:4196,0.87,GS11450 - MicroEnergy Credits – Microfinance for Clean Energy Product Lines – India - CPA 15 - GS11485,MicroEnergy Credits - Microfinance for Efficient Lighting Product Lines - India,0.82,,True,False,False
 GS:11483|VCS:4196,0.87,GS11450 - MicroEnergy Credits – Microfinance for Clean Energy Product Lines – India - CPA 13 - GS11483,MicroEnergy Credits - Microfinance for Efficient Lighting Product Lines - India,0.82,,True,False,False
 GS:1204|VCS:4196,0.87,MicroEnergy Credits Microfinance For Clean Energy Product Lines India,MicroEnergy Credits - Microfinance for Efficient Lighting Product Lines - India,0.82,,True,False,False
-GS:11485|VCS:4196,0.87,GS11450 - MicroEnergy Credits – Microfinance for Clean Energy Product Lines – India - CPA 15 - GS11485,MicroEnergy Credits - Microfinance for Efficient Lighting Product Lines - India,0.82,,True,False,False
-GS:11479|VCS:4196,0.87,GS11450 - MicroEnergy Credits – Microfinance for Clean Energy Product Lines – India - CPA 09 - GS11479,MicroEnergy Credits - Microfinance for Efficient Lighting Product Lines - India,0.82,,True,False,False
-GS:11474|VCS:4196,0.87,GS11450 - MicroEnergy Credits – Microfinance for Clean Energy Product Lines – India - CPA 02 - GS11474,MicroEnergy Credits - Microfinance for Efficient Lighting Product Lines - India,0.82,,True,False,False
-GS:11477|VCS:4196,0.87,GS11450 - MicroEnergy Credits – Microfinance for Clean Energy Product Lines – India - CPA 07 - GS11477,MicroEnergy Credits - Microfinance for Efficient Lighting Product Lines - India,0.82,,True,False,False
-GS:11895|VCS:4196,0.87,GS11450 - MicroEnergy Credits – Microfinance for Clean Energy Product Lines – India - CPA 36 - GS11895,MicroEnergy Credits - Microfinance for Efficient Lighting Product Lines - India,0.82,,True,False,False
-GS:11480|VCS:4196,0.87,GS11450 - MicroEnergy Credits – Microfinance for Clean Energy Product Lines – India - CPA 10 - GS11480,MicroEnergy Credits - Microfinance for Efficient Lighting Product Lines - India,0.82,,True,False,False
-GS:11897|VCS:4196,0.87,GS11450 - MicroEnergy Credits – Microfinance for Clean Energy Product Lines – India - CPA 38 - GS11897,MicroEnergy Credits - Microfinance for Efficient Lighting Product Lines - India,0.82,,True,False,False
-GS:11476|VCS:4196,0.87,GS11450 - MicroEnergy Credits – Microfinance for Clean Energy Product Lines – India - CPA 04 - GS11476,MicroEnergy Credits - Microfinance for Efficient Lighting Product Lines - India,0.82,,True,False,False
-GS:11478|VCS:4196,0.87,GS11450 - MicroEnergy Credits – Microfinance for Clean Energy Product Lines – India - CPA 08 - GS11478,MicroEnergy Credits - Microfinance for Efficient Lighting Product Lines - India,0.82,,True,False,False
-GS:11896|VCS:4196,0.87,GS11450 - MicroEnergy Credits – Microfinance for Clean Energy Product Lines – India - CPA 37 - GS11896,MicroEnergy Credits - Microfinance for Efficient Lighting Product Lines - India,0.82,,True,False,False
-GS:11481|VCS:4196,0.87,GS11450 - MicroEnergy Credits – Microfinance for Clean Energy Product Lines – India - CPA 11 - GS11481,MicroEnergy Credits - Microfinance for Efficient Lighting Product Lines - India,0.82,,True,False,False
 GS:11898|VCS:4196,0.87,GS11450 - MicroEnergy Credits – Microfinance for Clean Energy Product Lines – India - CPA 39 - GS11898,MicroEnergy Credits - Microfinance for Efficient Lighting Product Lines - India,0.82,,True,False,False
-GS:11894|VCS:4196,0.87,GS11450 - MicroEnergy Credits – Microfinance for Clean Energy Product Lines – India - CPA 35 - GS11894,MicroEnergy Credits - Microfinance for Efficient Lighting Product Lines - India,0.82,,True,False,False
+GS:11452|VCS:4196,0.87,GS11450 - MicroEnergy Credits – Microfinance for Clean Energy Product Lines – India - CPA 32 - GS11452,MicroEnergy Credits - Microfinance for Efficient Lighting Product Lines - India,0.82,,True,False,False
+GS:11477|VCS:4196,0.87,GS11450 - MicroEnergy Credits – Microfinance for Clean Energy Product Lines – India - CPA 07 - GS11477,MicroEnergy Credits - Microfinance for Efficient Lighting Product Lines - India,0.82,,True,False,False
+GS:1233|VCS:4196,0.87,MicroEnergy Credits - Microfinance for Clean Energy Product Lines - India,MicroEnergy Credits - Microfinance for Efficient Lighting Product Lines - India,0.82,,True,False,False
+GS:11450|VCS:4196,0.87,MicroEnergy Credits – Microfinance for Clean Energy Product Lines – India,MicroEnergy Credits - Microfinance for Efficient Lighting Product Lines - India,0.82,,True,False,False
+GS:11480|VCS:4196,0.87,GS11450 - MicroEnergy Credits – Microfinance for Clean Energy Product Lines – India - CPA 10 - GS11480,MicroEnergy Credits - Microfinance for Efficient Lighting Product Lines - India,0.82,,True,False,False
+GS:11505|VCS:4196,0.87,GS11450 - MicroEnergy Credits – Microfinance for Clean Energy Product Lines – India - CPA 06 - GS11505,MicroEnergy Credits - Microfinance for Efficient Lighting Product Lines - India,0.82,,True,False,False
+GS:11484|VCS:4196,0.87,GS11450 - MicroEnergy Credits – Microfinance for Clean Energy Product Lines – India - CPA 14 - GS11484,MicroEnergy Credits - Microfinance for Efficient Lighting Product Lines - India,0.82,,True,False,False
+GS:11478|VCS:4196,0.87,GS11450 - MicroEnergy Credits – Microfinance for Clean Energy Product Lines – India - CPA 08 - GS11478,MicroEnergy Credits - Microfinance for Efficient Lighting Product Lines - India,0.82,,True,False,False
+GS:11895|VCS:4196,0.87,GS11450 - MicroEnergy Credits – Microfinance for Clean Energy Product Lines – India - CPA 36 - GS11895,MicroEnergy Credits - Microfinance for Efficient Lighting Product Lines - India,0.82,,True,False,False
+GS:11491|VCS:4196,0.87,GS11450 - MicroEnergy Credits – Microfinance for Clean Energy Product Lines – India - CPA 31 - GS11491,MicroEnergy Credits - Microfinance for Efficient Lighting Product Lines - India,0.82,,True,False,False
 CDM:5894|VCS:2334,0.868,Oaxaca II Wind Energy Project,Oaxaca II Wind Energy Project. - CER Conversion,0.868,,False,False,False
 CDM:9063|VCS:3010,0.868,MACAÚBAS LANDFILL GAS PROJECT,Macaúbas Landfill Gas Project - CER Conversion,0.868,,False,False,False
 GS:12670|VCS:3010,0.868,MACAÚBAS LANDFILL GAS PROJECT,Macaúbas Landfill Gas Project - CER Conversion,0.868,,False,False,False
+CDM:3223|VCS:1266,0.866,CFL lighting scheme  Bachat Lamp Yojana,CFL LIGHTING SCHEME BACHAT LAMP YOJANA IN PATHANAMTHITTA,0.846,,False,False,True
 CAR:509|VCS:1888,0.865,Larimer County Landfill Gas Project,Larimer County Landfill Gas Flaring Project,0.835,,False,True,False
+CDM:10045|VCS:4386,0.863,Fuel Efficient Stoves for Ethiopia Programme of Activity,Distribution of Fuel Efficient Improved Cookstoves in Ethiopia,0.863,,False,False,False
 CDM:5380|VCS:563,0.862,Biomass based Co-generation project by Sterling Agro Industries Ltd,Biomass based steam generation project by Sterling Agro Industries Ltd.,0.842,,False,False,True
 CDM:4677|GS:10410,0.862,Vaayu India Wind Power Project in Andhra Pradesh,Vaayu India Wind Power Project in Andhra Pradesh (GS4603 CER to VER conversion),0.862,,False,False,False
 GS:4534|VCS:2716,0.862,"Improved Cookstoves Program in Honduras ""Vida Mejor con Ecofogones de Alto","Improved Cookstoves Program in Honduras ""Vida Mejor con Ecofogones de Alto Rendimiento"" - CER Conversion",0.842,,False,False,True
@@ -189,165 +276,169 @@ GS:3014|VCS:1699,0.86,Song Chung Hydropower Project,Song Chung Hydropower Projec
 CDM:4867|VCS:417,0.86,Chantaburi Starch Wastewater Treatment and Biogas Utilization Project,P.S.C Starch Wastewater Treatment and Biogas Utilization Project,0.84,,False,False,True
 CDM:931|GS:2477,0.86,San Carlos Renewable Energy Project,San Carlos Solar Energy Project,0.86,,False,False,False
 CDM:3854|VCS:477,0.858,20 MW Enercon Wind farms (SAI) Pvt. Limited in Maharashtra,20 MW Enercon Windfarms (SAI) Pvt. Limited in Maharashtra,0.758,True,False,False,False
-GS:565|VCS:417,0.858,Bangna Starch Wastewater Treatment and Biogas Utilization Project (300084),P.S.C Starch Wastewater Treatment and Biogas Utilization Project,0.838,,False,False,True
 CDM:2556|VCS:417,0.858,Bangna Starch Wastewater Treatment and Biogas Utilization Project,P.S.C Starch Wastewater Treatment and Biogas Utilization Project,0.838,,False,False,True
+GS:565|VCS:417,0.858,Bangna Starch Wastewater Treatment and Biogas Utilization Project (300084),P.S.C Starch Wastewater Treatment and Biogas Utilization Project,0.838,,False,False,True
 CDM:10510|VCS:6047,0.858,"Reforestation  of  Grazing  Lands  Hacienda  El  Manantial  in  Puerto  Lopez, Colombia","REFORESTATION OF GRAZING LANDS HACIENDA EL MANANTIAL IN PUERTO LÓPEZ, COLOMBIA",0.858,,False,False,False
 UCR:378|VCS:437,0.857,Small Scale Wind Power Project in Kutch District,"12 MW Wind Power Project in Kutch, Gujarat",0.857,,False,False,False
 CDM:2400|UCR:378,0.857,"12 MW Wind Power Project in Kutch, Gujarat",Small Scale Wind Power Project in Kutch District,0.857,,False,False,False
-CDM:9181|GS:12066,0.854,MicroEnergy Credits  Microfinance for Clean Energy Product Lines  India,MicroEnergy Credits – Microfinance for Clean Cooking Product Lines - India,0.854,,False,False,False
 ACR:0644|CAR:2217,0.854,Willow Lake Abandoned Mine Methane Recovery Project,Rend Lake Abandoned Mine Methane Recovery Project,0.774,,True,True,False
-CDM:8789|VCS:1163,0.853,"Wind Power Project at Tirupur District, Tamilnadu,India",Wind Power Project in Tirupur District,0.853,,False,False,False
-CDM:10583|VCS:1815,0.853,216 MWac Adani Green Energy (Tamilnadu) Solar Power Project,Renewable Solar Power Project by Adani Green Energy Limited,0.853,,False,False,False
 UCR:500|VCS:1677,0.853,Vaayu India Wind Power Project in Gujarat,Vaayu India Wind Power Project in Gujarat - CER Conversion,0.853,,False,False,False
 CDM:4700|VCS:1677,0.853,Vaayu India Wind Power Project in Gujarat.,Vaayu India Wind Power Project in Gujarat - CER Conversion,0.853,,False,False,False
+CDM:8789|VCS:1163,0.853,"Wind Power Project at Tirupur District, Tamilnadu,India",Wind Power Project in Tirupur District,0.853,,False,False,False
+CDM:10583|VCS:1815,0.853,216 MWac Adani Green Energy (Tamilnadu) Solar Power Project,Renewable Solar Power Project by Adani Green Energy Limited,0.853,,False,False,False
 CDM:275|VCS:1909,0.853,Santa Ana Hydroelectric Plant,Santa Ana Hydroelectric Plant - CER Conversion,0.833,,False,False,True
 CDM:865|VCS:1388,0.851,26 MW Biomass (Cogeneration) based Power generation Project activity,"Biomass based cogeneration project at Bihar, India",0.851,,False,False,False
-CDM:10189|GS:12056,0.85,"Waste Heat Recovery based power generation by Shree Cement Limited at Ras, Rajasthan, India",Waste Heat Recovery based power generation by Shree Cement Limited at Ras Rajasthan India,1.0,,False,False,False
-GS:7717|VCS:1805,0.85,250 MW Solar Power project by SB Energy,Solar Energy Project(s) by SB Energy Private Limited,0.885,,True,False,True
-GCC:1078|VCS:1904,0.85,180 MW Wind Power Project by Green Infra Wind Energy Limited,Wind Power Project in Tamil Nadu by Green Infra Renewable Energy Limited,0.861,,False,False,True
-GS:7468|VCS:1776,0.85,300 MW Wind Energy Project by Green Infra Wind Energy Limited,Wind Power Project by Green Infra Wind Power Generation Limited,0.903,,True,False,False
-CDM:6352|VCS:1092,0.85,"Solar Power Project in Gujarat, India by Waa Solar Private Limited","SOLAR POWER PROJECT IN GUJARAT, INDIA BY WAA SOLAR LIMITED",1.0,,False,False,True
-GS:6853|VCS:344,0.85,Wind power project by HZL in Gujarat.,Wind power project by HZL in Gujarat.,1.0,,True,False,True
-CDM:7442|GS:7555,0.85,Solar PV power project by Roha Dyechem Pvt. Ltd. (EKIESL.CDM.Aug-11-02),Solar PV power project by Roha Dyechem Pvt. Ltd. (EKIESL.CDM.Aug-11-02),1.0,,False,False,False
+CDM:10515|GS:5314,0.851,Kenya Solar Lighting CDM Programme of Activities,GS5304 MKOPA Solar Lighting Programme of Activities - Kenya VPA 1,0.831,,False,False,True
+CDM:9480|GS:7588,0.85,Wind Power Project in Rajasthan by RSPL Limited,Wind Power Project in Rajasthan by RSPL Limited,1.0,,False,False,True
+CDM:5871|VCS:930,0.85,"Wind power project by TVS Energy Limited in Theni, Tamil Nadu","Wind power project by TVS Energy Limited in Theni, Tamil Nadu",1.0,,False,False,True
 GS:6756|VCS:1669,0.85,30 MW Wind Energy Project by Giriraj Enterprises,Bundled Wind Power Project by Giriraj Enterprises,0.936,,False,False,False
+CDM:4489|UCR:180,0.85,Wind Energy Project in Maharashtra by M/s Shah Promoters & Developers,7.2 MW small-scale bundled wind power project by M/s Shah Promoters and Developers,0.891,True,False,False,False
+CDM:10288|GS:4533,0.85,Solar Power Project by Fortum FinnSurya (EKIESL-CDM.February-15-01),Solar Power Project by Fortum FinnSurya (EKIESL-CDM.February-15-01),1.0,,False,False,False
+CDM:5096|VCS:1164,0.85,Wind Power Project by NACL in Tamil Nadu,Wind Power Project by NACL in Tamil Nadu,1.0,,False,False,True
+GS:7469|VCS:701,0.85,50.6 MW Wind Energy Project by Powerica Limited,Wind power project at Gujarat by Powerica Limited,0.866,,True,False,False
+GS:7717|VCS:1805,0.85,250 MW Solar Power project by SB Energy,Solar Energy Project(s) by SB Energy Private Limited,0.885,,True,False,True
+GS:7468|VCS:1776,0.85,300 MW Wind Energy Project by Green Infra Wind Energy Limited,Wind Power Project by Green Infra Wind Power Generation Limited,0.903,,True,False,False
+GCC:1096|VCS:6107,0.85,Wind project by Juniper Green Beam Private Limited in Gujarat,Wind power project by Juniper Green Beam Private Limited,0.926,,False,False,False
+CDM:10315|GS:11942,0.85,Solar Power Project by Hero Group (EKIESL-CDM.May-15-01),Solar Power Project by Hero Group (EKIESL- CDM.May-15-01),1.0,,False,False,False
+GS:6853|VCS:344,0.85,Wind power project by HZL in Gujarat.,Wind power project by HZL in Gujarat.,1.0,,True,False,True
+GS:7614|VCS:1151,0.85,Wind based power project in Maharashtra by Siddhayu Ayurvedic Research Foundation Pvt. Ltd.,Wind based power project in Maharashtra by Siddhayu Ayurvedic Research Foundation Pvt. Ltd,1.0,,False,False,True
 GS:7555|VCS:1090,0.85,Solar PV power project by Roha Dyechem Pvt. Ltd. (EKIESL.CDM.Aug-11-02),Solar PV power project by Roha Dyechem Pvt.  Ltd. (EKIESL.CDM.Aug-11-02),1.0,,False,False,True
-CDM:10602|GS:5673,0.85,Renewable Energy Power project by DDWL,Renewable Energy Power project by DDWL,1.0,,False,False,False
-GS:7664|VCS:2059,0.85,250 MW Solar PV Plant by Mahindra Renewables in Rajasthan,Renewable Solar Power Project by Mahindra Renewables Private Limited,0.884,,True,False,True
-CDM:1615|VCS:346,0.85,Wind power project by GFL in Gudhepanchgani,Wind power project by GFL in Gudhepanchgani,1.0,,False,False,False
+CDM:5938|VCS:1669,0.85,Grid Connected Wind Power Project by M/s Giriraj Enterprises in Madhya Pradesh,Bundled Wind Power Project by Giriraj Enterprises,0.858,,False,False,False
 GS:6832|VCS:1784,0.85,50 MW Solar Power Project by Mytrah Energy India Private Limited,Solar Power Project by Mytrah Energy India Private Limited,1.0,,True,False,True
 GS:7468|VCS:1904,0.85,300 MW Wind Energy Project by Green Infra Wind Energy Limited,Wind Power Project in Tamil Nadu by Green Infra Renewable Energy Limited,0.829,,True,False,False
-CDM:9576|VCS:1295,0.85,Bundled biomass based steam generation project in India,Biomass Based Steam Generation Plant,1.0,,False,False,True
-CDM:8715|VCS:1568,0.85,"Wind Power Project by Astra Lifecare (India) Private Limited at Gujarat, India","Wind Power Project by ASTRA LIFECARE (INDIA) PRIVATE LIMITED at GUJARAT, INDIA",1.0,,False,False,True
-CDM:8890|GS:4828,0.85,Bundled Wind Power Project by Peethambra Granites Pvt Ltd (EKIESL-CDM. November -11-01),Bundled Wind Power Project by Peethambra Granites Pvt Ltd (EKIESL-CDM. November -11-01),1.0,,False,False,False
-CDM:6621|VCS:1441,0.85,"Grid connected clean energy project in Jamnagar, Gujarat","Bundled clean energy project in jamnagar, Gujarat",1.0,,False,False,True
-CDM:8524|VCS:1671,0.85,"Wind based power generation by Panama Wind Energy Private Limited in Maharashtra, India","Wind based power generation by Panama Wind Energy Private Limited in Maharashtra, India",1.0,,False,False,False
-CDM:10370|GS:7619,0.85,Renewable Power Project by the Kiran Group (EKIESL- CDM. September 15-02),Renewable Power Project by the Kiran Group (EKIESL- CDM. September 15-02),1.0,,False,False,True
-CDM:8551|GS:7789,0.85,Wind power project in Maharashtra by TVS Energy Limited,Wind power project in Maharashtra by TVS Energy Limited,1.0,,False,False,False
+CDM:3550|VCS:870,0.85,"Wind Power Project by M/s Chhotabhai Jethabhai Patel & Co. (CJP) at Sinnar, Maharashtra","Wind Power Project by M/s Chhotabhai Jethabhai Patel & Co. (CJP) at Sinnar, Maharashtra",1.0,,False,False,True
+CDM:2339|VCS:622,0.85,"4.5 MW Grid connected Wind Electricity Generation at Tirunelveli District, Tamil Nadu","Bundled Wind Power Project in Tirunelveli, Tamil Nadu",0.851,,False,False,True
+CDM:7377|VCS:1419,0.85,Wind Power Project by Rajasthan Gum Private Limited (EKI.CDM.July-11-01),Wind Power Project by Rajasthan Gum Private Limited (EKI.CDM.July-11-01),1.0,,False,False,True
+CDM:1856|VCS:344,0.85,Wind power project by HZL in Gujarat.,Wind power project by HZL in Gujarat.,1.0,,False,False,False
+CDM:5485|VCS:891,0.85,"Bundled Wind Power generation project by Savita Oil Technologies Ltd., India","Bundled Wind Power generation project by Savita Oil Technologies Ltd., India",1.0,,False,False,True
+CDM:9793|GCC:409,0.85,5.4 MW bundled Wind power project activity in kutch district of Gujarat,"Wind Energy Project in Kutch, Gujarat",0.919,,False,False,False
+UCR:544|VCS:2044,0.85,49.6 MW Wind Project by Torrent Green Energy Pvt Ltd in Gujarat,Renewable Wind Power Project by Torrent Power,0.809,,True,False,False
+CDM:8324|VCS:1079,0.85,"Wind power project in Jamnagar District, Gujarat, India","Bundled Wind Power Project in Jamnagar, Gujarat",1.0,,False,False,False
+CDM:4848|VCS:735,0.85,Wind power project by PMPL in Maharashtra,Wind power project by PMPL in Maharashtra,1.0,,False,False,True
+CDM:10073|GS:7755,0.85,Wind Energy Project in Gujarat by Enn Enn Corp Limited,Wind Energy Project in Gujarat by Enn Enn Corp Limited,1.0,,False,False,True
+CDM:1824|GS:6854,0.85,Wind power project by HZL in Karnataka.,Wind power project by HZL in Karnataka,1.0,,False,False,False
+CDM:3046|VCS:1816,0.85,"9.0 MW grid connected bundled wind electricity generation project at Tirunelveli, Tamilnadu",Wind power project in Tirunelveli Tamilnadu,0.847,,False,False,True
+CDM:7901|VCS:1018,0.85,Wind power project in Tamil Nadu by SWPPL,Wind power project in Tamil Nadu by SWPPL,1.0,,False,False,False
+CDM:10602|GS:5673,0.85,Renewable Energy Power project by DDWL,Renewable Energy Power project by DDWL,1.0,,False,False,False
+CDM:9757|VCS:1079,0.85,"1.25 MW Wind Power Project in Jamnagar, Gujarat","Bundled Wind Power Project in Jamnagar, Gujarat",1.0,,False,False,True
+CDM:3802|VCS:694,0.85,Bundled Wind Power Project by Sheth Developers Private Limited,Bundled Wind Power Project by Sheth Developers Private Limited,1.0,,False,False,True
+UCR:183|VCS:1467,0.85,14 MW small-scale bundled wind power project by M/s Shah Promoters and Developers,Wind Energy Project in Maharashtra by M/s Shah Promoters & Developers,0.891,,True,False,False
+GCC:1078|VCS:1776,0.85,180 MW Wind Power Project by Green Infra Wind Energy Limited,Wind Power Project by Green Infra Wind Power Generation Limited,0.933,,False,False,True
+CDM:3724|VCS:926,0.85,"Wind Power Project by Sargam Retails Pvt. Ltd. in Gujarat, India","Wind power project by Sargam Retails Pvt. Ltd. in Gujarat, India",1.0,,False,False,True
+GS:11395|VCS:1728,0.85,250 MW Wind Power Project by Mytrah Energy,Bundled Wind Power Project by Mytrah Group,0.879,,False,False,True
+CDM:4776|VCS:1912,0.85,Run-of-the-river Hydroelectric Power Project in Uttarakhand by Alaknanda Hydro Power Company Limited.,Run-of-the-river Hydroelectric Power Project in Uttarakhand by Alaknanda Hydro Power Company Limited,1.0,,False,False,False
+CDM:5845|VCS:1024,0.85,"Grid Connected Wind Power Project by M/s. Giriraj Enterprises at Tejuva, Rajasthan","Grid Connected Wind Power Project by M/s. Giriraj Enterprises at Tejuva, Rajasthan",1.0,,False,False,True
+GS:7725|VCS:1805,0.85,330 MW Solar Power project in Rajasthan by SB Energy,Solar Energy Project(s) by SB Energy Private Limited,0.867,,True,False,True
+CDM:10039|VCS:2248,0.85,Wind energy project by LWEPL - 1,Wind energy project by LWEPL-1,1.0,,False,False,False
+CDM:8672|VCS:1211,0.85,Green Energy Project at Gujarat by Powerica Limited,Green Energy Project at Gujarat by Powerica Limited,1.0,,False,False,False
+GCC:1078|VCS:1904,0.85,180 MW Wind Power Project by Green Infra Wind Energy Limited,Wind Power Project in Tamil Nadu by Green Infra Renewable Energy Limited,0.861,,False,False,True
+CDM:10382|GS:4531,0.85,Wind Power Project by Markdata Green Energy (EKIESL-CDM.January-15-01),Wind Power Project by Markdata Green Energy (EKIESL-CDM.January-15-01),1.0,,False,False,False
+GS:7621|VCS:701,0.85,50.6 MW Wind Power Project in Gujarat by Powerica Limited,Wind power project at Gujarat by Powerica Limited,1.0,,True,False,False
+CDM:10375|VCS:955,0.85,EnKing International Renewable Energy POA,Bundled Wind Energy Project in Indian States:- EnKing International 2006.,0.887,,False,False,False
 CDM:10409|GS:5256,0.85,Bundled Wind Power Project by Woodside Fashions Limited & Group (EKIESL-CDM.June-16-01),Bundled Wind Power Project by Woodside Fashions Limited & Group (EKIESL-CDM.June-16-01),1.0,,False,False,True
-CDM:10136|VCS:2257,0.85,Wind Power Project by M/s D. J. Malpani at Jath in Maharashtra,Wind Power Project by M/s D. J. Malpani at Jath in Maharashtra,1.0,,False,False,False
+CDM:10508|GS:7632,0.85,Wind power project in Gujarat by Kaze Energy Limited,Wind power project in Gujarat by Kaze Energy Limited,1.0,,False,False,False
+CDM:5794|VCS:1021,0.85,Grid Connected Wind Power Project by M/s. D. J. Malpani in Rajasthan,Grid Connected Wind Power Project by M/s. D. J. Malpani in Rajasthan,1.0,,False,False,True
+CDM:8715|VCS:1568,0.85,"Wind Power Project by Astra Lifecare (India) Private Limited at Gujarat, India","Wind Power Project by ASTRA LIFECARE (INDIA) PRIVATE LIMITED at GUJARAT, INDIA",1.0,,False,False,True
 CDM:7610|VCS:1442,0.85,"Bundled clean energy project in jamnagar, Gujarat","Grid connected clean energy project in Jamnagar, Gujarat",1.0,,False,False,True
-CDM:5700|GS:7614,0.85,Wind based power project in Maharashtra by Siddhayu Ayurvedic Research Foundation Pvt. Ltd.,Wind based power project in Maharashtra by Siddhayu Ayurvedic Research Foundation Pvt. Ltd.,1.0,,False,False,True
-GS:7614|VCS:1151,0.85,Wind based power project in Maharashtra by Siddhayu Ayurvedic Research Foundation Pvt. Ltd.,Wind based power project in Maharashtra by Siddhayu Ayurvedic Research Foundation Pvt. Ltd,1.0,,False,False,True
 CDM:10404|GS:5523,0.85,Solar Power Project by Fortum FinnSurya Energy Pvt Ltd,Solar Power Project by Fortum FinnSurya Energy Pvt Ltd,1.0,,False,False,False
 CDM:10344|GS:12326,0.85,Bundled Wind Power Project by EKI Energy Services Limited (EKIESL-CDM.April-13-02),Bundled Wind Power Project by EKI Energy Services Limited (EKIESL-CDM.April-13-02),1.0,,False,False,True
-CDM:9793|UCR:378,0.85,5.4 MW bundled Wind power project activity in kutch district of Gujarat,Small Scale Wind Power Project in Kutch District,0.857,,False,False,False
-CDM:6437|VCS:1022,0.85,"Grid Connected Wind Power Project by M/s. D. J. Malpani at Ratan Ka Bas (RKB), Rajasthan","Grid Connected Wind Power Project by M/s. D. J. Malpani at Ratan Ka Bas (RKB), Rajasthan",1.0,,False,False,True
-CDM:3802|VCS:694,0.85,Bundled Wind Power Project by Sheth Developers Private Limited,Bundled Wind Power Project by Sheth Developers Private Limited,1.0,,False,False,True
-CDM:5938|VCS:1669,0.85,Grid Connected Wind Power Project by M/s Giriraj Enterprises in Madhya Pradesh,Bundled Wind Power Project by Giriraj Enterprises,0.858,,False,False,False
-CDM:10375|VCS:955,0.85,EnKing International Renewable Energy POA,Bundled Wind Energy Project in Indian States:- EnKing International 2006.,0.887,,False,False,False
-GS:7725|VCS:1805,0.85,330 MW Solar Power project in Rajasthan by SB Energy,Solar Energy Project(s) by SB Energy Private Limited,0.867,,True,False,True
-CDM:10382|GS:4531,0.85,Wind Power Project by Markdata Green Energy (EKIESL-CDM.January-15-01),Wind Power Project by Markdata Green Energy (EKIESL-CDM.January-15-01),1.0,,False,False,False
-CDM:10375|VCS:1132,0.85,EnKing International Renewable Energy POA,Bundled Wind Energy Project in Indian States :- EnKing International 2007,0.887,,False,False,False
-CDM:5794|VCS:925,0.85,Grid Connected Wind Power Project by M/s. D. J. Malpani in Rajasthan,Bundled Wind Power Project by M/s D. J Malpani,0.9,,False,False,True
-UCR:180|VCS:1467,0.85,7.2 MW small-scale bundled wind power project by M/s Shah Promoters and Developers,Wind Energy Project in Maharashtra by M/s Shah Promoters & Developers,0.891,,True,False,False
-CDM:6317|VCS:1093,0.85,Solar Power project by Sai Sudhir Energy Limited,Solar Power Project by Sai Sudhir Energy Limited,1.0,,False,False,True
-CDM:9927|VCS:1519,0.85,"Bundled wind power project at Satara, Maharashtra","Satara Wind Power Project in Maharashtra, India",1.0,,False,False,False
-CDM:10508|GS:7632,0.85,Wind power project in Gujarat by Kaze Energy Limited,Wind power project in Gujarat by Kaze Energy Limited,1.0,,False,False,False
-GS:11395|VCS:1728,0.85,250 MW Wind Power Project by Mytrah Energy,Bundled Wind Power Project by Mytrah Group,0.879,,False,False,True
-CDM:3724|VCS:926,0.85,"Wind Power Project by Sargam Retails Pvt. Ltd. in Gujarat, India","Wind power project by Sargam Retails Pvt. Ltd. in Gujarat, India",1.0,,False,False,True
-CDM:7558|VCS:168,0.85,Bundled Wind Project Activity by M/s Bhagyanagar India Limited and M/s Surana Telecom and Power Limited,Bundled Wind Project Activity by M/s Bhagyanagar India Ltd and M/s Surana Telecom and Power Limited,1.0,,False,False,True
-GS:7469|VCS:701,0.85,50.6 MW Wind Energy Project by Powerica Limited,Wind power project at Gujarat by Powerica Limited,0.866,,True,False,False
-CDM:5700|VCS:1151,0.85,Wind based power project in Maharashtra by Siddhayu Ayurvedic Research Foundation Pvt. Ltd.,Wind based power project in Maharashtra by Siddhayu Ayurvedic Research Foundation Pvt. Ltd,1.0,,False,False,True
-CDM:10405|GS:7630,0.85,Wind energy project by KWEPL - 1,Wind energy project by KWEPL - 1,1.0,,False,False,False
-CDM:10165|VCS:925,0.85,Wind Power Project by M/s. D. J. Malpani in Maharashtra,Bundled Wind Power Project by M/s D. J Malpani,0.885,,False,False,False
-CDM:10626|GS:5880,0.85,Solar and Wind Project by Agrawal Renewable Energy Pvt. Ltd,Solar and Wind Project by Agrawal Renewable Energy Pvt. Ltd.,1.0,,False,False,True
-CDM:10040|GS:7669,0.85,Wind energy project by KWEPL - 3,Wind energy project by KWEPL - 3,1.0,,False,False,False
-CDM:10652|GS:7799,0.85,Wind Power Project in Tamil Nadu by Green Infra Renewable Energy Limited (SECI-1),Wind Power Project in Tamil Nadu by Green Infra Renewable Energy Limited (SECI-1),1.0,,False,False,False
-CDM:7442|VCS:1090,0.85,Solar PV power project by Roha Dyechem Pvt. Ltd. (EKIESL.CDM.Aug-11-02),Solar PV power project by Roha Dyechem Pvt.  Ltd. (EKIESL.CDM.Aug-11-02),1.0,,False,False,False
-CDM:8672|VCS:1211,0.85,Green Energy Project at Gujarat by Powerica Limited,Green Energy Project at Gujarat by Powerica Limited,1.0,,False,False,False
-CDM:1824|GS:6854,0.85,Wind power project by HZL in Karnataka.,Wind power project by HZL in Karnataka,1.0,,False,False,False
-CDM:3642|VCS:915,0.85,Wind Power based electricity generation project in India by DLF Home Developers Limited,WIND POWER BASED ELECTRICITY GENERATION PROJECT IN INDIA BY DLF HOME DEVELOPERS LIMITED,1.0,,False,False,False
-CDM:9480|GS:7588,0.85,Wind Power Project in Rajasthan by RSPL Limited,Wind Power Project in Rajasthan by RSPL Limited,1.0,,False,False,True
-CDM:3742|VCS:1021,0.85,Bundled Wind Power Project by M/s. D. J. Malpani,Grid Connected Wind Power Project by M/s. D. J. Malpani in Rajasthan,0.9,,False,False,True
-CDM:10437|GS:5616,0.85,Renewable Power Project by PGPL,Renewable Power Project by PGPL,1.0,,False,False,True
-CDM:1856|VCS:344,0.85,Wind power project by HZL in Gujarat.,Wind power project by HZL in Gujarat.,1.0,,False,False,False
-CDM:10361|GS:5072,0.85,Renewable Energy Project by Pramatha Power Pvt. Ltd. Goa (EKIESL- CDM. April 16-04),Renewable Energy Project by Pramatha Power Pvt. Ltd. Goa (EKIESL- CDM. April 16-04),1.0,,False,False,True
-GS:7532|VCS:1805,0.85,200 MW solar power project in India by SB Energy.,Solar Energy Project(s) by SB Energy Private Limited,0.885,,True,False,True
-CDM:5871|GS:7791,0.85,"Wind power project by TVS Energy Limited in Theni, Tamil Nadu",Wind power project by TVS Energy Limited in Theni Tamil Nadu,1.0,,False,False,True
-CDM:10336|GS:12025,0.85,Bundled Renewable Power Project by Sharma Industries (EKIESL-CDM.December-14-02),Bundled Renewable Power Project by Sharma Industries (EKIESL-CDM.December-14-02),1.0,,False,False,True
-CDM:9793|GCC:409,0.85,5.4 MW bundled Wind power project activity in kutch district of Gujarat,"Wind Energy Project in Kutch, Gujarat",0.919,,False,False,False
-CDM:3327|VCS:700,0.85,Wind power project at Tamilnadu by Powerica Limited,Wind power project at Tamilnadu by Powerica Limited,1.0,,False,False,False
-CDM:7529|GS:10459,0.85,"Grid connected wind power project in Maharashtra, India by Bhilwara",Grid Connected Wind Power Project In Maharashtra India By Bhilwara (GS3705 CER to VER Conversion),0.862,,False,False,False
-CDM:3550|VCS:870,0.85,"Wind Power Project by M/s Chhotabhai Jethabhai Patel & Co. (CJP) at Sinnar, Maharashtra","Wind Power Project by M/s Chhotabhai Jethabhai Patel & Co. (CJP) at Sinnar, Maharashtra",1.0,,False,False,True
-CDM:5096|VCS:1164,0.85,Wind Power Project by NACL in Tamil Nadu,Wind Power Project by NACL in Tamil Nadu,1.0,,False,False,True
-CDM:2339|VCS:622,0.85,"4.5 MW Grid connected Wind Electricity Generation at Tirunelveli District, Tamil Nadu","Bundled Wind Power Project in Tirunelveli, Tamil Nadu",0.851,,False,False,True
-CDM:4072|VCS:734,0.85,Wind power project by Patnaik Minerals Pvt. Ltd,Wind power project by Patnaik Minerals Pvt. Ltd.,1.0,,False,False,False
-GCC:1096|VCS:6107,0.85,Wind project by Juniper Green Beam Private Limited in Gujarat,Wind power project by Juniper Green Beam Private Limited,0.926,,False,False,False
-GS:7621|VCS:701,0.85,50.6 MW Wind Power Project in Gujarat by Powerica Limited,Wind power project at Gujarat by Powerica Limited,1.0,,True,False,False
-CDM:3046|VCS:1816,0.85,"9.0 MW grid connected bundled wind electricity generation project at Tirunelveli, Tamilnadu",Wind power project in Tirunelveli Tamilnadu,0.847,,False,False,True
-GS:1307|VCS:346,0.85,Wind power project by GFL in Gudhepanchgani,Wind power project by GFL in Gudhepanchgani,1.0,,True,False,True
-CDM:10026|VCS:1551,0.85,Wind Power Project by Rajasthan Gum Private Limited (EKIESL-CDM.September-12-02),Wind Power Project by Rajasthan Gum Private Limited (EKIESL-CDM.September-12-02),1.0,,False,False,True
-CDM:5938|VCS:1023,0.85,Grid Connected Wind Power Project by M/s Giriraj Enterprises in Madhya Pradesh,Grid Connected Wind Power Project by M/s Giriraj Enterprises in Madhya Pradesh,1.0,,False,False,True
-CDM:10568|GS:4895,0.85,Bundled Solar Power Project by Emami Power Limited,Bundled Solar Power Project by Emami Power Limited,1.0,,False,False,True
-GS:7152|VCS:1776,0.85,252 MW Wind Energy Project by Green Infra Wind Energy Limited,Wind Power Project by Green Infra Wind Power Generation Limited,0.903,,True,False,False
-CDM:3884|VCS:782,0.85,Grid connected wind energy project in Tamil Nadu by Super Wind Project Private Ltd.,Grid connected wind energy project in Tamil Nadu by Super Wind Project Private Ltd.,1.0,,False,False,False
-GS:7791|VCS:930,0.85,Wind power project by TVS Energy Limited in Theni Tamil Nadu,"Wind power project by TVS Energy Limited in Theni, Tamil Nadu",1.0,,True,False,True
-CDM:4489|VCS:1467,0.85,Wind Energy Project in Maharashtra by M/s Shah Promoters & Developers,Wind Energy Project in Maharashtra by M/s Shah Promoters & Developers,1.0,,False,False,True
-CDM:10393|GS:5830,0.85,Renewable Power Project by Emami Power Ltd,Renewable Power Project by Emami Power Ltd,1.0,,False,False,False
+CDM:8551|GS:7789,0.85,Wind power project in Maharashtra by TVS Energy Limited,Wind power project in Maharashtra by TVS Energy Limited,1.0,,False,False,False
 CDM:7437|GS:7684,0.85,Wind Power Project by RKLPL (EKIESL-CDM.September -11-01),Wind Power Project by RKLPL (EKIESL-CDM.September -11-01),1.0,,False,False,False
+CDM:5001|VCS:622,0.85,"3 MW Grid connected Wind Electricity Generation at Tirunelveli District, Tamil Nadu, India","Bundled Wind Power Project in Tirunelveli, Tamil Nadu",0.851,,False,False,True
+GS:7791|VCS:930,0.85,Wind power project by TVS Energy Limited in Theni Tamil Nadu,"Wind power project by TVS Energy Limited in Theni, Tamil Nadu",1.0,,True,False,True
+CDM:7529|GS:10459,0.85,"Grid connected wind power project in Maharashtra, India by Bhilwara",Grid Connected Wind Power Project In Maharashtra India By Bhilwara (GS3705 CER to VER Conversion),0.862,,False,False,False
+CDM:9487|VCS:1163,0.85,"9.9 MW Bundled Wind Power Project in Tirupur, Tamilnadu",Wind Power Project in Tirupur District,0.853,,False,False,False
+UCR:164|VCS:1467,0.85,12 MW small-scale bundled wind power project by M/S Shah Promoters and Developers,Wind Energy Project in Maharashtra by M/s Shah Promoters & Developers,0.891,,True,False,False
+GS:7532|VCS:1805,0.85,200 MW solar power project in India by SB Energy.,Solar Energy Project(s) by SB Energy Private Limited,0.885,,True,False,True
+CDM:10370|GS:7619,0.85,Renewable Power Project by the Kiran Group (EKIESL- CDM. September 15-02),Renewable Power Project by the Kiran Group (EKIESL- CDM. September 15-02),1.0,,False,False,True
+CDM:10165|VCS:925,0.85,Wind Power Project by M/s. D. J. Malpani in Maharashtra,Bundled Wind Power Project by M/s D. J Malpani,0.885,,False,False,False
+CDM:3884|VCS:782,0.85,Grid connected wind energy project in Tamil Nadu by Super Wind Project Private Ltd.,Grid connected wind energy project in Tamil Nadu by Super Wind Project Private Ltd.,1.0,,False,False,False
+CDM:3742|VCS:1021,0.85,Bundled Wind Power Project by M/s. D. J. Malpani,Grid Connected Wind Power Project by M/s. D. J. Malpani in Rajasthan,0.9,,False,False,True
+CDM:10636|GS:6021,0.85,Wind Power Project by Mangalam Fashions Limited & Group in Andhra Pradesh,Wind Power Project by Mangalam Fashions Limited & Group in Andhra Pradesh,1.0,,False,False,False
+CDM:10361|GS:5072,0.85,Renewable Energy Project by Pramatha Power Pvt. Ltd. Goa (EKIESL- CDM. April 16-04),Renewable Energy Project by Pramatha Power Pvt. Ltd. Goa (EKIESL- CDM. April 16-04),1.0,,False,False,True
+CDM:10136|VCS:2257,0.85,Wind Power Project by M/s D. J. Malpani at Jath in Maharashtra,Wind Power Project by M/s D. J. Malpani at Jath in Maharashtra,1.0,,False,False,False
+CDM:5794|VCS:925,0.85,Grid Connected Wind Power Project by M/s. D. J. Malpani in Rajasthan,Bundled Wind Power Project by M/s D. J Malpani,0.9,,False,False,True
+CDM:10336|GS:12025,0.85,Bundled Renewable Power Project by Sharma Industries (EKIESL-CDM.December-14-02),Bundled Renewable Power Project by Sharma Industries (EKIESL-CDM.December-14-02),1.0,,False,False,True
+CDM:9927|VCS:1519,0.85,"Bundled wind power project at Satara, Maharashtra","Satara Wind Power Project in Maharashtra, India",1.0,,False,False,False
+CDM:2947|VCS:809,0.85,Wind power project by AL  Wind Energy in Tamilnadu,Wind power project by AL – Wind Energy in Tamilnadu,1.0,,False,False,True
+CDM:4489|VCS:1467,0.85,Wind Energy Project in Maharashtra by M/s Shah Promoters & Developers,Wind Energy Project in Maharashtra by M/s Shah Promoters & Developers,1.0,,False,False,True
+CDM:10626|GS:5880,0.85,Solar and Wind Project by Agrawal Renewable Energy Pvt. Ltd,Solar and Wind Project by Agrawal Renewable Energy Pvt. Ltd.,1.0,,False,False,True
+CDM:3584|VCS:622,0.85,"1.25 MW Grid Connected Wind Electricity Generation at Tirunelveli District, Tamil Nadu","Bundled Wind Power Project in Tirunelveli, Tamil Nadu",0.851,,False,False,True
+CDM:5938|VCS:1023,0.85,Grid Connected Wind Power Project by M/s Giriraj Enterprises in Madhya Pradesh,Grid Connected Wind Power Project by M/s Giriraj Enterprises in Madhya Pradesh,1.0,,False,False,True
+CDM:6621|VCS:1441,0.85,"Grid connected clean energy project in Jamnagar, Gujarat","Bundled clean energy project in jamnagar, Gujarat",1.0,,False,False,True
+CDM:1615|GS:1307,0.85,Wind power project by GFL in Gudhepanchgani,Wind power project by GFL in Gudhepanchgani,1.0,,False,False,False
+UCR:180|VCS:1467,0.85,7.2 MW small-scale bundled wind power project by M/s Shah Promoters and Developers,Wind Energy Project in Maharashtra by M/s Shah Promoters & Developers,0.891,,True,False,False
+CDM:10437|GS:5616,0.85,Renewable Power Project by PGPL,Renewable Power Project by PGPL,1.0,,False,False,True
+CDM:6352|VCS:1092,0.85,"Solar Power Project in Gujarat, India by Waa Solar Private Limited","SOLAR POWER PROJECT IN GUJARAT, INDIA BY WAA SOLAR LIMITED",1.0,,False,False,True
+CDM:5700|GS:7614,0.85,Wind based power project in Maharashtra by Siddhayu Ayurvedic Research Foundation Pvt. Ltd.,Wind based power project in Maharashtra by Siddhayu Ayurvedic Research Foundation Pvt. Ltd.,1.0,,False,False,True
+CDM:10040|GS:7669,0.85,Wind energy project by KWEPL - 3,Wind energy project by KWEPL - 3,1.0,,False,False,False
+CDM:10375|VCS:1132,0.85,EnKing International Renewable Energy POA,Bundled Wind Energy Project in Indian States :- EnKing International 2007,0.887,,False,False,False
+GS:7152|VCS:1776,0.85,252 MW Wind Energy Project by Green Infra Wind Energy Limited,Wind Power Project by Green Infra Wind Power Generation Limited,0.903,,True,False,False
+CDM:3981|VCS:622,0.85,"1.5 MW Grid connected Wind Electricity Generation at Tirunelveli District, Tamil Nadu, India.","Bundled Wind Power Project in Tirunelveli, Tamil Nadu",0.851,,False,False,True
+CDM:1824|VCS:345,0.85,Wind power project by HZL in Karnataka.,Wind power project by HZL in Karnataka.,1.0,,False,False,False
+CDM:7442|GS:7555,0.85,Solar PV power project by Roha Dyechem Pvt. Ltd. (EKIESL.CDM.Aug-11-02),Solar PV power project by Roha Dyechem Pvt. Ltd. (EKIESL.CDM.Aug-11-02),1.0,,False,False,False
+CDM:6437|VCS:1022,0.85,"Grid Connected Wind Power Project by M/s. D. J. Malpani at Ratan Ka Bas (RKB), Rajasthan","Grid Connected Wind Power Project by M/s. D. J. Malpani at Ratan Ka Bas (RKB), Rajasthan",1.0,,False,False,True
+CDM:1856|GS:6853,0.85,Wind power project by HZL in Gujarat.,Wind power project by HZL in Gujarat.,1.0,,False,False,False
+CDM:7780|VCS:891,0.85,Wind Power Project in Tamil Nadu by Savita Oil Technologies Ltd.,"Bundled Wind Power generation project by Savita Oil Technologies Ltd., India",0.897,,False,False,True
+CDM:9793|UCR:378,0.85,5.4 MW bundled Wind power project activity in kutch district of Gujarat,Small Scale Wind Power Project in Kutch District,0.857,,False,False,False
+CDM:10652|GS:7799,0.85,Wind Power Project in Tamil Nadu by Green Infra Renewable Energy Limited (SECI-1),Wind Power Project in Tamil Nadu by Green Infra Renewable Energy Limited (SECI-1),1.0,,False,False,False
+GS:11219|VCS:1786,0.85,SOLAR PHOTOVOLTAIC PROJECT BY GIRIRAJ RENEWABLES PRIVATE LIMITED,Solar Photovoltaic Project by Giriraj Renewables Private Limited,1.0,,False,False,True
+CDM:10405|GS:7630,0.85,Wind energy project by KWEPL - 1,Wind energy project by KWEPL - 1,1.0,,False,False,False
+CDM:3327|VCS:700,0.85,Wind power project at Tamilnadu by Powerica Limited,Wind power project at Tamilnadu by Powerica Limited,1.0,,False,False,False
 GS:7469|VCS:1211,0.85,50.6 MW Wind Energy Project by Powerica Limited,Green Energy Project at Gujarat by Powerica Limited,0.806,,True,False,False
 GS:7152|VCS:1904,0.85,252 MW Wind Energy Project by Green Infra Wind Energy Limited,Wind Power Project in Tamil Nadu by Green Infra Renewable Energy Limited,0.829,,True,False,False
-CDM:10522|GS:7631,0.85,Wind project by LWEPL-2,Wind project by LWEPL-2,1.0,,False,False,False
-GS:7625|VCS:1767,0.85,200 MW Solar PV Plant by Mahindra Susten in Rajasthan,Bundled Solar Power Project by Mahindra Susten Private Limited,0.882,,False,False,True
-CDM:5871|VCS:930,0.85,"Wind power project by TVS Energy Limited in Theni, Tamil Nadu","Wind power project by TVS Energy Limited in Theni, Tamil Nadu",1.0,,False,False,True
-GS:11219|VCS:1786,0.85,SOLAR PHOTOVOLTAIC PROJECT BY GIRIRAJ RENEWABLES PRIVATE LIMITED,Solar Photovoltaic Project by Giriraj Renewables Private Limited,1.0,,False,False,True
-GS:7719|VCS:1805,0.85,600 MW Solar PV Plant by SB Energy in Rajasthan,Solar Energy Project(s) by SB Energy Private Limited,0.846,,True,False,True
-CDM:4776|VCS:1912,0.85,Run-of-the-river Hydroelectric Power Project in Uttarakhand by Alaknanda Hydro Power Company Limited.,Run-of-the-river Hydroelectric Power Project in Uttarakhand by Alaknanda Hydro Power Company Limited,1.0,,False,False,False
-CDM:2947|VCS:809,0.85,Wind power project by AL  Wind Energy in Tamilnadu,Wind power project by AL – Wind Energy in Tamilnadu,1.0,,False,False,True
-CDM:5001|VCS:622,0.85,"3 MW Grid connected Wind Electricity Generation at Tirunelveli District, Tamil Nadu, India","Bundled Wind Power Project in Tirunelveli, Tamil Nadu",0.851,,False,False,True
-CDM:7780|VCS:891,0.85,Wind Power Project in Tamil Nadu by Savita Oil Technologies Ltd.,"Bundled Wind Power generation project by Savita Oil Technologies Ltd., India",0.897,,False,False,True
-CDM:10636|GS:6021,0.85,Wind Power Project by Mangalam Fashions Limited & Group in Andhra Pradesh,Wind Power Project by Mangalam Fashions Limited & Group in Andhra Pradesh,1.0,,False,False,False
 CDM:3742|VCS:925,0.85,Bundled Wind Power Project by M/s. D. J. Malpani,Bundled Wind Power Project by M/s D. J Malpani,1.0,,False,False,True
-CDM:5845|VCS:1024,0.85,"Grid Connected Wind Power Project by M/s. Giriraj Enterprises at Tejuva, Rajasthan","Grid Connected Wind Power Project by M/s. Giriraj Enterprises at Tejuva, Rajasthan",1.0,,False,False,True
-UCR:544|VCS:2044,0.85,49.6 MW Wind Project by Torrent Green Energy Pvt Ltd in Gujarat,Renewable Wind Power Project by Torrent Power,0.809,,True,False,False
-CDM:10073|GS:7755,0.85,Wind Energy Project in Gujarat by Enn Enn Corp Limited,Wind Energy Project in Gujarat by Enn Enn Corp Limited,1.0,,False,False,True
-CDM:3632|VCS:701,0.85,Wind power project at Gujarat by Powerica Limited,Wind power project at Gujarat by Powerica Limited,1.0,,False,False,True
-CDM:4489|UCR:180,0.85,Wind Energy Project in Maharashtra by M/s Shah Promoters & Developers,7.2 MW small-scale bundled wind power project by M/s Shah Promoters and Developers,0.891,True,False,False,False
-UCR:164|VCS:1467,0.85,12 MW small-scale bundled wind power project by M/S Shah Promoters and Developers,Wind Energy Project in Maharashtra by M/s Shah Promoters & Developers,0.891,,True,False,False
-CDM:1824|VCS:345,0.85,Wind power project by HZL in Karnataka.,Wind power project by HZL in Karnataka.,1.0,,False,False,False
-CDM:9487|VCS:1163,0.85,"9.9 MW Bundled Wind Power Project in Tirupur, Tamilnadu",Wind Power Project in Tirupur District,0.853,,False,False,False
-CDM:10288|GS:4533,0.85,Solar Power Project by Fortum FinnSurya (EKIESL-CDM.February-15-01),Solar Power Project by Fortum FinnSurya (EKIESL-CDM.February-15-01),1.0,,False,False,False
-CDM:5485|VCS:891,0.85,"Bundled Wind Power generation project by Savita Oil Technologies Ltd., India","Bundled Wind Power generation project by Savita Oil Technologies Ltd., India",1.0,,False,False,True
-CDM:5794|VCS:1021,0.85,Grid Connected Wind Power Project by M/s. D. J. Malpani in Rajasthan,Grid Connected Wind Power Project by M/s. D. J. Malpani in Rajasthan,1.0,,False,False,True
-CDM:9227|VCS:1816,0.85,"4.5MW Bundled Wind Power Project in Tirunelveli, Tamilnadu, India",Wind power project in Tirunelveli Tamilnadu,1.0,,False,False,True
-CDM:10039|VCS:2248,0.85,Wind energy project by LWEPL - 1,Wind energy project by LWEPL-1,1.0,,False,False,False
-GS:6854|VCS:345,0.85,Wind power project by HZL in Karnataka,Wind power project by HZL in Karnataka.,1.0,,True,False,False
-CDM:10603|GS:7140,0.85,Solar Project by Parampujya Solar Energy Pvt. Ltd.,Solar Project by Parampujya Solar Energy Pvt. Ltd.,1.0,,False,False,False
-CDM:8324|VCS:1079,0.85,"Wind power project in Jamnagar District, Gujarat, India","Bundled Wind Power Project in Jamnagar, Gujarat",1.0,,False,False,False
-GS:7621|VCS:1211,0.85,50.6 MW Wind Power Project in Gujarat by Powerica Limited,Green Energy Project at Gujarat by Powerica Limited,0.82,,True,False,False
-CDM:9757|VCS:1079,0.85,"1.25 MW Wind Power Project in Jamnagar, Gujarat","Bundled Wind Power Project in Jamnagar, Gujarat",1.0,,False,False,True
-CDM:7377|VCS:1419,0.85,Wind Power Project by Rajasthan Gum Private Limited (EKI.CDM.July-11-01),Wind Power Project by Rajasthan Gum Private Limited (EKI.CDM.July-11-01),1.0,,False,False,True
-CDM:7529|GS:3705,0.85,"Grid connected wind power project in Maharashtra, India by Bhilwara",Grid Connected Wind Power Project In Maharashtra India By Bhilwara,1.0,,False,False,False
-GCC:1078|VCS:1776,0.85,180 MW Wind Power Project by Green Infra Wind Energy Limited,Wind Power Project by Green Infra Wind Power Generation Limited,0.933,,False,False,True
-CDM:4848|VCS:735,0.85,Wind power project by PMPL in Maharashtra,Wind power project by PMPL in Maharashtra,1.0,,False,False,True
-CDM:1856|GS:6853,0.85,Wind power project by HZL in Gujarat.,Wind power project by HZL in Gujarat.,1.0,,False,False,False
-CDM:3981|VCS:622,0.85,"1.5 MW Grid connected Wind Electricity Generation at Tirunelveli District, Tamil Nadu, India.","Bundled Wind Power Project in Tirunelveli, Tamil Nadu",0.851,,False,False,True
-CDM:1615|GS:1307,0.85,Wind power project by GFL in Gudhepanchgani,Wind power project by GFL in Gudhepanchgani,1.0,,False,False,False
-CDM:3584|VCS:622,0.85,"1.25 MW Grid Connected Wind Electricity Generation at Tirunelveli District, Tamil Nadu","Bundled Wind Power Project in Tirunelveli, Tamil Nadu",0.851,,False,False,True
-UCR:183|VCS:1467,0.85,14 MW small-scale bundled wind power project by M/s Shah Promoters and Developers,Wind Energy Project in Maharashtra by M/s Shah Promoters & Developers,0.891,,True,False,False
-CDM:10315|GS:11942,0.85,Solar Power Project by Hero Group (EKIESL-CDM.May-15-01),Solar Power Project by Hero Group (EKIESL- CDM.May-15-01),1.0,,False,False,False
-CDM:7901|VCS:1018,0.85,Wind power project in Tamil Nadu by SWPPL,Wind power project in Tamil Nadu by SWPPL,1.0,,False,False,False
+GS:7625|VCS:1767,0.85,200 MW Solar PV Plant by Mahindra Susten in Rajasthan,Bundled Solar Power Project by Mahindra Susten Private Limited,0.882,,False,False,True
+CDM:8890|GS:4828,0.85,Bundled Wind Power Project by Peethambra Granites Pvt Ltd (EKIESL-CDM. November -11-01),Bundled Wind Power Project by Peethambra Granites Pvt Ltd (EKIESL-CDM. November -11-01),1.0,,False,False,False
+CDM:10393|GS:5830,0.85,Renewable Power Project by Emami Power Ltd,Renewable Power Project by Emami Power Ltd,1.0,,False,False,False
 GS:7469|VCS:700,0.85,50.6 MW Wind Energy Project by Powerica Limited,Wind power project at Tamilnadu by Powerica Limited,0.802,,True,False,False
+CDM:10522|GS:7631,0.85,Wind project by LWEPL-2,Wind project by LWEPL-2,1.0,,False,False,False
+CDM:4072|VCS:734,0.85,Wind power project by Patnaik Minerals Pvt. Ltd,Wind power project by Patnaik Minerals Pvt. Ltd.,1.0,,False,False,False
+GS:7719|VCS:1805,0.85,600 MW Solar PV Plant by SB Energy in Rajasthan,Solar Energy Project(s) by SB Energy Private Limited,0.846,,True,False,True
+CDM:9576|VCS:1295,0.85,Bundled biomass based steam generation project in India,Biomass Based Steam Generation Plant,1.0,,False,False,True
+CDM:3632|VCS:701,0.85,Wind power project at Gujarat by Powerica Limited,Wind power project at Gujarat by Powerica Limited,1.0,,False,False,True
+CDM:6317|VCS:1093,0.85,Solar Power project by Sai Sudhir Energy Limited,Solar Power Project by Sai Sudhir Energy Limited,1.0,,False,False,True
+CDM:10603|GS:7140,0.85,Solar Project by Parampujya Solar Energy Pvt. Ltd.,Solar Project by Parampujya Solar Energy Pvt. Ltd.,1.0,,False,False,False
+CDM:10568|GS:4895,0.85,Bundled Solar Power Project by Emami Power Limited,Bundled Solar Power Project by Emami Power Limited,1.0,,False,False,True
+CDM:3642|VCS:915,0.85,Wind Power based electricity generation project in India by DLF Home Developers Limited,WIND POWER BASED ELECTRICITY GENERATION PROJECT IN INDIA BY DLF HOME DEVELOPERS LIMITED,1.0,,False,False,False
+CDM:5700|VCS:1151,0.85,Wind based power project in Maharashtra by Siddhayu Ayurvedic Research Foundation Pvt. Ltd.,Wind based power project in Maharashtra by Siddhayu Ayurvedic Research Foundation Pvt. Ltd,1.0,,False,False,True
+CDM:1615|VCS:346,0.85,Wind power project by GFL in Gudhepanchgani,Wind power project by GFL in Gudhepanchgani,1.0,,False,False,False
+CDM:7558|VCS:168,0.85,Bundled Wind Project Activity by M/s Bhagyanagar India Limited and M/s Surana Telecom and Power Limited,Bundled Wind Project Activity by M/s Bhagyanagar India Ltd and M/s Surana Telecom and Power Limited,1.0,,False,False,True
+CDM:9227|VCS:1816,0.85,"4.5MW Bundled Wind Power Project in Tirunelveli, Tamilnadu, India",Wind power project in Tirunelveli Tamilnadu,1.0,,False,False,True
+CDM:5871|GS:7791,0.85,"Wind power project by TVS Energy Limited in Theni, Tamil Nadu",Wind power project by TVS Energy Limited in Theni Tamil Nadu,1.0,,False,False,True
+CDM:7529|GS:3705,0.85,"Grid connected wind power project in Maharashtra, India by Bhilwara",Grid Connected Wind Power Project In Maharashtra India By Bhilwara,1.0,,False,False,False
+CDM:8524|VCS:1671,0.85,"Wind based power generation by Panama Wind Energy Private Limited in Maharashtra, India","Wind based power generation by Panama Wind Energy Private Limited in Maharashtra, India",1.0,,False,False,False
+GS:6854|VCS:345,0.85,Wind power project by HZL in Karnataka,Wind power project by HZL in Karnataka.,1.0,,True,False,False
+CDM:7442|VCS:1090,0.85,Solar PV power project by Roha Dyechem Pvt. Ltd. (EKIESL.CDM.Aug-11-02),Solar PV power project by Roha Dyechem Pvt.  Ltd. (EKIESL.CDM.Aug-11-02),1.0,,False,False,False
+GS:1307|VCS:346,0.85,Wind power project by GFL in Gudhepanchgani,Wind power project by GFL in Gudhepanchgani,1.0,,True,False,True
+GS:7621|VCS:1211,0.85,50.6 MW Wind Power Project in Gujarat by Powerica Limited,Green Energy Project at Gujarat by Powerica Limited,0.82,,True,False,False
+CDM:10026|VCS:1551,0.85,Wind Power Project by Rajasthan Gum Private Limited (EKIESL-CDM.September-12-02),Wind Power Project by Rajasthan Gum Private Limited (EKIESL-CDM.September-12-02),1.0,,False,False,True
+GS:7664|VCS:2059,0.85,250 MW Solar PV Plant by Mahindra Renewables in Rajasthan,Renewable Solar Power Project by Mahindra Renewables Private Limited,0.884,,True,False,True
 CDM:1002|VCS:387,0.85,Electricity generation by utilization of waste heat from calcined petroleum coke production process,Electricity generation by utilization of waste heat from calcined petroleum coke production process,1.0,,False,False,False
 CDM:2028|VCS:356,0.85,Methane capture and destruction on La Hormiga landfill in San Felipe and El Belloto landfill in Quilpue Bundle CDM project.,Methane capture and destruction on La Hormiga landfill in San Felipe and El Belloto landfill in Quilpue,0.939,,False,False,False
 GS:7080|VCS:1783,0.849,72 MWac Ramnad Solar Power Project,72 MWac Ramnad Renewable Energy Project,0.729,True,False,False,True
+CDM:3223|VCS:1265,0.849,CFL lighting scheme  Bachat Lamp Yojana,CFL lighting scheme Bachat Lamp Yojana in Thiruvananthapuram,0.829,,False,False,True
+GS:11564|VCS:3650,0.849,GS1385 Man and Man Enterprise Improved Cooking Stoves Programme in Ghana - VPA002 (Western Region),CPA1 - Man and Man Enterprise Improved Cooking Stoves Programme in Ghana (Brong-Ahafo region),0.779,,True,False,True
 CDM:7997|GS:4270,0.848,BioLite Improved Cook stoves Programme,GS1366 Micro Energy PoA VPA 5 BioLite Improved Stove Programme India,0.848,,False,False,False
 CDM:1031|VCS:2089,0.847,Rio Taquesi Hydroelectric Power Project,Rio Taquesi Hydroelectric Power Project - CER Conversion,0.847,,False,False,False
 CDM:1279|VCS:304,0.846,Fundão-Santa Clara Energetic Complex Project (FSCECP),Fundao Santa-Clara Energetic Complex Project (FSCECP),0.846,,False,False,False
 ACR:0202|CAR:1200,0.846,Blue Source - Goodman Improved Forest Management Project,Blue Source- Goodwood Improved Forest Management Project,0.796,,True,False,False
-GS:12457|VCS:4032,0.844,GS12456 VPA 01 Sustainable agricultural practices for rice cultivation in India,Improved Agricultural Practices for Rice Cultivation in India,0.794,,True,False,False
+GS:12233|VCS:3650,0.845,GS1385 Man and Man Enterprise Improved Cooking Stoves Programme in Ghana - VPA004 (Central region),CPA1 - Man and Man Enterprise Improved Cooking Stoves Programme in Ghana (Brong-Ahafo region),0.795,,True,False,False
 GS:12456|VCS:4032,0.844,Sustainable agricultural practices for rice cultivation in India,Improved Agricultural Practices for Rice Cultivation in India,0.794,,True,False,False
+GS:12457|VCS:4032,0.844,GS12456 VPA 01 Sustainable agricultural practices for rice cultivation in India,Improved Agricultural Practices for Rice Cultivation in India,0.794,,True,False,False
 CDM:4219|GS:662,0.844,Blue Fire Bio wastewater treatment and biogas utilization project,Blue Fire Bio wastewater treatment and biogas utilisation project (300147),0.824,,False,False,True
+CDM:9634|GS:3027,0.842,Renewable biomass fired improved cookstoves programme for households in Burundi by BQS,Renewable biomass fired improved cook stoves programme for households in Burundi by BQS –CPA_BUJM01,0.842,,False,False,False
 CDM:2315|GS:836,0.841,Amayo 40 MW Wind Power Project - Nicaragua,Amayo 40 MW Wind Power Project-Nicaragua - Pre CDM VERs,0.741,True,False,False,False
-CDM:4964|VCS:1442,0.84,"Bundled Wind Power Project in Jamnagar, Gujarat","Grid connected clean energy project in Jamnagar, Gujarat",0.82,,False,False,True
-CDM:7610|VCS:1079,0.84,"Bundled clean energy project in jamnagar, Gujarat","Bundled Wind Power Project in Jamnagar, Gujarat",0.82,,False,False,True
-CDM:9757|VCS:1441,0.84,"1.25 MW Wind Power Project in Jamnagar, Gujarat","Bundled clean energy project in jamnagar, Gujarat",0.82,,False,False,True
-CDM:6621|VCS:1079,0.84,"Grid connected clean energy project in Jamnagar, Gujarat","Bundled Wind Power Project in Jamnagar, Gujarat",0.82,,False,False,True
 CDM:9757|VCS:1442,0.84,"1.25 MW Wind Power Project in Jamnagar, Gujarat","Grid connected clean energy project in Jamnagar, Gujarat",0.82,,False,False,True
 CDM:4964|VCS:1441,0.84,"Bundled Wind Power Project in Jamnagar, Gujarat","Bundled clean energy project in jamnagar, Gujarat",0.82,,False,False,True
+CDM:7610|VCS:1079,0.84,"Bundled clean energy project in jamnagar, Gujarat","Bundled Wind Power Project in Jamnagar, Gujarat",0.82,,False,False,True
+CDM:4964|VCS:1442,0.84,"Bundled Wind Power Project in Jamnagar, Gujarat","Grid connected clean energy project in Jamnagar, Gujarat",0.82,,False,False,True
+CDM:9757|VCS:1441,0.84,"1.25 MW Wind Power Project in Jamnagar, Gujarat","Bundled clean energy project in jamnagar, Gujarat",0.82,,False,False,True
+CDM:6621|VCS:1079,0.84,"Grid connected clean energy project in Jamnagar, Gujarat","Bundled Wind Power Project in Jamnagar, Gujarat",0.82,,False,False,True
 CDM:3532|VCS:1699,0.84,Song Chung Hydropower Project,Song Chung Hydropower Project - CER Conversion,0.84,,False,False,False
 GS:521|VCS:417,0.84,Chantaburi Starch Wastewater Treatment and Biogas Utilization Project (300085),P.S.C Starch Wastewater Treatment and Biogas Utilization Project,0.84,,False,False,False
 ACR:0280|CAR:1207,0.84,Blue Source - Marmet Improved Forest Management Project,Blue Source-Montrose Improved Forest Management Project,0.79,,True,False,False
+CDM:7479|GS:1141,0.839,Sustainability CFL Replacement Programme of Activities in South Africa,CFL Replacement Programme of Activities in South Africa,0.819,,False,False,True
 CDM:83|VCS:1449,0.837,Cuyamel Hydroelectric Project,Cuyamel Hydroelectric Project - CER Conversion,0.817,,False,False,True
 ACR:0578|CAR:2113,0.837,New Era Abandoned Mine Methane Recovery Project,New Future Abandoned Mine Methane Recovery Project,0.757,,True,True,False
 ACR:0669|CAR:2092,0.837,New Future Abandoned Mine Methane Recovery Project,New Era Abandoned Mine Methane Recovery Project,0.757,,True,True,False
@@ -361,11 +452,12 @@ CDM:591|GS:382,0.828,Shalivahana Non-Conventional Renewable Sources Biomass Powe
 GS:2673|VCS:1701,0.828,Nam Mo 3 Hydropower Project,Nam Mo 3 Hydro Power Project - CER Conversion,0.808,,False,False,True
 CDM:6012|VCS:1701,0.828,"Nam Mo 3 Hydro Power Project, Vietnam",Nam Mo 3 Hydro Power Project - CER Conversion,0.808,,False,False,True
 GS:10661|UCR:500,0.827,Vaayu India Wind Power Project in Gujarat,Vaayu India Wind Power Project in Gujarat (GS3958 CER to VER conversion),0.827,,False,False,False
-CDM:531|GS:7685,0.827,"11.25 MW wind power project in Dhule, Maharashtra, India",GREEN ENERGY TO GRID at Dhule Maharashtra,0.827,,False,False,False
 CDM:4700|GS:10661,0.827,Vaayu India Wind Power Project in Gujarat.,Vaayu India Wind Power Project in Gujarat (GS3958 CER to VER conversion),0.827,,False,False,False
+CDM:531|GS:7685,0.827,"11.25 MW wind power project in Dhule, Maharashtra, India",GREEN ENERGY TO GRID at Dhule Maharashtra,0.827,,False,False,False
 CDM:531|VCS:331,0.827,"11.25 MW wind power project in Dhule, Maharashtra, India",Green Energy to Grid at Dhule Maharashtra,0.827,,False,False,False
 GS:12456|VCS:4305,0.826,Sustainable agricultural practices for rice cultivation in India,SUSTAINABLE AGRICULTURAL PRACTICES IN POTATO CULTIVATION,0.776,,True,False,False
 GS:12457|VCS:4305,0.826,GS12456 VPA 01 Sustainable agricultural practices for rice cultivation in India,SUSTAINABLE AGRICULTURAL PRACTICES IN POTATO CULTIVATION,0.776,,True,False,False
+CDM:4217|VCS:1505,0.826,Bujagali Hydropower Project,Bujagali Hydropower Project - CER Conversion,0.826,,False,False,False
 ACR:0267|CAR:1207,0.825,Blue Source - Powellton Improved Forest Management Project,Blue Source-Montrose Improved Forest Management Project,0.775,,True,False,False
 ACR:0267|CAR:1202,0.825,Blue Source - Powellton Improved Forest Management Project,Blue Source-Snowshoe Improved Forest Management Project,0.775,,True,False,False
 GS:6756|VCS:1023,0.824,30 MW Wind Energy Project by Giriraj Enterprises,Grid Connected Wind Power Project by M/s Giriraj Enterprises in Madhya Pradesh,0.824,,False,False,False
@@ -373,16 +465,17 @@ ACR:0276|CAR:2047,0.824,Blue Source - Allegheny Improved Forest Management Proje
 ACR:0297|CAR:1203,0.824,Blue Source-Texarkana Improved Forest Management Project,Blue Source- Sylvan Improved Forest Management Project,0.774,,True,False,False
 GS:7303|VCS:417,0.823,Bangna Starch Wastewater Treatment and Biogas Utilization Project (300084) (GS565 CER to VER conversion),P.S.C Starch Wastewater Treatment and Biogas Utilization Project,0.803,,False,False,True
 CDM:9218|GS:1169,0.823,UpEnergy Open Access Improved Cookstoves Program in Latin America,UpEnergy Open Access Improved Cookstoves Program in Latin America- El Salvador,0.803,,False,False,True
-CDM:9063|VCS:5857,0.822,MACAÚBAS LANDFILL GAS PROJECT,MACAÉ LANDFILL GAS PROJECT,0.822,,False,False,False
 GS:12670|VCS:5857,0.822,MACAÚBAS LANDFILL GAS PROJECT,MACAÉ LANDFILL GAS PROJECT,0.822,,False,False,False
+CDM:9063|VCS:5857,0.822,MACAÚBAS LANDFILL GAS PROJECT,MACAÉ LANDFILL GAS PROJECT,0.822,,False,False,False
 ACR:0113|VCS:138,0.822,Greater New Bedford LFG,Greater New Bedford LFG Utilization Project,0.772,,True,False,False
 CDM:9849|GS:10830,0.821,Zorlu Enerji Wind Project,Zorlu Enerji Wind Project (GS3946 CER to VER conversion),0.821,,False,False,False
 ACR:0373|CAR:1209,0.821,Blue Source - Northwoods Improved Forest Management Project,Blue Source-Wolf River Improved Forest Management Project,0.741,,True,True,False
 ACR:0297|CAR:1199,0.821,Blue Source-Texarkana Improved Forest Management Project,Blue Source- Stonewall Improved Forest Management Project,0.771,,True,False,False
-CDM:8672|VCS:701,0.82,Green Energy Project at Gujarat by Powerica Limited,Wind power project at Gujarat by Powerica Limited,0.82,,False,False,False
 CDM:3632|VCS:1211,0.82,Wind power project at Gujarat by Powerica Limited,Green Energy Project at Gujarat by Powerica Limited,0.82,,False,False,False
+CDM:8672|VCS:701,0.82,Green Energy Project at Gujarat by Powerica Limited,Wind power project at Gujarat by Powerica Limited,0.82,,False,False,False
 CDM:8324|VCS:1441,0.82,"Wind power project in Jamnagar District, Gujarat, India","Bundled clean energy project in jamnagar, Gujarat",0.82,,False,False,False
 CDM:8324|VCS:1442,0.82,"Wind power project in Jamnagar District, Gujarat, India","Grid connected clean energy project in Jamnagar, Gujarat",0.82,,False,False,False
+CDM:9181|VCS:4196,0.82,MicroEnergy Credits  Microfinance for Clean Energy Product Lines  India,MicroEnergy Credits - Microfinance for Efficient Lighting Product Lines - India,0.82,,False,False,False
 ACR:0931|CAR:2167,0.82,Kielty Abandoned Mine Methane Recovery Project,Bonny Abandoned Mine Methane Recovery Project,0.74,,True,True,False
 ACR:0806|CAR:2112,0.82,Bonny Abandoned Mine Methane Recovery Project,Kielty Abandoned Mine Methane Recovery Project,0.74,,True,True,False
 ACR:0280|CAR:1209,0.82,Blue Source - Marmet Improved Forest Management Project,Blue Source-Wolf River Improved Forest Management Project,0.77,,True,False,False
@@ -393,13 +486,15 @@ CDM:3785|VCS:1816,0.816,"Bundled Clean Energy Generation Project in Tirunelveli 
 ACR:0278|CAR:1195,0.816,Blue Source – Elk Forest Improved Forest Management Project,Blue Source - Corkscrew Improved Forest Management Project,0.766,,True,False,False
 GS:2405|VCS:381,0.814,GRID CONNECTED BUNDLED WIND POWER PROJECT IN GUJARAT MANAGED BY ENERCON (INDIA) LIMITED,Bundled wind power project in Harshnath managed by Enercon (India) Limited,0.764,,True,False,False
 CDM:1009|VCS:593,0.813,3.7 MW Bundled Wind Power Project at Priyadarshini Polysacks Ltd. Dhulia District Maharashtra,Wind Power Project by Priyadarshini Polysacks Ltd. in Maharashtra,0.793,,False,False,True
-CDM:3555|VCS:5124,0.813,"Waste Heat Recovery based 15 MW Power Generation Project at Bestway Cement Limited, Chakwal, Pakistan",Waste Heat Recovery Based Power Generation Project of Bestway Cement Limited at Pakistan,0.793,,False,False,True
 ACR:0202|CAR:1209,0.813,Blue Source - Goodman Improved Forest Management Project,Blue Source-Wolf River Improved Forest Management Project,0.733,,True,True,False
 ACR:0276|CAR:973,0.813,Blue Source - Allegheny Improved Forest Management Project,Blue Source - Bishop Improved Forest Management Project,0.763,,True,False,False
+CDM:9706|GS:11206,0.812,Efficient Cook Stove Programme: Malawi,GS7591 VPA 47 Malawi Improved Cookstove Project,0.812,,False,False,False
+CDM:9706|GS:12340,0.812,Efficient Cook Stove Programme: Malawi,Malawi Improved Cookstove Project,0.812,,False,False,False
 GS:7078|VCS:2043,0.811,216 MWac Adani Green Energy (Tamilnadu) Solar Power Project,Renewable Solar Power Project by Adani,0.791,,False,False,True
+GS:12462|VCS:3650,0.811,GS1385 Man and Man Enterprise Improved Cooking Stoves Programme in Ghana - VPA005 (Volta region),CPA1 - Man and Man Enterprise Improved Cooking Stoves Programme in Ghana (Brong-Ahafo region),0.741,,True,False,True
 CDM:4867|VCS:407,0.809,Chantaburi Starch Wastewater Treatment and Biogas Utilization Project,Chakangrao Starch wastewater treatment and biogas utilization project,0.789,,False,False,True
 ACR:0301|CAR:1195,0.809,Blue Source-Lafayette Improved Forest Management Project,Blue Source - Corkscrew Improved Forest Management Project,0.729,,True,True,False
-CDM:9181|GS:12067,0.808,MicroEnergy Credits  Microfinance for Clean Energy Product Lines  India,GS12066 - MicroEnergy Credits – Microfinance for Clean Cooking Product Lines - India - Clean Cooking Project - VPA01,0.808,,False,False,False
+CDM:3223|VCS:1281,0.808,CFL lighting scheme  Bachat Lamp Yojana,CFL LIGHTING SCHEME BACHAT LAMP YOJANA IN PALA & THODUPUZHA,0.788,,False,False,True
 CDM:10560|VCS:2737,0.806,Reducing Gas Leakages within the Karnaphuli Gas Distribution Network in Bangladesh,Reducing Gas Leakages within the Jalalabad Gas Distribution Network in Bangladesh,0.806,,False,False,False
 CDM:10561|VCS:2738,0.806,Reducing Gas Leakages within the Jalalabad Gas Distribution Network in Bangladesh,Reducing Gas Leakages within the Karnaphuli Gas Distribution Network in Bangladesh,0.806,,False,False,False
 ACR:0297|CAR:1201,0.806,Blue Source-Texarkana Improved Forest Management Project,Blue Source-Winchendon Improved Forest Management Project,0.756,,True,False,False
@@ -415,14 +510,14 @@ CAR:2092|VCS:OPR2,0.803,New Era Abandoned Mine Methane Recovery Project,Corinth 
 ACR:0202|CAR:973,0.801,Blue Source - Goodman Improved Forest Management Project,Blue Source - Bishop Improved Forest Management Project,0.751,,True,False,False
 ACR:0202|CAR:1203,0.801,Blue Source - Goodman Improved Forest Management Project,Blue Source- Sylvan Improved Forest Management Project,0.751,,True,False,False
 ACR:0202|CAR:2047,0.801,Blue Source - Goodman Improved Forest Management Project,Blue Source - Alford Improved Forest Management Project,0.751,,True,False,False
-GS:5644|UCR:51,0.8,15 MW Wind Energy Project in Maharashtra,Bundled 15 MW Wind Power Project in India,,True,True,,
-GS:3669|UCR:431,0.8,3.0 MW Bundled Small Scale Wind Power Project by Energy Development Company Limited,3 MW bundled wind Power Project in Tamil Nadu,,True,True,,
-GS:5377|VCS:1020,0.8,15 MW Solar Photovoltaic Power Project at Gujarat,Solar Power Plant of 15MW in Gujarat by Palace Solar Energy Private Limited,,True,True,,
 UCR:183|VCS:234,0.8,14 MW small-scale bundled wind power project by M/s Shah Promoters and Developers,14 MW Wind Power Project in Maharashtra,,True,True,,
+GS:3669|UCR:431,0.8,3.0 MW Bundled Small Scale Wind Power Project by Energy Development Company Limited,3 MW bundled wind Power Project in Tamil Nadu,,True,True,,
+GS:5644|UCR:51,0.8,15 MW Wind Energy Project in Maharashtra,Bundled 15 MW Wind Power Project in India,,True,True,,
+GS:5377|VCS:1020,0.8,15 MW Solar Photovoltaic Power Project at Gujarat,Solar Power Plant of 15MW in Gujarat by Palace Solar Energy Private Limited,,True,True,,
 ACR:0278|CAR:1200,0.8,Blue Source – Elk Forest Improved Forest Management Project,Blue Source- Goodwood Improved Forest Management Project,0.75,,True,False,False
-CDM:9113|VCS:927,0.799,"13.75 MW wind power project at Bellary & Davangere district in the state Karnataka, India","13.75 MW wind power project in Davangere, Karnataka, India",0.679,True,False,False,True
-CDM:3700|GS:7757,0.799,"13.75 MW wind power project in Davangere, Karnataka, India.",13.75 MW wind power project at Bellary & Davangere district in the state Karnataka India,0.679,True,False,False,True
 GS:7757|VCS:927,0.799,13.75 MW wind power project at Bellary & Davangere district in the state Karnataka India,"13.75 MW wind power project in Davangere, Karnataka, India",0.679,True,False,False,True
+CDM:3700|GS:7757,0.799,"13.75 MW wind power project in Davangere, Karnataka, India.",13.75 MW wind power project at Bellary & Davangere district in the state Karnataka India,0.679,True,False,False,True
+CDM:9113|VCS:927,0.799,"13.75 MW wind power project at Bellary & Davangere district in the state Karnataka, India","13.75 MW wind power project in Davangere, Karnataka, India",0.679,True,False,False,True
 CDM:9991|GS:10355,0.798,Nam Long Hydropower project,Nam Long Hydropower Project (GS2707 CER to VER conversion),0.798,,False,False,False
 ACR:0278|CAR:2047,0.798,Blue Source – Elk Forest Improved Forest Management Project,Blue Source - Alford Improved Forest Management Project,0.748,,True,False,False
 ACR:0578|CAR:2061,0.797,New Era Abandoned Mine Methane Recovery Project,CERP1 Abandoned Mine Methane Recovery Project,0.747,,True,False,False
@@ -432,8 +527,8 @@ CAR:2061|VCS:OPR2,0.797,CERP1 Abandoned Mine Methane Recovery Project,Corinth Ab
 CAR:2167|VCS:573,0.797,Bonny Abandoned Mine Methane Recovery Project,Corinth Abandoned Mine Methane Recovery Project,0.747,,True,False,False
 ACR:0806|VCS:573,0.797,Bonny Abandoned Mine Methane Recovery Project,Corinth Abandoned Mine Methane Recovery Project,0.747,,True,False,False
 CAR:2061|VCS:573,0.797,CERP1 Abandoned Mine Methane Recovery Project,Corinth Abandoned Mine Methane Recovery Project,0.747,,True,False,False
-GS:4505|VCS:1023,0.796,Wind Power Project by M/s. Giriraj Enterprises at Sandla Madhya Pradesh,Grid Connected Wind Power Project by M/s Giriraj Enterprises in Madhya Pradesh,0.796,,False,False,False
 CDM:5938|GS:4505,0.796,Grid Connected Wind Power Project by M/s Giriraj Enterprises in Madhya Pradesh,Wind Power Project by M/s. Giriraj Enterprises at Sandla Madhya Pradesh,0.796,,False,False,False
+GS:4505|VCS:1023,0.796,Wind Power Project by M/s. Giriraj Enterprises at Sandla Madhya Pradesh,Grid Connected Wind Power Project by M/s Giriraj Enterprises in Madhya Pradesh,0.796,,False,False,False
 ACR:0267|CAR:1209,0.796,Blue Source - Powellton Improved Forest Management Project,Blue Source-Wolf River Improved Forest Management Project,0.746,,True,False,False
 ACR:0280|CAR:1200,0.796,Blue Source - Marmet Improved Forest Management Project,Blue Source- Goodwood Improved Forest Management Project,0.746,,True,False,False
 CDM:8955|VCS:1257,0.795,Wind based renewable energy project by CLP Wind Farms India Private Limited in Gujarat,Wind Power Project of CLP Wind Farms (India) Private Limited,0.795,,False,False,False
@@ -465,10 +560,11 @@ ACR:0280|CAR:1199,0.792,Blue Source - Marmet Improved Forest Management Project,
 ACR:0301|CAR:2047,0.792,Blue Source-Lafayette Improved Forest Management Project,Blue Source - Alford Improved Forest Management Project,0.742,,True,False,False
 ACR:0280|CAR:1195,0.792,Blue Source - Marmet Improved Forest Management Project,Blue Source - Corkscrew Improved Forest Management Project,0.742,,True,False,False
 ACR:0300|CAR:2047,0.792,Blue Source-Gilchrist Improved Forest Management Project,Blue Source - Alford Improved Forest Management Project,0.742,,True,False,False
+CDM:58|GS:441,0.791,Biomass in Rajasthan - Electricity generation from mustard crop residues,Electricity generation from mustard crop residues: Tonk India,0.771,,False,False,True
 CDM:1774|GS:1689,0.791,"Electricity generation from mustard crop residues: Tonk, India",Biomass in Rajasthan - Electricity generation from mustard crop residues,0.771,,False,False,True
 CDM:10583|VCS:2043,0.791,216 MWac Adani Green Energy (Tamilnadu) Solar Power Project,Renewable Solar Power Project by Adani,0.791,,False,False,False
-CDM:58|GS:441,0.791,Biomass in Rajasthan - Electricity generation from mustard crop residues,Electricity generation from mustard crop residues: Tonk India,0.771,,False,False,True
 CDM:5616|GS:790,0.79,Sustainable Small Hydropower Programme of Activities (PoA) in Indonesia,GS790_Sustainable Small Hydropower Programme of Activities (PoA) in Indonesia (300218),0.79,,False,False,False
+GS:1105|VCS:1003,0.79,ÇAY WEIR AND HYDROELECTRIC POWER PLANT,Dogançay Weir and Hydroelectric Power Plant,0.74,,True,False,False
 ACR:1009|VCS:573,0.79,Green Valley Abandoned Mine Methane Recovery Project,Corinth Abandoned Mine Methane Recovery Project,0.71,,True,True,False
 CAR:2111|VCS:OPR2,0.79,Green Valley Abandoned Mine Methane Recovery Project,Corinth Abandoned Mine Methane Recovery Project,0.71,,True,True,False
 ACR:0931|CAR:2061,0.79,Kielty Abandoned Mine Methane Recovery Project,CERP1 Abandoned Mine Methane Recovery Project,0.74,,True,False,False
@@ -492,6 +588,7 @@ ACR:0669|VCS:573,0.787,New Future Abandoned Mine Methane Recovery Project,Corint
 CAR:2113|VCS:OPR2,0.787,New Future Abandoned Mine Methane Recovery Project,Corinth Abandoned Mine Methane Recovery Project,0.707,,True,True,False
 ACR:0669|VCS:OPR2,0.787,New Future Abandoned Mine Methane Recovery Project,Corinth Abandoned Mine Methane Recovery Project,0.707,,True,True,False
 GCC:409|UCR:378,0.786,"Wind Energy Project in Kutch, Gujarat",Small Scale Wind Power Project in Kutch District,0.786,,False,False,False
+CDM:9638|GS:11788,0.786,Congo (DRC) Improved Cook Stoves program,Congo (DRC) Improved Cook Stoves VPA 006 – Lemba,0.786,,False,False,False
 ACR:0297|CAR:1209,0.785,Blue Source-Texarkana Improved Forest Management Project,Blue Source-Wolf River Improved Forest Management Project,0.735,,True,False,False
 CDM:6610|GS:7790,0.783,Bundled Wind Power Project at Theni,Wind energy project in Theni Tamil Nadu,0.763,,False,False,True
 ACR:0537|VCS:573,0.783,Wabash Abandoned Mine Methane Recovery Project,Corinth Abandoned Mine Methane Recovery Project,0.703,,True,True,False
@@ -519,10 +616,13 @@ ACR:0537|CAR:2111,0.782,Wabash Abandoned Mine Methane Recovery Project,Green Val
 ACR:0806|CAR:2061,0.782,Bonny Abandoned Mine Methane Recovery Project,CERP1 Abandoned Mine Methane Recovery Project,0.732,,True,False,False
 ACR:1009|CAR:2114,0.782,Green Valley Abandoned Mine Methane Recovery Project,Wabash Abandoned Mine Methane Recovery Project,0.702,,True,True,False
 CDM:4487|VCS:749,0.781,9 MW wind power project of M/s. L.S.Mills Limited in Tamilnadu,Grid Connected Renewable Power Generation from Wind Mills by L.S Mills,0.761,,False,False,True
-GS:12199|VCS:3617,0.781,Ecoparque Maceió Landfill Gas Project,ECOPARQUE SERGIPE LANDFILL GAS PROJECT,0.731,,True,False,False
 GS:12205|VCS:4128,0.781,Ecoparque Sergipe Landfill Gas Project,ECOPARQUE MACEIÓ LANDFILL GAS PROJECT,0.731,,True,False,False
+GS:12199|VCS:3617,0.781,Ecoparque Maceió Landfill Gas Project,ECOPARQUE SERGIPE LANDFILL GAS PROJECT,0.731,,True,False,False
 CAR:400|VCS:1528,0.781,South Jordan Landfill Gas Destruction Project,Granger South Jordan Landfill Gas Destruction Project - CER Conversion,0.781,,False,False,False
 CDM:2400|VCS:311,0.779,"12 MW Wind Power Project in Kutch, Gujarat","12.15 MW Wind Power Project located at Kutch, Gujarat",0.659,True,False,False,True
+CDM:3223|VCS:1277,0.779,CFL lighting scheme  Bachat Lamp Yojana,CFL LIGHTING SCHEME BACHAT LAMP YOJANA IN KASARGOD AND SREEKANDPURAM,0.759,,False,False,True
+CDM:9638|GS:11325,0.779,Congo (DRC) Improved Cook Stoves program,Congo (DRC) Improved Cook Stoves VPA 001– Limete,0.779,,False,False,False
+CDM:7247|VCS:5196,0.779,Efficient Cook Stove Programme: Rwanda,Improved cookstove distribution in Rwanda,0.779,,False,False,False
 ACR:0578|CAR:2112,0.779,New Era Abandoned Mine Methane Recovery Project,Kielty Abandoned Mine Methane Recovery Project,0.729,,True,False,False
 ACR:0931|CAR:2092,0.779,Kielty Abandoned Mine Methane Recovery Project,New Era Abandoned Mine Methane Recovery Project,0.729,,True,False,False
 ACR:0267|CAR:1199,0.779,Blue Source - Powellton Improved Forest Management Project,Blue Source- Stonewall Improved Forest Management Project,0.729,,True,False,False
@@ -543,6 +643,7 @@ ACR:0578|CAR:2111,0.778,New Era Abandoned Mine Methane Recovery Project,Green Va
 ACR:0174|CAR:2047,0.778,Blue Source - Bishop Improved Forest Management Project,Blue Source - Alford Improved Forest Management Project,0.778,,False,False,False
 ACR:0174|VCS:OPR10,0.778,Blue Source - Bishop Improved Forest Management Project,Blue Source-Alford Improved Forest Management Project,0.778,,False,False,False
 CAR:973|VCS:OPR10,0.778,Blue Source - Bishop Improved Forest Management Project,Blue Source-Alford Improved Forest Management Project,0.778,,False,False,False
+CDM:9384|GS:1188,0.777,Kenya Improved woodstoves project,GS1183 Kenya Improved woodstoves project Mbeere01 CPA01,0.757,,False,False,True
 ACR:0674|CAR:2171,0.777,Affinity Mine Methane Incineration Project,Heilwood Mine Methane Incineration Project,0.697,,True,True,False
 GS:12557|VCS:3238,0.776,Core Carbon Sustainable Rice Initiative India,Core Carbon Sustainable Rice Productions,0.726,,True,False,False
 CDM:2819|GCC:1320,0.775,50.4 MW Tata Wind Farm - in Maharashtra,Renewable Wind and Solar Project by the Tata Power Group,0.775,,False,False,False
@@ -558,6 +659,8 @@ ACR:0373|CAR:1195,0.775,Blue Source - Northwoods Improved Forest Management Proj
 ACR:0301|CAR:1209,0.775,Blue Source-Lafayette Improved Forest Management Project,Blue Source-Wolf River Improved Forest Management Project,0.725,,True,False,False
 ACR:0300|CAR:1201,0.775,Blue Source-Gilchrist Improved Forest Management Project,Blue Source-Winchendon Improved Forest Management Project,0.725,,True,False,False
 ACR:0300|CAR:1209,0.775,Blue Source-Gilchrist Improved Forest Management Project,Blue Source-Wolf River Improved Forest Management Project,0.725,,True,False,False
+CDM:10045|GS:2722,0.774,Fuel Efficient Stoves for Ethiopia Programme of Activity,Fuel efficient stoves for Ethiopia Programme of Activities CPA 001,0.754,,False,False,True
+CDM:10045|GS:2718,0.774,Fuel Efficient Stoves for Ethiopia Programme of Activity,Fuel efficient stoves for Ethiopia Programme of Activities,0.754,,False,False,True
 CDM:10559|VCS:2738,0.774,Reducing Gas Leakages within the Bakhrabad Gas Distribution Network in Bangladesh,Reducing Gas Leakages within the Karnaphuli Gas Distribution Network in Bangladesh,0.774,,False,False,False
 CDM:10562|VCS:2930,0.774,Reducing Gas Leakages within the Pashchimanchal Gas Distribution Network in Bangladesh,Reducing Gas Leakages within the Titas Gas Distribution Network in Bangladesh,0.774,,False,False,False
 CDM:10560|VCS:2736,0.774,Reducing Gas Leakages within the Karnaphuli Gas Distribution Network in Bangladesh,Reducing Gas Leakages within the Bakhrabad Gas Distribution Network in Bangladesh,0.774,,False,False,False
@@ -565,10 +668,11 @@ CDM:10077|VCS:2739,0.774,Reducing Gas Leakages within the Titas Gas Distribution
 ACR:0276|VCS:OPR10,0.774,Blue Source - Allegheny Improved Forest Management Project,Blue Source-Alford Improved Forest Management Project,0.774,,False,False,False
 CDM:191|VCS:1507,0.773,Monte Rosa Bagasse Cogeneration Project (MRBCP),Monte Rosa Bagasse Cogeneration - CER Conversion,0.773,,False,False,False
 CDM:4867|GS:565,0.772,Chantaburi Starch Wastewater Treatment and Biogas Utilization Project,Bangna Starch Wastewater Treatment and Biogas Utilization Project (300084),0.752,,False,False,True
-GS:565|VCS:407,0.772,Bangna Starch Wastewater Treatment and Biogas Utilization Project (300084),Chakangrao Starch wastewater treatment and biogas utilization project,0.752,,False,False,True
 CDM:2556|VCS:407,0.772,Bangna Starch Wastewater Treatment and Biogas Utilization Project,Chakangrao Starch wastewater treatment and biogas utilization project,0.752,,False,False,True
+GS:565|VCS:407,0.772,Bangna Starch Wastewater Treatment and Biogas Utilization Project (300084),Chakangrao Starch wastewater treatment and biogas utilization project,0.752,,False,False,True
 ACR:0299|CAR:1209,0.772,Blue Source-St. Croix Improved Forest Management Project,Blue Source-Wolf River Improved Forest Management Project,0.692,,True,True,False
 CDM:8910|VCS:663,0.771,8.0 MW Wind Power Project activity by Sree Iswarya Textiles Private Limited,"8.0 MW Wind Power Project activity by Sree Iswarya Textiles Private Limited, at Dist Erode, Tamil Nadu",0.651,True,False,False,True
+CDM:5336|VCS:4009,0.771,Efficient Cook Stove Programme: Kenya,IMPROVED COOKSTOVES DISTRIBUTION IN KENYA,0.771,,False,False,False
 ACR:0578|CAR:2167,0.771,New Era Abandoned Mine Methane Recovery Project,Bonny Abandoned Mine Methane Recovery Project,0.721,,True,False,False
 ACR:0743|CAR:2114,0.771,Urling Abandoned Mine Methane Recovery Project,Wabash Abandoned Mine Methane Recovery Project,0.721,,True,False,False
 ACR:0806|CAR:2092,0.771,Bonny Abandoned Mine Methane Recovery Project,New Era Abandoned Mine Methane Recovery Project,0.721,,True,False,False
@@ -586,7 +690,16 @@ ACR:0537|CAR:2113,0.768,Wabash Abandoned Mine Methane Recovery Project,New Futur
 GS:11219|VCS:1843,0.767,SOLAR PHOTOVOLTAIC PROJECT BY GIRIRAJ RENEWABLES PRIVATE LIMITED,100 MW SOLAR BY GIRIRAJ RENEWABLES PVT. LTD.- SATARA.,0.747,,False,False,True
 ACR:0299|CAR:1195,0.767,Blue Source-St. Croix Improved Forest Management Project,Blue Source - Corkscrew Improved Forest Management Project,0.717,,True,False,False
 ACR:0299|CAR:1199,0.767,Blue Source-St. Croix Improved Forest Management Project,Blue Source- Stonewall Improved Forest Management Project,0.717,,True,False,False
+CDM:9638|GS:11789,0.766,Congo (DRC) Improved Cook Stoves program,Congo (DRC) Improved Cook Stoves VPA 007 – Lingwala,0.766,,False,False,False
+CDM:9638|GS:11326,0.766,Congo (DRC) Improved Cook Stoves program,GS11324 - VPA002 - Congo (DRC) Improved Cook Stoves-Kinshasa,0.766,,False,False,False
+CDM:9638|GS:11786,0.766,Congo (DRC) Improved Cook Stoves program,GS11324 - VPA004 - Congo (DRC) Improved Cook Stoves VPA004 -Kintambo,0.766,,False,False,False
+CDM:9638|GS:11327,0.766,Congo (DRC) Improved Cook Stoves program,Congo (DRC) Improved Cook Stoves VPA 003– Ngaliema,0.766,,False,False,False
 ACR:0675|CAR:2088,0.765,Heilwood Mine Methane Incineration Project,Lowry Mine Methane Incineration Project,0.685,,True,True,False
+GS:861|VCS:6131,0.764,Maren Geothermal Power Plant,Maren Geothermal Bundle,0.744,,False,False,True
+CDM:9181|GS:11501,0.763,MicroEnergy Credits  Microfinance for Clean Energy Product Lines  India,GS11450 - MicroEnergy Credits – Microfinance for Clean Energy Product Lines – India - CPA 21 - Clear Sky Partners – GS11501,0.743,,False,False,True
+CDM:9181|GS:11500,0.763,MicroEnergy Credits  Microfinance for Clean Energy Product Lines  India,GS11450 - MicroEnergy Credits – Microfinance for Clean Energy Product Lines – India - CPA 22 - Clear Sky Partners – GS11500,0.743,,False,False,True
+CDM:9181|GS:11502,0.763,MicroEnergy Credits  Microfinance for Clean Energy Product Lines  India,GS11450 - MicroEnergy Credits – Microfinance for Clean Energy Product Lines – India - CPA 20 - Clear Sky Partners – GS11502,0.743,,False,False,True
+CDM:9181|GS:11499,0.763,MicroEnergy Credits  Microfinance for Clean Energy Product Lines  India,GS11450 - MicroEnergy Credits – Microfinance for Clean Energy Product Lines – India - CPA 23 - Clear Sky Partners – GS11499,0.743,,False,False,True
 ACR:0537|CAR:2061,0.763,Wabash Abandoned Mine Methane Recovery Project,CERP1 Abandoned Mine Methane Recovery Project,0.713,,True,False,False
 ACR:0743|CAR:2061,0.763,Urling Abandoned Mine Methane Recovery Project,CERP1 Abandoned Mine Methane Recovery Project,0.713,,True,False,False
 ACR:0806|CAR:2114,0.763,Bonny Abandoned Mine Methane Recovery Project,Wabash Abandoned Mine Methane Recovery Project,0.713,,True,False,False
@@ -604,23 +717,28 @@ ACR:1064|CAR:558,0.762,Weber County Landfill,Indian River County Landfill,0.762,
 ACR:0931|CAR:2113,0.762,Kielty Abandoned Mine Methane Recovery Project,New Future Abandoned Mine Methane Recovery Project,0.712,,True,False,False
 CDM:10425|VCS:3986,0.761,Nam Ngao Hydropower Project,15 MW Nam The Hydropower Project,0.641,True,False,False,True
 GS:773|VCS:417,0.761,Chantaburi Starch Wastewater Treatment and Biogas Utilization Project (300085)_pre-CDM VER,P.S.C Starch Wastewater Treatment and Biogas Utilization Project,0.761,,False,False,False
+CDM:10430|GS:2094,0.761,Man and Man Enterprise Improved Cooking Stoves CDM Programme in Ghana supported by Republic of Korea,GS1385 Man and Man Enterprise Improved Cooking Stoves Programme in Ghana - VPA001,0.761,,False,False,False
+CDM:10430|GS:1385,0.761,Man and Man Enterprise Improved Cooking Stoves CDM Programme in Ghana supported by Republic of Korea,GS1385 Man and Man Enterprise Improved Cooking Stoves Programme in Ghana,0.761,,False,False,False
+CDM:10430|GS:11624,0.761,Man and Man Enterprise Improved Cooking Stoves CDM Programme in Ghana supported by Republic of Korea,GS1385 Man and Man Enterprise Improved Cooking Stoves Programme in Ghana - VPA003,0.761,,False,False,False
 ACR:0289|CAR:1209,0.761,Blue Source- Red Hill West Improved Forest Management Project,Blue Source-Wolf River Improved Forest Management Project,0.711,,True,False,False
 CDM:546|GS:382,0.76,SRGEL Non-Conventional Energy Sources Biomass Power Project,*Sri Balaji 6 MW Non-Conventional Renewable Sources Biomass Power Project,0.64,True,False,False,True
+CDM:10340|GS:4677,0.76,Project Gaia Cook Stove Programme of Activities,Project Gaia Cook Stove Programme of Activities CPA0003 Ethiopia,0.76,,False,False,False
 CDM:6214|VCS:411,0.76,Korat S.W. Group 2007 Wastewater Treatment and Biogas Utilization Project,Chorchaiwat Wastewater Treatment and Biogas Utilization Project,0.74,,False,False,True
 CDM:10560|VCS:2739,0.759,Reducing Gas Leakages within the Karnaphuli Gas Distribution Network in Bangladesh,Reducing Gas Leakages within the Pashchimanchal Gas Distribution Network in Bangladesh,0.759,,False,False,False
 CDM:10562|VCS:2738,0.759,Reducing Gas Leakages within the Pashchimanchal Gas Distribution Network in Bangladesh,Reducing Gas Leakages within the Karnaphuli Gas Distribution Network in Bangladesh,0.759,,False,False,False
 CDM:10559|VCS:2478,0.759,Reducing Gas Leakages within the Bakhrabad Gas Distribution Network in Bangladesh,Reducing Gas Leakages within the Titas Gas Distribution Network in Bangladesh - CER Conversion,0.759,,False,False,False
-GS:12457|VCS:4258,0.758,GS12456 VPA 01 Sustainable agricultural practices for rice cultivation in India,SUSTAINABLE AGRICULTURAL PRACTICES IN WHEAT AND MAIZE CULTIVATION,0.708,,True,False,False
 GS:12456|VCS:4258,0.758,Sustainable agricultural practices for rice cultivation in India,SUSTAINABLE AGRICULTURAL PRACTICES IN WHEAT AND MAIZE CULTIVATION,0.708,,True,False,False
+GS:12457|VCS:4258,0.758,GS12456 VPA 01 Sustainable agricultural practices for rice cultivation in India,SUSTAINABLE AGRICULTURAL PRACTICES IN WHEAT AND MAIZE CULTIVATION,0.708,,True,False,False
 ACR:0931|CAR:2055,0.758,Kielty Abandoned Mine Methane Recovery Project,Urling Abandoned Mine Methane Recovery Project,0.708,,True,False,False
 ACR:0537|CAR:2112,0.758,Wabash Abandoned Mine Methane Recovery Project,Kielty Abandoned Mine Methane Recovery Project,0.708,,True,False,False
 ACR:0743|CAR:2112,0.758,Urling Abandoned Mine Methane Recovery Project,Kielty Abandoned Mine Methane Recovery Project,0.708,,True,False,False
 ACR:0931|CAR:2114,0.758,Kielty Abandoned Mine Methane Recovery Project,Wabash Abandoned Mine Methane Recovery Project,0.708,,True,False,False
 ACR:0296|CAR:1202,0.758,Blue Source - ORM McCloud Improved Forest Management Project,Blue Source-Snowshoe Improved Forest Management Project,0.708,,True,False,False
-GS:12583|VCS:4114,0.757,GS12557 VPA-003 Core Carbon Sustainable Rice Initiative India,Core Carbon Sustainable Rice Productions 03,0.707,,True,False,False
+CDM:4728|VCS:992,0.757,The Capture and Utilisation of Methane at the Sibanye Gold Owned Beatrix Mine in South Africa,The Capture and Utilisation of Methane at the GFI Mining South Africa owned Beatrix Mine in South Africa,0.757,,False,False,False
 GS:12584|VCS:4105,0.757,GS12557 VPA-004 Core Carbon Sustainable Rice Initiative India,Core Carbon Sustainable Rice Productions 04,0.707,,True,False,False
-GS:12581|VCS:3243,0.757,GS12557 VPA-001 Core Carbon Sustainable Rice Initiative India,Core Carbon Sustainable Rice Productions 01,0.707,,True,False,False
 GS:12582|VCS:4115,0.757,GS12557 VPA-002 Core Carbon Sustainable Rice Initiative India,Core Carbon Sustainable Rice Productions 02,0.707,,True,False,False
+GS:12581|VCS:3243,0.757,GS12557 VPA-001 Core Carbon Sustainable Rice Initiative India,Core Carbon Sustainable Rice Productions 01,0.707,,True,False,False
+GS:12583|VCS:4114,0.757,GS12557 VPA-003 Core Carbon Sustainable Rice Initiative India,Core Carbon Sustainable Rice Productions 03,0.707,,True,False,False
 ACR:0578|CAR:2089,0.757,New Era Abandoned Mine Methane Recovery Project,Middle Fork Abandoned Mine Methane Recovery Project,0.677,,True,True,False
 ACR:1009|CAR:2167,0.757,Green Valley Abandoned Mine Methane Recovery Project,Bonny Abandoned Mine Methane Recovery Project,0.707,,True,False,False
 ACR:0806|CAR:2111,0.757,Bonny Abandoned Mine Methane Recovery Project,Green Valley Abandoned Mine Methane Recovery Project,0.707,,True,False,False
@@ -634,6 +752,7 @@ ACR:0669|CAR:2167,0.755,New Future Abandoned Mine Methane Recovery Project,Bonny
 ACR:0669|CAR:2089,0.754,New Future Abandoned Mine Methane Recovery Project,Middle Fork Abandoned Mine Methane Recovery Project,0.674,,True,True,False
 ACR:0546|CAR:2113,0.754,Middle Fork Abandoned Mine Methane Recovery Project,New Future Abandoned Mine Methane Recovery Project,0.674,,True,True,False
 ACR:0281|CAR:1209,0.754,Blue Source - Wisconsin Northern Highlands Improved Forest Management Project,Blue Source-Wolf River Improved Forest Management Project,0.674,,True,True,False
+CDM:10340|GS:4535,0.753,Project Gaia Cook Stove Programme of Activities,Project Gaia Cook Stoves Programme of Activities Ethiopia CPA-0001,0.733,,False,False,True
 CDM:5098|GS:789,0.753,Metro Group Energy WWT Project,Metro Group Energy WWT Project (300392)_pre-CDM VER,0.733,,False,False,True
 CDM:6214|VCS:408,0.753,Korat S.W. Group 2007 Wastewater Treatment and Biogas Utilization Project,Thanawat wastewater treatment and biogas utilization project,0.733,,False,False,True
 ACR:0743|VCS:573,0.753,Urling Abandoned Mine Methane Recovery Project,Corinth Abandoned Mine Methane Recovery Project,0.703,,True,False,False
@@ -644,17 +763,20 @@ ACR:0388|CAR:2092,0.753,Corinth Abandoned Mine Methane Recovery Project,New Era 
 CAR:2055|VCS:573,0.753,Urling Abandoned Mine Methane Recovery Project,Corinth Abandoned Mine Methane Recovery Project,0.703,,True,False,False
 ACR:0578|CAR:2055,0.753,New Era Abandoned Mine Methane Recovery Project,Urling Abandoned Mine Methane Recovery Project,0.703,,True,False,False
 CDM:2556|GS:521,0.752,Bangna Starch Wastewater Treatment and Biogas Utilization Project,Chantaburi Starch Wastewater Treatment and Biogas Utilization Project (300085),0.752,,False,False,False
+GS:11624|VCS:3650,0.752,GS1385 Man and Man Enterprise Improved Cooking Stoves Programme in Ghana - VPA003,CPA1 - Man and Man Enterprise Improved Cooking Stoves Programme in Ghana (Brong-Ahafo region),0.702,,True,False,False
+GS:1385|VCS:3650,0.752,GS1385 Man and Man Enterprise Improved Cooking Stoves Programme in Ghana,CPA1 - Man and Man Enterprise Improved Cooking Stoves Programme in Ghana (Brong-Ahafo region),0.702,,True,False,False
+GS:2094|VCS:3650,0.752,GS1385 Man and Man Enterprise Improved Cooking Stoves Programme in Ghana - VPA001,CPA1 - Man and Man Enterprise Improved Cooking Stoves Programme in Ghana (Brong-Ahafo region),0.702,,True,False,False
 ACR:1009|CAR:2055,0.752,Green Valley Abandoned Mine Methane Recovery Project,Urling Abandoned Mine Methane Recovery Project,0.702,,True,False,False
 ACR:0743|CAR:2111,0.752,Urling Abandoned Mine Methane Recovery Project,Green Valley Abandoned Mine Methane Recovery Project,0.702,,True,False,False
 ACR:0931|CAR:2111,0.752,Kielty Abandoned Mine Methane Recovery Project,Green Valley Abandoned Mine Methane Recovery Project,0.702,,True,False,False
 ACR:1009|CAR:2112,0.752,Green Valley Abandoned Mine Methane Recovery Project,Kielty Abandoned Mine Methane Recovery Project,0.702,,True,False,False
 ACR:0280|CAR:1196,0.752,Blue Source - Marmet Improved Forest Management Project,Blue Source-Silver Bluff Improved Forest Management Project,0.702,,True,False,False
+CDM:5341|GS:2659,0.751,Improved Cooking Stoves Programme of Activities in Africa,Improved Cooking Stoves PoA in Africa,0.731,,False,False,True
 ACR:0202|VCS:OPR10,0.751,Blue Source - Goodman Improved Forest Management Project,Blue Source-Alford Improved Forest Management Project,0.751,,False,False,False
-CDM:7261|UCR:352,0.75,Biomass based power project by Shri Shyam Warehousing and Power Pvt. Ltd.,"Biomass based power project by Shri Shyam Warehousing and Power Pvt. Ltd, Banari, Chhattisgarh",0.75,,False,False,False
 CDM:276|VCS:384,0.75,Bundled wind power project in Chitradurga (Karnataka in India) managed by Enercon (India) Ltd.,Grid connected bundled wind power project in Karnataka managed by Enercon (India) Limited,0.75,,False,False,False
+CDM:7261|UCR:352,0.75,Biomass based power project by Shri Shyam Warehousing and Power Pvt. Ltd.,"Biomass based power project by Shri Shyam Warehousing and Power Pvt. Ltd, Banari, Chhattisgarh",0.75,,False,False,False
 CDM:5016|VCS:689,0.75,Reforestation of degraded land by MTPL in India,"Reforestation of degraded land in Chhattisgarh, India",0.75,,False,False,False
 ACR:0289|CAR:1207,0.75,Blue Source- Red Hill West Improved Forest Management Project,Blue Source-Montrose Improved Forest Management Project,0.7,,True,False,False
-CDM:5962|GS:4269,0.749,International water purification programme,GS2404 International Water Purification Programme - CPA 4 Water Kiosks in Cambodia,0.749,,False,False,False
 GS:7303|VCS:407,0.749,Bangna Starch Wastewater Treatment and Biogas Utilization Project (300084) (GS565 CER to VER conversion),Chakangrao Starch wastewater treatment and biogas utilization project,0.729,,False,False,True
 CDM:4867|GS:7303,0.749,Chantaburi Starch Wastewater Treatment and Biogas Utilization Project,Bangna Starch Wastewater Treatment and Biogas Utilization Project (300084) (GS565 CER to VER conversion),0.729,,False,False,True
 ACR:0299|CAR:2047,0.749,Blue Source-St. Croix Improved Forest Management Project,Blue Source - Alford Improved Forest Management Project,0.699,,True,False,False
@@ -662,6 +784,8 @@ ACR:0299|CAR:973,0.749,Blue Source-St. Croix Improved Forest Management Project,
 ACR:0393|CAR:1201,0.749,Blue Source - Wilderness Lakes Improved Forest Management Project,Blue Source-Winchendon Improved Forest Management Project,0.699,,True,False,False
 CDM:3347|GS:1298,0.748,Caruquia 9.76 MW Hydroelectric project,Caruquia 9.76 MW hydroelectric project Pre-CDM VERs,0.628,True,False,False,True
 GS:1298|VCS:1835,0.748,Caruquia 9.76 MW hydroelectric project Pre-CDM VERs,Caruquia 9.76 MW Hydroelectric Project,0.628,True,False,False,True
+CDM:9638|GS:11787,0.748,Congo (DRC) Improved Cook Stoves program,Congo (DRC) Improved Cook Stoves VPA 005 – Bandalungwa,0.748,,False,False,False
+GS:23294|VCS:4481,0.748,Restore Africa: Restoring Landscapes and Livelihoods in Coastal Kenya,Restore Africa: Restoring trees and livelihoods in Kenya,0.698,,True,False,False
 CAR:452|VCS:1888,0.748,Steuben County Landfill Gas Flaring project,Larimer County Landfill Gas Flaring Project,0.748,,False,False,False
 ACR:0540|CAR:2135,0.748,Pinnacle Mine Methane Incineration Project,Affinity Mine Methane Incineration Project,0.668,,True,True,False
 ACR:0540|CAR:2171,0.748,Pinnacle Mine Methane Incineration Project,Heilwood Mine Methane Incineration Project,0.668,,True,True,False
@@ -693,10 +817,13 @@ ACR:0546|VCS:OPR2,0.745,Middle Fork Abandoned Mine Methane Recovery Project,Cori
 GS:23401|VCS:3156,0.744,Sustainable Rice Cultivation for Smallholder Farmers in India,"Sustainable Rice Cultivation for Marginal Farmers in Madhya Pradesh, India",0.694,,True,False,False
 CDM:10561|VCS:2478,0.744,Reducing Gas Leakages within the Jalalabad Gas Distribution Network in Bangladesh,Reducing Gas Leakages within the Titas Gas Distribution Network in Bangladesh - CER Conversion,0.744,,False,False,False
 CDM:6648|VCS:2527,0.744,Saraff Biogas Wastewater Treatment and Biogas Utilisation Project,Maesod Wastewater Treatment and Biogas Utilisation Project,0.724,,False,False,True
-GS:530|VCS:2527,0.744,Saraff Biogas Wastewater Treatment and Biogas Utilisation project (300177),Maesod Wastewater Treatment and Biogas Utilisation Project,0.724,,False,False,True
-CDM:5291|GS:530,0.744,Maesod Wastewater Treatment and Biogas Utilisation Project,Saraff Biogas Wastewater Treatment and Biogas Utilisation project (300177),0.724,,False,False,True
 CDM:8712|GS:530,0.744,Maesod Wastewater Treatment and Biogas Utilisation Project,Saraff Biogas Wastewater Treatment and Biogas Utilisation project (300177),0.724,,False,False,True
+CDM:5291|GS:530,0.744,Maesod Wastewater Treatment and Biogas Utilisation Project,Saraff Biogas Wastewater Treatment and Biogas Utilisation project (300177),0.724,,False,False,True
+GS:530|VCS:2527,0.744,Saraff Biogas Wastewater Treatment and Biogas Utilisation project (300177),Maesod Wastewater Treatment and Biogas Utilisation Project,0.724,,False,False,True
 ACR:0644|CAR:2111,0.744,Willow Lake Abandoned Mine Methane Recovery Project,Green Valley Abandoned Mine Methane Recovery Project,0.664,,True,True,False
+CDM:9181|GS:11503,0.743,MicroEnergy Credits  Microfinance for Clean Energy Product Lines  India,GS11450 - MicroEnergy Credits – Microfinance for Clean Energy Product Lines – India - CPA 19 - Clear Sky Partners – GS11503,0.743,,False,False,False
+CDM:9181|GS:11496,0.743,MicroEnergy Credits  Microfinance for Clean Energy Product Lines  India,GS11450 - MicroEnergy Credits – Microfinance for Clean Energy Product Lines – India - CPA 26 - Clear Sky Partners – GS11496,0.743,,False,False,False
+CDM:9181|GS:11498,0.743,MicroEnergy Credits  Microfinance for Clean Energy Product Lines  India,GS11450 - MicroEnergy Credits – Microfinance for Clean Energy Product Lines – India - CPA 24 - Clear Sky Partners – GS11498,0.743,,False,False,False
 ACR:0578|CAR:2217,0.743,New Era Abandoned Mine Methane Recovery Project,Rend Lake Abandoned Mine Methane Recovery Project,0.662,,True,True,False
 ACR:0808|CAR:2092,0.743,Rend Lake Abandoned Mine Methane Recovery Project,New Era Abandoned Mine Methane Recovery Project,0.662,,True,True,False
 ACR:0630|CAR:2061,0.742,Carlisle Abandoned Mine Methane Recovery Project,CERP1 Abandoned Mine Methane Recovery Project,0.742,,False,False,False
@@ -715,8 +842,8 @@ CAR:1195|VCS:OPR10,0.742,Blue Source - Corkscrew Improved Forest Management Proj
 ACR:0297|VCS:OPR10,0.742,Blue Source-Texarkana Improved Forest Management Project,Blue Source-Alford Improved Forest Management Project,0.742,,False,False,False
 ACR:0298|CAR:1207,0.742,Blue Source - Hancock McCloud Improved Forest Management Project,Blue Source-Montrose Improved Forest Management Project,0.692,,True,False,False
 ACR:0174|CAR:1199,0.742,Blue Source - Bishop Improved Forest Management Project,Blue Source- Stonewall Improved Forest Management Project,0.742,,False,False,False
-CDM:9321|GS:6003,0.741,"GHG abatement through solar power generation in Bikaner, Rajasthan, India",GHG abatement through Solar Power Generation at Jaisalmer Rajasthan India,0.721,,False,False,True
 CDM:5504|UCR:64,0.741,"2 MW Kalm Small Hydro Electric Project in Himachal Pradesh, India","2.00 MW Kalm Small Hydro Power project by Sunshine Hydro Power Limited, Himachal Pradesh, India",0.641,True,False,False,False
+CDM:9321|GS:6003,0.741,"GHG abatement through solar power generation in Bikaner, Rajasthan, India",GHG abatement through Solar Power Generation at Jaisalmer Rajasthan India,0.721,,False,False,True
 CDM:10560|VCS:2478,0.741,Reducing Gas Leakages within the Karnaphuli Gas Distribution Network in Bangladesh,Reducing Gas Leakages within the Titas Gas Distribution Network in Bangladesh - CER Conversion,0.741,,False,False,False
 ACR:0267|CAR:1211,0.741,Blue Source - Powellton Improved Forest Management Project,Blue Source-Westervelt Piedmont Improved Forest Management Project,0.691,,True,False,False
 CDM:10077|VCS:3021,0.74,Reducing Gas Leakages within the Titas Gas Distribution Network in Bangladesh,Reducing Gas Leakages within North West and other sub-areas of the Titas Gas Distribution Network in Bangladesh,0.74,,False,False,False
@@ -732,6 +859,13 @@ ACR:0299|CAR:1202,0.74,Blue Source-St. Croix Improved Forest Management Project,
 ACR:0267|CAR:1196,0.74,Blue Source - Powellton Improved Forest Management Project,Blue Source-Silver Bluff Improved Forest Management Project,0.69,,True,False,False
 ACR:0276|CAR:1196,0.74,Blue Source - Allegheny Improved Forest Management Project,Blue Source-Silver Bluff Improved Forest Management Project,0.69,,True,False,False
 ACR:0299|CAR:1207,0.74,Blue Source-St. Croix Improved Forest Management Project,Blue Source-Montrose Improved Forest Management Project,0.69,,True,False,False
+GS:23259|VCS:5114,0.738,VPA 1 Safe Water Programme in Uganda,Grouped Projects for Safe Water Program in Uganda,0.738,,False,False,False
+GS:12015|VCS:5114,0.738,Safe Water in Uganda,Grouped Projects for Safe Water Program in Uganda,0.738,,False,False,False
+GS:11066|VCS:5115,0.738,GS1247 VPA 285 Malawi Safe Water Project,Grouped Projects for Safe Water Program in Malawi,0.738,,False,False,False
+GS:11067|VCS:5115,0.738,GS1247 VPA 286 Malawi Safe Water Project,Grouped Projects for Safe Water Program in Malawi,0.738,,False,False,False
+GS:11064|VCS:5115,0.738,GS1247 VPA 283 Malawi Safe Water Project,Grouped Projects for Safe Water Program in Malawi,0.738,,False,False,False
+GS:11065|VCS:5115,0.738,GS1247 VPA 284 Malawi Safe Water Project,Grouped Projects for Safe Water Program in Malawi,0.738,,False,False,False
+GS:11063|VCS:5115,0.738,GS1247 VPA 282 Malawi Safe Water Project,Grouped Projects for Safe Water Program in Malawi,0.738,,False,False,False
 CDM:4492|VCS:426,0.738,"Wastewater Treatment with Biogas System in Palm Oil Mill at Sikao, Trang, Thailand","Wastewater Treatment with Biogas System in Palm Oil Mill at Sawi, Chumporn,Thailand",0.718,,False,False,True
 ACR:0283|CAR:450,0.738,Rosendale Anaerobic Digester,West River Farm Anaerobic Digester Project,0.688,,True,False,False
 ACR:0283|CAR:1126,0.738,Rosendale Anaerobic Digester,West River Farm Anaerobic Digester Project,0.688,,True,False,False
@@ -743,9 +877,10 @@ ACR:0371|CAR:1207,0.738,Blue Source - Great Mountain Forest Improved Forest Mana
 ACR:0373|VCS:OPR10,0.738,Blue Source - Northwoods Improved Forest Management Project,Blue Source-Alford Improved Forest Management Project,0.738,,False,False,False
 CAR:1209|VCS:OPR10,0.738,Blue Source-Wolf River Improved Forest Management Project,Blue Source-Alford Improved Forest Management Project,0.738,,False,False,False
 CAR:1201|VCS:OPR10,0.738,Blue Source-Winchendon Improved Forest Management Project,Blue Source-Alford Improved Forest Management Project,0.738,,False,False,False
+GS:7435|VCS:1659,0.738,REMONDIS Recycling CO2 Emissions Reductions from Glass Recycling Germany,Reduction of CO2 Emissions by Glass Recycling,0.668,,True,False,True
+CDM:6896|GS:7791,0.737,"Wind energy project in Theni, Tamil Nadu",Wind power project by TVS Energy Limited in Theni Tamil Nadu,0.717,,False,False,True
 CDM:6896|VCS:930,0.737,"Wind energy project in Theni, Tamil Nadu","Wind power project by TVS Energy Limited in Theni, Tamil Nadu",0.717,,False,False,True
 CDM:5871|GS:7790,0.737,"Wind power project by TVS Energy Limited in Theni, Tamil Nadu",Wind energy project in Theni Tamil Nadu,0.717,,False,False,True
-CDM:6896|GS:7791,0.737,"Wind energy project in Theni, Tamil Nadu",Wind power project by TVS Energy Limited in Theni Tamil Nadu,0.717,,False,False,True
 ACR:0388|CAR:2113,0.737,Corinth Abandoned Mine Methane Recovery Project,New Future Abandoned Mine Methane Recovery Project,0.707,,False,True,False
 ACR:0644|CAR:2114,0.737,Willow Lake Abandoned Mine Methane Recovery Project,Wabash Abandoned Mine Methane Recovery Project,0.657,,True,True,False
 CDM:6214|VCS:417,0.736,Korat S.W. Group 2007 Wastewater Treatment and Biogas Utilization Project,P.S.C Starch Wastewater Treatment and Biogas Utilization Project,0.716,,False,False,True
@@ -769,9 +904,9 @@ ACR:0323|CAR:450,0.733,Statz B Farm Anaerobic Digester,West River Farm Anaerobic
 ACR:0323|CAR:1126,0.733,Statz B Farm Anaerobic Digester,West River Farm Anaerobic Digester Project,0.733,,False,False,False
 ACR:0388|CAR:2114,0.733,Corinth Abandoned Mine Methane Recovery Project,Wabash Abandoned Mine Methane Recovery Project,0.703,,False,True,False
 GS:7748|VCS:2065,0.732,Bundled Solar project by Atria Power,Renewable Energy Power Projects by Atria Power,0.712,,False,False,True
-GS:23401|VCS:3607,0.732,Sustainable Rice Cultivation for Smallholder Farmers in India,"Sustainable Rice Cultivation for Marginal Farmers in Chhattisgarh, India",0.682,,True,False,False
 GS:12542|VCS:3238,0.732,Core Carbon Sustainable Rice Initiative Telangana,Core Carbon Sustainable Rice Productions,0.682,,True,False,False
 GS:12543|VCS:3243,0.732,Core Carbon Sustainable Rice Initiative Telangana 001,Core Carbon Sustainable Rice Productions 01,0.682,,True,False,False
+GS:23401|VCS:3607,0.732,Sustainable Rice Cultivation for Smallholder Farmers in India,"Sustainable Rice Cultivation for Marginal Farmers in Chhattisgarh, India",0.682,,True,False,False
 ACR:0644|CAR:2092,0.732,Willow Lake Abandoned Mine Methane Recovery Project,New Era Abandoned Mine Methane Recovery Project,0.652,,True,True,False
 ACR:0298|CAR:1200,0.732,Blue Source - Hancock McCloud Improved Forest Management Project,Blue Source- Goodwood Improved Forest Management Project,0.682,,True,False,False
 ACR:0298|CAR:1202,0.732,Blue Source - Hancock McCloud Improved Forest Management Project,Blue Source-Snowshoe Improved Forest Management Project,0.682,,True,False,False
@@ -803,22 +938,35 @@ CDM:9228|GS:12482,0.726,CTR Maceio Landfill Gas Project,CTR Rosario Landfill Gas
 CDM:1154|VCS:4,0.726,"AWMS Methane Recovery Project BR06-S-19, Goias, Brazil",AWMS METHANE RECOVERY PROJECT BR06-S-19,0.706,,False,False,True
 CDM:1158|VCS:18,0.726,"AWMS Methane Recovery Project BR06-S-21, Goias, Brazil",AWMS METHANE RECOVERY PROJECT BR06-S-21,0.706,,False,False,True
 CDM:1162|VCS:22,0.726,"AWMS Methane Recovery Project BR06-S-27, Goias, Brazil",AWMS METHANE RECOVERY PROJECT BR06-S-27,0.706,,False,False,True
+GS:7600|VCS:5114,0.725,GS7591 VPA 15 Northern Uganda Safe Water Project,Grouped Projects for Safe Water Program in Uganda,0.725,,False,False,False
+GS:7594|VCS:5114,0.725,GS7591 VPA 9 Northern Uganda Safe Water Project,Grouped Projects for Safe Water Program in Uganda,0.725,,False,False,False
+GS:7597|VCS:5114,0.725,GS7591 VPA 12 Northern Uganda Safe Water Project,Grouped Projects for Safe Water Program in Uganda,0.725,,False,False,False
+GS:7601|VCS:5114,0.725,GS7591 VPA 16 Northern Uganda Safe Water Project,Grouped Projects for Safe Water Program in Uganda,0.725,,False,False,False
+GS:7595|VCS:5114,0.725,GS7591 VPA 10 Northern Uganda Safe Water Project,Grouped Projects for Safe Water Program in Uganda,0.725,,False,False,False
+GS:7599|VCS:5114,0.725,GS7591 VPA 14 Northern Uganda Safe Water Project,Grouped Projects for Safe Water Program in Uganda,0.725,,False,False,False
+GS:7598|VCS:5114,0.725,GS7591 VPA 13 Northern Uganda Safe Water Project,Grouped Projects for Safe Water Program in Uganda,0.725,,False,False,False
+GS:7592|VCS:5114,0.725,GS7591 VPA 7 Northern Uganda Safe Water Project,Grouped Projects for Safe Water Program in Uganda,0.725,,False,False,False
+GS:7596|VCS:5114,0.725,GS7591 VPA 11 Northern Uganda Safe Water Project,Grouped Projects for Safe Water Program in Uganda,0.725,,False,False,False
+GS:7593|VCS:5114,0.725,GS7591 VPA 8 Northern Uganda Safe Water Project,Grouped Projects for Safe Water Program in Uganda,0.725,,False,False,False
 ACR:0286|CAR:1130,0.725,Finite Carbon - KRP Timberlands IFM,Finite Carbon - Lyme Brimstone Timberlands IFM,0.675,,True,False,False
 ACR:0371|CAR:1195,0.725,Blue Source - Great Mountain Forest Improved Forest Management Project,Blue Source - Corkscrew Improved Forest Management Project,0.675,,True,False,False
 CDM:809|VCS:451,0.723,Garganta da Jararaca Small Hydroelectric Power Plant (SHP),Garganta da Jararaca Small Hydroelectric Power Plant (SHP) - Atiaia Energia S.A. Project Activity,0.723,,False,False,False
 CDM:1242|VCS:966,0.723,Tultitlan  EcoMethane Landfill Gas to Energy Project,Tecamac EcoMethane Landfill Gas to Energy Project,0.723,,False,False,False
 GS:12047|VCS:4128,0.723,Ecoparque Candeias Landfill Gas Project,ECOPARQUE MACEIÓ LANDFILL GAS PROJECT,0.673,,True,False,False
+GS:11144|VCS:2467,0.723,Afyon Landfill Gas to Energy Project,Bayburt Landfill Gas to Energy Project,0.673,,True,False,False
 ACR:0808|CAR:2061,0.723,Rend Lake Abandoned Mine Methane Recovery Project,CERP1 Abandoned Mine Methane Recovery Project,0.673,,True,False,False
 ACR:0296|CAR:1195,0.723,Blue Source - ORM McCloud Improved Forest Management Project,Blue Source - Corkscrew Improved Forest Management Project,0.673,,True,False,False
 ACR:0602|VCS:5919,0.723,Forest Carbon Works McMahon Family Forest Project,Family Forest Carbon Program - North,0.673,,True,False,False
 ACR:0691|VCS:5919,0.723,Forest Carbon Works Shumway Family Forest Project,Family Forest Carbon Program - North,0.673,,True,False,False
 CDM:9125|VCS:5980,0.722,Salto Cafesoca Small Hydropower Project,SHP SALTO CAFESOCA,0.702,,False,False,True
 CDM:9881|VCS:4934,0.722,Nam Ngiep 3A Hydropower Project,Nam Ngiep 2A Hydropower project,0.722,,False,False,False
+GS:1013|VCS:3966,0.722,Kocaeli Landfill Gas to Electricity Project,Karaman Landfill Gas to Electricity Project,0.672,,True,False,False
 ACR:0674|CAR:2056,0.722,Affinity Mine Methane Incineration Project,American Eagle Mine Methane Incineration Project,0.642,,True,True,False
 ACR:0841|CAR:2135,0.722,American Eagle Mine Methane Incineration Project,Affinity Mine Methane Incineration Project,0.642,,True,True,False
 ACR:0841|CAR:2171,0.722,American Eagle Mine Methane Incineration Project,Heilwood Mine Methane Incineration Project,0.642,,True,True,False
 ACR:0277|CAR:2047,0.722,Blue Source – Boone Forestlands Improved Forest Management Project,Blue Source - Alford Improved Forest Management Project,0.672,,True,False,False
 CDM:7864|VCS:5975,0.721,Recovery and Avoidance of Methane from Industrial Wastewater Treatment Projects,"Recovery and Avoidance of Methane from Industrial Wastewater Treatment Projects at Bina Pitri Jaya mill, Indonesia",0.701,,False,False,True
+GS:1223|VCS:3071,0.721,SUTAS KARACABEY BIOGAS PLANT,KARACABEY BIOGAS PLANT,0.671,,True,False,False
 ACR:0644|VCS:573,0.72,Willow Lake Abandoned Mine Methane Recovery Project,Corinth Abandoned Mine Methane Recovery Project,0.64,,True,True,False
 ACR:0644|VCS:OPR2,0.72,Willow Lake Abandoned Mine Methane Recovery Project,Corinth Abandoned Mine Methane Recovery Project,0.64,,True,True,False
 ACR:0644|CAR:2112,0.72,Willow Lake Abandoned Mine Methane Recovery Project,Kielty Abandoned Mine Methane Recovery Project,0.67,,True,False,False
@@ -830,28 +978,62 @@ ACR:0296|CAR:1201,0.72,Blue Source - ORM McCloud Improved Forest Management Proj
 ACR:0298|CAR:973,0.72,Blue Source - Hancock McCloud Improved Forest Management Project,Blue Source - Bishop Improved Forest Management Project,0.67,,True,False,False
 ACR:0298|CAR:1203,0.72,Blue Source - Hancock McCloud Improved Forest Management Project,Blue Source- Sylvan Improved Forest Management Project,0.67,,True,False,False
 ACR:0301|CAR:1196,0.72,Blue Source-Lafayette Improved Forest Management Project,Blue Source-Silver Bluff Improved Forest Management Project,0.67,,True,False,False
+GS:3626|VCS:5373,0.719,Solar Lighting in Rural Kenya - VPA 2,Solar Light for Rural Kenya,0.719,,False,False,False
 ACR:0570|VCS:5919,0.719,Forest Carbon Works Rowan Family Forest Project,Family Forest Carbon Program - North,0.669,,True,False,False
 ACR:0373|CAR:1211,0.719,Blue Source - Northwoods Improved Forest Management Project,Blue Source-Westervelt Piedmont Improved Forest Management Project,0.669,,True,False,False
-CDM:10516|VCS:3954,0.718,Improved cook stoves and sustainable charcoal initiative,SUSTAINABLE CHARCOAL AND IMPROVED COOKSTOVE INITIATIVE USING MICRO-GASIFIER IN INDIA,0.698,,False,False,True
 CDM:6000|VCS:585,0.718,Jaroensompong Corporation Panomsarakham Landfill Gas to Energy Project,JAROENSOMPONG CORPORATION RACHATHEWA LANDFILL GAS TO ENERGY,0.718,,False,False,False
 CDM:7864|VCS:5962,0.718,Recovery and Avoidance of Methane from Industrial Wastewater Treatment Projects,"Recovery and Avoidance of methane from Industrial wastewater treatment  project at Agro Muara Rupit mill, Indonesia.",0.698,,False,False,True
 ACR:0644|CAR:2113,0.718,Willow Lake Abandoned Mine Methane Recovery Project,New Future Abandoned Mine Methane Recovery Project,0.638,,True,True,False
 ACR:0630|CAR:2092,0.718,Carlisle Abandoned Mine Methane Recovery Project,New Era Abandoned Mine Methane Recovery Project,0.718,,False,False,False
 ACR:0266|CAR:749,0.718,Green Assets - Milbury Avoided Conversion Project,Green Assets - Middleton Avoided Conversion,0.688,,False,True,False
+GS:12551|VCS:4114,0.717,GS12542 VPA-003 Core Carbon Sustainable Rice Initiative Telangana,Core Carbon Sustainable Rice Productions 03,0.667,,True,False,False
 GS:12552|VCS:4105,0.717,GS12542 VPA-004 Core Carbon Sustainable Rice Initiative Telangana,Core Carbon Sustainable Rice Productions 04,0.667,,True,False,False
 GS:12550|VCS:4115,0.717,GS12542 VPA-002 Core Carbon Sustainable Rice Initiative Telangana,Core Carbon Sustainable Rice Productions 02,0.667,,True,False,False
-GS:12551|VCS:4114,0.717,GS12542 VPA-003 Core Carbon Sustainable Rice Initiative Telangana,Core Carbon Sustainable Rice Productions 03,0.667,,True,False,False
 CDM:3958|GS:12471,0.717,CTR Candeias Landfill Gas Project,CTR Campos landfill gas project,0.717,,False,False,False
 CAR:558|VCS:2414,0.717,Indian River County Landfill,Davidson County Landfill,0.667,,True,False,False
+GS:23295|VCS:4481,0.716,Restore Africa: Restoring Landscapes and Livelihoods in Western Kenya and Rift Valley,Restore Africa: Restoring trees and livelihoods in Kenya,0.666,,True,False,False
 ACR:0630|CAR:2167,0.716,Carlisle Abandoned Mine Methane Recovery Project,Bonny Abandoned Mine Methane Recovery Project,0.716,,False,False,False
 ACR:0393|CAR:2047,0.716,Blue Source - Wilderness Lakes Improved Forest Management Project,Blue Source - Alford Improved Forest Management Project,0.666,,True,False,False
 ACR:0289|CAR:1195,0.716,Blue Source- Red Hill West Improved Forest Management Project,Blue Source - Corkscrew Improved Forest Management Project,0.666,,True,False,False
 ACR:0630|CAR:2113,0.715,Carlisle Abandoned Mine Methane Recovery Project,New Future Abandoned Mine Methane Recovery Project,0.715,,False,False,False
 ACR:0281|CAR:1201,0.715,Blue Source - Wisconsin Northern Highlands Improved Forest Management Project,Blue Source-Winchendon Improved Forest Management Project,0.665,,True,False,False
 CDM:10165|VCS:2257,0.714,Wind Power Project by M/s. D. J. Malpani in Maharashtra,Wind Power Project by M/s D. J. Malpani at Jath in Maharashtra,0.714,,False,False,False
+CDM:10430|GS:11564,0.714,Man and Man Enterprise Improved Cooking Stoves CDM Programme in Ghana supported by Republic of Korea,GS1385 Man and Man Enterprise Improved Cooking Stoves Programme in Ghana - VPA002 (Western Region),0.694,,False,False,True
 ACR:0298|CAR:1209,0.714,Blue Source - Hancock McCloud Improved Forest Management Project,Blue Source-Wolf River Improved Forest Management Project,0.664,,True,False,False
 ACR:0601|VCS:5919,0.714,Forest Carbon Works Posner Family Forest Project,Family Forest Carbon Program - North,0.664,,True,False,False
 CDM:10150|VCS:1670,0.713,Grid Connected Solar PV Project by M/s. Giriraj Enterprises in Rajasthan,Bundled Solar Power Project by D.J. Malpani and Giriraj Enterprises,0.713,,False,False,False
+CDM:10182|GS:11930,0.713,Biomass Energy Conservation Programme,GS11677 GS11902 Malawi Biomass Energy Conservation Programme CPA 33,0.693,,False,False,True
+CDM:10182|GS:11932,0.713,Biomass Energy Conservation Programme,GS11677 GS11902 Malawi Biomass Energy Conservation Programme CPA 37,0.693,,False,False,True
+CDM:10182|GS:11923,0.713,Biomass Energy Conservation Programme,GS11677 GS11902 Malawi Biomass Energy Conservation Programme CPA 23,0.693,,False,False,True
+CDM:10182|GS:11925,0.713,Biomass Energy Conservation Programme,GS11677 GS11902 Malawi Biomass Energy Conservation Programme CPA 25,0.693,,False,False,True
+CDM:10182|GS:11927,0.713,Biomass Energy Conservation Programme,GS11677 GS11902 Malawi Biomass Energy Conservation Programme CPA 27,0.693,,False,False,True
+CDM:10182|GS:11916,0.713,Biomass Energy Conservation Programme,GS11677 GS11902 Malawi Biomass Energy Conservation Programme CPA 16,0.693,,False,False,True
+CDM:10182|GS:11929,0.713,Biomass Energy Conservation Programme,GS11677 GS11902 Malawi Biomass Energy Conservation Programme CPA 31,0.693,,False,False,True
+CDM:10182|GS:11918,0.713,Biomass Energy Conservation Programme,GS11677 GS11902 Malawi Biomass Energy Conservation Programme CPA 18,0.693,,False,False,True
+CDM:10182|GS:11931,0.713,Biomass Energy Conservation Programme,GS11677 GS11902 Malawi Biomass Energy Conservation Programme CPA 35,0.693,,False,False,True
+CDM:10182|GS:11920,0.713,Biomass Energy Conservation Programme,GS11677 GS11902 Malawi Biomass Energy Conservation Programme CPA 20,0.693,,False,False,True
+CDM:10182|GS:11922,0.713,Biomass Energy Conservation Programme,GS11677 GS11902 Malawi Biomass Energy Conservation Programme CPA 22,0.693,,False,False,True
+CDM:10182|GS:11911,0.713,Biomass Energy Conservation Programme,GS11677 GS11902 Malawi Biomass Energy Conservation Programme CPA 11,0.693,,False,False,True
+CDM:10182|GS:11924,0.713,Biomass Energy Conservation Programme,GS11677 GS11902 Malawi Biomass Energy Conservation Programme CPA 24,0.693,,False,False,True
+CDM:10182|GS:11913,0.713,Biomass Energy Conservation Programme,GS11677 GS11902 Malawi Biomass Energy Conservation Programme CPA 13,0.693,,False,False,True
+CDM:10182|GS:11926,0.713,Biomass Energy Conservation Programme,GS11677 GS11902 Malawi Biomass Energy Conservation Programme CPA 26,0.693,,False,False,True
+CDM:10182|GS:11915,0.713,Biomass Energy Conservation Programme,GS11677 GS11902 Malawi Biomass Energy Conservation Programme CPA 15,0.693,,False,False,True
+CDM:10182|GS:11928,0.713,Biomass Energy Conservation Programme,GS11677 GS11902 Malawi Biomass Energy Conservation Programme CPA 29,0.693,,False,False,True
+CDM:10182|GS:11904,0.713,Biomass Energy Conservation Programme,GS11677 GS11902 Malawi Biomass Energy Conservation Programme CPA 4,0.693,,False,False,True
+CDM:10182|GS:11917,0.713,Biomass Energy Conservation Programme,GS11677 GS11902 Malawi Biomass Energy Conservation Programme CPA 17,0.693,,False,False,True
+CDM:10182|GS:11906,0.713,Biomass Energy Conservation Programme,GS11677 GS11902 Malawi Biomass Energy Conservation Programme CPA 6,0.693,,False,False,True
+CDM:10182|GS:11919,0.713,Biomass Energy Conservation Programme,GS11677 GS11902 Malawi Biomass Energy Conservation Programme CPA 19,0.693,,False,False,True
+CDM:10182|GS:11908,0.713,Biomass Energy Conservation Programme,GS11677 GS11902 Malawi Biomass Energy Conservation Programme CPA 8,0.693,,False,False,True
+CDM:10182|GS:11921,0.713,Biomass Energy Conservation Programme,GS11677 GS11902 Malawi Biomass Energy Conservation Programme CPA 21,0.693,,False,False,True
+CDM:10182|GS:11910,0.713,Biomass Energy Conservation Programme,GS11677 GS11902 Malawi Biomass Energy Conservation Programme CPA 10,0.693,,False,False,True
+CDM:10182|GS:11912,0.713,Biomass Energy Conservation Programme,GS11677 GS11902 Malawi Biomass Energy Conservation Programme CPA 12,0.693,,False,False,True
+CDM:10182|GS:11914,0.713,Biomass Energy Conservation Programme,GS11677 GS11902 Malawi Biomass Energy Conservation Programme CPA 14,0.693,,False,False,True
+CDM:10182|GS:11903,0.713,Biomass Energy Conservation Programme,GS11677 GS11902 Malawi Biomass Energy Conservation Programme CPA 3,0.693,,False,False,True
+CDM:10182|GS:11905,0.713,Biomass Energy Conservation Programme,GS11677 GS11902 Malawi Biomass Energy Conservation Programme CPA 5,0.693,,False,False,True
+CDM:10182|GS:11907,0.713,Biomass Energy Conservation Programme,GS11677 GS11902 Malawi Biomass Energy Conservation Programme CPA 7,0.693,,False,False,True
+CDM:10182|GS:11909,0.713,Biomass Energy Conservation Programme,GS11677 GS11902 Malawi Biomass Energy Conservation Programme CPA 9,0.693,,False,False,True
+CDM:10182|GS:11902,0.713,Biomass Energy Conservation Programme,GS11677 Malawi Biomass Energy Conservation Programme CPA 2,0.693,,False,False,True
+GS:1319|VCS:4014,0.713,Manavgat Landfill Gas to Electricity Project,Sinop Landfill Gas to Electricity Project,0.663,,True,False,False
 ACR:0537|CAR:2089,0.713,Wabash Abandoned Mine Methane Recovery Project,Middle Fork Abandoned Mine Methane Recovery Project,0.633,,True,True,False
 ACR:0644|CAR:2061,0.713,Willow Lake Abandoned Mine Methane Recovery Project,CERP1 Abandoned Mine Methane Recovery Project,0.662,,True,False,False
 ACR:0546|CAR:2167,0.713,Middle Fork Abandoned Mine Methane Recovery Project,Bonny Abandoned Mine Methane Recovery Project,0.662,,True,False,False
@@ -860,14 +1042,15 @@ ACR:0546|CAR:2114,0.713,Middle Fork Abandoned Mine Methane Recovery Project,Waba
 ACR:0546|CAR:2061,0.713,Middle Fork Abandoned Mine Methane Recovery Project,CERP1 Abandoned Mine Methane Recovery Project,0.662,,True,False,False
 ACR:0281|CAR:1202,0.713,Blue Source - Wisconsin Northern Highlands Improved Forest Management Project,Blue Source-Snowshoe Improved Forest Management Project,0.663,,True,False,False
 GS:773|VCS:407,0.712,Chantaburi Starch Wastewater Treatment and Biogas Utilization Project (300085)_pre-CDM VER,Chakangrao Starch wastewater treatment and biogas utilization project,0.712,,False,False,False
-CDM:4867|GS:777,0.712,Chantaburi Starch Wastewater Treatment and Biogas Utilization Project,Bangna Starch Wastewater Treatment and Biogas Utilization Project (300084)_pre-CDM VER,0.692,,False,False,True
 GS:777|VCS:407,0.712,Bangna Starch Wastewater Treatment and Biogas Utilization Project (300084)_pre-CDM VER,Chakangrao Starch wastewater treatment and biogas utilization project,0.692,,False,False,True
+CDM:4867|GS:777,0.712,Chantaburi Starch Wastewater Treatment and Biogas Utilization Project,Bangna Starch Wastewater Treatment and Biogas Utilization Project (300084)_pre-CDM VER,0.692,,False,False,True
 ACR:0277|CAR:973,0.712,Blue Source – Boone Forestlands Improved Forest Management Project,Blue Source - Bishop Improved Forest Management Project,0.662,,True,False,False
 ACR:0277|CAR:1203,0.712,Blue Source – Boone Forestlands Improved Forest Management Project,Blue Source- Sylvan Improved Forest Management Project,0.662,,True,False,False
 GS:2707|VCS:3986,0.711,Nam Long Hydropower Project,15 MW Nam The Hydropower Project,0.641,,True,False,True
 CDM:10377|GS:6018,0.711,Nam Hinboun Hydropower Project,Nam Hinboun Downstream Hydro power Project,0.711,,False,False,False
 GS:12045|VCS:3617,0.711,Ecoparque João Pessoa Landfill Gas Project,ECOPARQUE SERGIPE LANDFILL GAS PROJECT,0.641,,True,False,True
 GS:12047|VCS:3617,0.711,Ecoparque Candeias Landfill Gas Project,ECOPARQUE SERGIPE LANDFILL GAS PROJECT,0.661,,True,False,False
+GS:13105|VCS:5749,0.711,Zeno Moto Electric Mobility in Kenya,Electric Mobility Program Kenya,0.711,,False,False,False
 GS:4195|VCS:1171,0.71,Biomass based Steam Generation plant at Chanakya Dairy Products Limited,Biomass based steam generation project by Indapur Dairy and Milk Products Limited,0.64,,True,False,True
 GS:12205|VCS:3404,0.71,Ecoparque Sergipe Landfill Gas Project,ECOPARQUE PAULÍNIA LANDFILL GAS PROJECT,0.66,,True,False,False
 ACR:0808|CAR:2167,0.71,Rend Lake Abandoned Mine Methane Recovery Project,Bonny Abandoned Mine Methane Recovery Project,0.66,,True,False,False
@@ -879,6 +1062,7 @@ ACR:1266|VCS:4301,0.71,Koksilah Forest Carbon Project,KSM Forest Carbon Project.
 ACR:0807|CAR:1989,0.709,Shoal Creek Mine Methane Incineration Project,Buck Creek Abandoned Mine Methane Incineration Project,0.659,,True,False,False
 ACR:1009|CAR:2089,0.709,Green Valley Abandoned Mine Methane Recovery Project,Middle Fork Abandoned Mine Methane Recovery Project,0.629,,True,True,False
 ACR:0546|CAR:2111,0.709,Middle Fork Abandoned Mine Methane Recovery Project,Green Valley Abandoned Mine Methane Recovery Project,0.629,,True,True,False
+GS:11867|VCS:4878,0.708,Improved Cookstoves Distribution Programme in Mozambique,IMPROVED COOKSTOVES DISTRIBUTION IN MOZAMBIQUE – MAPUTO,0.708,,False,False,False
 CDM:3958|GS:12786,0.708,CTR Candeias Landfill Gas Project,CTR Agreste Landfill Gas,0.708,,False,False,False
 CDM:9600|GS:12482,0.708,CTR Teresina Landfill Gas Project,CTR Rosario Landfill Gas Project,0.708,,False,False,False
 ACR:0393|CAR:1202,0.708,Blue Source - Wilderness Lakes Improved Forest Management Project,Blue Source-Snowshoe Improved Forest Management Project,0.658,,True,False,False
@@ -887,17 +1071,22 @@ ACR:0393|CAR:1207,0.708,Blue Source - Wilderness Lakes Improved Forest Managemen
 ACR:0393|CAR:1200,0.708,Blue Source - Wilderness Lakes Improved Forest Management Project,Blue Source- Goodwood Improved Forest Management Project,0.658,,True,False,False
 ACR:0298|CAR:1199,0.708,Blue Source - Hancock McCloud Improved Forest Management Project,Blue Source- Stonewall Improved Forest Management Project,0.658,,True,False,False
 ACR:0298|CAR:1195,0.708,Blue Source - Hancock McCloud Improved Forest Management Project,Blue Source - Corkscrew Improved Forest Management Project,0.658,,True,False,False
-GS:12199|VCS:3404,0.707,Ecoparque Maceió Landfill Gas Project,ECOPARQUE PAULÍNIA LANDFILL GAS PROJECT,0.657,,True,False,False
+GS:2718|VCS:4386,0.707,Fuel efficient stoves for Ethiopia Programme of Activities,Distribution of Fuel Efficient Improved Cookstoves in Ethiopia,0.707,,False,False,False
+GS:2722|VCS:4386,0.707,Fuel efficient stoves for Ethiopia Programme of Activities CPA 001,Distribution of Fuel Efficient Improved Cookstoves in Ethiopia,0.707,,False,False,False
 GS:12045|VCS:4128,0.707,Ecoparque João Pessoa Landfill Gas Project,ECOPARQUE MACEIÓ LANDFILL GAS PROJECT,0.637,,True,False,True
+GS:12199|VCS:3404,0.707,Ecoparque Maceió Landfill Gas Project,ECOPARQUE PAULÍNIA LANDFILL GAS PROJECT,0.657,,True,False,False
+GS:11141|VCS:2467,0.707,Cankiri Landfill Gas to Energy Project,Bayburt Landfill Gas to Energy Project,0.657,,True,False,False
 ACR:0644|CAR:2055,0.707,Willow Lake Abandoned Mine Methane Recovery Project,Urling Abandoned Mine Methane Recovery Project,0.657,,True,False,False
 ACR:0931|CAR:2089,0.707,Kielty Abandoned Mine Methane Recovery Project,Middle Fork Abandoned Mine Methane Recovery Project,0.657,,True,False,False
 ACR:0546|CAR:2112,0.707,Middle Fork Abandoned Mine Methane Recovery Project,Kielty Abandoned Mine Methane Recovery Project,0.657,,True,False,False
 ACR:0371|CAR:2047,0.707,Blue Source - Great Mountain Forest Improved Forest Management Project,Blue Source - Alford Improved Forest Management Project,0.657,,True,False,False
 CDM:1166|VCS:145,0.706,Bundled wind energy power projects (2004 policy) in Rajasthan,Enercon Bundled Wind power projects (2004 Policy) in Rajasthan,0.706,,False,False,False
 CDM:1167|VCS:145,0.706,Bundled wind energy power projects (2003 policy) in Rajasthan,Enercon Bundled Wind power projects (2004 Policy) in Rajasthan,0.706,,False,False,False
+GS:1013|VCS:4206,0.706,Kocaeli Landfill Gas to Electricity Project,Kütahya Landfill Gas to Electricity Project,0.656,,True,False,False
 ACR:0296|CAR:1196,0.706,Blue Source - ORM McCloud Improved Forest Management Project,Blue Source-Silver Bluff Improved Forest Management Project,0.656,,True,False,False
 GS:12321|VCS:3431,0.705,Sustainable agricultural practices in tea plantations,SUSTAINABLE AGRICULTURAL PRACTICES IN INDIA,0.705,,False,False,False
 GS:12062|VCS:5955,0.705,CTL Landfill Gas Project,CASCAVEL LANDFILL GAS PROJECT,0.655,,True,False,False
+CDM:9007|VCS:2389,0.705,Distribution of Improved Cook Stoves in Sub-Saharan Africa,Clean Cook Stoves in Sub-Saharan Africa by ClimateCare Limited - CER Conversion,0.685,,False,False,True
 ACR:0630|CAR:2111,0.705,Carlisle Abandoned Mine Methane Recovery Project,Green Valley Abandoned Mine Methane Recovery Project,0.705,,False,False,False
 ACR:0580|CAR:2092,0.705,Pleasant Hill Abandoned Mine Methane Recovery Project,New Era Abandoned Mine Methane Recovery Project,0.655,,True,False,False
 ACR:0298|CAR:1201,0.705,Blue Source - Hancock McCloud Improved Forest Management Project,Blue Source-Winchendon Improved Forest Management Project,0.655,,True,False,False
@@ -906,6 +1095,7 @@ ACR:0277|CAR:1202,0.705,Blue Source – Boone Forestlands Improved Forest Manage
 ACR:0277|CAR:1207,0.705,Blue Source – Boone Forestlands Improved Forest Management Project,Blue Source-Montrose Improved Forest Management Project,0.655,,True,False,False
 CDM:10017|VCS:1670,0.704,Grid Connected Solar PV Project by M/s. Giriraj Enterprises in Maharashtra,Bundled Solar Power Project by D.J. Malpani and Giriraj Enterprises,0.704,,False,False,False
 ACR:0281|CAR:1207,0.704,Blue Source - Wisconsin Northern Highlands Improved Forest Management Project,Blue Source-Montrose Improved Forest Management Project,0.654,,True,False,False
+CDM:4309|UCR:111,0.703,Balsio Small Hydroelectric Project of Ginni Global Pvt. Ltd.,5 MW Small Scale Taraila Small Hydroelectric Project by Ginni Global Ltd.,0.603,True,False,False,False
 GS:12471|VCS:4721,0.703,CTR Campos landfill gas project,CTR IPATINGA LANDFILL GAS PROJECT,0.633,,True,False,True
 CDM:6648|VCS:4848,0.703,Saraff Biogas Wastewater Treatment and Biogas Utilisation Project,Starch Plus Wastewater Treatment And Biogas Utilisation Project,0.683,,False,False,True
 ACR:0388|CAR:2055,0.703,Corinth Abandoned Mine Methane Recovery Project,Urling Abandoned Mine Methane Recovery Project,0.703,,False,False,False
@@ -916,11 +1106,12 @@ ACR:0281|CAR:1203,0.702,Blue Source - Wisconsin Northern Highlands Improved Fore
 ACR:0291|CAR:1195,0.702,Blue Source-Conservation Forestry Elk Improved Forest Management Project,Blue Source - Corkscrew Improved Forest Management Project,0.652,,True,False,False
 GS:515|VCS:417,0.701,Pitak Palm Wastewater Treatment and Biogas Utilization Project (300335),P.S.C Starch Wastewater Treatment and Biogas Utilization Project,0.681,,False,False,True
 CDM:4888|VCS:417,0.701,Pitak Palm Wastewater Treatment and Biogas Utilization Project,P.S.C Starch Wastewater Treatment and Biogas Utilization Project,0.681,,False,False,True
+GS:3489|VCS:4014,0.701,Dilovasi Landfill Gas to Electricity Project,Sinop Landfill Gas to Electricity Project,0.631,,True,False,True
 ACR:0281|CAR:1199,0.701,Blue Source - Wisconsin Northern Highlands Improved Forest Management Project,Blue Source- Stonewall Improved Forest Management Project,0.651,,True,False,False
 ACR:0202|CAR:1211,0.701,Blue Source - Goodman Improved Forest Management Project,Blue Source-Westervelt Piedmont Improved Forest Management Project,0.651,,True,False,False
 ACR:0277|CAR:1199,0.701,Blue Source – Boone Forestlands Improved Forest Management Project,Blue Source- Stonewall Improved Forest Management Project,0.651,,True,False,False
-GS:12457|VCS:3431,0.7,GS12456 VPA 01 Sustainable agricultural practices for rice cultivation in India,SUSTAINABLE AGRICULTURAL PRACTICES IN INDIA,0.7,,False,False,False
 GS:12456|VCS:3431,0.7,Sustainable agricultural practices for rice cultivation in India,SUSTAINABLE AGRICULTURAL PRACTICES IN INDIA,0.7,,False,False,False
+GS:12457|VCS:3431,0.7,GS12456 VPA 01 Sustainable agricultural practices for rice cultivation in India,SUSTAINABLE AGRICULTURAL PRACTICES IN INDIA,0.7,,False,False,False
 CDM:9600|VCS:5078,0.7,CTR Teresina Landfill Gas Project,CTR Metropolitana Landfill Gas,0.7,,False,False,False
 ACR:0644|CAR:2167,0.7,Willow Lake Abandoned Mine Methane Recovery Project,Bonny Abandoned Mine Methane Recovery Project,0.65,,True,False,False
 CAR:683|VCS:OPR10,0.7,Blue Source - Francis Beidler Improved Forest Management Project,Blue Source-Alford Improved Forest Management Project,0.7,,False,False,False
