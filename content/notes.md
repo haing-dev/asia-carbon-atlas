@@ -30,7 +30,7 @@ Footnotes shown at the bottom of the website. Edit freely, then "Commit changes"
 
 ## estimate: Est. annual volume
 - Estimated by the registry, which is often higher than the volume later issued.
-- Map totals leave out projects whose crediting period has ended.
+- Map totals leave out projects whose crediting period has ended, and (by default) inactive projects.
 
 ## units: Issued and retired volume
 - Issued and retired volumes are cumulative.

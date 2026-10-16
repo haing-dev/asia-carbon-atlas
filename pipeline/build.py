@@ -156,7 +156,7 @@ def build_summary(projects: list[dict], countries: dict, taxonomy: dict) -> dict
             r = regions[a]
             r["is"] += (p.get("issued_tco2e") or 0) * sh
             r["re"] += (p.get("retired_tco2e") or 0) * sh
-            if not (end and end < today):
+            if not (end and end < today) and p["stage"] != "inactive":  # same default as the region tabs
                 r["ea"] += (p.get("est_annual_tco2e") or 0) * sh
             if (p.get("issued_tco2e") or 0) > 0:
                 r["countries"].add(c)
