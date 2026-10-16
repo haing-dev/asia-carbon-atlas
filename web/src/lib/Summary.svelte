@@ -42,13 +42,13 @@
 </div>
 
 <section class="offtakers">
-  <h2>Largest announced offtakers, all regions{#if fnum("offtakers")}<sup class="fn"><a href="#note-{fnum('offtakers')}">{fnum("offtakers")}</a></sup>{/if}</h2>
-  <p class="muted lead">Top 10 buyers by announced volume, each bar split by the credit types bought. Click a buyer to see its deals and sources.</p>
+  <h2>Largest announced offtakers, all regions</h2>
+  <p class="muted lead">Top 15 buyers by total announced volume (tCO₂e), each bar split by the credit types bought. Click a buyer to see its deals and sources.</p>
   <div class="two">
     <OfftakerBars title="Deals on projects already issuing credits" subtitle="The project has issued credits in its registry."
-      data={summary.offtakers.issued} l1={summary.l1} l2={summary.l2} names={meta.names} />
+      data={summary.offtakers.issued} l1={summary.l1} l2={summary.l2} names={meta.names} top={15} />
     <OfftakerBars title="Announced deals, not yet issuing" subtitle="The project has not issued credits yet, or is not yet registered (announcement only)."
-      data={summary.offtakers.announced} l1={summary.l1} l2={summary.l2} names={meta.names} />
+      data={summary.offtakers.announced} l1={summary.l1} l2={summary.l2} names={meta.names} top={15} />
   </div>
 </section>
 
@@ -68,6 +68,5 @@
   .offtakers { margin-top: 22px; }
   .offtakers h2 { font-size: 18px; margin: 0; }
   .lead { margin: 4px 0 10px; font-size: 13.5px; }
-  .two { display: grid; grid-template-columns: repeat(auto-fit, minmax(420px, 1fr)); gap: 12px; }
-  @media (max-width: 520px) { .two { grid-template-columns: 1fr; } }
+  .two { display: grid; grid-template-columns: 1fr; gap: 16px; }
 </style>

@@ -260,7 +260,7 @@
       <Table {rows} {index} {fnum} loading={loadingRows} />
     </section>
   {/if}
-  {#if meta && !error}
+  {#if meta && !error && area !== "all"}
 
     <section id="sources" class="prose">
       <h2>Sources and data freshness</h2>

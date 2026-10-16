@@ -13,8 +13,9 @@
     return { ...b, segs };
   }));
   const vmax = $derived(Math.max(1, ...rows.map((r) => r.volume)));
+  // Square-root scale: the largest deals are 1,000x the smallest, so a linear scale leaves most bars as slivers.
+  const width = (v) => 4 + 96 * Math.sqrt(v / vmax);
   const usedL1 = $derived(l1.filter((x) => rows.some((r) => r.segs.some((s) => s.l1 === x.id))));
-  const noVolume = $derived(data.buyers.filter((b) => b.volume === 0).map((b) => b.name));
 
   let open = $state(null);
   let tip = $state(null);
@@ -36,10 +37,10 @@
           <button class="row" aria-expanded={open === r.name} onclick={() => (open = open === r.name ? null : r.name)}>
             <span class="name"><span class="rk">{i + 1}</span>{r.name}</span>
             <span class="track">
-              <span class="bar" style:width="{(r.volume / vmax) * 100}%">
+              <span class="bar" style:width="{width(r.volume)}%">
                 {#each r.segs as s}
                   <span class="seg" style:flex-grow={s.v} style:background={L1_COLORS[s.l1]}
-                    onmouseenter={() => (tip = { buyer: r.name, ...s, pct: s.v / r.volume })} onmouseleave={() => (tip = null)}></span>
+                    onmouseenter={() => (tip = { buyer: r.name, ...s, pct: s.v / r.volume })} onmouseleave={() => (tip = null)}>{#if (s.v / r.volume) * width(r.volume) > 14}<span class="sl">{s.label}</span>{/if}</span>
                 {/each}
               </span>
               <span class="tot num">{fmt(r.volume)}</span>
@@ -72,10 +73,6 @@
         </li>
       {/each}
     </ol>
-    <p class="muted foot">
-      tCO₂e as stated in each public announcement (often multi-year totals). {data.deals_no_volume} of {data.deals} deals state no volume and are not counted.
-      {#if noVolume.length}Other buyers without a stated volume: {noVolume.join(", ")}.{/if}
-    </p>
   {/if}
 </section>
 
@@ -87,17 +84,18 @@
   .legend i, .mix i, .dot { display: inline-block; width: 9px; height: 9px; border-radius: 2px; margin-right: 5px; vertical-align: -1px; }
   .bars { list-style: none; margin: 0; padding: 0; }
   .bars li { border-top: 1px solid var(--line); position: relative; }
-  .row { display: grid; grid-template-columns: minmax(120px, 210px) 1fr; gap: 10px; align-items: center; width: 100%; background: none; border: 0;
+  .row { display: grid; grid-template-columns: minmax(140px, 260px) 1fr; gap: 12px; align-items: center; width: 100%; background: none; border: 0;
     padding: 6px 2px; cursor: pointer; text-align: left; color: inherit; font: inherit; }
   .row:hover, .open .row { background: var(--chip); }
-  .name { font-size: 13.5px; font-weight: 600; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+  .name { font-size: 14px; font-weight: 600; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
   .rk { display: inline-block; width: 18px; color: var(--faint); font-weight: 500; }
   .track { display: flex; align-items: center; gap: 8px; min-width: 0; }
-  .bar { display: flex; height: 16px; min-width: 3px; border-radius: 3px; overflow: hidden; }
-  .seg { height: 100%; min-width: 2px; border-right: 1px solid var(--surface); }
+  .bar { display: flex; height: 24px; min-width: 4px; border-radius: 4px; overflow: hidden; }
+  .seg { height: 100%; min-width: 3px; border-right: 2px solid var(--surface); display: flex; align-items: center; overflow: hidden; }
+  .sl { font-size: 11px; font-weight: 600; color: #0d2023; padding: 0 6px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
   .seg:last-child { border-right: 0; }
   .seg:hover { filter: brightness(1.25); }
-  .tot { font-size: 12.5px; color: var(--muted); white-space: nowrap; }
+  .tot { font-size: 13px; color: var(--ink); white-space: nowrap; }
   .segtip { position: absolute; right: 8px; top: -22px; background: var(--surface); border: 1px solid var(--accent); border-radius: 6px;
     padding: 2px 8px; font-size: 12px; z-index: 3; pointer-events: none; white-space: nowrap; }
   .deals { padding: 4px 4px 10px 30px; font-size: 12.5px; }
@@ -106,5 +104,4 @@
   th, td { text-align: left; padding: 3px 6px; border-bottom: 1px solid var(--line); vertical-align: top; }
   th { font-weight: 600; color: var(--muted); }
   .n { text-align: right; }
-  .foot { font-size: 11.5px; margin: 8px 0 0; }
 </style>
