@@ -62,7 +62,7 @@
                       <td><a href={d.u} target="_blank" rel="noopener" title="Open the announcement">{d.project}</a></td>
                       <td>{country(d)}</td>
                       <td><i class="dot" style:background={L1_COLORS[d.l1]}></i>{l2[d.l2]?.label || d.l2}</td>
-                      <td class="n num">{d.v ? fmtFull(d.v) : "not stated"}</td>
+                      <td class="n num">{d.v ? fmtFull(d.v) : "not stated"}{#if d.sh}<div class="shr">{d.sh}</div>{/if}</td>
                       <td class="num">{d.d || "—"}</td>
                     </tr>
                   {/each}
@@ -104,4 +104,5 @@
   th, td { text-align: left; padding: 3px 6px; border-bottom: 1px solid var(--line); vertical-align: top; }
   th { font-weight: 600; color: var(--muted); }
   .n { text-align: right; }
+  .shr { font: 11px var(--font); color: var(--muted); }
 </style>

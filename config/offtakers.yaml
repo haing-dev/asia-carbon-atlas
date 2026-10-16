@@ -12,9 +12,13 @@ buyer_aliases:
   TD Securities: TD Bank Group
   KliK Foundation (with Climate Cent Foundation): KliK Foundation
   Emergent (LEAF Coalition): LEAF Coalition
-  Symbiosis Coalition (Meta, Google, McKinsey): Symbiosis Coalition
-  Google and McKinsey (Symbiosis Coalition): Symbiosis Coalition
   JPMorganChase: JPMorgan Chase
+
+# Joint buyers named in one announcement with one volume and no published split: the All Regions charts credit each
+# member an equal share (owner rule, 2026-10-16). The project table keeps the announced wording.
+buyer_splits:
+  Google and McKinsey (Symbiosis Coalition): [Google, McKinsey]
+  Symbiosis Coalition (Meta, Google, McKinsey): [Meta, Google, McKinsey]
 
 offtakes:
   - record: VCS:4811
@@ -26,21 +30,25 @@ offtakes:
   - record: VCS:2250
     buyer: Microsoft
     date: 2022-03-10
+    shared_volume_tco2e: 3000000  # 'could see up to three million carbon credits traded' across the four named buyers
     source_url: https://www.trafigura.com/press-releases/landmark-carbon-transaction-marks-turning-point-for-global-blue-carbon-market/
     source_title: Landmark carbon transaction marks turning point for global blue carbon market (Trafigura)
   - record: VCS:2250
     buyer: Carbon Growth Partners
     date: 2022-03-10
+    shared_volume_tco2e: 3000000  # 'could see up to three million carbon credits traded' across the four named buyers
     source_url: https://www.trafigura.com/press-releases/landmark-carbon-transaction-marks-turning-point-for-global-blue-carbon-market/
     source_title: Landmark carbon transaction marks turning point for global blue carbon market (Trafigura)
   - record: VCS:2250
     buyer: Trafigura
     date: 2022-03-10
+    shared_volume_tco2e: 3000000  # 'could see up to three million carbon credits traded' across the four named buyers
     source_url: https://www.trafigura.com/press-releases/landmark-carbon-transaction-marks-turning-point-for-global-blue-carbon-market/
     source_title: Landmark carbon transaction marks turning point for global blue carbon market (Trafigura)
   - record: VCS:2250
     buyer: Respira International
     date: 2022-03-10
+    shared_volume_tco2e: 3000000  # 'could see up to three million carbon credits traded' across the four named buyers
     source_url: https://www.trafigura.com/press-releases/landmark-carbon-transaction-marks-turning-point-for-global-blue-carbon-market/
     source_title: Landmark carbon transaction marks turning point for global blue carbon market (Trafigura)
   - record: VCS:1650

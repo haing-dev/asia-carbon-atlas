@@ -320,7 +320,20 @@ def cdm_buyers(rec: dict) -> list[dict]:
 def _deal(d: dict) -> dict:
     return {"name": d["buyer"], "type": "Announced offtake", "date": str(d.get("date") or "") or None,
             "volume_tco2e": d.get("volume_tco2e"), "source_url": d["source_url"],
-            "source_title": d.get("source_title"), "note": d.get("note")}
+            "source_title": d.get("source_title"), "note": d.get("note"), "shared": d.get("shared_volume_tco2e")}
+
+
+def _share_volumes(deals: list[dict]) -> None:
+    """A total stated for several buyers in one announcement (shared_volume_tco2e) is split equally among them."""
+    groups: dict[str, list[dict]] = defaultdict(list)
+    for d in deals:
+        if d.get("shared") and not d.get("volume_tco2e"):
+            groups[d["source_url"]].append(d)
+    for ds in groups.values():
+        for d in ds:
+            d["volume_tco2e"] = round(d["shared"] / len(ds))
+            d["note"] = (d.get("note") + " " if d.get("note") else "") + \
+                f"Equal share of {d['shared']:,} stated for {len(ds)} buyers together (no split published)."
 
 
 def load_offtakes() -> tuple[dict[str, list[dict]], list[dict]]:
@@ -329,9 +342,12 @@ def load_offtakes() -> tuple[dict[str, list[dict]], list[dict]]:
     by_record: dict[str, list[dict]] = defaultdict(list)
     for d in cfg.get("offtakes") or []:
         by_record[d["record"]].append(_deal(d))
+    for ds in by_record.values():
+        _share_volumes(ds)
     rows = []
     for a in cfg.get("announced_rows") or []:
         deals = [_deal(d) for d in a.get("offtakes") or []]
+        _share_volumes(deals)
         rows.append({
             "record_id": a["id"], "registry": "ANN", "native_id": a["id"].split(":", 1)[-1],
             "registry_url": deals[0]["source_url"] if deals else None, "name": a["name"],

@@ -8,6 +8,7 @@ Footnotes shown at the bottom of the website. Edit freely, then "Commit changes"
 
 ## offtakers: Announced offtakers
 - Offtaker details are sourced from announced public deals only and are therefore non-exhaustive.
+- When one announcement gives a single volume for several named buyers and no split, each buyer is credited an equal share.
 - All Regions charts: volumes are as stated in each announcement (often multi-year totals); deals without a stated volume are listed but not counted. "Already issuing" means the deal's project has issued credits in its registry; other deals count as announced.
 
 ## countries: Country

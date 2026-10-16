@@ -163,23 +163,28 @@ def build_summary(projects: list[dict], countries: dict, taxonomy: dict) -> dict
             if a not in seen:
                 r["projects"] += 1
                 seen.add(a)
-    aliases = (common.load_yaml("offtakers.yaml").get("buyer_aliases") or {})
+    ocfg = common.load_yaml("offtakers.yaml")
+    aliases = ocfg.get("buyer_aliases") or {}
+    splits = ocfg.get("buyer_splits") or {}
     l2 = taxonomy["l2"]
     buyers: dict[tuple, dict] = {}
     seen_deals = set()
     for p in projects:
         status = "issued" if p["stage"] == "issuing" and (p.get("issued_tco2e") or 0) > 0 else "announced"
         for o in p.get("offtakers") or []:
-            name = aliases.get(o["name"], o["name"])
-            key = (name, o.get("source_url"), p["project_id"])
-            if key in seen_deals:
-                continue
-            seen_deals.add(key)
-            b = buyers.setdefault((status, name), {"name": name, "status": status, "volume": 0, "deals": []})
-            vol = o.get("volume_tco2e") or None
-            b["volume"] += vol or 0
-            b["deals"].append({"project": p["display_name"], "id": p["project_id"], "l2": p["l2"], "l1": l2[p["l2"]]["l1"],
-                               "c": p["countries"], "v": vol, "d": o.get("date"), "u": o.get("source_url")})
+            members = splits.get(o["name"]) or [aliases.get(o["name"], o["name"])]
+            for name in members:
+                key = (name, o.get("source_url"), p["project_id"])
+                if key in seen_deals:
+                    continue
+                seen_deals.add(key)
+                b = buyers.setdefault((status, name), {"name": name, "status": status, "volume": 0, "deals": []})
+                vol = round(o["volume_tco2e"] / len(members)) if o.get("volume_tco2e") else None
+                b["volume"] += vol or 0
+                share = (f"equal share of {o['volume_tco2e']:,} ({o['name']})" if len(members) > 1 and vol else
+                         f"equal share of {o['shared']:,} with other buyers" if o.get("shared") else None)
+                b["deals"].append({"project": p["display_name"], "id": p["project_id"], "l2": p["l2"], "l1": l2[p["l2"]]["l1"],
+                                   "c": p["countries"], "v": vol, "d": o.get("date"), "u": o.get("source_url"), "sh": share})
     out_b = {}
     for st in ("issued", "announced"):
         rows = [b for (s, _), b in buyers.items() if s == st]
