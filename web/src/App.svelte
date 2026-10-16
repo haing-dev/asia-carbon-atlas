@@ -4,7 +4,8 @@
   import Ranking from "./lib/Ranking.svelte";
   import Filters from "./lib/Filters.svelte";
   import Table from "./lib/Table.svelte";
-  import { aggregate, fmt, loadBasemap, loadIndex, loadMeta, loadRows, makePredicate, tagsForQuery } from "./lib/data.js";
+  import Summary from "./lib/Summary.svelte";
+  import { aggregate, fmt, loadBasemap, loadIndex, loadMeta, loadRows, loadSummary, makePredicate, tagsForQuery } from "./lib/data.js";
 
   const METRICS = {
     is: { label: "Issued (cumulative)", unit: "tCO₂e" },
@@ -13,7 +14,9 @@
 
   let meta = $state(null);
   let index = $state(null);
-  let area = $state("asia");
+  let area = $state("all");     // "all" = the All Regions summary tab
+  let summary = $state(null);
+  let worldmap = $state(null);
   let basemap = $state(null);
   let error = $state(null);
   let metric = $state("is");
@@ -40,9 +43,13 @@
     f.q = p.get("q") || "";
   }
   $effect(() => {
+    if (area === "all") {
+      if (meta) history.replaceState(null, "", location.pathname);
+      return;
+    }
     if (!index) return;
     const p = new URLSearchParams();
-    if (area !== "asia") p.set("a", area);
+    p.set("a", area);
     if (metric !== "is") p.set("m", metric);
     if (country) p.set("c", country);
     if (f.l2) p.set("t", [...f.l2].map((i) => index.l2[i].id).join(","));
@@ -59,20 +66,36 @@
     try {
       meta = await loadMeta();
       const a = new URLSearchParams(location.search).get("a");
-      if (meta.areas.some((x) => x.id === a)) area = a;
-      const [idx, bm] = await Promise.all([loadIndex(meta, area), loadBasemap(area)]);
-      readUrl(idx);
-      basemap = bm;
-      index = idx;
+      if (meta.areas.some((x) => x.id === a)) {
+        area = a;
+        const [idx, bm] = await Promise.all([loadIndex(meta, area), loadBasemap(area)]);
+        readUrl(idx);
+        basemap = bm;
+        index = idx;
+      } else {
+        await openSummary();
+      }
     } catch (e) {
       error = e.message;
     }
   });
+  async function openSummary() {
+    const [sm, wm] = await Promise.all([loadSummary(meta), loadBasemap("world")]);
+    summary = sm;
+    worldmap = wm;
+  }
   async function switchArea(a) {
     if (a === area || !meta) return;
     area = a;
     country = null;
     mapHl = rankHl = null;
+    window.scrollTo({ top: 0, behavior: "smooth" });
+    if (a === "all") {
+      index = null;
+      await openSummary();
+      return;
+    }
+    index = null;
     const [idx, bm] = await Promise.all([loadIndex(meta, a), loadBasemap(a)]);
     if (area !== a) return;   // switched again meanwhile
     // Keep filters that still make sense (credit types, stages); registry choice resets.
@@ -80,7 +103,9 @@
     basemap = bm;
     index = idx;
   }
-  const areaInfo = $derived(meta?.areas.find((x) => x.id === area));
+  const tabs = $derived(meta ? [meta.summary || { id: "all", label: "All Regions" }, ...meta.areas] : []);
+  const areaInfo = $derived(area === "all" ? { label: "All Regions", scope: "Asia (excl. mainland China), the Americas, Africa and Europe" }
+    : meta?.areas.find((x) => x.id === area));
   const headlines = $derived(meta?.headlines?.areas?.[area] || []);
 
   const pred = $derived(makePredicate(f));
@@ -165,8 +190,8 @@
 
 <header class="wrap top">
   <div>
-    <h1>Carbon Credit Atlas <span class="where">· {areaInfo?.label || "Asia"}</span></h1>
-    <p class="muted">Carbon credit projects in {areaInfo?.scope || "Asia, excluding mainland China"}, across registries and Paris Agreement mechanisms.</p>
+    <h1>Carbon Credit Atlas <span class="where">· {areaInfo?.label || ""}</span></h1>
+    <p class="muted">Carbon credit projects in {areaInfo?.scope || "…"}, across registries and Paris Agreement mechanisms.</p>
     <p class="disclaimer">Disclaimer: {DISCLAIMER}</p>
   </div>
   <nav>
@@ -176,9 +201,9 @@
 </header>
 {#if meta?.areas}
   <div class="wrap">
-    <div class="regions" role="tablist" aria-label="Region" style:--n={meta.areas.length} style:--i={meta.areas.findIndex((x) => x.id === area)}>
+    <div class="regions" role="tablist" aria-label="Region" style:--n={tabs.length} style:--i={tabs.findIndex((x) => x.id === area)}>
       <span class="thumb" aria-hidden="true"></span>
-      {#each meta.areas as a}
+      {#each tabs as a}
         <button role="tab" aria-selected={a.id === area} onclick={() => switchArea(a.id)}>{a.label}</button>
       {/each}
     </div>
@@ -188,6 +213,12 @@
 <main class="wrap">
   {#if error}
     <p class="notice">Could not load data ({error}).</p>
+  {:else if area === "all"}
+    {#if summary && worldmap}
+      <Summary {meta} {summary} basemap={worldmap} onselect={switchArea} {fnum} />
+    {:else}
+      <p class="muted">Loading…</p>
+    {/if}
   {:else if !index || !basemap}
     <p class="muted">Loading…</p>
   {:else}
@@ -228,6 +259,8 @@
       <Filters {index} bind:f onclear={clearFilters} />
       <Table {rows} {index} {fnum} loading={loadingRows} />
     </section>
+  {/if}
+  {#if meta && !error}
 
     <section id="sources" class="prose">
       <h2>Sources and data freshness</h2>
@@ -272,7 +305,7 @@
   nav { display: flex; gap: 14px; align-items: center; font-size: 14px; white-space: nowrap; }
   .notice { background: var(--chip); border: 1px solid var(--line); border-radius: var(--radius); padding: 8px 12px; font-size: 14px; }
   .where { color: var(--accent); font-weight: 600; }
-  .regions { position: relative; display: grid; grid-template-columns: repeat(var(--n), 1fr); max-width: 520px; margin: 10px 0 2px;
+  .regions { position: relative; display: grid; grid-template-columns: repeat(var(--n), 1fr); max-width: 860px; margin: 10px 0 2px;
     background: var(--chip); border: 1px solid var(--line); border-radius: 999px; padding: 3px; }
   .regions button { position: relative; z-index: 1; border: 0; background: none; padding: 6px 10px; border-radius: 999px; cursor: pointer;
     font-size: 14px; font-weight: 600; color: var(--muted); transition: color 0.2s; }
@@ -280,6 +313,7 @@
   .regions .thumb { position: absolute; top: 3px; bottom: 3px; left: 3px; width: calc((100% - 6px) / var(--n)); border-radius: 999px;
     background: var(--choro-hi); transform: translateX(calc(100% * var(--i))); transition: transform 0.25s ease; }
   @media (prefers-reduced-motion: reduce) { .regions .thumb, .regions button { transition: none; } }
+  @media (max-width: 640px) { .regions { border-radius: 14px; } .regions button { font-size: 12px; padding: 6px 4px; line-height: 1.2; } }
   .news { margin: 12px 0 6px; padding: 10px 14px 8px; border: 1px solid var(--line); border-radius: var(--radius); background: var(--surface); }
   .news h2 { font-size: 15px; margin-bottom: 6px; }
   .news .wk { font-size: 12.5px; font-weight: 400; }

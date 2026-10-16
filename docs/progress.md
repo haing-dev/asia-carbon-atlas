@@ -68,6 +68,9 @@
     stops; rice projects' Verra descriptions were fetched page by page via `discover` (browse) and stored in the lookup.
   - Gold Standard links fixed: registry pages use an internal id, not the GS number (new `gsreg` lookup source).
 
+  - 2026-10-16: Africa and Europe areas (countries.yaml, basemaps); "All Regions" tab (default): world map of regional
+    totals (click -> region tab) + top-10 offtakers by stated volume, bars split by credit type (summary.<hash>.json).
+
 ## Next
 - Owner: send a fresh GCC export when wanted (replace the file in `data/manual/gcc/`); spot-check `review/dedupe_pending.csv` pairs.
 - M5 rest: monthly scheduled Claude task for offtaker/website enrichment (queue + review flow per SPEC §10); Puro retirement beneficiaries.

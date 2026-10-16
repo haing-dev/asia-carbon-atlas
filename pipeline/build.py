@@ -18,7 +18,10 @@ AREAS = {
     "asia": {"label": "Asia", "scope": "Asia, excluding mainland China"},
     "north_america": {"label": "North America", "scope": "North America, Central America and the Caribbean"},
     "south_america": {"label": "South America", "scope": "South America"},
+    "africa": {"label": "Africa", "scope": "Africa"},
+    "europe": {"label": "Europe", "scope": "Europe, including Turkey, the Caucasus and Russia"},
 }
+SUMMARY = {"id": "all", "label": "All Regions", "scope": "all regions covered"}
 STAGES = ["pipeline", "registered", "issuing", "inactive", "announced"]
 REGISTRY_LABELS = {
     "VCS": "Verra (VCS)", "GS": "Gold Standard", "CDM": "CDM", "PACM": "Article 6.4 (PACM)",
@@ -136,6 +139,63 @@ def _write_hashed(dirpath, stem: str, obj) -> str:
     return name
 
 
+def build_summary(projects: list[dict], countries: dict, taxonomy: dict) -> dict:
+    """Data for the "All Regions" tab: per-region totals and announced offtakes by buyer.
+    Deal status: "issued" = the deal is on a registry project that has issued credits; "announced" = the project
+    has not issued yet or is not in a registry (announcement only). Volumes only where the announcement states one."""
+    today = common.today()
+    area_of = {c: v["area"] for c, v in countries.items()}
+    regions = {a: {"is": 0.0, "ea": 0.0, "re": 0.0, "projects": 0, "countries": set()} for a in AREAS}
+    for p in projects:
+        seen = set()
+        end = (p.get("crediting") or [None, None])[1]
+        for c, sh in p["country_shares"].items():
+            a = area_of.get(c)
+            if not a:
+                continue
+            r = regions[a]
+            r["is"] += (p.get("issued_tco2e") or 0) * sh
+            r["re"] += (p.get("retired_tco2e") or 0) * sh
+            if not (end and end < today):
+                r["ea"] += (p.get("est_annual_tco2e") or 0) * sh
+            if (p.get("issued_tco2e") or 0) > 0:
+                r["countries"].add(c)
+            if a not in seen:
+                r["projects"] += 1
+                seen.add(a)
+    aliases = (common.load_yaml("offtakers.yaml").get("buyer_aliases") or {})
+    l2 = taxonomy["l2"]
+    buyers: dict[tuple, dict] = {}
+    seen_deals = set()
+    for p in projects:
+        status = "issued" if p["stage"] == "issuing" and (p.get("issued_tco2e") or 0) > 0 else "announced"
+        for o in p.get("offtakers") or []:
+            name = aliases.get(o["name"], o["name"])
+            key = (name, o.get("source_url"), p["project_id"])
+            if key in seen_deals:
+                continue
+            seen_deals.add(key)
+            b = buyers.setdefault((status, name), {"name": name, "status": status, "volume": 0, "deals": []})
+            vol = o.get("volume_tco2e") or None
+            b["volume"] += vol or 0
+            b["deals"].append({"project": p["display_name"], "id": p["project_id"], "l2": p["l2"], "l1": l2[p["l2"]]["l1"],
+                               "c": p["countries"], "v": vol, "d": o.get("date"), "u": o.get("source_url")})
+    out_b = {}
+    for st in ("issued", "announced"):
+        rows = [b for (s, _), b in buyers.items() if s == st]
+        rows.sort(key=lambda b: (-b["volume"], -len(b["deals"]), b["name"]))
+        out_b[st] = {"buyers": rows, "with_volume": sum(1 for b in rows if b["volume"] > 0),
+                     "deals": sum(len(b["deals"]) for b in rows),
+                     "deals_no_volume": sum(1 for b in rows for d in b["deals"] if not d["v"])}
+    return {
+        "l1": [{"id": k, "label": v["label"]} for k, v in taxonomy["l1"].items()],
+        "l2": {k: {"label": v["label"], "l1": v["l1"]} for k, v in l2.items()},
+        "regions": [{"id": a, "label": AREAS[a]["label"], "is": round(r["is"]), "ea": round(r["ea"]), "re": round(r["re"]),
+                     "projects": r["projects"], "countries": len(r["countries"])} for a, r in regions.items()],
+        "offtakers": out_b,
+    }
+
+
 def main() -> None:
     projects = build_projects()
     countries = common.load_yaml("countries.yaml")["countries"]
@@ -203,6 +263,7 @@ def main() -> None:
         area_counts[area] = len(cols["id"])
     for c, rows in by_country.items():
         files["rows"][c] = "rows/" + _write_hashed(out / "rows", c, rows)
+    files["summary"] = _write_hashed(out, "summary", build_summary(projects, countries, taxonomy))
 
     meta = {
         "built_from": {sid: {
@@ -218,6 +279,7 @@ def main() -> None:
         "url_templates": URL_TEMPLATES,
         "tags": [{"label": t["label"], "aliases": t.get("aliases") or [], "broad": t["id"].startswith("t_")} for t in TAGS],
         "project_count": len(projects),
+        "summary": SUMMARY,
         "areas": [{"id": a, "label": AREAS[a]["label"], "scope": AREAS[a]["scope"], "projects": area_counts[a]} for a in AREAS],
         "notes": load_notes(),
         "headlines": json.loads((common.ROOT / "data" / "headlines.json").read_text(encoding="utf-8"))

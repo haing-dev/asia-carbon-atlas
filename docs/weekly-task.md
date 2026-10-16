@@ -7,11 +7,11 @@ Budget: ~25 web searches, no page fetches beyond verifying items. Never touch `d
 ## Steps
 1. `git pull` on `main`. Read `config/offtakers.yaml` and `data/headlines.json` (to skip anything already listed).
 2. **Headlines** — for each area (asia = Asia excl. mainland China; north_america = incl. Central America & Caribbean;
-   south_america), search news from the last 7 days on carbon credits: issuances, offtake/purchase deals, Article 6 deals
+   south_america; africa; europe = incl. Turkey, Caucasus, Russia), search news from the last 7 days on carbon credits: issuances, offtake/purchase deals, Article 6 deals
    and authorisations, jurisdictional REDD+, registrations, national carbon-market rules on credits/offsets, partnerships
    that include credit purchases. Pick up to 10 per area, one per story, each opened to confirm date and relevance.
    Write `data/headlines.json`: `{"week_ending": today, "updated": today, "areas": {"asia": [...], "north_america": [...],
-   "south_america": [...]}}`, items `{"title" (neutral, ≤90 chars), "url", "source", "date", "countries": [ISO3],
+   "south_america": [...], "africa": [...], "europe": [...]}}`, items `{"title" (neutral, ≤90 chars), "url", "source", "date", "countries": [ISO3],
    "type": issuance|offtake|article6|policy|registration|partnership|other}`.
 3. **New offtake deals** — from the same searches (plus at most 3 targeted ones), add only NEW deals whose source names
    the buyer, the project or supplier, and the date (SPEC §10.4: no inference; partnerships/investments without a credit

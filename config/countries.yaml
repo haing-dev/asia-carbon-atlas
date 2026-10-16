@@ -1,5 +1,6 @@
-# Countries in scope (ISO3 -> details), grouped by area (asia | north_america | south_america). numeric = ISO 3166-1 numeric (matches the basemap ids).
-# Excluded on purpose: mainland China, North Korea, Middle East (incl. Iran), Turkey, Caucasus, Russia, Oceania/PNG.
+# Countries in scope (ISO3 -> details), grouped by area (asia | north_america | south_america | africa | europe). numeric = ISO 3166-1 numeric (matches the basemap ids).
+# Excluded on purpose: mainland China, North Korea, Middle East (incl. Iran), Oceania/PNG. Turkey, the Caucasus and Russia
+# are in Europe (added 2026-10-16 with Africa).
 countries:
   JPN: {name: Japan, numeric: "392", region: East Asia, area: asia}
   KOR: {name: South Korea, numeric: "410", region: East Asia, area: asia}
@@ -69,3 +70,109 @@ countries:
   VEN: {name: Venezuela, numeric: "862", region: South America, area: south_america}
   GUY: {name: Guyana, numeric: "328", region: South America, area: south_america}
   SUR: {name: Suriname, numeric: "740", region: South America, area: south_america}
+  DZA: {name: Algeria, numeric: "012", region: North Africa, area: africa}
+  EGY: {name: Egypt, numeric: "818", region: North Africa, area: africa}
+  LBY: {name: Libya, numeric: "434", region: North Africa, area: africa}
+  MAR: {name: Morocco, numeric: "504", region: North Africa, area: africa}
+  SDN: {name: Sudan, numeric: "729", region: North Africa, area: africa}
+  TUN: {name: Tunisia, numeric: "788", region: North Africa, area: africa}
+  ESH: {name: Western Sahara, numeric: "732", region: North Africa, area: africa}
+  BEN: {name: Benin, numeric: "204", region: West Africa, area: africa}
+  BFA: {name: Burkina Faso, numeric: "854", region: West Africa, area: africa}
+  CPV: {name: Cape Verde, numeric: "132", region: West Africa, area: africa}
+  CIV: {name: "Côte d'Ivoire", numeric: "384", region: West Africa, area: africa}
+  GMB: {name: Gambia, numeric: "270", region: West Africa, area: africa}
+  GHA: {name: Ghana, numeric: "288", region: West Africa, area: africa}
+  GIN: {name: Guinea, numeric: "324", region: West Africa, area: africa}
+  GNB: {name: Guinea-Bissau, numeric: "624", region: West Africa, area: africa}
+  LBR: {name: Liberia, numeric: "430", region: West Africa, area: africa}
+  MLI: {name: Mali, numeric: "466", region: West Africa, area: africa}
+  MRT: {name: Mauritania, numeric: "478", region: West Africa, area: africa}
+  NER: {name: Niger, numeric: "562", region: West Africa, area: africa}
+  NGA: {name: Nigeria, numeric: "566", region: West Africa, area: africa}
+  SEN: {name: Senegal, numeric: "686", region: West Africa, area: africa}
+  SLE: {name: Sierra Leone, numeric: "694", region: West Africa, area: africa}
+  TGO: {name: Togo, numeric: "768", region: West Africa, area: africa}
+  SHN: {name: Saint Helena, numeric: "654", region: West Africa, area: africa}
+  AGO: {name: Angola, numeric: "024", region: Central Africa, area: africa}
+  CMR: {name: Cameroon, numeric: "120", region: Central Africa, area: africa}
+  CAF: {name: Central African Republic, numeric: "140", region: Central Africa, area: africa}
+  TCD: {name: Chad, numeric: "148", region: Central Africa, area: africa}
+  COG: {name: Republic of the Congo, numeric: "178", region: Central Africa, area: africa}
+  COD: {name: DR Congo, numeric: "180", region: Central Africa, area: africa}
+  GNQ: {name: Equatorial Guinea, numeric: "226", region: Central Africa, area: africa}
+  GAB: {name: Gabon, numeric: "266", region: Central Africa, area: africa}
+  STP: {name: Sao Tome and Principe, numeric: "678", region: Central Africa, area: africa}
+  BDI: {name: Burundi, numeric: "108", region: East Africa, area: africa}
+  COM: {name: Comoros, numeric: "174", region: East Africa, area: africa}
+  DJI: {name: Djibouti, numeric: "262", region: East Africa, area: africa}
+  ERI: {name: Eritrea, numeric: "232", region: East Africa, area: africa}
+  ETH: {name: Ethiopia, numeric: "231", region: East Africa, area: africa}
+  KEN: {name: Kenya, numeric: "404", region: East Africa, area: africa}
+  MDG: {name: Madagascar, numeric: "450", region: East Africa, area: africa}
+  MWI: {name: Malawi, numeric: "454", region: East Africa, area: africa}
+  MUS: {name: Mauritius, numeric: "480", region: East Africa, area: africa}
+  MOZ: {name: Mozambique, numeric: "508", region: East Africa, area: africa}
+  RWA: {name: Rwanda, numeric: "646", region: East Africa, area: africa}
+  SYC: {name: Seychelles, numeric: "690", region: East Africa, area: africa}
+  SOM: {name: Somalia, numeric: "706", region: East Africa, area: africa}
+  SSD: {name: South Sudan, numeric: "728", region: East Africa, area: africa}
+  TZA: {name: Tanzania, numeric: "834", region: East Africa, area: africa}
+  UGA: {name: Uganda, numeric: "800", region: East Africa, area: africa}
+  ZMB: {name: Zambia, numeric: "894", region: East Africa, area: africa}
+  ZWE: {name: Zimbabwe, numeric: "716", region: East Africa, area: africa}
+  BWA: {name: Botswana, numeric: "072", region: Southern Africa, area: africa}
+  SWZ: {name: Eswatini, numeric: "748", region: Southern Africa, area: africa}
+  LSO: {name: Lesotho, numeric: "426", region: Southern Africa, area: africa}
+  NAM: {name: Namibia, numeric: "516", region: Southern Africa, area: africa}
+  ZAF: {name: South Africa, numeric: "710", region: Southern Africa, area: africa}
+  DNK: {name: Denmark, numeric: "208", region: Northern Europe, area: europe}
+  EST: {name: Estonia, numeric: "233", region: Northern Europe, area: europe}
+  FIN: {name: Finland, numeric: "246", region: Northern Europe, area: europe}
+  ISL: {name: Iceland, numeric: "352", region: Northern Europe, area: europe}
+  IRL: {name: Ireland, numeric: "372", region: Northern Europe, area: europe}
+  LVA: {name: Latvia, numeric: "428", region: Northern Europe, area: europe}
+  LTU: {name: Lithuania, numeric: "440", region: Northern Europe, area: europe}
+  NOR: {name: Norway, numeric: "578", region: Northern Europe, area: europe}
+  SWE: {name: Sweden, numeric: "752", region: Northern Europe, area: europe}
+  GBR: {name: United Kingdom, numeric: "826", region: Northern Europe, area: europe}
+  FRO: {name: Faroe Islands, numeric: "234", region: Northern Europe, area: europe}
+  AUT: {name: Austria, numeric: "040", region: Western Europe, area: europe}
+  BEL: {name: Belgium, numeric: "056", region: Western Europe, area: europe}
+  FRA: {name: France, numeric: "250", region: Western Europe, area: europe}
+  DEU: {name: Germany, numeric: "276", region: Western Europe, area: europe}
+  LIE: {name: Liechtenstein, numeric: "438", region: Western Europe, area: europe}
+  LUX: {name: Luxembourg, numeric: "442", region: Western Europe, area: europe}
+  MCO: {name: Monaco, numeric: "492", region: Western Europe, area: europe}
+  NLD: {name: Netherlands, numeric: "528", region: Western Europe, area: europe}
+  CHE: {name: Switzerland, numeric: "756", region: Western Europe, area: europe}
+  ALB: {name: Albania, numeric: "008", region: Southern Europe, area: europe}
+  AND: {name: Andorra, numeric: "020", region: Southern Europe, area: europe}
+  BIH: {name: Bosnia and Herzegovina, numeric: "070", region: Southern Europe, area: europe}
+  HRV: {name: Croatia, numeric: "191", region: Southern Europe, area: europe}
+  GRC: {name: Greece, numeric: "300", region: Southern Europe, area: europe}
+  ITA: {name: Italy, numeric: "380", region: Southern Europe, area: europe}
+  MLT: {name: Malta, numeric: "470", region: Southern Europe, area: europe}
+  MNE: {name: Montenegro, numeric: "499", region: Southern Europe, area: europe}
+  MKD: {name: North Macedonia, numeric: "807", region: Southern Europe, area: europe}
+  PRT: {name: Portugal, numeric: "620", region: Southern Europe, area: europe}
+  SMR: {name: San Marino, numeric: "674", region: Southern Europe, area: europe}
+  SRB: {name: Serbia, numeric: "688", region: Southern Europe, area: europe}
+  SVN: {name: Slovenia, numeric: "705", region: Southern Europe, area: europe}
+  ESP: {name: Spain, numeric: "724", region: Southern Europe, area: europe}
+  VAT: {name: Vatican City, numeric: "336", region: Southern Europe, area: europe}
+  CYP: {name: Cyprus, numeric: "196", region: Southern Europe, area: europe}
+  BLR: {name: Belarus, numeric: "112", region: Eastern Europe, area: europe}
+  BGR: {name: Bulgaria, numeric: "100", region: Eastern Europe, area: europe}
+  CZE: {name: Czech Republic, numeric: "203", region: Eastern Europe, area: europe}
+  HUN: {name: Hungary, numeric: "348", region: Eastern Europe, area: europe}
+  MDA: {name: Moldova, numeric: "498", region: Eastern Europe, area: europe}
+  POL: {name: Poland, numeric: "616", region: Eastern Europe, area: europe}
+  ROU: {name: Romania, numeric: "642", region: Eastern Europe, area: europe}
+  RUS: {name: Russia, numeric: "643", region: Eastern Europe, area: europe}
+  SVK: {name: Slovakia, numeric: "703", region: Eastern Europe, area: europe}
+  UKR: {name: Ukraine, numeric: "804", region: Eastern Europe, area: europe}
+  TUR: {name: Turkey, numeric: "792", region: Turkey & Caucasus, area: europe}
+  GEO: {name: Georgia, numeric: "268", region: Turkey & Caucasus, area: europe}
+  ARM: {name: Armenia, numeric: "051", region: Turkey & Caucasus, area: europe}
+  AZE: {name: Azerbaijan, numeric: "031", region: Turkey & Caucasus, area: europe}

@@ -32,7 +32,21 @@ const AREAS = {
     proj: { type: "mercator" },
     overrides: { CHL: [-71, -33], ECU: [-78.4, -1.5] },
   },
+  africa: {
+    window: [-26, -37, 60, 38],
+    proj: { type: "mercator", fitBox: [[-18, 36], [52, 36], [52, -35], [-18, -35]] },
+    overrides: { MAR: [-6.5, 32], ZAF: [24, -30], MDG: [46.8, -19.5] },
+  },
+  europe: {
+    window: [-26, 33, 62, 72],
+    // Equal-area conic fitted to Iceland, the Urals and the Caucasus (Russia's Asian part runs off the frame).
+    proj: { type: "conic", rotate: [-15, 0], parallels: [43, 62], fitBox: [[-24, 64], [56, 66], [50, 38], [-10, 36], [25, 35]] },
+    overrides: { FRA: [2.5, 46.6], NOR: [9, 61.3], RUS: [44, 57], GBR: [-1.8, 52.8], SWE: [15, 62.5], FIN: [26, 62.5], DNK: [9.3, 56], GRC: [22, 39.5], HRV: [16, 45.4] },
+  },
 };
+
+// World map for the "All Regions" summary: every country, covered ones tagged with their area (no label points).
+const WORLD_SIMPLIFY = 0.02;
 
 const fc = feature(world, world.objects.countries);
 mkdirSync(new URL("../src/lib/basemaps/", import.meta.url), { recursive: true });
@@ -67,4 +81,16 @@ for (const [area, cfg] of Object.entries(AREAS)) {
   const wanted = Object.values(countries).filter((c) => c.area === area).map((c) => c.iso);
   const missing = wanted.filter((iso) => !points[iso]);
   console.log(`${area}: kept ${kept.length} countries, ${Object.keys(points).length} in scope, ${(text.length / 1024).toFixed(0)} KB${missing.length ? "; MISSING " + missing.join(",") : ""}`);
+}
+{
+  const feats = fc.features.filter((f) => f.id !== "010").map((f0) => {  // Antarctica dropped
+    const c = countries[f0.id];
+    return { ...f0, properties: c ? { n: f0.properties.name, a: c.area } : { n: f0.properties.name } };
+  });
+  let topo = topology({ countries: { type: "FeatureCollection", features: feats } }, 4e3);
+  topo = presimplify(topo);
+  topo = simplify(topo, quantile(topo, WORLD_SIMPLIFY));
+  const text = JSON.stringify({ area: "world", proj: { type: "naturalEarth" }, topo, points: {} });
+  writeFileSync(new URL("../src/lib/basemaps/world.json", import.meta.url), text);
+  console.log(`world: ${feats.length} countries, ${(text.length / 1024).toFixed(0)} KB`);
 }

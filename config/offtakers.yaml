@@ -6,6 +6,16 @@
 #                  and credit type, stage "Announced", linked to the announcement (no volumes added to the map).
 # Researched 2026-10-12 (web); each source was opened and the quoted sentence checked.
 
+# Buyer name variants -> one name for the "All Regions" offtaker charts (the table keeps the announced wording).
+buyer_aliases:
+  Frontier buyers: Frontier
+  TD Securities: TD Bank Group
+  KliK Foundation (with Climate Cent Foundation): KliK Foundation
+  Emergent (LEAF Coalition): LEAF Coalition
+  Symbiosis Coalition (Meta, Google, McKinsey): Symbiosis Coalition
+  Google and McKinsey (Symbiosis Coalition): Symbiosis Coalition
+  JPMorganChase: JPMorgan Chase
+
 offtakes:
   - record: VCS:4811
     buyer: Microsoft

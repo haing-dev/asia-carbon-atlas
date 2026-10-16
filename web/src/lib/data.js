@@ -15,6 +15,12 @@ export async function loadMeta() {
   return r.json();
 }
 
+let summaryCache = null;
+export function loadSummary(meta) {
+  if (!summaryCache) summaryCache = fetch("/data/" + meta.files.summary).then((r) => r.json());
+  return summaryCache;
+}
+
 const indexCache = new Map();
 export function loadIndex(meta, area) {
   if (!indexCache.has(area)) indexCache.set(area, fetchIndex(meta.files.index[area]));
