@@ -1,26 +1,26 @@
 {
-  "last_commit_at": "2026-10-16T02:23:37+00:00",
+  "last_commit_at": "2026-10-16T03:27:27+00:00",
   "sources": {
     "a6pipeline": {
       "error": null,
-      "last_changed": "2026-10-12T16:36:42+00:00",
-      "last_checked": "2026-10-14T06:51:38+00:00",
-      "rows": 174,
+      "last_changed": "2026-10-16T03:27:27+00:00",
+      "last_checked": "2026-10-16T03:27:27+00:00",
+      "rows": 280,
       "signal": {
-        "a6p2": "c55adb3158b3514d",
-        "pacm": "7ef4fd128477e79c",
+        "a6p2": "7a4aa49a3d7b5b9f",
+        "pacm": "e79b3d32719ab0a9",
         "rows": {
-          "a6p2": 309,
-          "pacm": 179
+          "a6p2": 313,
+          "pacm": 183
         }
       },
       "stale": false
     },
     "cdm": {
       "error": null,
-      "last_changed": "2026-10-12T16:24:46+00:00",
-      "last_checked": "2026-10-12T16:24:46+00:00",
-      "rows": 4230,
+      "last_changed": "2026-10-16T03:27:27+00:00",
+      "last_checked": "2026-10-16T03:27:27+00:00",
+      "rows": 4685,
       "signal": {
         "etag": "\"1182fd5-632f6ba395d70\"",
         "last_modified": "Thu, 17 Apr 2025 10:18:47 GMT",
@@ -30,9 +30,9 @@
     },
     "gcc": {
       "error": null,
-      "last_changed": "2026-10-12T20:30:39+00:00",
-      "last_checked": "2026-10-12T20:30:39+00:00",
-      "rows": 171,
+      "last_changed": "2026-10-16T03:27:27+00:00",
+      "last_checked": "2026-10-16T03:27:27+00:00",
+      "rows": 231,
       "signal": {
         "file": "ApprovedProjects_ProjectsExport.xlsx",
         "sha256": "931f7d200679c8f4"
@@ -41,13 +41,13 @@
     },
     "gsreg": {
       "error": null,
-      "last_changed": "2026-10-14T00:41:08+00:00",
-      "last_checked": "2026-10-14T00:41:08+00:00",
-      "rows": 1650,
+      "last_changed": "2026-10-16T03:27:27+00:00",
+      "last_checked": "2026-10-16T03:27:27+00:00",
+      "rows": 3916,
       "signal": {
         "bucket": 26425,
         "newest": "5759",
-        "total": 4232,
+        "total": 4233,
         "updated": "2026-10-12T06:44:30Z"
       },
       "stale": false
@@ -55,22 +55,22 @@
     "isometric": {},
     "jcm": {
       "error": null,
-      "last_changed": "2026-10-12T16:24:46+00:00",
-      "last_checked": "2026-10-12T16:24:46+00:00",
-      "rows": 87,
+      "last_changed": "2026-10-16T03:27:27+00:00",
+      "last_checked": "2026-10-16T03:27:27+00:00",
+      "rows": 89,
       "signal": {
-        "issues": "W/\"5437b377e5fc2d32829d5bea29cc0723\"",
-        "list": "W/\"19bb3703b4455cebc41b876278b00cb5\""
+        "issues": "\"5437b377e5fc2d32829d5bea29cc0723\"",
+        "list": "\"19bb3703b4455cebc41b876278b00cb5\""
       },
       "stale": false
     },
     "puro": {
       "error": null,
-      "last_changed": "2026-10-12T16:24:46+00:00",
-      "last_checked": "2026-10-12T16:24:46+00:00",
-      "rows": 53,
+      "last_changed": "2026-10-16T03:27:27+00:00",
+      "last_checked": "2026-10-16T03:27:27+00:00",
+      "rows": 106,
       "signal": {
-        "newest_issuance": "30 Sept 2026 10823 Exomad Green, Concepción Exomad Industria Maderera S.A. Biochar, 2022 ",
+        "newest_issuance": "14 Oct 2026 10689 Exomad Green, Riberalta Exomad Industria Maderera S.A. Biochar, 2022 ",
         "projects_hash": "d594df3848e72148"
       },
       "stale": false
@@ -78,7 +78,7 @@
     "ucr": {
       "error": null,
       "last_changed": "2026-10-12T16:24:46+00:00",
-      "last_checked": "2026-10-12T16:24:46+00:00",
+      "last_checked": "2026-10-16T03:27:27+00:00",
       "rows": 314,
       "signal": {
         "grid_hash": "9f1a7b9ea336ebc4",
@@ -88,21 +88,21 @@
       "stale": false
     },
     "verradesc": {
-      "error": "JSONDecodeError: Expecting value: line 1 column 1 (char 0)",
-      "last_changed": "2026-10-15T02:23:12+00:00",
-      "last_checked": "2026-10-16T02:23:37+00:00",
-      "rows": 110,
+      "error": null,
+      "last_changed": "2026-10-16T03:27:27+00:00",
+      "last_checked": "2026-10-16T03:27:27+00:00",
+      "rows": 111,
       "signal": {
-        "day": "2026-10-15",
-        "missing": 2779
+        "day": "2026-10-16",
+        "missing": 3798
       },
-      "stale": true
+      "stale": false
     },
     "vrod": {
       "error": null,
-      "last_changed": "2026-10-14T06:51:38+00:00",
-      "last_checked": "2026-10-14T06:51:38+00:00",
-      "rows": 6764,
+      "last_changed": "2026-10-16T03:27:27+00:00",
+      "last_checked": "2026-10-16T03:27:27+00:00",
+      "rows": 10160,
       "signal": {
         "url": "https://gspp.berkeley.edu/assets/uploads/page/Voluntary-Registry-Offsets-Database--v2026-08.xlsx",
         "version": "2026-08"
