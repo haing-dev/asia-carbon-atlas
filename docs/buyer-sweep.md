@@ -30,3 +30,5 @@ NYK, Mazda, Marubeni, Mizuho, NTT DATA, Tencent, ZIPAIR).
   (Reliance, Tata, Adani, Mahindra), Thai/Indonesian/Philippine groups.
 - Microsoft: FY22 portfolio list, Aug–Oct 2025 deals, Symbiosis-linked deals, EcoPlanet Bamboo, rice, recent cookstoves.
 - Frontier & members, big tech, aviation, governments/Article 6: see the sweep outputs of the next run.
+- Frontier sweep: ~55 rows had no stated project country (mostly Climeworks portfolio and Milkywire fund batches) and were
+  not added; find the facility country for each (scratchpad file is not kept — re-run the Frontier sweep).
