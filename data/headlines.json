@@ -1,325 +1,327 @@
 {
- "week_ending": "2026-10-12",
- "updated": "2026-10-12",
- "areas": {
-  "asia": [
-   {
-    "title": "South Korea plans to launch Global Verified Carbon Market (GVCM) in 2027, with credits that may link to K-ETS",
-    "url": "https://en.sedaily.com/finance/2026/10/12/korea-to-launch-international-carbon-market-next-year",
-    "source": "Seoul Economic Daily",
-    "date": "2026-10-12",
-    "countries": [
-     "KOR"
+  "week_ending": "2026-10-19",
+  "updated": "2026-10-19",
+  "areas": {
+    "asia": [
+      {
+        "title": "Philippines orders national carbon market policy, names environment department regulator",
+        "url": "https://carbon-pulse.com/561314/",
+        "source": "Carbon Pulse",
+        "date": "2026-10-16",
+        "countries": [
+          "PHL"
+        ],
+        "type": "policy"
+      },
+      {
+        "title": "Indonesia sets rules for agricultural carbon credits with mandatory farmer benefit-sharing",
+        "url": "https://carbon-pulse.com/560371/",
+        "source": "Carbon Pulse",
+        "date": "2026-10-14",
+        "countries": [
+          "IDN"
+        ],
+        "type": "policy"
+      },
+      {
+        "title": "Verra forest protection methodology made eligible under Singapore carbon tax framework",
+        "url": "https://carbon-pulse.com/560383/",
+        "source": "Carbon Pulse",
+        "date": "2026-10-14",
+        "countries": [
+          "SGP"
+        ],
+        "type": "policy"
+      },
+      {
+        "title": "Taiwan approves first bamboo forest project under its domestic offset programme",
+        "url": "https://carbon-pulse.com/560356/",
+        "source": "Carbon Pulse",
+        "date": "2026-10-14",
+        "countries": [
+          "TWN"
+        ],
+        "type": "registration"
+      },
+      {
+        "title": "Bhutan cooking and heating project (~621k t) applies under Singapore Article 6 deal",
+        "url": "https://carbon-pulse.com/560876/",
+        "source": "Carbon Pulse",
+        "date": "2026-10-15",
+        "countries": [
+          "BTN",
+          "SGP"
+        ],
+        "type": "article6"
+      },
+      {
+        "title": "Sarawak issues three forest carbon licences covering about 56,800 ha",
+        "url": "https://carbon-pulse.com/560784/",
+        "source": "Carbon Pulse",
+        "date": "2026-10-15",
+        "countries": [
+          "MYS"
+        ],
+        "type": "policy"
+      },
+      {
+        "title": "Carbonlink begins selling JCM credits from Mongolia, the Philippines, Laos and Chile",
+        "url": "https://carbon-pulse.com/560762/",
+        "source": "Carbon Pulse",
+        "date": "2026-10-15",
+        "countries": [
+          "JPN",
+          "MNG",
+          "PHL",
+          "LAO"
+        ],
+        "type": "other"
+      },
+      {
+        "title": "BeZero and Korea Exchange sign MoU to screen credits for South Korea's voluntary market",
+        "url": "https://carbonherald.com/bezero-carbon-and-korea-exchange-partner-to-scale-south-koreas-vcm/",
+        "source": "Carbon Herald",
+        "date": "2026-10-14",
+        "countries": [
+          "KOR"
+        ],
+        "type": "partnership"
+      },
+      {
+        "title": "Karnataka signs MoU to explore mangrove blue carbon pilots",
+        "url": "https://carbon-pulse.com/560767/",
+        "source": "Carbon Pulse",
+        "date": "2026-10-15",
+        "countries": [
+          "IND"
+        ],
+        "type": "partnership"
+      },
+      {
+        "title": "Macao exchange partners with registry to offer carbon removals to Asia-Pacific buyers",
+        "url": "https://carbon-pulse.com/559533/",
+        "source": "Carbon Pulse",
+        "date": "2026-10-12",
+        "countries": [
+          "MAC"
+        ],
+        "type": "partnership"
+      }
     ],
-    "type": "policy"
-   },
-   {
-    "title": "Singapore and Mongolia to open Article 6 project applications on 30 October",
-    "url": "https://carbon-pulse.com/558541/",
-    "source": "Carbon Pulse",
-    "date": "2026-10-08",
-    "countries": [
-     "SGP",
-     "MNG"
+    "north_america": [
+      {
+        "title": "Gevo signs first multi-year CDR credit deal from North Dakota BECCS; buyer undisclosed",
+        "url": "https://carbonherald.com/gevo-signs-first-multi-year-carbon-removal-credit-supply-deal/",
+        "source": "Carbon Herald",
+        "date": "2026-10-15",
+        "countries": [
+          "USA"
+        ],
+        "type": "offtake"
+      },
+      {
+        "title": "California ARB issues ~1.2m offsets, mostly to mine methane capture projects",
+        "url": "https://carbon-pulse.com/560446/",
+        "source": "Carbon Pulse",
+        "date": "2026-10-15",
+        "countries": [
+          "USA"
+        ],
+        "type": "issuance"
+      },
+      {
+        "title": "Montreal carbon-negative concrete firm receives first Verra-issued removal credits",
+        "url": "https://carbon-pulse.com/561179/",
+        "source": "Carbon Pulse",
+        "date": "2026-10-16",
+        "countries": [
+          "CAN"
+        ],
+        "type": "issuance"
+      },
+      {
+        "title": "US orphan well-plugging non-profit relaunches carbon credit programme at $7/t",
+        "url": "https://carbon-pulse.com/560715/",
+        "source": "Carbon Pulse",
+        "date": "2026-10-14",
+        "countries": [
+          "USA"
+        ],
+        "type": "other"
+      },
+      {
+        "title": "Isometric opens consultation on North American orphaned well plugging protocol",
+        "url": "https://carbon-pulse.com/561096/",
+        "source": "Carbon Pulse",
+        "date": "2026-10-15",
+        "countries": [
+          "USA",
+          "CAN"
+        ],
+        "type": "other"
+      },
+      {
+        "title": "Canada protects 80,000 ha of boreal forest formerly owned by a carbon offsets company",
+        "url": "https://carbon-pulse.com/560206/",
+        "source": "Carbon Pulse",
+        "date": "2026-10-14",
+        "countries": [
+          "CAN"
+        ],
+        "type": "other"
+      }
     ],
-    "type": "article6"
-   },
-   {
-    "title": "India extends deadline for first CCTS compliance data submission by three months",
-    "url": "https://carbon-pulse.com/558683/",
-    "source": "Carbon Pulse",
-    "date": "2026-10-08",
-    "countries": [
-     "IND"
+    "south_america": [
+      {
+        "title": "ART and Guyana adopt verification safeguards after over-crediting",
+        "url": "https://carbon-pulse.com/560641/",
+        "source": "Carbon Pulse",
+        "date": "2026-10-15",
+        "countries": [
+          "GUY"
+        ],
+        "type": "policy"
+      },
+      {
+        "title": "Bolivia submits bill to attract climate finance into renewables",
+        "url": "https://carbon-pulse.com/561150/",
+        "source": "Carbon Pulse",
+        "date": "2026-10-15",
+        "countries": [
+          "BOL"
+        ],
+        "type": "policy"
+      },
+      {
+        "title": "Colombia proposes FPIC changes affecting REDD+ projects in ethnic territories",
+        "url": "https://carbon-pulse.com/559859/",
+        "source": "Carbon Pulse",
+        "date": "2026-10-12",
+        "countries": [
+          "COL"
+        ],
+        "type": "policy"
+      },
+      {
+        "title": "Chile seeks new Article 6 buyers as bilateral agreements near full implementation",
+        "url": "https://carbon-pulse.com/559654/",
+        "source": "Carbon Pulse",
+        "date": "2026-10-12",
+        "countries": [
+          "CHL"
+        ],
+        "type": "article6"
+      },
+      {
+        "title": "Tax data shows Colombia's 50% carbon-tax offset cap was exceeded for 18+ months",
+        "url": "https://carbon-pulse.com/559190/",
+        "source": "Carbon Pulse",
+        "date": "2026-10-12",
+        "countries": [
+          "COL"
+        ],
+        "type": "policy"
+      }
     ],
-    "type": "policy"
-   },
-   {
-    "title": "Japan proposes criteria to trigger GX-ETS market stabilisation measures",
-    "url": "https://carbon-pulse.com/559000/",
-    "source": "Carbon Pulse",
-    "date": "2026-10-09",
-    "countries": [
-     "JPN"
+    "africa": [
+      {
+        "title": "Ghana issues about 23,000 ITMOs from a cookstove project",
+        "url": "https://carbon-pulse.com/561181/",
+        "source": "Carbon Pulse",
+        "date": "2026-10-16",
+        "countries": [
+          "GHA"
+        ],
+        "type": "issuance"
+      },
+      {
+        "title": "Rwandan cookstove project sees fifth credit issuance for CORSIA supply",
+        "url": "https://carbon-pulse.com/561071/",
+        "source": "Carbon Pulse",
+        "date": "2026-10-15",
+        "countries": [
+          "RWA"
+        ],
+        "type": "issuance"
+      },
+      {
+        "title": "Nigeria gives provisional approval to first Article 6 waste-to-energy project",
+        "url": "https://carbon-pulse.com/559468/",
+        "source": "Carbon Pulse",
+        "date": "2026-10-12",
+        "countries": [
+          "NGA"
+        ],
+        "type": "article6"
+      },
+      {
+        "title": "Rwandan minister urges carbon market to move beyond improved cookstoves",
+        "url": "https://carbon-pulse.com/560390/",
+        "source": "Carbon Pulse",
+        "date": "2026-10-14",
+        "countries": [
+          "RWA"
+        ],
+        "type": "policy"
+      },
+      {
+        "title": "Côte d'Ivoire cashew-waste project certified for $60m green bond (est. 880k tCO2e)",
+        "url": "https://carbon-pulse.com/560884/",
+        "source": "Carbon Pulse",
+        "date": "2026-10-15",
+        "countries": [
+          "CIV"
+        ],
+        "type": "other"
+      },
+      {
+        "title": "Equatorial Guinea NDC targets 37% cut by 2035 without using Article 6",
+        "url": "https://carbon-pulse.com/560978/",
+        "source": "Carbon Pulse",
+        "date": "2026-10-15",
+        "countries": [
+          "GNQ"
+        ],
+        "type": "policy"
+      },
+      {
+        "title": "Egypt invites bids for state-held CDM credits for voluntary cancellation",
+        "url": "https://carbon-pulse.com/559495/",
+        "source": "Carbon Pulse",
+        "date": "2026-10-12",
+        "countries": [
+          "EGY"
+        ],
+        "type": "other"
+      }
     ],
-    "type": "policy"
-   },
-   {
-    "title": "Vietnam draft decree sets ETS stabilisation measures and 5% allowance auctions in 2029-30",
-    "url": "https://carbon-pulse.com/559032/",
-    "source": "Carbon Pulse",
-    "date": "2026-10-09",
-    "countries": [
-     "VNM"
-    ],
-    "type": "policy"
-   },
-   {
-    "title": "India and Japan publish JCM operational manual with project-specific credit allocation",
-    "url": "https://carbon-pulse.com/558214/",
-    "source": "Carbon Pulse",
-    "date": "2026-10-07",
-    "countries": [
-     "IND",
-     "JPN"
-    ],
-    "type": "article6"
-   },
-   {
-    "title": "Singapore and Laos list 58 approved methodologies for Article 6 credit projects",
-    "url": "https://carboncredits.com/singapore-laos-58-article-6-carbon-credit-methodologies/",
-    "source": "CarbonCredits.com",
-    "date": "2026-10-07",
-    "countries": [
-     "SGP",
-     "LAO"
-    ],
-    "type": "article6"
-   },
-   {
-    "title": "Philippines and South Korea fast-track Article 6 talks, aiming for a deal in November",
-    "url": "https://carbon-pulse.com/558546/",
-    "source": "Carbon Pulse",
-    "date": "2026-10-08",
-    "countries": [
-     "PHL",
-     "KOR"
-    ],
-    "type": "article6"
-   },
-   {
-    "title": "Indian developer registers first project under Verra's CCP-approved VM0051 rice methane method",
-    "url": "https://carbon-pulse.com/559066/",
-    "source": "Carbon Pulse",
-    "date": "2026-10-09",
-    "countries": [
-     "IND"
-    ],
-    "type": "registration"
-   },
-   {
-    "title": "India's agriculture ministry issues safeguard guides for carbon projects involving farmers",
-    "url": "https://carbon-pulse.com/559583/",
-    "source": "Carbon Pulse",
-    "date": "2026-10-12",
-    "countries": [
-     "IND"
-    ],
-    "type": "policy"
-   }
-  ],
-  "north_america": [
-   {
-    "title": "Verra issues first credits under food loss and waste methodology to US project Brightly",
-    "url": "https://verra.org/verra-approves-first-credits-under-food-loss-and-waste-methodology/",
-    "source": "Verra",
-    "date": "2026-10-06",
-    "countries": [
-     "USA"
-    ],
-    "type": "issuance"
-   },
-   {
-    "title": "Gevo sells 10,000 BECCS carbon removal credits from North Dakota via ClimeFi",
-    "url": "https://finviz.com/news/400344/gevo-and-climefi-complete-carbon-removal-transaction-advancing-gevos-growing-carbon-business",
-    "source": "Gevo (GlobeNewswire)",
-    "date": "2026-10-08",
-    "countries": [
-     "USA"
-    ],
-    "type": "offtake"
-   },
-   {
-    "title": "Taiwan aid agency backs VCS bamboo ARR project in Guatemala; buyer eyes $30/t credits",
-    "url": "https://carbon-pulse.com/558055/",
-    "source": "Carbon Pulse",
-    "date": "2026-10-07",
-    "countries": [
-     "GTM"
-    ],
-    "type": "partnership"
-   },
-   {
-    "title": "Panama's president in Singapore to discuss Article 6 carbon credit MoU",
-    "url": "https://carbon-pulse.com/557036/",
-    "source": "Carbon Pulse",
-    "date": "2026-10-05",
-    "countries": [
-     "PAN",
-     "SGP"
-    ],
-    "type": "article6"
-   },
-   {
-    "title": "Microsoft and Relae publish quality framework for US improved forest management credits",
-    "url": "https://carbonherald.com/microsoft-and-relae-release-new-framework-for-high-quality-improved-forest-management/",
-    "source": "Carbon Herald",
-    "date": "2026-10-09",
-    "countries": [
-     "USA"
-    ],
-    "type": "other"
-   },
-   {
-    "title": "Gitxaala Nation business arm acquires Canadian offsets firm Carbonzero",
-    "url": "https://carbonherald.com/carbonzero-acquired-by-first-nations-group-as-canadas-carbon-market-evolves/",
-    "source": "Carbon Herald",
-    "date": "2026-10-08",
-    "countries": [
-     "CAN"
-    ],
-    "type": "other"
-   },
-   {
-    "title": "Honduras-Guatemala cookstove developer warns PACM buffer pool could halt project",
-    "url": "https://carbon-pulse.com/558938/",
-    "source": "Carbon Pulse",
-    "date": "2026-10-09",
-    "countries": [
-     "HND",
-     "GTM"
-    ],
-    "type": "other"
-   },
-   {
-    "title": "Grenada NDC says Article 6 engagement hinges on Eastern Caribbean regional approach",
-    "url": "https://carbon-pulse.com/558364/",
-    "source": "Carbon Pulse",
-    "date": "2026-10-07",
-    "countries": [
-     "GRD"
-    ],
-    "type": "policy"
-   },
-   {
-    "title": "Saskatchewan carbon credit developer Nature's Ledger signs SPAC merger LOI",
-    "url": "https://carbon-pulse.com/558962/",
-    "source": "Carbon Pulse",
-    "date": "2026-10-09",
-    "countries": [
-     "CAN"
-    ],
-    "type": "other"
-   },
-   {
-    "title": "California almond-shell biochar plant starts production; Isometric credits planned",
-    "url": "https://carbon-pulse.com/558962/",
-    "source": "Carbon Pulse",
-    "date": "2026-10-09",
-    "countries": [
-     "USA"
-    ],
-    "type": "registration"
-   }
-  ],
-  "south_america": [
-   {
-    "title": "Chile approves PACM credits for use against its carbon tax",
-    "url": "https://carbon-pulse.com/557959/",
-    "source": "Carbon Pulse",
-    "date": "2026-10-07",
-    "countries": [
-     "CHL"
-    ],
-    "type": "policy"
-   },
-   {
-    "title": "Colombia moves to lift 50% cap on carbon-tax offsets, revokes VCM decree 0973",
-    "url": "https://carbon-pulse.com/557162/",
-    "source": "Carbon Pulse",
-    "date": "2026-10-05",
-    "countries": [
-     "COL"
-    ],
-    "type": "policy"
-   },
-   {
-    "title": "Chile and Japan approve JCM rules, opening path to ITMO transfers",
-    "url": "https://carbon-pulse.com/558155/",
-    "source": "Carbon Pulse",
-    "date": "2026-10-07",
-    "countries": [
-     "CHL",
-     "JPN"
-    ],
-    "type": "article6"
-   },
-   {
-    "title": "Peru issues Letter of Support to Inapari REDD+ project under Singapore Article 6 deal",
-    "url": "https://carbon-pulse.com/558481/",
-    "source": "Carbon Pulse",
-    "date": "2026-10-08",
-    "countries": [
-     "PER",
-     "SGP"
-    ],
-    "type": "article6"
-   },
-   {
-    "title": "Peru expects $250m for 12 projects under Swiss and Singapore Article 6 deals",
-    "url": "https://carbon-pulse.com/557402/",
-    "source": "Carbon Pulse",
-    "date": "2026-10-05",
-    "countries": [
-     "PER",
-     "CHE",
-     "SGP"
-    ],
-    "type": "article6"
-   },
-   {
-    "title": "LATAM Airlines and ISA prepare alliance to finance CORSIA-eligible credit projects",
-    "url": "https://carbon-pulse.com/558501/",
-    "source": "Carbon Pulse",
-    "date": "2026-10-08",
-    "countries": [
-     "CHL",
-     "COL",
-     "PER",
-     "BRA"
-    ],
-    "type": "partnership"
-   },
-   {
-    "title": "Bolivia to pass carbon market and climate finance bills within weeks, official says",
-    "url": "https://carbon-pulse.com/558953/",
-    "source": "Carbon Pulse",
-    "date": "2026-10-09",
-    "countries": [
-     "BOL"
-    ],
-    "type": "policy"
-   },
-   {
-    "title": "Chile projects $6bn Article 6 investment, expects 17-18 authorisations by year-end",
-    "url": "https://carbon-pulse.com/558229/",
-    "source": "Carbon Pulse",
-    "date": "2026-10-08",
-    "countries": [
-     "CHL"
-    ],
-    "type": "article6"
-   },
-   {
-    "title": "Para Awaete REDD+ project gets BeZero A.pre rating; first credits due mid-2027",
-    "url": "https://carbon-pulse.com/557751/",
-    "source": "Carbon Pulse",
-    "date": "2026-10-08",
-    "countries": [
-     "BRA"
-    ],
-    "type": "registration"
-   },
-   {
-    "title": "Colombia's Article 6 adviser GGGI urges $20/t ITMO floor and eligibility list",
-    "url": "https://carbon-pulse.com/557470/",
-    "source": "Carbon Pulse",
-    "date": "2026-10-06",
-    "countries": [
-     "COL"
-    ],
-    "type": "article6"
-   }
-  ]
- }
+    "europe": [
+      {
+        "title": "Turkish ETS pilot phase starts with voluntary reporting",
+        "url": "https://carbon-pulse.com/559454/",
+        "source": "Carbon Pulse",
+        "date": "2026-10-12",
+        "countries": [
+          "TUR"
+        ],
+        "type": "policy"
+      },
+      {
+        "title": "Broker proposes EU-wide ETS price as CORSIA non-compliance penalty",
+        "url": "https://carbon-pulse.com/560993/",
+        "source": "Carbon Pulse",
+        "date": "2026-10-15",
+        "countries": [],
+        "type": "policy"
+      },
+      {
+        "title": "Conference hears EU use of international credits needs political acceptability",
+        "url": "https://carbon-pulse.com/560990/",
+        "source": "Carbon Pulse",
+        "date": "2026-10-15",
+        "countries": [],
+        "type": "policy"
+      }
+    ]
+  }
 }

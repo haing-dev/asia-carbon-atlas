@@ -10,6 +10,7 @@
 buyer_aliases:
   Frontier buyers: Frontier
   TD Securities: TD Bank Group
+  TD Bank: TD Bank Group
   KliK Foundation (with Climate Cent Foundation): KliK Foundation
   Emergent (LEAF Coalition): LEAF Coalition
   JPMorganChase: JPMorgan Chase
@@ -602,6 +603,24 @@ announced_rows:
         date: '2023-05-23'
         source_url: https://www.jpmorganchase.com/newsroom/press-releases/2023/jpmorgan-chase-seeks-to-scale-investment-in-emerging-carbon-removal-technologies
         source_title: JPMorgan Chase Seeks to Scale Investment in Emerging Carbon Removal Technologies (Charm)
+      - buyer: Boeing
+        volume_tco2e: 100000
+        date: '2025-11-14'
+        source_url: https://charmindustrial.com/press/charm-industrial-and-boeing-sign-offtake-agreement
+        source_title: Charm Industrial and Boeing Sign Offtake Agreement for up to 100,000-tonnes of Permanent Carbon Removals
+        note: Up to 100,000 t.
+      - buyer: TD Bank
+        volume_tco2e: 44000
+        date: '2026-01-23'
+        source_url: https://www.esgdive.com/news/charm-industrial-inks-bio-oil-biochar-co2-removal-deal-td-bank-canada-expansion/810355/
+        source_title: Charm Industrial inks CO2 removal deal with TD Bank (ESG Dive)
+        note: 10-year term from 2029. Part of the removals will come from Charm's future Canadian operations; no split stated.
+      - buyer: Klimate.co
+        volume_tco2e: 1900
+        date: '2024-04-12'
+        source_url: https://carbonherald.com/klimate-co-and-charm-industrial-extend-partnership-with-1-1m-off-take-agreement/
+        source_title: Klimate.co And Charm Industrial Extend Partnership With $1.1M Off-Take Agreement (Carbon Herald)
+        note: "'Nearly 1900 tons', bought on behalf of Klimate.co's customers."
   - id: ANN:livingcarbon-usa
     name: "Living Carbon \u2014 reforestation of Appalachian mine lands (supplier-level deal)"
     developer: Living Carbon
