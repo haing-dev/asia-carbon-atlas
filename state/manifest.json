@@ -1,5 +1,5 @@
 {
-  "last_commit_at": "2026-10-19T02:22:47+00:00",
+  "last_commit_at": "2026-10-19T04:13:43+00:00",
   "sources": {
     "a6pipeline": {
       "error": null,
@@ -61,6 +61,19 @@
       "signal": {
         "issues": "\"5437b377e5fc2d32829d5bea29cc0723\"",
         "list": "\"19bb3703b4455cebc41b876278b00cb5\""
+      },
+      "stale": false
+    },
+    "offsetsdb": {
+      "error": null,
+      "last_changed": "2026-10-19T04:13:43+00:00",
+      "last_checked": "2026-10-19T04:13:43+00:00",
+      "rows": 8096,
+      "signal": {
+        "buyers": "f3f3dced9cf01782bcb4f6056b25f63ef50adda2c2d16577403d8fd0ba62fdca",
+        "bytes": "8534671",
+        "etag": "\"3620336adfce7d0217faa8b7bde2e23a\"",
+        "modified": "Mon, 01 Jun 2026 20:33:19 GMT"
       },
       "stale": false
     },
