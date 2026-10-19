@@ -21,6 +21,12 @@ sources:
     url: https://registry.verra.org/
     enabled: true
     cadence_days: 1   # backfills ~120 projects a day until done, then only new projects
+  offsetsdb:
+    label: CarbonPlan OffsetsDB (retirements by beneficiary — Verra, Gold Standard, ACR, CAR, ART TREES)
+    registries: []
+    url: https://carbonplan.org/research/offsetsdb
+    enabled: true
+    cadence_days: 7
   cdm:
     label: UNFCCC Clean Development Mechanism (via UNEP-CCC CDM Pipeline)
     registries: [CDM]

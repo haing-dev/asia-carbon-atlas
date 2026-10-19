@@ -1,0 +1,129 @@
+# Buyer entities (one canonical name per company / government), used by the All Regions buyer table and buyer pages.
+# aliases:             other spellings in config/offtakers.yaml or in registry retirement records (OffsetsDB
+#                      harmonized beneficiary) -> this name.
+# retirement_patterns: regexes matched against a retirement's beneficiary / account / note text when the record has
+#                      no harmonized beneficiary (pipeline/sources/offsetsdb.py). Keep them specific: a pattern that
+#                      could match an unrelated party (e.g. "Delta", "Amazon" rainforest) must not be used.
+# lei:                 GLEIF Legal Entity Identifier of the parent, where public (https://search.gleif.org).
+buyers:
+  - name: Microsoft
+    retirement_patterns: ['(?i)\bmicrosoft\b']
+  - name: Google
+    aliases: [Alphabet, Google LLC]
+    retirement_patterns: ['(?i)\bgoogle\b', '(?i)\balphabet inc']
+  - name: Meta
+    aliases: [Meta Platforms, Facebook]
+    retirement_patterns: ['\bMeta Platforms\b', '(?i)\bfacebook\b']
+  - name: Amazon
+    retirement_patterns: ['\bAmazon(\.com| Web Services| Inc| EU| Services)\b']
+  - name: Apple
+    retirement_patterns: ['\bApple Inc\b', '\bApple Operations\b']
+  - name: Salesforce
+    retirement_patterns: ['(?i)\bsalesforce\b']
+  - name: Shell
+    aliases: [Shell plc, Shell International, Royal Dutch Shell]
+    retirement_patterns: ['\bShell (plc|International|Energy|Trading|Eastern|Nederland|Deutschland|Brasil|Canada)\b', '\bRoyal Dutch Shell\b']
+  - name: TotalEnergies
+    aliases: [Total]
+    retirement_patterns: ['(?i)\btotalenergies\b']
+  - name: BP
+    retirement_patterns: ['\bBP (p\.?l\.?c|Gas Marketing|Oil|Products|Europa)\b']
+  - name: Eni
+    retirement_patterns: ['\bEni S\.?p\.?A\b', '\bEni (plenitude|Live|Trading)\b']
+  - name: Delta Air Lines
+    aliases: [Delta]
+    retirement_patterns: ['(?i)\bdelta air ?lines\b']
+  - name: United Airlines
+    retirement_patterns: ['(?i)\bunited airlines\b']
+  - name: JetBlue
+    retirement_patterns: ['(?i)\bjetblue\b']
+  - name: easyJet
+    retirement_patterns: ['(?i)\beasyjet\b']
+  - name: Lufthansa Group
+    aliases: [Lufthansa]
+    retirement_patterns: ['(?i)\blufthansa\b']
+  - name: Air France-KLM
+    retirement_patterns: ['(?i)\bair france\b', '\bKLM\b']
+  - name: Qantas
+    retirement_patterns: ['(?i)\bqantas\b']
+  - name: Singapore Airlines
+    retirement_patterns: ['(?i)\bsingapore airlines\b']
+  - name: All Nippon Airways (ANA)
+    aliases: [ANA, All Nippon Airways]
+    retirement_patterns: ['(?i)\ball nippon airways\b']
+  - name: Japan Airlines
+    retirement_patterns: ['(?i)\bjapan airlines\b']
+  - name: The Walt Disney Company
+    aliases: [Disney, Walt Disney]
+    retirement_patterns: ['(?i)\bwalt disney\b']
+  - name: Netflix
+    retirement_patterns: ['(?i)\bnetflix\b']
+  - name: Nestlé
+    aliases: [Nestle]
+    retirement_patterns: ['(?i)\bnestl[eé]\b']
+  - name: Volkswagen
+    retirement_patterns: ['(?i)\bvolkswagen\b']
+  - name: Mercedes-Benz
+    retirement_patterns: ['(?i)\bmercedes[- ]benz\b', '(?i)\bdaimler\b']
+  - name: BMW
+    retirement_patterns: ['\bBMW\b']
+  - name: Boeing
+    retirement_patterns: ['(?i)\bboeing\b']
+  - name: Airbus
+    retirement_patterns: ['(?i)\bairbus\b']
+  - name: JPMorgan Chase
+    aliases: [JPMorganChase, JP Morgan, J.P. Morgan]
+    retirement_patterns: ['(?i)\bj\.? ?p\.? ?morgan\b', '(?i)\bjpmorgan']
+  - name: Bank of America
+    retirement_patterns: ['(?i)\bbank of america\b']
+  - name: Morgan Stanley
+    retirement_patterns: ['(?i)\bmorgan stanley\b']
+  - name: Goldman Sachs
+    retirement_patterns: ['(?i)\bgoldman sachs\b']
+  - name: Swiss Re
+    retirement_patterns: ['(?i)\bswiss re\b']
+  - name: UBS
+    retirement_patterns: ['\bUBS\b']
+  - name: Mastercard
+    retirement_patterns: ['(?i)\bmastercard\b']
+  - name: Visa
+    retirement_patterns: ['\bVisa Inc\b']
+  - name: Sumitomo Corporation
+    retirement_patterns: ['(?i)\bsumitomo corporation\b']
+  - name: Mitsubishi Corporation
+    retirement_patterns: ['(?i)\bmitsubishi corporation\b']
+  - name: Mitsui & Co.
+    retirement_patterns: ['(?i)\bmitsui ?& ?co\b']
+  - name: ITOCHU Corporation
+    aliases: [ITOCHU]
+    retirement_patterns: ['(?i)\bitochu\b']
+  - name: Marubeni
+    retirement_patterns: ['(?i)\bmarubeni\b']
+  - name: INPEX
+    retirement_patterns: ['\bINPEX\b']
+  - name: Trafigura
+    retirement_patterns: ['(?i)\btrafigura\b']
+  - name: GSK
+    retirement_patterns: ['\bGSK\b', '(?i)\bglaxosmithkline\b']
+  - name: Shopify
+    retirement_patterns: ['(?i)\bshopify\b']
+  - name: Stripe
+    retirement_patterns: ['\bStripe, Inc\b']
+  - name: Frontier
+    aliases: [Frontier buyers, Frontier Climate]
+    retirement_patterns: ['(?i)\bfrontier climate\b']
+  - name: TD Bank Group
+    aliases: [TD Securities, TD Bank]
+    retirement_patterns: ['(?i)\btd (bank|securities)\b', '(?i)\btoronto-dominion\b']
+  - name: KliK Foundation
+    aliases: [KliK Foundation (with Climate Cent Foundation), Stiftung KliK]
+    retirement_patterns: ['(?i)\bklik\b']
+  - name: LEAF Coalition
+    aliases: [Emergent (LEAF Coalition)]
+  - name: AT&T
+    retirement_patterns: ['\bAT&T\b']
+  - name: Uber
+    retirement_patterns: ['\bUber (Technologies|B\.V)\b']
+  - name: Ørsted
+    aliases: [Orsted]
+    retirement_patterns: ['(?i)\b[øo]rsted\b']
