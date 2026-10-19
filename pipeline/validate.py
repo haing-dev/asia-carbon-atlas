@@ -58,7 +58,9 @@ def main() -> None:
     print(f"{len(WARNINGS)} warnings")
     for e in errors[:200]:
         print("ERROR", e)
-    if errors:
+    from pipeline import checks   # background hygiene: duplicates and consistency (not shown on the site)
+    hygiene = checks.main()
+    if errors or hygiene:
         print(f"{len(errors)} validation errors")
         sys.exit(1)
     print("validation passed")
