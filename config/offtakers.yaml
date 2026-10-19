@@ -20,6 +20,7 @@ buyer_aliases:
 buyer_splits:
   Google and McKinsey (Symbiosis Coalition): [Google, McKinsey]
   Symbiosis Coalition (Meta, Google, McKinsey): [Meta, Google, McKinsey]
+  Adyen and Nasdaq: [Adyen, Nasdaq]
 
 offtakes:
   - record: VCS:4811
@@ -458,6 +459,233 @@ offtakes:
     source_url: https://www.source-material.org/shell-drive-carbon-neutral-claims-in-doubt-after-forest-scrutiny/
     source_title: Shell 'Drive Carbon Neutral' claims in doubt after forest scrutiny (Source Material)
     note: volume not stated; purchases per Verra data, most recent Aug 2021; retirement disclosed by the buyer
+  - record: VCS:5525
+    buyer: JPMorgan Chase
+    volume_tco2e: 50000
+    date: '2025-06-24'
+    source_url: https://www.esgtoday.com/jpmorganchase-signs-10-year-dac-carbon-removal-deal-with-oxys-1pointfive/
+    source_title: JPMorganChase Signs 10-Year DAC Carbon Removal Deal with Oxy's 1PointFive
+    note: over 10 years
+  - record: ACR:0852
+    buyer: JPMorgan Chase
+    volume_tco2e: 85000
+    date: '2026-04-13'
+    source_url: https://www.esgtoday.com/jpmorgan-signs-85000-ton-forest-based-carbon-removal-deal/
+    source_title: JPMorgan Signs 85,000 Ton Forest-Based Carbon Removal Deal
+    note: "'over 85,000 tons'"
+  - record: PURO:353054
+    buyer: PayPal
+    date: 2026-07
+    source_url: https://www.cdr.fyi/blog/cdr-monthly-recap-july-2026
+    source_title: 'Durable CDR Market Recap: July 2026 (CDR.fyi)'
+    note: portfolio procured through 3Degrees with Heartyculture biochar; volume not stated. Buyer outside assigned list (payments).
+  - record: VCS:959
+    buyer: Morgan Stanley
+    date: '2026-01-01'
+    source_url: https://www.morganstanley.com/content/dam/msdotcom/en/assets/pdfs/California_Voluntary_Carbon_Market_Disclosure_2026.pdf
+    source_title: California Voluntary Carbon Market Disclosure 2026 (Morgan Stanley)
+    note: Disclosure lists project IDs only; name/country/proponent taken from the registry record (VROD). Used toward Morgan Stanley's carbon-neutral claims; volume per project not stated.; retirement disclosed by the buyer
+  - record: VCS:2498
+    buyer: Morgan Stanley
+    date: '2026-01-01'
+    source_url: https://www.morganstanley.com/content/dam/msdotcom/en/assets/pdfs/California_Voluntary_Carbon_Market_Disclosure_2026.pdf
+    source_title: California Voluntary Carbon Market Disclosure 2026 (Morgan Stanley)
+    note: Disclosure lists project IDs only; name/country/proponent taken from the registry record (VROD). Used toward Morgan Stanley's carbon-neutral claims; volume per project not stated.; retirement disclosed by the buyer
+  - record: VCS:2250
+    buyer: Morgan Stanley
+    date: '2026-01-01'
+    source_url: https://www.morganstanley.com/content/dam/msdotcom/en/assets/pdfs/California_Voluntary_Carbon_Market_Disclosure_2026.pdf
+    source_title: California Voluntary Carbon Market Disclosure 2026 (Morgan Stanley)
+    note: Disclosure lists project IDs only; name/country/proponent taken from the registry record (VROD). Used toward Morgan Stanley's carbon-neutral claims; volume per project not stated.; retirement disclosed by the buyer
+  - record: VCS:1530
+    buyer: Morgan Stanley
+    date: '2026-01-01'
+    source_url: https://www.morganstanley.com/content/dam/msdotcom/en/assets/pdfs/California_Voluntary_Carbon_Market_Disclosure_2026.pdf
+    source_title: California Voluntary Carbon Market Disclosure 2026 (Morgan Stanley)
+    note: Disclosure lists project IDs only; name/country/proponent taken from the registry record (VROD). Used toward Morgan Stanley's carbon-neutral claims; volume per project not stated.; retirement disclosed by the buyer
+  - record: CAR:1567
+    buyer: Morgan Stanley
+    date: '2026-01-01'
+    source_url: https://www.morganstanley.com/content/dam/msdotcom/en/assets/pdfs/California_Voluntary_Carbon_Market_Disclosure_2026.pdf
+    source_title: California Voluntary Carbon Market Disclosure 2026 (Morgan Stanley)
+    note: Disclosure lists project IDs only; name/country/proponent taken from the registry record (VROD). Used toward Morgan Stanley's carbon-neutral claims; volume per project not stated.; retirement disclosed by the buyer
+  - record: CAR:1663
+    buyer: Morgan Stanley
+    date: '2026-01-01'
+    source_url: https://www.morganstanley.com/content/dam/msdotcom/en/assets/pdfs/California_Voluntary_Carbon_Market_Disclosure_2026.pdf
+    source_title: California Voluntary Carbon Market Disclosure 2026 (Morgan Stanley)
+    note: Disclosure lists project IDs only; name/country/proponent taken from the registry record (VROD). Used toward Morgan Stanley's carbon-neutral claims; volume per project not stated.; retirement disclosed by the buyer
+  - record: CAR:1674
+    buyer: Morgan Stanley
+    date: '2026-01-01'
+    source_url: https://www.morganstanley.com/content/dam/msdotcom/en/assets/pdfs/California_Voluntary_Carbon_Market_Disclosure_2026.pdf
+    source_title: California Voluntary Carbon Market Disclosure 2026 (Morgan Stanley)
+    note: Disclosure lists project IDs only; name/country/proponent taken from the registry record (VROD). Used toward Morgan Stanley's carbon-neutral claims; volume per project not stated.; retirement disclosed by the buyer
+  - record: ACR:0844
+    buyer: Morgan Stanley
+    date: '2026-01-01'
+    source_url: https://www.morganstanley.com/content/dam/msdotcom/en/assets/pdfs/California_Voluntary_Carbon_Market_Disclosure_2026.pdf
+    source_title: California Voluntary Carbon Market Disclosure 2026 (Morgan Stanley)
+    note: Disclosure lists project IDs only; name/country/proponent taken from the registry record (VROD). Used toward Morgan Stanley's carbon-neutral claims; volume per project not stated.; retirement disclosed by the buyer
+  - record: ACR:0915
+    buyer: Morgan Stanley
+    date: '2026-01-01'
+    source_url: https://www.morganstanley.com/content/dam/msdotcom/en/assets/pdfs/California_Voluntary_Carbon_Market_Disclosure_2026.pdf
+    source_title: California Voluntary Carbon Market Disclosure 2026 (Morgan Stanley)
+    note: Disclosure lists project IDs only; name/country/proponent taken from the registry record (VROD). Used toward Morgan Stanley's carbon-neutral claims; volume per project not stated.; retirement disclosed by the buyer
+  - record: GS:10220
+    buyer: Morgan Stanley
+    date: '2026-01-01'
+    source_url: https://www.morganstanley.com/content/dam/msdotcom/en/assets/pdfs/California_Voluntary_Carbon_Market_Disclosure_2026.pdf
+    source_title: California Voluntary Carbon Market Disclosure 2026 (Morgan Stanley)
+    note: Disclosure lists project IDs only; name/country/proponent taken from the registry record (VROD). Used toward Morgan Stanley's carbon-neutral claims; volume per project not stated.; retirement disclosed by the buyer
+  - record: VCS:868
+    buyer: Goldman Sachs
+    date: '2025-12-05'
+    source_url: https://www.goldmansachs.com/disclosures/CaliforniaVoluntaryCarbonMarketDisclosure.pdf
+    source_title: California Voluntary Carbon Market Disclosure (Goldman Sachs)
+    note: Credits used toward Goldman Sachs' 2024 net emissions; volume per project not stated. Two China afforestation projects (VCS1855, VCS1847) in the same list are out of scope.; retirement disclosed by the buyer
+  - record: CAR:1480
+    buyer: Goldman Sachs
+    date: '2025-12-05'
+    source_url: https://www.goldmansachs.com/disclosures/CaliforniaVoluntaryCarbonMarketDisclosure.pdf
+    source_title: California Voluntary Carbon Market Disclosure (Goldman Sachs)
+    note: Credits used toward Goldman Sachs' 2024 net emissions; volume per project not stated. Two China afforestation projects (VCS1855, VCS1847) in the same list are out of scope.; retirement disclosed by the buyer
+  - record: GS:5046
+    buyer: Goldman Sachs
+    date: '2025-12-05'
+    source_url: https://www.goldmansachs.com/disclosures/CaliforniaVoluntaryCarbonMarketDisclosure.pdf
+    source_title: California Voluntary Carbon Market Disclosure (Goldman Sachs)
+    note: Credits used toward Goldman Sachs' 2024 net emissions; volume per project not stated. Two China afforestation projects (VCS1855, VCS1847) in the same list are out of scope.; retirement disclosed by the buyer
+  - record: VCS:994
+    buyer: Wells Fargo
+    date: '2025'
+    source_url: https://www.wellsfargo.com/assets/pdf/about/corporate-responsibility/california-voluntary-carbon-market-disclosure.pdf
+    source_title: California Voluntary Carbon Market Disclosure (Wells Fargo, year ended 2024)
+    note: Wells Fargo purchased and retired 81,657 t in 2024 across these five projects; per-project split not given. Date = disclosure year (undated PDF, as of 2024-12-31).; retirement disclosed by the buyer
+  - record: VCS:996
+    buyer: Wells Fargo
+    date: '2025'
+    source_url: https://www.wellsfargo.com/assets/pdf/about/corporate-responsibility/california-voluntary-carbon-market-disclosure.pdf
+    source_title: California Voluntary Carbon Market Disclosure (Wells Fargo, year ended 2024)
+    note: Wells Fargo purchased and retired 81,657 t in 2024 across these five projects; per-project split not given. Date = disclosure year (undated PDF, as of 2024-12-31).; retirement disclosed by the buyer
+  - record: CAR:1462
+    buyer: Wells Fargo
+    date: '2025'
+    source_url: https://www.wellsfargo.com/assets/pdf/about/corporate-responsibility/california-voluntary-carbon-market-disclosure.pdf
+    source_title: California Voluntary Carbon Market Disclosure (Wells Fargo, year ended 2024)
+    note: Wells Fargo purchased and retired 81,657 t in 2024 across these five projects; per-project split not given. Date = disclosure year (undated PDF, as of 2024-12-31).; retirement disclosed by the buyer
+  - record: CAR:1463
+    buyer: Wells Fargo
+    date: '2025'
+    source_url: https://www.wellsfargo.com/assets/pdf/about/corporate-responsibility/california-voluntary-carbon-market-disclosure.pdf
+    source_title: California Voluntary Carbon Market Disclosure (Wells Fargo, year ended 2024)
+    note: Wells Fargo purchased and retired 81,657 t in 2024 across these five projects; per-project split not given. Date = disclosure year (undated PDF, as of 2024-12-31).; retirement disclosed by the buyer
+  - record: CAR:1565
+    buyer: Wells Fargo
+    date: '2025'
+    source_url: https://www.wellsfargo.com/assets/pdf/about/corporate-responsibility/california-voluntary-carbon-market-disclosure.pdf
+    source_title: California Voluntary Carbon Market Disclosure (Wells Fargo, year ended 2024)
+    note: Wells Fargo purchased and retired 81,657 t in 2024 across these five projects; per-project split not given. Date = disclosure year (undated PDF, as of 2024-12-31).; retirement disclosed by the buyer
+  - record: VCS:2250
+    buyer: Macquarie Group
+    volume_tco2e: 10000
+    date: 2025-12
+    source_url: https://www.macquarie.com/assets/macq/about/disclosures/california-voluntary-carbon-markets-disclosure.pdf
+    source_title: California Voluntary Carbon Markets Disclosure (Macquarie Group)
+    note: purchased to offset FY2025 Scope 1 office and business-travel emissions; broker Northmore Gordon; retirement disclosed by the buyer
+  - record: PURO:244045
+    buyer: Macquarie Group
+    volume_tco2e: 300
+    date: 2025-12
+    source_url: https://www.macquarie.com/assets/macq/about/disclosures/california-voluntary-carbon-markets-disclosure.pdf
+    source_title: California Voluntary Carbon Markets Disclosure (Macquarie Group)
+    note: purchased to offset FY2025 emissions; Australian and China projects in the same table are out of scope; retirement disclosed by the buyer
+  - record: PURO:432524
+    buyer: Deutsche Bank
+    date: '2026'
+    source_url: https://www.db.com/AB1305
+    source_title: California AB 1305 Disclosure (Deutsche Bank)
+    note: Part of 101,585 t purchased and retired for 2025 (17% removals, 83% avoidance); per-project volume not stated. Page undated (2026).; retirement disclosed by the buyer
+  - record: PURO:292788
+    buyer: Deutsche Bank
+    date: '2026'
+    source_url: https://www.db.com/AB1305
+    source_title: California AB 1305 Disclosure (Deutsche Bank)
+    note: Part of 101,585 t purchased and retired for 2025 (17% removals, 83% avoidance); per-project volume not stated. Page undated (2026).; retirement disclosed by the buyer
+  - record: GS:4221
+    buyer: Deutsche Bank
+    date: '2026'
+    source_url: https://www.db.com/AB1305
+    source_title: California AB 1305 Disclosure (Deutsche Bank)
+    note: Part of 101,585 t purchased and retired for 2025 (17% removals, 83% avoidance); per-project volume not stated. Page undated (2026).; retirement disclosed by the buyer
+  - record: GS:11671
+    buyer: Deutsche Bank
+    date: '2026'
+    source_url: https://www.db.com/AB1305
+    source_title: California AB 1305 Disclosure (Deutsche Bank)
+    note: Part of 101,585 t purchased and retired for 2025 (17% removals, 83% avoidance); per-project volume not stated. Page undated (2026).; retirement disclosed by the buyer
+  - record: GS:12062
+    buyer: Deutsche Bank
+    date: '2026'
+    source_url: https://www.db.com/AB1305
+    source_title: California AB 1305 Disclosure (Deutsche Bank)
+    note: Part of 101,585 t purchased and retired for 2025 (17% removals, 83% avoidance); per-project volume not stated. Page undated (2026).; retirement disclosed by the buyer
+  - record: GS:7071
+    buyer: Deutsche Bank
+    date: '2026'
+    source_url: https://www.db.com/AB1305
+    source_title: California AB 1305 Disclosure (Deutsche Bank)
+    note: Part of 101,585 t purchased and retired for 2025 (17% removals, 83% avoidance); per-project volume not stated. Page undated (2026).; retirement disclosed by the buyer
+  - record: VCS:3046
+    buyer: Visa
+    volume_tco2e: 10000
+    date: '2026-01-01'
+    source_url: https://corporate.visa.com/content/dam/VCOM/corporate/about-visa/documents/fy24-ab1305-voluntary-carbon-markets-disclosure-act-visa-usa-inc.pdf
+    source_title: FY24 AB1305 Voluntary Carbon Markets Disclosure (Visa U.S.A. Inc.)
+    note: units listed for FY2024 claims (disclosure as of 2026-01-01); China project VCS2458 in the same list is out of scope; retirement disclosed by the buyer
+  - record: ACR:0832
+    buyer: Visa
+    volume_tco2e: 14539
+    date: '2026-01-01'
+    source_url: https://corporate.visa.com/content/dam/VCOM/corporate/about-visa/documents/fy24-ab1305-voluntary-carbon-markets-disclosure-act-visa-usa-inc.pdf
+    source_title: FY24 AB1305 Voluntary Carbon Markets Disclosure (Visa U.S.A. Inc.)
+    note: units listed for FY2024 claims (disclosure as of 2026-01-01); China project VCS2458 in the same list is out of scope; retirement disclosed by the buyer
+  - record: VCS:1477
+    buyer: Visa
+    volume_tco2e: 16000
+    date: '2026-01-01'
+    source_url: https://corporate.visa.com/content/dam/VCOM/corporate/about-visa/documents/fy24-ab1305-voluntary-carbon-markets-disclosure-act-visa-usa-inc.pdf
+    source_title: FY24 AB1305 Voluntary Carbon Markets Disclosure (Visa U.S.A. Inc.)
+    note: units listed for FY2024 claims (disclosure as of 2026-01-01); China project VCS2458 in the same list is out of scope; retirement disclosed by the buyer
+  - record: GS:2707
+    buyer: Visa
+    volume_tco2e: 17889
+    date: '2026-01-01'
+    source_url: https://corporate.visa.com/content/dam/VCOM/corporate/about-visa/documents/fy24-ab1305-voluntary-carbon-markets-disclosure-act-visa-usa-inc.pdf
+    source_title: FY24 AB1305 Voluntary Carbon Markets Disclosure (Visa U.S.A. Inc.)
+    note: units listed for FY2024 claims (disclosure as of 2026-01-01); China project VCS2458 in the same list is out of scope; retirement disclosed by the buyer
+  - record: VCS:2478
+    buyer: Visa
+    volume_tco2e: 10000
+    date: '2026-01-01'
+    source_url: https://corporate.visa.com/content/dam/VCOM/corporate/about-visa/documents/fy24-ab1305-voluntary-carbon-markets-disclosure-act-visa-usa-inc.pdf
+    source_title: FY24 AB1305 Voluntary Carbon Markets Disclosure (Visa U.S.A. Inc.)
+    note: units listed for FY2024 claims (disclosure as of 2026-01-01); China project VCS2458 in the same list is out of scope; retirement disclosed by the buyer
+  - record: ACR:0282
+    buyer: Visa
+    volume_tco2e: 1252
+    date: '2026-01-01'
+    source_url: https://corporate.visa.com/content/dam/VCOM/corporate/about-visa/documents/fy24-ab1305-voluntary-carbon-markets-disclosure-act-visa-usa-inc.pdf
+    source_title: FY24 AB1305 Voluntary Carbon Markets Disclosure (Visa U.S.A. Inc.)
+    note: units listed for FY2024 claims (disclosure as of 2026-01-01); China project VCS2458 in the same list is out of scope; retirement disclosed by the buyer
+  - record: GS:12062
+    buyer: Visa
+    volume_tco2e: 10000
+    date: '2026-01-01'
+    source_url: https://corporate.visa.com/content/dam/VCOM/corporate/about-visa/documents/fy24-ab1305-voluntary-carbon-markets-disclosure-act-visa-usa-inc.pdf
+    source_title: FY24 AB1305 Voluntary Carbon Markets Disclosure (Visa U.S.A. Inc.)
+    note: units listed for FY2024 claims (disclosure as of 2026-01-01); China project VCS2458 in the same list is out of scope; retirement disclosed by the buyer
 announced_rows:
   - id: ANN:varaha-biochar-ind
     name: Varaha — biochar carbon removal (supplier-level deals)
@@ -492,6 +720,11 @@ announced_rows:
         source_url: https://www.esgtoday.com/gsk-signs-500000-tonne-carbon-removal-deal-with-varaha/
         source_title: GSK Signs Carbon Removal Deal with Varaha (Punjab and Haryana)
         note: "Headline: 500,000 t; article: ~100,000 t a year in 2028–2033 (600,000 credits)."
+      - buyer: Mirova
+        date: '2025-11-13'
+        source_url: https://carbonherald.com/varaha-locks-in-a-30m-investment-from-mirova-for-its-regenerative-agriculture-project-in-india/
+        source_title: Varaha Locks In A $30M Investment From Mirova For Its Regenerative Agriculture Project In India
+        note: US$30M investment for which investors receive carbon credits in return (per Varaha CCO); credit volume not stated
   - id: ANN:mati-erw-ind
     name: Mati Carbon — enhanced rock weathering (supplier-level deal)
     developer: Mati Carbon
@@ -717,6 +950,11 @@ announced_rows:
         source_url: https://carbonherald.com/klimate-co-and-charm-industrial-extend-partnership-with-1-1m-off-take-agreement/
         source_title: Klimate.co And Charm Industrial Extend Partnership With $1.1M Off-Take Agreement (Carbon Herald)
         note: "'Nearly 1900 tons', bought on behalf of Klimate.co's customers."
+      - buyer: MetLife
+        date: 2026-08
+        source_url: https://www.cdr.fyi/blog/cdr-monthly-recap-august-2026
+        source_title: 'Durable CDR Market Recap: August 2026 (CDR.fyi)'
+        note: partnership with purchase of CDR credits; volume not stated. Buyer outside assigned list (insurer).
   - id: ANN:livingcarbon-usa
     name: "Living Carbon — reforestation of Appalachian mine lands (supplier-level deal)"
     developer: Living Carbon
@@ -827,6 +1065,12 @@ announced_rows:
         date: '2025-03-12'
         source_url: https://biochartoday.com/news/supercritical-secures-130000-tonnes-of-biochar-carbon-removal-in-expanded-partnership-with-exomad-green/
         source_title: Supercritical secures 130,000 tonnes of biochar carbon removal from Exomad Green
+      - buyer: Swiss Re
+        volume_tco2e: 70000
+        date: '2024-06-14'
+        source_url: https://carbonherald.com/carbonfuture-signs-deal-with-swiss-re-for-70000-tonnes-of-biochar-removals-from-exomad-green/
+        source_title: Carbonfuture Signs Deal With Swiss Re For 70,000 Tonnes Of Biochar Removals From Exomad Green
+        note: "'at least'; 7-year contract signed with Carbonfuture"
   - id: ANN:terradot-rice-bra
     name: "Terradot — rice methane elimination, Rio Grande do Sul"
     developer: Terradot
@@ -993,6 +1237,11 @@ announced_rows:
         source_url: https://www.esgtoday.com/stockholm-becomes-one-of-worlds-largest-carbon-removal-buyers-with-new-750000-tonne-deal/
         source_title: Stockholm Becomes One of World's Largest Carbon Removal Buyers with New 750,000-Tonne Deal
         note: Buyer is the city government, which co-owns the supplier.
+      - buyer: Adyen and Nasdaq
+        date: 2026-03
+        source_url: https://www.cdr.fyi/blog/cdr-monthly-recap-march-2026
+        source_title: 'Durable CDR Market Recap: March 2026 (CDR.fyi)'
+        note: deal structured by ClimeFi; volume not stated. Buyers outside assigned list (payments / exchange).
   - id: ANN:orsted-beccs-dnk
     name: Ørsted — BECCS at Kalundborg CO2 Hub (Asnæs, Avedøre)
     developer: Ørsted
@@ -1555,3 +1804,141 @@ announced_rows:
         source_url: https://carbonherald.com/brazils-piaui-state-and-silvania-launch-jurisdictional-redd-program/
         source_title: Brazil's Piauí State And Silvania Launch Jurisdictional REDD+ Program
         note: exclusive buyer; volume not stated (state projects >20m credits by 2030); Silvania also provides upfront financing for certification. Source does not mention Mercuria; Silvania is described as 'backed by Mercuria' in https://carbonherald.com/silvania-launches-1-5b-initiative-to-protect-the-amazon/
+  - id: ANN:undo-erw-can
+    name: UNDO — UNDO enhanced rock weathering, Ontario farmland
+    developer: UNDO
+    countries:
+      - CAN
+    l2: erw
+    offtakes:
+      - buyer: Barclays
+        volume_tco2e: 6538
+        date: '2025-09-24'
+        source_url: https://un-do.com/resources/case-studies/barclays-backs-undo-in-landmark-carbon-removal-deal/
+        source_title: Barclays Backs UNDO in Landmark Carbon Removal Deal
+        note: underwritten/insured by CFC
+  - id: ANN:nellietechnologies-other-gbr
+    name: Nellie Technologies (supplier-level deal)
+    developer: Nellie Technologies
+    countries:
+      - GBR
+    l2: other
+    offtakes:
+      - buyer: Zurich Insurance Group
+        volume_tco2e: 17500
+        date: 2025-01
+        source_url: https://www.cdr.fyi/blog/cdr-monthly-recap-january-2025
+        source_title: 'Durable CDR Market Recap: January 2025 (CDR.fyi)'
+        note: 5-year offtake; method not stated by source
+  - id: ANN:deepsky-dac-can
+    name: Deep Sky (supplier-level deal)
+    developer: Deep Sky
+    countries:
+      - CAN
+    l2: dac
+    offtakes:
+      - buyer: Rubicon Carbon
+        date: 2025-06
+        source_url: https://www.cdr.fyi/blog/cdr-monthly-recap-june-2025
+        source_title: 'Durable CDR Market Recap: June 2025 (CDR.fyi)'
+        note: multi-year; volume and price not disclosed; deliveries from 2025
+  - id: ANN:inheritcarbonsolutio-beccs-nor
+    name: Inherit Carbon Solutions (supplier-level deal)
+    developer: Inherit Carbon Solutions
+    countries:
+      - NOR
+    l2: beccs
+    offtakes:
+      - buyer: Nordea
+        volume_tco2e: 68000
+        date: '2025-03-13'
+        source_url: https://www.cdr.fyi/blog/cdr-monthly-recap-march-2025
+        source_title: 'Durable CDR Market Recap: March 2025 (CDR.fyi)'
+        note: "'at least'; multi-year. Buyer outside assigned list (financial)."
+  - id: ANN:carba-biochar-usa
+    name: Carba — Carba Minnesota landfill biochar project
+    developer: Carba
+    countries:
+      - USA
+    l2: biochar
+    offtakes:
+      - buyer: U.S. Bank
+        date: 2026-08
+        source_url: https://www.cdr.fyi/blog/cdr-monthly-recap-august-2026
+        source_title: 'Durable CDR Market Recap: August 2026 (CDR.fyi)'
+        note: first CDR purchase; volume not stated. Buyer outside assigned list (financial).
+  - id: ANN:heartyculturevia3deg-biochar-ind
+    name: Heartyculture (via 3Degrees) (supplier-level deal)
+    developer: Heartyculture (via 3Degrees)
+    countries:
+      - IND
+    l2: biochar
+    offtakes:
+      - buyer: PayPal
+        date: 2026-07
+        source_url: https://www.cdr.fyi/blog/cdr-monthly-recap-july-2026
+        source_title: 'Durable CDR Market Recap: July 2026 (CDR.fyi)'
+        note: portfolio procured through 3Degrees with Gevo BECCS; volume not stated. Buyer outside assigned list (payments).
+  - id: ANN:empacar-biochar-bol
+    name: Empacar (supplier-level deal)
+    developer: Empacar
+    countries:
+      - BOL
+    l2: biochar
+    offtakes:
+      - buyer: Altitude
+        volume_tco2e: 305000
+        date: 2026-03
+        source_url: https://www.cdr.fyi/blog/cdr-monthly-recap-march-2026
+        source_title: 'Durable CDR Market Recap: March 2026 (CDR.fyi)'
+        note: Altitude is a CDR financier (outside assigned list)
+  - id: ANN:ecogaiaandemisionesn-biochar-arg
+    name: EcoGaia and Emisiones Neutras (supplier-level deal)
+    developer: EcoGaia and Emisiones Neutras
+    countries:
+      - ARG
+    l2: biochar
+    offtakes:
+      - buyer: Altitude
+        volume_tco2e: 165000
+        date: 2025-12
+        source_url: https://www.cdr.fyi/blog/cdr-monthly-recap-december-2025
+        source_title: 'Durable CDR Market Recap: December 2025 (CDR.fyi)'
+        note: shared across the two operators' facilities. Altitude is a CDR financier (outside assigned list)
+  - id: ANN:carboneers-biochar-ind
+    name: Carboneers — Carboneers SRC India
+    developer: Carboneers
+    countries:
+      - IND
+    l2: biochar
+    offtakes:
+      - buyer: Deutsche Bank
+        date: '2026'
+        source_url: https://www.db.com/AB1305
+        source_title: California AB 1305 Disclosure (Deutsche Bank)
+        note: Part of 101,585 t purchased and retired for 2025 (17% removals, 83% avoidance); per-project volume not stated. Page undated (2026).; retirement disclosed by the buyer
+  - id: ANN:carboneers-biochar-gha
+    name: Carboneers — Carboneers Ghana
+    developer: Carboneers
+    countries:
+      - GHA
+    l2: biochar
+    offtakes:
+      - buyer: Deutsche Bank
+        date: '2026'
+        source_url: https://www.db.com/AB1305
+        source_title: California AB 1305 Disclosure (Deutsche Bank)
+        note: Part of 101,585 t purchased and retired for 2025 (17% removals, 83% avoidance); per-project volume not stated. Page undated (2026).; retirement disclosed by the buyer
+  - id: ANN:rubiconcarbonkijanif-arr-uga
+    name: Rubicon Carbon (Kijani Forestry) — Smallholder Farmer Forestry Project (Northern Uganda)
+    developer: Rubicon Carbon (Kijani Forestry)
+    countries:
+      - UGA
+    l2: arr
+    offtakes:
+      - buyer: Microsoft
+        volume_tco2e: 2000000
+        date: '2026-01-14'
+        source_url: https://carbonherald.com/rubicon-carbon-to-provide-microsoft-with-2m-forestry-credits-from-ugandan-kijani-project/
+        source_title: Rubicon Carbon To Provide Microsoft With 2M Forestry Credits From Ugandan Kijani Project
+        note: multi-year, delivery by 2035; Rubicon Carbon is the seller (intermediary), Kijani Forestry operates the project

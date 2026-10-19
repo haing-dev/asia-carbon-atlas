@@ -8,7 +8,8 @@ Output: data/lookups/retirements.jsonl — one row per project x beneficiary:
   {"record_id": "VCS:1477", "beneficiary": "Microsoft", "matched_by": "harmonized"|"pattern", "retired_tco2e": ..,
    "n": <transactions>, "first": "YYYY-MM-DD", "last": "YYYY-MM-DD"}
 plus one row per project with beneficiary null for retirements with no identifiable beneficiary, and
-one {"record_id": "META", ...} row with the snapshot date.
+one {"record_id": "META", ...} row with the snapshot date, and {"record_id": "COV:Cercarbono:<ISO3>", "issued_tco2e"}
+rows: credits issued per country in Cercarbono (a registry the atlas does not cover; used for the coverage %).
 A beneficiary is the harmonized name when CarbonPlan set one; otherwise a buyer from config/buyers.yaml whose
 pattern matches the beneficiary, account or note text. Nothing else is inferred.
 Probe: HEAD of the archive (ETag / Last-Modified). Fetch: one ~9 MB download.
@@ -89,9 +90,17 @@ class Adapter(Source):
         meta = json.loads(z.read("metadata.json")) if "metadata.json" in names else {}
 
         scope = {}
+        uncovered: dict[tuple, float] = collections.defaultdict(float)
         with z.open("projects.csv") as f:
             for p in csv.DictReader(io.TextIOWrapper(f, encoding="utf-8")):
                 rid = record_id(p["project_id"])
+                if not rid and p["project_id"].startswith("CCB"):   # Cercarbono: not an atlas registry (coverage only)
+                    c = iso3(p.get("country"))
+                    if c and in_scope([c]):
+                        try:
+                            uncovered[("Cercarbono", c)] += float(p.get("issued") or 0)
+                        except ValueError:
+                            pass
                 if rid:
                     c = iso3(p.get("country"))
                     scope[rid] = (c is None) or in_scope([c])
@@ -135,4 +144,6 @@ class Adapter(Source):
         head = {"record_id": "META", "snapshot": meta.get("generated_at") or signal.get("modified"),
                 "source_version": f"OffsetsDB {meta.get('generated_at') or signal.get('modified')}",
                 "raw_hash": common.sha256_bytes(r.content), "rows": total}
-        return [head] + rows
+        cov = [{"record_id": f"COV:{reg}:{c}", "registry": reg, "country": c, "issued_tco2e": round(v)}
+               for (reg, c), v in sorted(uncovered.items()) if v > 0]
+        return [head] + rows + cov

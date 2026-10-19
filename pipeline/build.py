@@ -193,7 +193,7 @@ def load_retirements(projects: list[dict]) -> tuple[dict, dict]:
     out: dict[str, dict] = defaultdict(dict)
     for r in rows:
         p = pid.get(r["record_id"])
-        if not p or r["record_id"] == "META":
+        if not p or r["record_id"] == "META" or r["record_id"].startswith("COV:"):
             continue
         b = out[p].setdefault(r["beneficiary"], [0, r["first"], r["last"]])
         b[0] += r["retired_tco2e"]
@@ -312,6 +312,42 @@ def build_buyers(projects: list[dict], taxonomy: dict) -> dict:
     out.sort(key=lambda b: -(b["re"] + b["is"] + b["an"]))
     snap = (rmeta.get("snapshot") or "")[:10] or None
     return {"retired_as_of": snap, "retired_source": rmeta.get("source_version"), "list": out}
+
+
+def build_coverage(projects: list[dict], countries: dict) -> dict:
+    """Per area: issued in covered registries vs issued in uncovered programmes (config/coverage.yaml + Cercarbono
+    from OffsetsDB). pct is null until every `major` programme of the area has a published figure."""
+    area_of = {c: v["area"] for c, v in countries.items()}
+    covered = defaultdict(float)
+    for p in projects:
+        for c, sh in p["country_shares"].items():
+            if c in area_of:
+                covered[area_of[c]] += (p.get("issued_tco2e") or 0) * sh
+    progs = defaultdict(list)
+    for r in common.read_jsonl(common.ROOT / "data" / "lookups" / "retirements.jsonl"):
+        if r["record_id"].startswith("COV:") and r.get("country") in area_of:
+            a = area_of[r["country"]]
+            hit = next((x for x in progs[a] if x["name"] == r["registry"]), None)
+            if not hit:
+                hit = {"name": r["registry"], "issued": 0, "url": "https://carbonplan.org/research/offsetsdb", "as_of": None}
+                progs[a].append(hit)
+            hit["issued"] += r["issued_tco2e"]
+    cfg = common.load_yaml("coverage.yaml") if (common.CONFIG / "coverage.yaml").exists() else {}
+    for x in cfg.get("programmes") or []:
+        iss = x.get("issued")
+        if isinstance(iss, dict):
+            iss = sum(iss.values())
+        progs[x["area"]].append({"name": x["name"], "issued": iss, "url": x.get("url"), "as_of": x.get("as_of"),
+                                 "major": bool(x.get("major"))})
+    out = {}
+    for a in AREAS:
+        ps = sorted(progs[a], key=lambda x: -(x["issued"] or 0))
+        known = sum(x["issued"] or 0 for x in ps)
+        ready = all(x["issued"] is not None for x in ps if x.get("major"))   # small unsourced ones are listed, not counted
+        cov = covered[a]
+        out[a] = {"covered": round(cov), "uncovered": round(known),
+                  "pct": round(cov / (cov + known), 3) if ready and cov + known else None, "programmes": ps}
+    return out
 
 
 def build_summary(projects: list[dict], countries: dict, taxonomy: dict) -> dict:
@@ -437,6 +473,7 @@ def main() -> None:
         "tags": [{"label": t["label"], "aliases": t.get("aliases") or [], "broad": t["id"].startswith("t_")} for t in TAGS],
         "project_count": len(projects),
         "summary": SUMMARY,
+        "coverage": build_coverage(projects, countries),
         "areas": [{"id": a, "label": AREAS[a]["label"], "scope": AREAS[a]["scope"], "projects": area_counts[a]} for a in AREAS],
         "notes": load_notes(),
         "headlines": json.loads((common.ROOT / "data" / "headlines.json").read_text(encoding="utf-8"))
