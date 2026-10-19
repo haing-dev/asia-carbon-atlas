@@ -43,6 +43,8 @@ buyers:
   - name: Lufthansa Group
     aliases: [Lufthansa]
     retirement_patterns: ['(?i)\blufthansa\b']
+  - name: British Airways (IAG)
+    aliases: [British Airways, IAG]
   - name: Air France-KLM
     retirement_patterns: ['(?i)\bair france\b', '\bKLM\b']
   - name: Qantas
@@ -53,7 +55,7 @@ buyers:
     aliases: [ANA, All Nippon Airways]
     retirement_patterns: ['(?i)\ball nippon airways\b']
   - name: Japan Airlines
-    aliases: [ZIPAIR Tokyo (JAL group)]
+    aliases: [ZIPAIR Tokyo (JAL group), Japan Airlines (JAL), JAL]
     retirement_patterns: ['(?i)\bjapan airlines\b']
   - name: Kering
     aliases: [Gucci, Gucci (Kering), PPR (now Kering), Saint Laurent, Bottega Veneta, Balenciaga]

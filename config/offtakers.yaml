@@ -789,6 +789,72 @@ offtakes:
     source_url: https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RW16V26
     source_title: 'Microsoft Carbon Removal: Observations from our third year (June 2023; FY23 newly contracted table)'
     note: FY23 newly contracted (Jul 2022-Jun 2023); VCS; 60-yr contracted durability. Additional to the FY22 10,000 t.
+  - record: VCS:2930
+    buyer: Boeing
+    date: '2024-10-30'
+    source_url: https://carbonplan.org/research/ab1305-initial-disclosures
+    source_title: Analyzing initial offset disclosures under California's AB1305 (CarbonPlan)
+    note: registry retirement records (per CarbonPlan) attribute all three retirements in the project's history to Boeing; volume not given; retirement disclosed by the buyer
+  - record: VCS:674
+    buyer: Delta Air Lines
+    date: '2021-04-20'
+    source_url: https://pro.delta.com/content/agency/erp/en/news/news-archive/2021/april-2021/how-delta-is-mapping-a-path-to-zero-impact-aviation---carbon-red.html
+    source_title: How Delta is mapping a path to zero impact aviation - Carbon Reduction and Removal (Delta Professional)
+    note: named as part of Delta's 2020 offset portfolio (~13 Mt for Mar-Dec 2020, >$30M); per-project volume not given; retirement disclosed by the buyer
+  - record: VCS:1650
+    buyer: Delta Air Lines
+    date: '2021-04-20'
+    source_url: https://pro.delta.com/content/agency/erp/en/news/news-archive/2021/april-2021/how-delta-is-mapping-a-path-to-zero-impact-aviation---carbon-red.html
+    source_title: How Delta is mapping a path to zero impact aviation - Carbon Reduction and Removal (Delta Professional)
+    note: named as part of Delta's 2020 offset portfolio (~13 Mt for Mar-Dec 2020, >$30M); per-project volume not given; retirement disclosed by the buyer
+  - record: VCS:985
+    buyer: Delta Air Lines
+    date: '2023-06-05'
+    source_url: https://reddmonitor.substack.com/p/lawsuit-against-delta-air-lines-for
+    source_title: Lawsuit against Delta Air Lines for "carbon neutral" claims (REDD-Monitor)
+    note: volume not given; retirement disclosed by the buyer
+  - record: VCS:875
+    buyer: Delta Air Lines
+    date: '2023-06-05'
+    source_url: https://reddmonitor.substack.com/p/lawsuit-against-delta-air-lines-for
+    source_title: Lawsuit against Delta Air Lines for "carbon neutral" claims (REDD-Monitor)
+    note: volume not given; retirement disclosed by the buyer
+  - record: ACR:0592
+    buyer: Southwest Airlines
+    date: '2024'
+    source_url: https://www.southwest.com/swa-resources/pdfs/sustainability/Southwest-2024-AB1305-Disclosures.pdf
+    source_title: Southwest 2024 AB1305 Disclosures
+    note: AB1305 disclosure; Southwest sourced only the removal portion; purchased volume not stated; retirement disclosed by the buyer
+  - record: VCS:2250
+    buyer: Southwest Airlines
+    date: '2024'
+    source_url: https://www.southwest.com/swa-resources/pdfs/sustainability/Southwest-2024-AB1305-Disclosures.pdf
+    source_title: Southwest 2024 AB1305 Disclosures
+    note: AB1305 disclosure; purchased volume not stated; retirement disclosed by the buyer
+  - record: VCS:1622
+    buyer: Southwest Airlines
+    date: '2024'
+    source_url: https://www.southwest.com/swa-resources/pdfs/sustainability/Southwest-2024-AB1305-Disclosures.pdf
+    source_title: Southwest 2024 AB1305 Disclosures
+    note: AB1305 disclosure; purchased volume not stated; retirement disclosed by the buyer
+  - record: CAR:1696
+    buyer: American Airlines
+    date: '2025-10-01'
+    source_url: https://s202.q4cdn.com/986123435/files/doc_downloads/esg/aag-California-AB-1305-Disclosure.pdf
+    source_title: American Airlines Group California AB 1305 Disclosure (last updated 2025-10-01)
+    note: AB1305 disclosure; projects offered to customers through Cool Effect; volume not stated; retirement disclosed by the buyer
+  - record: ISO:prj_1HCHT9G2H1S05MYP
+    buyer: Lufthansa Group
+    date: '2026-05-21'
+    source_url: https://www.eqs-news.com/news/corporate/senken-signs-multi-year-offtake-for-tech-and-nature-based-carbon-removal-with-lufthansa-group-europes-largest-airline/a0276c84-7a7a-4664-a350-a521fbc96d33_en
+    source_title: Senken Signs Multi-Year Offtake for Tech- and Nature-Based Carbon Removal with Lufthansa Group, Europe's Largest Airline (EQS)
+    note: volume not disclosed; part of multi-year Senken offtake with Exomad Green and Klim
+  - record: VCS:2250
+    buyer: British Airways
+    date: '2023-01-03'
+    source_url: https://carbonherald.com/british-airways-now-offers-carbon-removals-for-its-passengers/
+    source_title: British Airways Now Offers Carbon Removals For Its Passengers (Carbon Herald)
+    note: removals offered to passengers via CO2llaborate from Nov 2022; volume not given
 announced_rows:
   - id: ANN:varaha-biochar-ind
     name: Varaha — biochar carbon removal (supplier-level deals)
@@ -1188,6 +1254,11 @@ announced_rows:
         source_url: https://www.lnews.jp/2025/05/r0528602.html
         source_title: 商船三井／ボリビアのバイオ炭プロジェクトからCDRクレジットを受領・償却 (LNEWS)
         note: 2,000 t received and retired; bought through NextGen CDR; retirement disclosed by the buyer
+      - buyer: Lufthansa Group
+        date: '2026-05-21'
+        source_url: https://www.eqs-news.com/news/corporate/senken-signs-multi-year-offtake-for-tech-and-nature-based-carbon-removal-with-lufthansa-group-europes-largest-airline/a0276c84-7a7a-4664-a350-a521fbc96d33_en
+        source_title: Senken Signs Multi-Year Offtake for Tech- and Nature-Based Carbon Removal with Lufthansa Group, Europe's Largest Airline (EQS)
+        note: volume not disclosed; Senken separately contracted 105,000 t from Exomad (Feb 2026) 'intended for the aviation industry'
   - id: ANN:terradot-rice-bra
     name: "Terradot — rice methane elimination, Rio Grande do Sul"
     developer: Terradot
@@ -2536,6 +2607,12 @@ announced_rows:
         source_url: https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RW16V26
         source_title: 'Microsoft Carbon Removal: Observations from our third year (June 2023; FY23 newly contracted table)'
         note: FY23 newly contracted; VCS
+      - buyer: Boeing
+        volume_tco2e: 40000
+        date: '2026-04-01'
+        source_url: https://carbonherald.com/boeing-purchases-soil-cdr-from-grassroots-carbon-in-a-new-multi-year-deal/
+        source_title: Boeing Purchases Soil CDR From Grassroots Carbon In A New Multi-Year Deal (Carbon Herald)
+        note: minimum 40,000 t; multi-year
   - id: ANN:climateimpactpartner-arr-ken
     name: Climate Impact Partners — The International Small Group and Tree Planting Program (TIST)
     developer: Climate Impact Partners
@@ -2648,3 +2725,148 @@ announced_rows:
         source_url: https://news.microsoft.com/features/3-years-in-microsofts-carbon-fee-is-improving-environments-creating-healthier-lives/
         source_title: 3 years in, Microsoft's carbon fee is improving environments, creating healthier lives (Microsoft Stories)
         note: volume not stated; retirement disclosed by the buyer
+  - id: ANN:shell-cookstoves-mwi
+    name: Shell — Gold Standard biomass energy conservation programme (Malawi) and clean cooking initiative (Tanzania)
+    developer: Shell
+    countries:
+      - MWI
+      - TZA
+    l2: cookstoves
+    offtakes:
+      - buyer: Japan Airlines (JAL)
+        volume_tco2e: 180000
+        date: '2026-03-24'
+        source_url: https://carbonherald.com/first-major-corsia-credit-retirement-signals-market-shift-gold-standard-says/
+        source_title: First Major CORSIA Credit Retirement Signals Market Shift, Gold Standard Says (Carbon Herald)
+        note: 180,000 credits retired by Shell on behalf of JAL (first large-scale CORSIA retirement of Gold Standard credits); split between the two projects not given; retirement disclosed by the buyer
+  - id: ANN:supercritical-biochar-bol
+    name: 'Supercritical — Biochar + enhanced rock weathering portfolio: Exomad Green (Bolivia), Ground Up (India), Varaha (India), NetZero (Brazil), InPlanet (Brazil), PlanBoo (Namibia)'
+    developer: Supercritical
+    countries:
+      - BOL
+      - IND
+      - BRA
+      - NAM
+    l2: biochar
+    offtakes:
+      - buyer: Boeing
+        volume_tco2e: 20000
+        date: '2026-05-04'
+        source_url: https://carbonherald.com/boeing-expands-carbon-strategy-with-biochar-and-enhanced-rock-weathering-deals/
+        source_title: Boeing Expands Carbon Strategy With Biochar And Enhanced Rock Weathering Deals (Carbon Herald)
+        note: 20,000 t total across six suppliers (biochar and ERW); per-supplier split not disclosed
+  - id: ANN:bakarokarirepirparan-redd-col
+    name: Baka Rokarire (Pirá Paraná, Vaupés) REDD+ (supplier-level deal)
+    developer: Baka Rokarire (Pirá Paraná, Vaupés) REDD+
+    countries:
+      - COL
+    l2: redd
+    offtakes:
+      - buyer: Delta Air Lines
+        volume_tco2e: 1300000
+        date: 2022-09
+        source_url: https://contracorriente.red/en/2023/12/08/delta-airlines-once-again-bought-carbon-offsets-from-a-troubled-project/
+        source_title: Delta Airlines once again bought carbon offsets from a troubled project (Contra Corriente)
+        note: source also says the credits were first bought by Latin Checkout; attribution to Delta per article; retirement disclosed by the buyer
+  - id: ANN:jocbucraprguaviarere-redd-col
+    name: Jocū Bucūrō Apūrō (Guaviare) REDD+ (supplier-level deal)
+    developer: Jocū Bucūrō Apūrō (Guaviare) REDD+
+    countries:
+      - COL
+    l2: redd
+    offtakes:
+      - buyer: Delta Air Lines
+        volume_tco2e: 115000
+        date: '2022-12-15'
+        source_url: https://contracorriente.red/en/2023/12/08/delta-airlines-once-again-bought-carbon-offsets-from-a-troubled-project/
+        source_title: Delta Airlines once again bought carbon offsets from a troubled project (Contra Corriente)
+        note: all approved credits redeemed by Delta two months after issuance (per article); retirement disclosed by the buyer
+  - id: ANN:makaroaprovaupsredd-redd-col
+    name: Makaro Ap+ro (Vaupés) REDD+ (supplier-level deal)
+    developer: Makaro Ap+ro (Vaupés) REDD+
+    countries:
+      - COL
+    l2: redd
+    offtakes:
+      - buyer: Delta Air Lines
+        volume_tco2e: 300000
+        date: 2021-12
+        source_url: https://contracorriente.red/en/2023/12/08/delta-airlines-once-again-bought-carbon-offsets-from-a-troubled-project/
+        source_title: Delta Airlines once again bought carbon offsets from a troubled project (Contra Corriente)
+        note: retirement disclosed by the buyer
+  - id: ANN:awakadaamatsiadaligu-redd-col
+    name: Awakadaa Matsiadali (Guainía) REDD+ (supplier-level deal)
+    developer: Awakadaa Matsiadali (Guainía) REDD+
+    countries:
+      - COL
+    l2: redd
+    offtakes:
+      - buyer: Delta Air Lines
+        volume_tco2e: 1000000
+        date: 2022-12
+        source_url: https://contracorriente.red/en/2023/12/08/delta-airlines-once-again-bought-carbon-offsets-from-a-troubled-project/
+        source_title: Delta Airlines once again bought carbon offsets from a troubled project (Contra Corriente)
+        note: "'almost one million' (approximate); retirement disclosed by the buyer"
+  - id: ANN:portelreddprojectsfo-redd-bra
+    name: Portel REDD projects (four projects, Portel, Pará) (supplier-level deal)
+    developer: Portel REDD projects (four projects, Portel, Pará)
+    countries:
+      - BRA
+    l2: redd
+    offtakes:
+      - buyer: Delta Air Lines
+        date: '2023-06-05'
+        source_url: https://reddmonitor.substack.com/p/lawsuit-against-delta-air-lines-for
+        source_title: Lawsuit against Delta Air Lines for "carbon neutral" claims (REDD-Monitor)
+        note: volume not given; four projects not individually named; retirement disclosed by the buyer
+  - id: ANN:cur8-other-gbr
+    name: 'CUR8 — CUR8-managed portfolio: whisky-distillery CO2 in building materials (Scotland), biochar (India), redwood reforestation (Wales), ocean/river projects (North America)'
+    developer: CUR8
+    countries:
+      - GBR
+      - IND
+    l2: other
+    offtakes:
+      - buyer: British Airways
+        volume_tco2e: 33000
+        date: '2024-09-23'
+        source_url: https://carbonherald.com/new-deal-with-cur8-turns-british-airways-into-largest-co2-removals-buyer-in-the-uk/
+        source_title: New Deal With CUR8 Turns British Airways Into Largest CO2 Removals Buyer In The UK (Carbon Herald)
+        note: 33,000 t over 6 years (~$11M); mixed portfolio; North American projects not located by country
+  - id: ANN:undoviacur8financedb-erw-gbr
+    name: UNDO (via CUR8; financed by Standard Chartered) — UNDO enhanced rock weathering (England)
+    developer: UNDO (via CUR8; financed by Standard Chartered)
+    countries:
+      - GBR
+    l2: erw
+    offtakes:
+      - buyer: British Airways
+        date: '2024-09-12'
+        source_url: https://carbonherald.com/standard-chartered-and-partners-close-innovative-carbon-removal-deal/
+        source_title: CUR8, Standard Chartered And Partners Close Innovative Carbon Removal Deal (Carbon Herald)
+        note: multi-year offtake; volume not disclosed; follows Dec 2023 CUR8/UNDO/BA/Standard Chartered venture
+  - id: ANN:planetary-other-can
+    name: Planetary — Planetary OAE at Tufts Cove outfall, Halifax
+    developer: Planetary
+    countries:
+      - CAN
+    l2: other
+    offtakes:
+      - buyer: British Airways (with Stripe and Shopify)
+        volume_tco2e: 626
+        date: '2025-06-17'
+        source_url: https://carbonherald.com/planetary-issues-the-first-ever-oae-carbon-credits-verified-by-isometric/
+        source_title: Planetary Issues The First-Ever OAE Carbon Credits, Verified By Isometric (Carbon Herald)
+        note: 625.6 credits issued in total for Stripe, Shopify and British Airways; split not given; ocean alkalinity enhancement (Isometric)
+  - id: ANN:freres-biochar-usa
+    name: Freres — Freres Biochar Project, Oregon (offered via CO2llaborate)
+    developer: Freres
+    countries:
+      - USA
+    l2: biochar
+    offtakes:
+      - buyer: British Airways
+        date: '2023-01-03'
+        source_url: https://carbonherald.com/british-airways-now-offers-carbon-removals-for-its-passengers/
+        source_title: British Airways Now Offers Carbon Removals For Its Passengers (Carbon Herald)
+        note: removals offered to passengers via CO2llaborate from Nov 2022; volume not given
