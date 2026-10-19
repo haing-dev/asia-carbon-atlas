@@ -77,7 +77,7 @@ rules:
   - {re: 'eco-?driving|tachograph|\bbus(es)?\b|\bCNG\b', l2: fleet}
   - {re: '\btransport|\bfleet|\bvehicles?\b|fuel efficiency', l2: fleet}
   # Renewable energy
-  - {re: '\bwind', l2: wind}
+  - {re: '\bwind(s|farms?|mills?|power\w*)?\b', l2: wind}   # not Windu, Windsor, Windhoek, Windy
   - {re: '\bsolar|photovoltaic|\bPV\b', l2: solar}
   - {re: '\bhydro(?!gen)|hydel|run of river|run-of-river|\bdam\b', l2: hydro}
   - {re: 'geothermal', l2: geothermal}

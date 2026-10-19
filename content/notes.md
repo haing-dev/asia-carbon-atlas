@@ -35,6 +35,11 @@ Footnotes shown at the bottom of the website. Edit freely, then "Commit changes"
 
 ## units: Issued and retired volume
 - Issued and retired volumes are cumulative.
+- "Retired by" (in a project's details) names the retirement beneficiaries in the registry's own transaction records, as compiled by [CarbonPlan OffsetsDB](https://carbonplan.org/research/offsetsdb) (Verra, Gold Standard, ACR, CAR, ART TREES). Many retirements name no beneficiary; those are shown as "unnamed".
+
+## delivery: % issued and % retired
+- **% issued** = credits issued so far ÷ (registry estimate per year × crediting years to date). Years run from the earliest of crediting start, registration and first vintage to the latest issued vintage or two years ago, whichever is later, because registries issue one to two years after the vintage; capped at the crediting end, and at 2020 for CDM-only projects. Shown in **pink** when under 50%, i.e. the project is issuing well below its estimate.
+- **% retired** = credits retired ÷ credits issued. The rest is still outstanding (unsold or unclaimed).
 
 ## tags: Tag
 - Tags are assigned only from what the registry record itself states (project name, methodology, registry project type, and the registry's published project description for Gold Standard and Verra; small hydro also from stated capacity ≤ 25 MW), so a project whose record does not mention a practice is not tagged with it. Exception: every rice-methane project is tagged AWD, the core practice in practically all of them.

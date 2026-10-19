@@ -81,6 +81,10 @@ TAGS = common.load_yaml("tags.yaml")["tags"]
 TAG_INDEX = {t["id"]: i for i, t in enumerate(TAGS)}
 
 
+RET_BY_PROJECT: dict = {}   # set in main(): {project_id: {beneficiary: [t, first, last]}}
+CANON = lambda n: n         # set in main(): buyer name -> canonical entity
+
+
 def compact_row(p: dict) -> dict:
     """Display row for the browser, without empty fields or anything the browser can rebuild
     (see web/src/lib/data.js hydrateRow)."""
@@ -105,6 +109,14 @@ def compact_row(p: dict) -> dict:
     offs = [{k: v for k, v in o.items() if v not in (None, "")} for o in p.get("offtakers") or []]
     if offs:
         row["o"] = offs
+    rb = RET_BY_PROJECT.get(p["project_id"]) or {}
+    named = defaultdict(float)
+    for b, v in rb.items():
+        if b:
+            named[CANON(b)] += v[0]
+    named = sorted(named.items(), key=lambda x: -x[1])
+    if named:   # largest named retirement beneficiaries (registry records via OffsetsDB), then the unnamed remainder
+        row["rb"] = [[b, round(t)] for b, t in named[:6]] + ([["", round(rb[None][0])]] if rb.get(None) else [])
     return row
 
 
@@ -139,10 +151,153 @@ def _write_hashed(dirpath, stem: str, obj) -> str:
     return name
 
 
+def _canon():
+    """Buyer name -> canonical entity (config/buyers.yaml names + aliases, offtakers.yaml buyer_aliases)."""
+    ocfg = common.load_yaml("offtakers.yaml")
+    bcfg = common.load_yaml("buyers.yaml") if (common.ROOT / "config" / "buyers.yaml").exists() else {}
+    canon = {}
+    for b in bcfg.get("buyers") or []:
+        canon[b["name"].lower()] = b["name"]
+        for a in b.get("aliases") or []:
+            canon[a.lower()] = b["name"]
+    for k, v in (ocfg.get("buyer_aliases") or {}).items():
+        canon.setdefault(k.lower(), canon.get(v.lower(), v))
+    exclude = [re.compile(x) for x in bcfg.get("exclude_beneficiaries") or []]
+    return (lambda n: canon.get(n.lower(), n)), ocfg.get("buyer_splits") or {}, exclude
+
+
+def load_retirements(projects: list[dict]) -> tuple[dict, dict]:
+    """data/lookups/retirements.jsonl -> ({project_id: {beneficiary: [t, first, last]}}, meta)."""
+    path = common.ROOT / "data" / "lookups" / "retirements.jsonl"
+    rows = common.read_jsonl(path)
+    meta = next((r for r in rows if r["record_id"] == "META"), {})
+    pid = {r["record_id"]: p["project_id"] for p in projects for r in p["registries"]}
+    out: dict[str, dict] = defaultdict(dict)
+    for r in rows:
+        p = pid.get(r["record_id"])
+        if not p or r["record_id"] == "META":
+            continue
+        b = out[p].setdefault(r["beneficiary"], [0, r["first"], r["last"]])
+        b[0] += r["retired_tco2e"]
+        b[1] = min(filter(None, [b[1], r["first"]]), default=None)
+        b[2] = max(filter(None, [b[2], r["last"]]), default=None)
+    return out, meta
+
+
+def delivery_ratio(p: dict, year: int) -> float | None:
+    """Issued so far / (estimated annual x crediting years elapsed). Elapsed years run from the earliest of crediting
+    start, registration year and first vintage to the latest issued vintage or two years ago, whichever is later
+    (registries issue one to two years after the vintage), capped at the crediting end (2020 for CDM-only projects). Issuing projects only."""
+    ea, iss = p.get("est_annual_tco2e"), p.get("issued_tco2e") or 0
+    if not ea or ea <= 0 or iss <= 0:
+        return None
+    vint = [int(y) for y in (p.get("issuance_by_vintage") or {}) if str(y).isdigit()]
+    cs, ce = (p.get("crediting") or [None, None])[:2]
+    starts = [v for v in (int(cs[:4]) if cs else None, p["years"].get("registered"), min(vint) if vint else None) if v]
+    if not starts:
+        return None
+    start = min(starts)
+    endy = max(max(vint) if vint else 0, year - 2)
+    if all(r["registry"] in ("CDM", "JCM") for r in p["registries"]):
+        endy = min(endy, 2020)   # Kyoto-era crediting ended 2020 (later CDM years need an Article 6.4 transition)
+    if ce:
+        endy = min(endy, int(ce[:4]))
+    yrs = endy - int(start) + 1
+    if yrs < 1:
+        return None
+    return round(iss / (ea * yrs), 3)
+
+
+def _q(xs: list[float], q: float) -> float:
+    xs = sorted(xs)
+    k = (len(xs) - 1) * q
+    lo = int(k)
+    return xs[lo] + (xs[min(lo + 1, len(xs) - 1)] - xs[lo]) * (k - lo)
+
+
+def build_types(projects: list[dict], taxonomy: dict) -> list[dict]:
+    """Per credit type: issued, retired, retired share, and years to first issuance, counted from the project's first
+    registry milestone (listing, registration/validation or crediting start, whichever is earliest)."""
+    agg = defaultdict(lambda: {"n": 0, "is": 0.0, "re": 0.0, "re_n": 0, "t": []})
+    for p in projects:
+        iss = p.get("issued_tco2e") or 0
+        if iss <= 0 or p["stage"] == "announced":
+            continue
+        a = agg[p["l2"]]
+        a["n"] += 1
+        a["is"] += iss
+        if p.get("retired_tco2e") is not None:
+            a["re"] += p["retired_tco2e"]
+            a["re_n"] += iss
+        y = p["years"]
+        cs = (p.get("crediting") or [None])[0]
+        starts = [v for v in (y.get("listed"), y.get("registered"), int(cs[:4]) if cs else None) if v]
+        if starts and y.get("first_issuance") and y["first_issuance"] >= min(starts):
+            a["t"].append(y["first_issuance"] - min(starts))
+    out = []
+    for k, a in agg.items():
+        t = a["t"]
+        out.append({"l2": k, "l1": taxonomy["l2"][k]["l1"], "n": a["n"], "is": round(a["is"]), "re": round(a["re"]),
+                    "share": round(a["re"] / a["re_n"], 3) if a["re_n"] else None,
+                    "tt": [round(_q(t, 0.5), 1), round(_q(t, 0.25), 1), round(_q(t, 0.75), 1), len(t)] if len(t) >= 5 else None})
+    out.sort(key=lambda r: -r["is"])
+    return out
+
+
+def build_buyers(projects: list[dict], taxonomy: dict) -> dict:
+    """Buyers through three lenses: Retired (registry retirements in the buyer's name, OffsetsDB), Issued (announced
+    deals on projects that have issued credits), Announced (deals on projects not issuing yet or not registered).
+    Each buyer lists its projects with the deal volume, the project's issued total and what the buyer retired there."""
+    canon, splits, exclude = _canon()
+    ret, rmeta = load_retirements(projects)
+    l2 = taxonomy["l2"]
+    buyers: dict[str, dict] = {}
+    def entry(name, p):
+        b = buyers.setdefault(name, {"n": name, "an": 0, "is": 0, "re": 0, "p": {}})
+        return b, b["p"].setdefault(p["project_id"], {
+            "id": p["project_id"], "nm": p["display_name"], "l2": p["l2"], "l1": l2[p["l2"]]["l1"], "c": p["countries"],
+            "rg": p["registries"][0]["record_id"], "iss": 1 if p["stage"] == "issuing" and (p.get("issued_tco2e") or 0) > 0 else 0,
+            "pis": p.get("issued_tco2e"), "an": None, "dl": [], "re": 0, "rd": None})
+    for p in projects:
+        seen = set()
+        for o in p.get("offtakers") or []:
+            members = splits.get(o["name"]) or [canon(o["name"])]
+            for name in members:
+                name = canon(name)
+                if (name, o.get("source_url")) in seen:
+                    continue
+                seen.add((name, o.get("source_url")))
+                b, e = entry(name, p)
+                vol = round(o["volume_tco2e"] / len(members)) if o.get("volume_tco2e") else None
+                share = (f"equal share of {o['volume_tco2e']:,} ({o['name']})" if len(members) > 1 and vol else
+                         f"equal share of {o['shared']:,} with other buyers" if o.get("shared") else None)
+                e["dl"].append([vol, o.get("date"), o.get("source_url"), share])
+                if vol:
+                    e["an"] = (e["an"] or 0) + vol
+                    b["is" if e["iss"] else "an"] += vol
+        for ben, (t, first, last) in (ret.get(p["project_id"]) or {}).items():
+            if not ben or any(x.search(ben) for x in exclude):
+                continue
+            b, e = entry(canon(ben), p)
+            e["re"] += t
+            e["rd"] = [first, last]
+            b["re"] += t
+    rank = {k: sorted(buyers.values(), key=lambda b: -b[k]) for k in ("re", "is", "an")}
+    keep = {b["n"] for k, rows in rank.items() for b in rows[:60] if b[k] > 0}
+    keep |= {b["n"] for b in buyers.values() if any(e["dl"] for e in b["p"].values())}
+    out = []
+    for b in buyers.values():
+        if b["n"] not in keep:
+            continue
+        ps = sorted(b["p"].values(), key=lambda e: -max(e["re"], e["an"] or 0))
+        out.append({**b, "np": len(ps), "p": ps[:150]})
+    out.sort(key=lambda b: -(b["re"] + b["is"] + b["an"]))
+    snap = (rmeta.get("snapshot") or "")[:10] or None
+    return {"retired_as_of": snap, "retired_source": rmeta.get("source_version"), "list": out}
+
+
 def build_summary(projects: list[dict], countries: dict, taxonomy: dict) -> dict:
-    """Data for the "All Regions" tab: per-region totals and announced offtakes by buyer.
-    Deal status: "issued" = the deal is on a registry project that has issued credits; "announced" = the project
-    has not issued yet or is not in a registry (announcement only). Volumes only where the announcement states one."""
+    """Data for the "All Regions" tab: per-region totals, buyers (three lenses) and per-credit-type market tables."""
     today = common.today()
     area_of = {c: v["area"] for c, v in countries.items()}
     regions = {a: {"is": 0.0, "ea": 0.0, "re": 0.0, "projects": 0, "countries": set()} for a in AREAS}
@@ -163,46 +318,22 @@ def build_summary(projects: list[dict], countries: dict, taxonomy: dict) -> dict
             if a not in seen:
                 r["projects"] += 1
                 seen.add(a)
-    ocfg = common.load_yaml("offtakers.yaml")
-    aliases = ocfg.get("buyer_aliases") or {}
-    splits = ocfg.get("buyer_splits") or {}
     l2 = taxonomy["l2"]
-    buyers: dict[tuple, dict] = {}
-    seen_deals = set()
-    for p in projects:
-        status = "issued" if p["stage"] == "issuing" and (p.get("issued_tco2e") or 0) > 0 else "announced"
-        for o in p.get("offtakers") or []:
-            members = splits.get(o["name"]) or [aliases.get(o["name"], o["name"])]
-            for name in members:
-                key = (name, o.get("source_url"), p["project_id"])
-                if key in seen_deals:
-                    continue
-                seen_deals.add(key)
-                b = buyers.setdefault((status, name), {"name": name, "status": status, "volume": 0, "deals": []})
-                vol = round(o["volume_tco2e"] / len(members)) if o.get("volume_tco2e") else None
-                b["volume"] += vol or 0
-                share = (f"equal share of {o['volume_tco2e']:,} ({o['name']})" if len(members) > 1 and vol else
-                         f"equal share of {o['shared']:,} with other buyers" if o.get("shared") else None)
-                b["deals"].append({"project": p["display_name"], "id": p["project_id"], "l2": p["l2"], "l1": l2[p["l2"]]["l1"],
-                                   "c": p["countries"], "v": vol, "d": o.get("date"), "u": o.get("source_url"), "sh": share})
-    out_b = {}
-    for st in ("issued", "announced"):
-        rows = [b for (s, _), b in buyers.items() if s == st]
-        rows.sort(key=lambda b: (-b["volume"], -len(b["deals"]), b["name"]))
-        out_b[st] = {"buyers": rows, "with_volume": sum(1 for b in rows if b["volume"] > 0),
-                     "deals": sum(len(b["deals"]) for b in rows),
-                     "deals_no_volume": sum(1 for b in rows for d in b["deals"] if not d["v"])}
     return {
         "l1": [{"id": k, "label": v["label"]} for k, v in taxonomy["l1"].items()],
         "l2": {k: {"label": v["label"], "l1": v["l1"]} for k, v in l2.items()},
         "regions": [{"id": a, "label": AREAS[a]["label"], "is": round(r["is"]), "ea": round(r["ea"]), "re": round(r["re"]),
                      "projects": r["projects"], "countries": len(r["countries"])} for a, r in regions.items()],
-        "offtakers": out_b,
+        "buyers": build_buyers(projects, taxonomy),
+        "types": build_types(projects, taxonomy),
     }
 
 
 def main() -> None:
     projects = build_projects()
+    RET_BY_PROJECT.update(load_retirements(projects)[0])
+    global CANON
+    CANON = _canon()[0]
     countries = common.load_yaml("countries.yaml")["countries"]
     taxonomy = common.load_yaml("taxonomy.yaml")
     sources = common.load_yaml("sources.yaml")["sources"]
@@ -248,6 +379,7 @@ def main() -> None:
             cols["ex"].append(1 if end and end < today else 0)  # crediting period over: left out of map est. totals
             cols["is"].append(p.get("issued_tco2e"))
             cols["re"].append(p.get("retired_tco2e"))
+            cols["pi"].append(delivery_ratio(p, int(today[:4])))  # issued vs estimate to date (null = n/a)
             if p["project_id"] not in rowcache:
                 row = compact_row(p)
                 rowcache[p["project_id"]] = row

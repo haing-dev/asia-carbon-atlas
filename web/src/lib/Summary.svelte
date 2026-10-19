@@ -1,10 +1,12 @@
 <script>
-  // "All Regions" tab: regional totals on a world map (click to open a region) and the largest announced offtakers.
+  // "All Regions" tab: regional totals on a world map (click to open a region), top buyers (retired / issued /
+  // announced lenses) and retired share + time to first issuance by credit type.
   import RegionMap from "./RegionMap.svelte";
-  import OfftakerBars from "./OfftakerBars.svelte";
+  import BuyerTable from "./BuyerTable.svelte";
+  import TypeTable from "./TypeTable.svelte";
   import { fmt } from "./data.js";
 
-  let { meta, summary, basemap, onselect, fnum = () => null } = $props();
+  let { meta, summary, basemap, onselect, onprofile, fnum = () => null } = $props();
 
   const METRICS = {
     is: { label: "Issued (cumulative)", unit: "tCO₂e" },
@@ -41,16 +43,8 @@
   </ol>
 </div>
 
-<section class="offtakers">
-  <h2>Largest announced offtakers, all regions</h2>
-  <p class="muted lead">Top 15 buyers by total announced volume (tCO₂e), each bar split by the credit types bought. Click a buyer to see its deals and sources.</p>
-  <div class="two">
-    <OfftakerBars title="Deals on projects already issuing credits" subtitle="The project has issued credits in its registry."
-      data={summary.offtakers.issued} l1={summary.l1} l2={summary.l2} names={meta.names} top={15} />
-    <OfftakerBars title="Announced deals, not yet issuing" subtitle="The project has not issued credits yet, or is not yet registered (announcement only)."
-      data={summary.offtakers.announced} l1={summary.l1} l2={summary.l2} names={meta.names} top={15} />
-  </div>
-</section>
+<BuyerTable {meta} data={summary.buyers} l1={summary.l1} l2={summary.l2} top={15} {onprofile} />
+<TypeTable types={summary.types} l1={summary.l1} l2={summary.l2} />
 
 <style>
   .maphead { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 8px; margin: 10px 0 8px; font-size: 14px; }
@@ -65,8 +59,4 @@
   .bar { height: 6px; background: var(--chip); border-radius: 3px; overflow: hidden; }
   .bar span { display: block; height: 100%; background: var(--choro-hi); }
   .small { font-size: 12px; }
-  .offtakers { margin-top: 22px; }
-  .offtakers h2 { font-size: 18px; margin: 0; }
-  .lead { margin: 4px 0 10px; font-size: 13.5px; }
-  .two { display: grid; grid-template-columns: 1fr; gap: 16px; }
 </style>

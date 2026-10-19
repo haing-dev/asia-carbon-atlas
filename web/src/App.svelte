@@ -5,6 +5,7 @@
   import Filters from "./lib/Filters.svelte";
   import Table from "./lib/Table.svelte";
   import Summary from "./lib/Summary.svelte";
+  import BuyerProfile from "./lib/BuyerProfile.svelte";
   import { aggregate, fmt, loadBasemap, loadIndex, loadMeta, loadRows, loadSummary, makePredicate, tagsForQuery } from "./lib/data.js";
 
   const METRICS = {
@@ -16,6 +17,7 @@
   let index = $state(null);
   let area = $state("all");     // "all" = the All Regions summary tab
   let summary = $state(null);
+  let buyer = $state(null);     // buyer profile open on the All Regions tab
   let worldmap = $state(null);
   let basemap = $state(null);
   let error = $state(null);
@@ -44,7 +46,7 @@
   }
   $effect(() => {
     if (area === "all") {
-      if (meta) history.replaceState(null, "", location.pathname);
+      if (meta) history.replaceState(null, "", buyer ? "?b=" + encodeURIComponent(buyer) : location.pathname);
       return;
     }
     if (!index) return;
@@ -73,6 +75,7 @@
         basemap = bm;
         index = idx;
       } else {
+        buyer = new URLSearchParams(location.search).get("b");
         await openSummary();
       }
     } catch (e) {
@@ -84,7 +87,12 @@
     summary = sm;
     worldmap = wm;
   }
+  function openProfile(name) {
+    buyer = name;
+    window.scrollTo({ top: 0 });
+  }
   async function switchArea(a) {
+    if (a === "all" && buyer) { buyer = null; window.scrollTo({ top: 0 }); }
     if (a === area || !meta) return;
     area = a;
     country = null;
@@ -137,7 +145,7 @@
         || r.offtakers.some((o) => o.name.toLowerCase().includes(q)) || r.methodology_codes.some((m) => m.toLowerCase().includes(q)))) continue;
       const l2 = index.l2[p.l2];
       const l1 = index.l1.find((x) => x.id === l2.l1);
-      out.push({ ...r, st: p.st, ea: p.ea, is: p.is, re: p.re, l1: l1.id, typeLabel: `${l1.label} – ${l2.label}`,
+      out.push({ ...r, st: p.st, ea: p.ea, is: p.is, re: p.re, pi: p.pi, pr: p.is > 0 && p.re != null ? p.re / p.is : null, l1: l1.id, typeLabel: `${l1.label} – ${l2.label}`,
         tagLabels: r.tags.map((t) => meta.tags[t]).sort((a, b) => a.broad - b.broad).map((t) => t.label) });
     }
     return out;
@@ -155,11 +163,11 @@
   }
   function downloadCsv() {
     const head = ["project_id", "project", "developer", "countries", "credit_type", "tags", "registries", "registry_urls", "stage", "listed_year", "validated_year", "first_issued_year",
-      "est_annual_tco2e", "issued_tco2e", "retired_tco2e", "offtakers", "project_url", "developer_url"];
+      "est_annual_tco2e", "issued_tco2e", "retired_tco2e", "issued_vs_estimate", "retired_share", "offtakers", "project_url", "developer_url"];
     const esc = (v) => `"${String(v ?? "").replaceAll('"', '""')}"`;
     const lines = [head.join(",")].concat(rows.map((r) => [r.project_id, r.display_name, r.developer, (r.country_names || r.countries).join("; "),
       r.typeLabel, r.tagLabels.join("; "), r.registries.map((g) => g.record_id).join(" "), r.registries.map((g) => g.url).join(" "),
-      index.stages[r.st], r.years?.listed, r.years?.registered, r.years?.first_issuance, r.ea, r.is, r.re, r.offtakers.map((o) => o.name).join("; "), r.project_url, r.developer_url].map(esc).join(",")));
+      index.stages[r.st], r.years?.listed, r.years?.registered, r.years?.first_issuance, r.ea, r.is, r.re, r.pi, r.pr == null ? "" : r.pr.toFixed(3), r.offtakers.map((o) => o.name).join("; "), r.project_url, r.developer_url].map(esc).join(",")));
     const a = document.createElement("a");
     a.href = URL.createObjectURL(new Blob([lines.join("\n")], { type: "text/csv" }));
     a.download = `carbon-credit-atlas-${country || area}.csv`;
@@ -214,8 +222,10 @@
   {#if error}
     <p class="notice">Could not load data ({error}).</p>
   {:else if area === "all"}
-    {#if summary && worldmap}
-      <Summary {meta} {summary} basemap={worldmap} onselect={switchArea} {fnum} />
+    {#if summary && worldmap && buyer}
+      <BuyerProfile {meta} {summary} name={buyer} onback={() => openProfile(null)} />
+    {:else if summary && worldmap}
+      <Summary {meta} {summary} basemap={worldmap} onselect={switchArea} onprofile={openProfile} {fnum} />
     {:else}
       <p class="muted">Loading…</p>
     {/if}

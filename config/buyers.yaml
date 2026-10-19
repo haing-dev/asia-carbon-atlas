@@ -29,9 +29,10 @@ buyers:
   - name: BP
     retirement_patterns: ['\bBP (p\.?l\.?c|Gas Marketing|Oil|Products|Europa)\b']
   - name: Eni
+    aliases: [Eni Plenitude, Plenitude]
     retirement_patterns: ['\bEni S\.?p\.?A\b', '\bEni (plenitude|Live|Trading)\b']
   - name: Delta Air Lines
-    aliases: [Delta]
+    aliases: [Delta, Delta Airlines]
     retirement_patterns: ['(?i)\bdelta air ?lines\b']
   - name: United Airlines
     retirement_patterns: ['(?i)\bunited airlines\b']
@@ -53,15 +54,18 @@ buyers:
     retirement_patterns: ['(?i)\ball nippon airways\b']
   - name: Japan Airlines
     retirement_patterns: ['(?i)\bjapan airlines\b']
+  - name: Kering
+    aliases: [Gucci, Saint Laurent, Bottega Veneta, Balenciaga]
   - name: The Walt Disney Company
     aliases: [Disney, Walt Disney]
     retirement_patterns: ['(?i)\bwalt disney\b']
   - name: Netflix
     retirement_patterns: ['(?i)\bnetflix\b']
   - name: Nestlé
-    aliases: [Nestle]
+    aliases: [Nestle, Nespresso]
     retirement_patterns: ['(?i)\bnestl[eé]\b']
-  - name: Volkswagen
+  - name: Volkswagen Group
+    aliases: [Volkswagen, Audi, Skoda, ŠKODA, SEAT, Cupra, Volkswagen AG]
     retirement_patterns: ['(?i)\bvolkswagen\b']
   - name: Mercedes-Benz
     retirement_patterns: ['(?i)\bmercedes[- ]benz\b', '(?i)\bdaimler\b']
@@ -124,6 +128,17 @@ buyers:
     retirement_patterns: ['\bAT&T\b']
   - name: Uber
     retirement_patterns: ['\bUber (Technologies|B\.V)\b']
+  - name: ENTEGA
+    aliases: [ENTEGA Plus]
   - name: Ørsted
     aliases: [Orsted]
     retirement_patterns: ['(?i)\b[øo]rsted\b']
+
+# Retirement beneficiaries that are not end buyers (intermediary client pools, token bridges, registry corrections):
+# left out of the buyer table. Their retirements still count in project and region totals.
+exclude_beneficiaries:
+  - '(?i)\bclients?\b'
+  - '(?i)\btoucan'
+  - '(?i)\bklima ?dao\b'
+  - '(?i)over-issuance'
+  - '(?i)\bbuffer\b'

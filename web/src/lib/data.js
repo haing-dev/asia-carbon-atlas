@@ -40,7 +40,7 @@ async function fetchIndex(file) {
   for (let i = 0; i < n; i++) {
     projects[i] = {
       id: c.id[i], shares: c.c[i], l2: c.l2[i], st: c.st[i], rg: c.rg[i], a6: c.a6[i], ex: c.ex ? c.ex[i] : 0,
-      ea: c.ea[i], is: c.is[i], re: c.re[i],
+      ea: c.ea[i], is: c.is[i], re: c.re[i], pi: c.pi ? c.pi[i] : null,
     };
   }
   const l2ToL1 = idx.l2.map((x) => x.l1);
@@ -56,7 +56,7 @@ export async function loadRows(meta, iso) {
 }
 
 // Rows are stored compactly (pipeline/build.py compact_row): rebuild the full shape the UI uses.
-function urlFor(meta, rid) {
+export function urlFor(meta, rid) {
   const i = rid.indexOf(":");
   const t = meta.url_templates?.[rid.slice(0, i)];
   const id = rid.slice(i + 1);
@@ -76,7 +76,7 @@ export function hydrateRow(meta, r) {
     issuance_by_vintage: r.v || {}, methodology_codes: r.m || [], crediting: r.cr || [null, null],
     article6: r.a6 || null, flags: r.f || [], project_url: r.pu || null, developer_url: r.du || null,
     offtakers: r.o || [],
-    tags: r.t || [],
+    tags: r.t || [], rb: r.rb || [],
   };
 }
 

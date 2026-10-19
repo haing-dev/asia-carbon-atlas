@@ -15,12 +15,14 @@
     { k: "y_listed", label: "Listed", unit: "year", yr: true, fn: "years" }, { k: "y_registered", label: "Validated", unit: "year", yr: true, fn: "years" },
     { k: "y_first_issuance", label: "1st issued", unit: "year", yr: true, fn: "years" },
     { k: "ea", label: "Est. annual", num: true, unit: "tCO₂e/yr", fn: "estimate" }, { k: "is", label: "Issued", num: true, unit: "tCO₂e", fn: "units" },
-    { k: "re", label: "Retired", num: true, unit: "tCO₂e", fn: "units" }, { k: "tag", label: "Tag", fn: "tags" },
+    { k: "re", label: "Retired", num: true, unit: "tCO₂e", fn: "units" },
+    { k: "pi", label: "% issued", num: true, unit: "of estimate to date", fn: "delivery" }, { k: "pr", label: "% retired", num: true, unit: "of issued", fn: "delivery" },
+    { k: "tag", label: "Tag", fn: "tags" },
   ];
 
   const sorted = $derived.by(() => {
     const key = (r) => ({ name: r.display_name, dev: r.developer || "", country: (r.country_names || r.countries).join(","), type: r.typeLabel, tag: r.tagLabels.join(", ") || "~",
-      reg: r.registries.map((x) => x.registry).join(","), st: r.st, y_listed: yr(r, "listed"), y_registered: yr(r, "registered"), y_first_issuance: yr(r, "first_issuance"), ea: vol(r.ea), is: vol(r.is), re: vol(r.re), off: r.offtakers.length })[sortKey];
+      reg: r.registries.map((x) => x.registry).join(","), st: r.st, y_listed: yr(r, "listed"), y_registered: yr(r, "registered"), y_first_issuance: yr(r, "first_issuance"), ea: vol(r.ea), is: vol(r.is), re: vol(r.re), pi: vol(r.pi), pr: vol(r.pr), off: r.offtakers.length })[sortKey];
     return [...rows].sort((a, b) => {
       const x = key(a), y = key(b);
       return (typeof x === "number" ? x - y : String(x).localeCompare(String(y))) * sortDir;
@@ -34,6 +36,8 @@
   // Collapsed rows show only the first few items of long lists; clicking the row (outside links) expands it.
   const LIM = { off: 2, reg: 1, tag: 2, cty: 3 };
   const toggle = (id) => (open = open === id ? null : id);
+  const LOW = 0.5;   // "% issued" below this is shown in pink (issuing well below the registry estimate)
+  const pct = (v) => (v == null ? "—" : v > 3 ? ">300%" : Math.round(v * 100) + "%");
   function rowClick(e, id) {
     if (e.target.closest("a, button") || window.getSelection()?.toString()) return;
     toggle(id);
@@ -89,6 +93,9 @@
           <td class="num">{fmt(r.ea)}</td>
           <td class="num">{fmt(r.is)}</td>
           <td class="num">{fmt(r.re)}</td>
+          <td class="num pct" class:low={r.pi != null && r.pi < LOW} class:good={r.pi != null && r.pi >= 0.9}
+            title={r.pi == null ? "Needs an estimate, a start year and issuance" : r.pi < LOW ? "Issuing well below the registry estimate (under half of the estimate to date)" : "Issued ÷ (estimated annual × crediting years to date)"}>{pct(r.pi)}</td>
+          <td class="num pct"><span class="rbar" aria-hidden="true"><span style:width="{Math.min(1, r.pr || 0) * 100}%"></span></span>{pct(r.pr)}</td>
           <td class="tags">{#each ex ? r.tagLabels : r.tagLabels.slice(0, LIM.tag) as t}<span class="tag">{t}</span>{/each}{#if !ex && r.tagLabels.length > LIM.tag}<span class="more-n">+{r.tagLabels.length - LIM.tag}</span>{/if}{#if !r.tagLabels.length}<span class="muted">—</span>{/if}</td>
 
         </tr>
@@ -110,6 +117,11 @@
                   <dt>Offtakers</dt>
                   <dd>{#each r.offtakers as o}<div><a href={o.source_url} target="_blank" rel="noopener">{o.name}</a> <span class="muted">— {offTip(o)}</span></div>{/each}</dd>
                 {/if}
+                {#if r.rb?.length}
+                  <dt>Retired by</dt>
+                  <dd>{#each r.rb as [b, t]}<span class="rbn">{b || "unnamed"} <span class="num muted">{fmt(t)}</span></span>{/each}
+                    <span class="muted small">(registry retirement records via CarbonPlan OffsetsDB)</span></dd>
+                {/if}
                 {#if r.methodology_codes?.length}<dt>Methodology</dt><dd class="num">{r.methodology_codes.join(", ")}</dd>{/if}
                 {#if r.crediting?.[0]}<dt>Crediting period</dt><dd class="num">{r.crediting[0]} → {r.crediting[1] || "?"}</dd>{/if}
                 {#if r.flags?.length}<dt>Flags</dt><dd>{r.flags.join(", ")}</dd>{/if}
@@ -127,7 +139,7 @@
 
 <style>
   .scroller { overflow-x: auto; border: 1px solid var(--line); border-radius: var(--radius); background: var(--surface); }
-  table { border-collapse: collapse; width: 100%; min-width: 1400px; font-size: 13.5px; }
+  table { border-collapse: collapse; width: 100%; min-width: 1560px; font-size: 13.5px; }
   th { text-align: left; font-weight: 600; border-bottom: 1px solid var(--line); position: sticky; top: 0; background: var(--surface); }
   th { white-space: nowrap; }
   th sup { margin-left: -6px; }
@@ -160,6 +172,13 @@
   .tags { min-width: 120px; max-width: 220px; }
   .tag { display: inline-block; font-size: 11.5px; padding: 1px 7px; border-radius: 999px; border: 1px solid var(--line); color: var(--muted); margin: 0 4px 3px 0; white-space: nowrap; }
   .yr { color: var(--muted); }
+  .pct { white-space: nowrap; }
+  .small { font-size: 11.5px; }
+  .rbn { display: inline-block; margin-right: 14px; }
+  .pct.low { color: var(--pink); font-weight: 600; }
+  .pct.good { color: var(--good); }
+  .rbar { display: inline-block; width: 34px; height: 6px; background: var(--chip); border-radius: 3px; overflow: hidden; margin-right: 6px; vertical-align: 1px; }
+  .rbar span { display: block; height: 100%; background: var(--choro-hi); }
   .off { min-width: 130px; }
   .empty { text-align: center; color: var(--muted); padding: 28px; }
   .more { text-align: center; }
