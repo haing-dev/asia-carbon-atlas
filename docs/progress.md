@@ -74,7 +74,22 @@
   - 2026-10-16: Africa and Europe areas (countries.yaml, basemaps); "All Regions" tab (default): world map of regional
     totals (click -> region tab) + top-10 offtakers by stated volume, bars split by credit type (summary.<hash>.json).
 
+  - 2026-10-19: **Buyers & market views.** All Regions: one "Top buyers" table with Retired / Issued / Announced
+    lenses (top 15, bars by credit type, click -> projects with announced / project issued / retired-by-buyer; name ->
+    buyer profile page `?b=<name>`), plus "Retired share and time to first issuance, by credit type". Retirements by
+    beneficiary from CarbonPlan OffsetsDB (new `offsetsdb` source, `data/lookups/retirements.jsonl`, snapshot
+    2026-06-01; OffsetsDB updates are paused). Buyer entities/aliases + retirement name patterns: `config/buyers.yaml`.
+    Region tables: % issued (vs registry estimate to date; pink < 50%) and % retired columns; "Retired by" in details.
+    Eligibility dropdown filter (`config/eligibility.yaml`; Article 6.2, 6.4/PACM, registry hold so far) replaces the
+    Article 6 checkbox (`?el=`; old `?a6=1` still works). Coverage bar above each region map (`config/coverage.yaml`
+    + Cercarbono from OffsetsDB; % hidden until large uncovered programmes have published totals).
+    Background hygiene checks `pipeline/checks.py` (in validate + tests; review/hygiene.csv, not on the site).
+    Buyer deal sweep (10 parallel web sweeps): +~230 verified deals so far; incomplete because the web-search quota
+    (200 per turn) ran out — backlog in `docs/buyer-sweep.md`.
+
 ## Next
+- Finish the buyer deal sweep (`docs/buyer-sweep.md`), fill coverage totals in `config/coverage.yaml`, add ICVCM CCP and
+  CORSIA labels to `config/eligibility.yaml` once their public lists are sourced.
 - Owner: send a fresh GCC export when wanted (replace the file in `data/manual/gcc/`); spot-check `review/dedupe_pending.csv` pairs.
 - M5 rest: monthly scheduled Claude task for offtaker/website enrichment (queue + review flow per SPEC §10); Puro retirement beneficiaries.
 - Owner to spot-check that Verra and Gold Standard registry links open the right project.

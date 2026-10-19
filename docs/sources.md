@@ -63,3 +63,11 @@
   `/app/projectDetail/VCS/<id>` links no longer load) reads `prod-us.api.platts.com/.../public-report-manager/getProjectById/<id>/Markit`.
 - Rate-limited (HTTP 429 after a few quick requests): ≤120 projects/run, 20 s apart, stop on repeated 429. Daily
   refresh until all ~2,800 in-scope Verra projects are cached, then only new ones. Stored in `data/lookups/verradesc.jsonl`.
+
+## Retirements by beneficiary (`offsetsdb`)
+- CarbonPlan OffsetsDB archive `https://carbonplan-offsets-db.s3.us-west-2.amazonaws.com/production/latest/offsets-db.csv.zip`
+  (~9 MB; credits.csv + projects.csv; facts only, CarbonPlan claims no copyright). Covers Verra, Gold Standard, ACR, CAR,
+  ART TREES, Isometric, Cercarbono transactions incl. retirement beneficiary/account/note and a harmonized beneficiary.
+- Updates paused since mid-2026 (archive generated 2026-06-01). Probe = HEAD (ETag); weekly.
+- Beneficiary = harmonized name, else a `config/buyers.yaml` pattern match; ~26% of in-scope retired volume names one.
+- Cercarbono issued per country is kept for the coverage % only (registry not covered).
