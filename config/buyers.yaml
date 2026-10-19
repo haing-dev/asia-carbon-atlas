@@ -138,9 +138,15 @@ buyers:
     aliases: [KliK Foundation (with Climate Cent Foundation), Stiftung KliK]
     retirement_patterns: ['(?i)\bklik\b']
   - name: Government of Norway
-    aliases: [Government of Norway (NACA Fund via GGGI), Norway]
+    aliases: [Government of Norway (NACA Fund via GGGI), Norway, "Government of Norway (purchase guarantee via Emergent's Purchase Guarantee Facility, LEAF Coalition)"]
   - name: LEAF Coalition
-    aliases: [Emergent (LEAF Coalition)]
+    aliases: [Emergent (LEAF Coalition), LEAF Coalition (Emergent)]
+  - name: World Bank carbon funds (non-FCPF)
+    aliases: [World Bank, World Bank BioCarbon Fund, World Bank BioCarbon Fund Initiative for Sustainable Forest Landscapes (ISFL),
+      World Bank Carbon Funds, World Bank Carbon Initiative for Development (Ci-Dev), World Bank Carbon Partnership Facility,
+      "World Bank Carbon Partnership Facility (buyer participants Sweden, Norway, Spain)",
+      "World Bank Transformative Carbon Asset Facility (TCAF) - contributors Canada, Germany, Norway, Spain, Sweden, Switzerland, UK, Climate Cent Foundation",
+      World Bank on behalf of the Carbon Fund for Europe, World Bank on behalf of the Spanish Carbon Fund]
   - name: AT&T
     retirement_patterns: ['\bAT&T\b']
   - name: Uber

@@ -276,11 +276,10 @@ offtakes:
     source_title: Graphyte Secures 60K-Ton Carbon Removal Deal With JPMorganChase (Project Loblolly)
   - record: VCS:5394
     buyer: Government of Singapore
-    volume_tco2e: 625000
-    volume_source: https://www.einpresswire.com/article/849360548/singapore-government-signs-deal-with-boomitra-to-purchase-625-000-tonnes-of-soil-carbon-credits  # 625,000 over 2026-2031
     date: '2025-09-16'
     source_url: https://www.edb.gov.sg/en/news-and-insights/singapore-to-buy-s76-4-million-worth-of-nature-based-carbon-credits-from-projects-in-ghana-peru-and-paraguay
     source_title: Singapore to buy S$76.4 million of nature-based credits (Kowen Antami REDD+, via Mercuria)
+    note: Volume for this project not stated (the 625,000 t in the same release is Boomitra's Paraguay contract).
 
   # --- Africa & Europe (researched 2026-10-16; each source opened) ---
   - record: PURO:631817
@@ -932,6 +931,96 @@ offtakes:
     source_url: https://carbonherald.com/climeworks-delivers-the-first-carbon-removals-to-corporate-customers/
     source_title: Climeworks Delivers First Verified Carbon Removals To Corporate Customers (Carbon Herald)
     note: Delivery (DNV-certified) of credits from earlier Climeworks deals; tonnage not disclosed.; retirement disclosed by the buyer
+  - record: A62:TH-CH-5002
+    buyer: KliK Foundation
+    volume_tco2e: 57327
+    date: '2026-09-08'
+    source_url: https://www.klik.ch/en/news/news-article/itmo-issuance-bangkok-e-bus-programme-for-2025/
+    source_title: ITMO Issuance from Bangkok E-Bus-Programme for 2025 (KliK)
+    note: ITMOs issued for 2025 vintage under KliK's MOPA (2% OMGE deducted); a delivery tranche, not a new contract. Cumulative 108,960 ITMOs to date
+  - record: ART:0126
+    buyer: World Bank FCPF Carbon Fund
+    volume_tco2e: 12000000
+    date: '2020-12-11'
+    source_url: http://www.worldbank.org/en/news/press-release/2020/12/11/costa-rica-reduccion-emisiones-carbono-conservacion-bosques
+    source_title: Costa Rica and World Bank sign US$60 million agreement to boost emission reductions through forest conservation
+    note: ERPA, up to US$60m, reductions until 2025
+  - record: ART:0131
+    buyer: World Bank FCPF Carbon Fund
+    date: 2018-12
+    source_url: http://www.worldbank.org/en/news/press-release/2019/02/12/mozambique-and-democratic-republic-of-congo-sign-landmark-deals-with-world-bank-to-cut-carbon-emissions-and-reduce-deforestation
+    source_title: Mozambique and Democratic Republic of Congo Sign Landmark Deals with World Bank to Cut Carbon Emissions and Reduce Deforestation
+    note: 'value only: up to US$55m; tonnage not stated in source'
+  - record: ART:0130
+    buyer: World Bank FCPF Carbon Fund
+    volume_tco2e: 10000000
+    date: '2024-06-14'
+    source_url: http://www.worldbank.org/en/news/press-release/2024/06/14/cote-ivoire-receives-35-million-payment-for-verified-reduction-of-carbon-emissions
+    source_title: Côte d'Ivoire Receives $35 million Payment for Verified Reduction of Carbon Emissions
+    note: total ERPA 10 Mt valued US$50m; this release reports a US$35m payment for 7 Mt delivered. ERPA signing date not on page
+  - record: ART:0106
+    buyer: LEAF Coalition (Emergent)
+    date: '2023-12-02'
+    source_url: https://www.nicfi.no/2023/12/02/cop28-breakthrough-for-leaf-and-jurisdictional-redd/
+    source_title: 'COP28/DUBAI: Breakthrough for LEAF and Jurisdictional REDD+ (NICFI)'
+    note: ERPA signed at COP28; volume not stated. Costa Rica + Ghana ERPAs together 'more than 60 million dollars' for 2017-2019 credits with a $10/t floor guarantee for a portion
+  - record: ART:0101
+    buyer: Government of Norway (purchase guarantee via Emergent's Purchase Guarantee Facility, LEAF Coalition)
+    volume_tco2e: 1000000
+    date: '2026-06-23'
+    source_url: https://www.nicfi.no/2026/06/23/costa-rica-first-country-to-access-climate-finance-through-the-leaf-coalition/
+    source_title: Costa Rica – first country to access climate finance through the LEAF Coalition (NICFI)
+    note: purchase guarantee for 1 million credits at USD 10/t (buyer of last resort); private buyers incl. Bayer expected to take up a significant volume
+  - record: ART:0105
+    buyer: LEAF Coalition (Emergent)
+    date: 2022-11
+    source_url: https://www.nicfi.no/2023/01/18/key-milestones-for-the-leaf-coalition/
+    source_title: Key milestones for The LEAF Coalition (NICFI)
+    note: letter of intent (non-binding), signed around COP27 (Nov 2022); no volume
+  - record: ART:0120
+    buyer: LEAF Coalition (Emergent)
+    date: 2022-11
+    source_url: https://www.nicfi.no/2023/01/18/key-milestones-for-the-leaf-coalition/
+    source_title: Key milestones for The LEAF Coalition (NICFI)
+    note: letter of intent (non-binding), around COP27 (Nov 2022); no volume
+  - record: ART:0124
+    buyer: LEAF Coalition (Emergent)
+    date: 2022-11
+    source_url: https://www.nicfi.no/2023/01/18/key-milestones-for-the-leaf-coalition/
+    source_title: Key milestones for The LEAF Coalition (NICFI)
+    note: earlier letter of intent (Nov 2022) preceding the Sept 2024 12 Mt agreement already listed
+  - record: ART:0113
+    buyer: LEAF Coalition (Emergent)
+    date: 2022-11
+    source_url: https://www.nicfi.no/2023/01/18/key-milestones-for-the-leaf-coalition/
+    source_title: Key milestones for The LEAF Coalition (NICFI)
+    note: Memorandum of Agreement with roadmap to a binding purchase agreement (non-binding); no volume
+  - record: ART:0109
+    buyer: LEAF Coalition (Emergent)
+    date: 2022-11
+    source_url: https://www.nicfi.no/2023/01/18/key-milestones-for-the-leaf-coalition/
+    source_title: Key milestones for The LEAF Coalition (NICFI)
+    note: Memorandum of Agreement (non-binding) preceding the 2025 ERPA already listed
+  - record: A62:TH-CH-5002
+    buyer: KliK Foundation
+    volume_tco2e: 1916
+    date: '2024-01-08'
+    source_url: https://carbonherald.com/switzerland-and-thailand-made-the-first-ever-carbon-credit-deal-under-article-6-2/
+    source_title: Switzerland And Thailand Made The First Ever Carbon Credits Deal Under Article 6.2 (Carbon Herald)
+    note: first-ever Article 6.2 ITMO transfer (delivery tranche under MOPA)
+  - record: ART:0107
+    buyer: Emergent (LEAF Coalition)
+    volume_tco2e: 5150000
+    date: '2024-03-06'
+    source_url: https://carbonherald.com/vietnam-may-earn-200m-per-year-from-selling-carbon-credits/
+    source_title: Vietnam May Earn $200M Per Year From Selling Carbon Credits (Carbon Herald)
+    note: article says '5.15 million tons ... annually' at >= $10/t for 2022-2026; the widely reported LOI is 5.15 Mt in total (US$51.5m) - treated as total, not multiplied. Agreement type/date not stated (LOI reported Oct 2022)
+  - record: VCS:5432
+    buyer: Government of Singapore
+    date: '2025-09-16'
+    source_url: https://carbonherald.com/boomitra-selected-as-one-of-four-nature-based-cdr-suppliers-to-receive-support-from-govt-of-singapore/
+    source_title: Boomitra Selected As One Of Four Nature-Based CDR Suppliers To Receive Support From Govt Of Singapore (Carbon Herald)
+    note: one of four projects in a 2.175 Mt (S$76m / ~US$60m) contract for 2026-2031; per-project split not stated except Boomitra 625,000
 announced_rows:
   - id: ANN:varaha-biochar-ind
     name: Varaha — biochar carbon removal (supplier-level deals)
@@ -1499,6 +1588,8 @@ announced_rows:
     l2: redd
     offtakes:
       - buyer: Government of Singapore
+        volume_tco2e: 625000
+        volume_source: https://www.einpresswire.com/article/849360548/singapore-government-signs-deal-with-boomitra-to-purchase-625-000-tonnes-of-soil-carbon-credits  # 625,000 over 2026-2031
         date: '2025-09-16'
         source_url: https://www.edb.gov.sg/en/news-and-insights/singapore-to-buy-s76-4-million-worth-of-nature-based-carbon-credits-from-projects-in-ghana-peru-and-paraguay
         source_title: Singapore to buy S$76.4 million of nature-based carbon credits (Peru, Paraguay, Ghana)
@@ -1509,6 +1600,8 @@ announced_rows:
     l2: soil_carbon
     offtakes:
       - buyer: Government of Singapore
+        volume_tco2e: 625000
+        volume_source: https://www.einpresswire.com/article/849360548/singapore-government-signs-deal-with-boomitra-to-purchase-625-000-tonnes-of-soil-carbon-credits  # 625,000 over 2026-2031
         date: '2025-09-16'
         source_url: https://www.edb.gov.sg/en/news-and-insights/singapore-to-buy-s76-4-million-worth-of-nature-based-carbon-credits-from-projects-in-ghana-peru-and-paraguay
         source_title: Singapore to buy S$76.4 million of nature-based carbon credits (Peru, Paraguay, Ghana)
@@ -1704,7 +1797,7 @@ announced_rows:
         date: '2026-01-28'
         source_url: https://gggi.org/zambia-and-norway-sign-purchase-agreement-on-emission-reductions/
         source_title: Zambia and Norway Sign Purchase Agreement on Emission Reductions
-        note: Government-to-government MOPA. Volume not stated.
+        note: Government-to-government MOPA (counterparty Zanaco per Norway's NOGER page); up to 3.5 Mt over ten years.
   - id: ANN:delagua-cookstoves-rwa
     name: DelAgua — Live Well clean cooking, Rwanda
     developer: DelAgua
@@ -3337,3 +3430,258 @@ announced_rows:
         source_url: https://carbonherald.com/ecovadis-invests-in-euthenia-biochar-carbon-credits-via-supercritical/
         source_title: EcoVadis Invests In Euthenia Biochar Carbon Credits Via Supercritical (Carbon Herald)
         note: Volume not stated.
+  - id: ANN:governmentofchile-redd-chl
+    name: Government of Chile — Chile Emission Reductions Program (FCPF)
+    developer: Government of Chile
+    countries:
+      - CHL
+    l2: redd
+    offtakes:
+      - buyer: World Bank FCPF Carbon Fund
+        volume_tco2e: 5200000
+        date: '2019-12-10'
+        source_url: http://www.worldbank.org/en/news/press-release/2019/12/05/world-bank-and-chile-sign-agreement-to-reduce-forest-emissions-improve-local-livelihoods
+        source_title: World Bank and Chile sign agreement to reduce forest emissions, improve local livelihoods
+        note: ERPA, up to US$26m, results until 2025
+  - id: ANN:governmentoftherepub-redd-cog
+    name: Government of the Republic of Congo — Republic of Congo Emission Reductions Program (Sangha & Likouala, FCPF)
+    developer: Government of the Republic of Congo
+    countries:
+      - COG
+    l2: redd
+    offtakes:
+      - buyer: World Bank FCPF Carbon Fund
+        volume_tco2e: 8400000
+        date: '2021-05-03'
+        source_url: http://www.worldbank.org/en/news/press-release/2021/05/03/world-bank-and-republic-of-congo-sign-agreement-to-reduce-carbon-emissions-and-preserve-forests
+        source_title: World Bank and Republic of Congo Sign Agreement to Reduce Carbon Emissions and Preserve Forests
+        note: ERPA, up to US$41.8m, through 2025
+  - id: ANN:governmentofmozambiq-redd-moz
+    name: Government of Mozambique — Zambézia Integrated Landscape Management Program (FCPF)
+    developer: Government of Mozambique
+    countries:
+      - MOZ
+    l2: redd
+    offtakes:
+      - buyer: World Bank FCPF Carbon Fund
+        volume_tco2e: 10000000
+        date: '2019-02-01'
+        source_url: http://www.worldbank.org/en/news/press-release/2019/02/12/mozambique-and-democratic-republic-of-congo-sign-landmark-deals-with-world-bank-to-cut-carbon-emissions-and-reduce-deforestation
+        source_title: Mozambique and Democratic Republic of Congo Sign Landmark Deals with World Bank to Cut Carbon Emissions and Reduce Deforestation
+        note: 10 Mt is the programme reduction target by 2024 stated alongside the ERPA (up to US$50m); ERPA contracted volume not separately stated
+  - id: ANN:governmentofguatemal-redd-gtm
+    name: Government of Guatemala — Guatemala Emission Reductions Program (FCPF)
+    developer: Government of Guatemala
+    countries:
+      - GTM
+    l2: redd
+    offtakes:
+      - buyer: World Bank FCPF Carbon Fund
+        volume_tco2e: 10500000
+        date: '2021-10-12'
+        source_url: http://www.worldbank.org/en/news/press-release/2021/10/12/el-banco-mundial-y-guatemala-firman-acuerdo-para-reducir-las-emisiones-de-carbono-y-conservar-los-bo
+        source_title: World Bank and Guatemala Sign US$52.5M Agreement To Cut Carbon Emissions And Preserve Forests
+        note: ERPA, up to US$52.5m, through 2025
+  - id: ANN:governmentofmadagasc-redd-mdg
+    name: Government of Madagascar (Ministry of Environment and Sustainable Development) — Madagascar Emission Reductions Program (Atiala Atsinanana, FCPF)
+    developer: Government of Madagascar (Ministry of Environment and Sustainable Development)
+    countries:
+      - MDG
+    l2: redd
+    offtakes:
+      - buyer: World Bank FCPF Carbon Fund
+        volume_tco2e: 10000000
+        date: '2021-02-05'
+        source_url: http://www.worldbank.org/en/news/press-release/2021/02/05/madagascar-signs-landmark-agreement-with-the-world-bank-to-reduce-poverty-deforestation-and-carbon-emissions
+        source_title: Madagascar Signs Landmark Agreement with the World Bank to Reduce Poverty, Deforestation and Carbon Emissions
+        note: ERPA, up to US$50m, 2020-2024
+  - id: ANN:governmentofghana-redd-gha
+    name: Government of Ghana — Ghana Cocoa Forest REDD+ Emission Reductions Program (FCPF)
+    developer: Government of Ghana
+    countries:
+      - GHA
+    l2: redd
+    offtakes:
+      - buyer: World Bank FCPF Carbon Fund
+        volume_tco2e: 10000000
+        date: '2019-07-09'
+        source_url: http://www.worldbank.org/en/news/press-release/2019/07/09/ghana-signs-landmark-deal-with-world-bank-to-cut-carbon-emissions-and-reduce-deforestation
+        source_title: Ghana Signs Landmark Deal with World Bank to Cut Carbon Emissions and Reduce Deforestation
+        note: five-year ERPA, up to US$50m
+  - id: ANN:governmentofuzbekist-other-uzb
+    name: Government of Uzbekistan — Uzbekistan iCRAFT (Innovative Carbon Resource Application for Energy Transition) policy-crediting program
+    developer: Government of Uzbekistan
+    countries:
+      - UZB
+    l2: other
+    offtakes:
+      - buyer: World Bank Transformative Carbon Asset Facility (TCAF) - contributors Canada, Germany, Norway, Spain, Sweden, Switzerland, UK, Climate Cent Foundation
+        volume_tco2e: 2500000
+        date: '2023-10-12'
+        source_url: http://www.worldbank.org/en/news/press-release/2023/10/13/uzbekistan-to-cut-fossil-fuel-subsidies-and-reduce-emissions-with-support-from-the-world-bank
+        source_title: Uzbekistan to Cut Fossil Fuel Subsidies and Reduce Emissions with Support from the World Bank
+        note: "'approximately 2-2.5 million tons'; upper bound 2.5 Mt used. Annual purchases until 2027. Policy crediting for electricity and gas tariff reform. Norway's NOGER page confirms this as the one TCAF contract signed"
+  - id: ANN:governmentofthedomin-redd-dom
+    name: Government of the Dominican Republic — Dominican Republic Emission Reductions Program (FCPF)
+    developer: Government of the Dominican Republic
+    countries:
+      - DOM
+    l2: redd
+    offtakes:
+      - buyer: World Bank FCPF Carbon Fund
+        volume_tco2e: 5000000
+        date: '2021-05-12'
+        source_url: http://www.worldbank.org/en/news/press-release/2021/05/12/dominican-republic-signs-agreement-with-the-world-bank-to-curb-carbon-emissions-and-reduce-deforestation
+        source_title: Dominican Republic Signs Agreement with the World Bank to Curb Carbon Emissions and Reduce Deforestation
+        note: ERPA, up to US$25m, results to 2025
+  - id: ANN:governmentofethiopia-redd-eth
+    name: Government of Ethiopia — Oromia Forested Landscape Program (ISFL ERPA)
+    developer: Government of Ethiopia
+    countries:
+      - ETH
+    l2: redd
+    offtakes:
+      - buyer: World Bank BioCarbon Fund Initiative for Sustainable Forest Landscapes (ISFL)
+        volume_tco2e: 4000000
+        date: '2023-02-09'
+        source_url: http://www.worldbank.org/en/news/press-release/2023/02/09/world-bank-and-ethiopia-sign-40-million-agreement-to-cut-carbon-emissions-through-sustainable-landscape-management
+        source_title: World Bank and Ethiopia Sign $40 Million Agreement to Cut Carbon Emissions Through Sustainable Landscape Management
+        note: "'around 4 million metric tons'; ERPA up to US$40m; reductions through 2030"
+  - id: ANN:governmentofzambia-agroforestry-zmb
+    name: Government of Zambia — Zambia Integrated Forest Landscape Program (ZIFL-P), Eastern Province (ISFL ERPA)
+    developer: Government of Zambia
+    countries:
+      - ZMB
+    l2: agroforestry
+    offtakes:
+      - buyer: World Bank BioCarbon Fund Initiative for Sustainable Forest Landscapes (ISFL)
+        date: 2024-05
+        source_url: http://www.worldbank.org/en/news/feature/2024/06/26/changing-lives-and-the-environment-in-eastern-zambia
+        source_title: Changing Lives and the Environment in Eastern Zambia (World Bank feature)
+        note: 'value only: up to US$30m over five years; tonnage not stated'
+  - id: ANN:inyenyeri-cookstoves-rwa
+    name: Inyenyeri — Inyenyeri clean cooking (pellet cookstoves), Rwanda
+    developer: Inyenyeri
+    countries:
+      - RWA
+    l2: cookstoves
+    offtakes:
+      - buyer: World Bank Carbon Initiative for Development (Ci-Dev)
+        volume_tco2e: 1000000
+        date: '2019-01-08'
+        source_url: http://www.worldbank.org/en/news/feature/2018/12/19/beyond-charcoal-how-one-company-helps-rwandan-families-save-their-health-and-the-environment-one-cookstove-at-a-time
+        source_title: 'Beyond Charcoal: How One Company Helps Rwandan Families Save their Health and the Environment, One Cookstove at a Time (World Bank)'
+        note: commitment to purchase 1 million CERs; signing date not stated (before Jan 2019)
+  - id: ANN:stateofamazonas-redd-bra
+    name: State of Amazonas — Amazonas jurisdictional REDD+ (LOI)
+    developer: State of Amazonas
+    countries:
+      - BRA
+    l2: redd
+    offtakes:
+      - buyer: LEAF Coalition (Emergent)
+        date: 2022-11
+        source_url: https://www.nicfi.no/2023/01/18/key-milestones-for-the-leaf-coalition/
+        source_title: Key milestones for The LEAF Coalition (NICFI)
+        note: letter of intent (non-binding), around COP27 (Nov 2022); no volume
+  - id: ANN:upenergy-cookstoves-gha
+    name: UpEnergy — UpEnergy clean cooking programme, Ghana (415,000 devices; Article 6.2, financed by Standard Chartered-led bond)
+    developer: UpEnergy
+    countries:
+      - GHA
+    l2: cookstoves
+    offtakes:
+      - buyer: KliK Foundation
+        date: '2025-12-09'
+        source_url: https://carbonherald.com/standard-chartered-leads-200m-article-6-bond-for-clean-cooking-in-ghana/
+        source_title: Standard Chartered Leads $200M Article 6 Bond For Clean Cooking In Ghana (Carbon Herald)
+        note: ITMO volume not stated; bond unlocks US$30.5m; 415,000 devices 2025-2028. Likely one of the Swiss-authorised Ghana cookstove activities (A62 GH-CH-50xx) - match not confirmed
+  - id: ANN:governmentofvietnamr-hydro-vnm
+    name: Government of Vietnam (Renewable Energy Development Project) — Renewable Energy Development Project (REDP) small hydropower programme (CDM)
+    developer: Government of Vietnam (Renewable Energy Development Project)
+    countries:
+      - VNM
+    l2: hydro
+    offtakes:
+      - buyer: World Bank Carbon Partnership Facility (buyer participants Sweden, Norway, Spain)
+        volume_tco2e: 3000000
+        date: '2013-12-20'
+        source_url: http://www.worldbank.org/en/news/press-release/2013/12/20/vietnam-and-world-bank-sign-the-first-emission-reductions-purchase-agreement-for-renewable-energy-development
+        source_title: Vietnam and World Bank Sign The First Emission Reductions Purchase Agreement for Renewable Energy Development
+        note: first 3 Mt of credits; value not disclosed
+  - id: ANN:caixaeconmicafederal-landfill-bra
+    name: Caixa Econômica Federal — Integrated Solid Waste Management and Carbon Finance Project (landfill methane, Brazil)
+    developer: Caixa Econômica Federal
+    countries:
+      - BRA
+    l2: landfill
+    offtakes:
+      - buyer: World Bank Carbon Partnership Facility
+        volume_tco2e: 3000000
+        date: '2011-12-05'
+        source_url: http://www.worldbank.org/en/news/press-release/2011/12/05/World-Bank-Caixa-solid-waste-management-Brazil
+        source_title: World Bank and Caixa Partner to Improve Solid Waste Management and GHG Emissions
+        note: "source: 'three million Emission Reduction Purchase Agreement (ERPA)' - unit not stated, read as 3 Mt ERs; price not stated"
+  - id: ANN:landbankofthephilipp-biogas_ad-phl
+    name: Land Bank of the Philippines (LANDBANK) — Methane Recovery from Waste Management Project (piggeries, landfills; CDM)
+    developer: Land Bank of the Philippines (LANDBANK)
+    countries:
+      - PHL
+    l2: biogas_ad
+    offtakes:
+      - buyer: World Bank on behalf of the Spanish Carbon Fund
+        date: '2010-01-14'
+        source_url: http://www.worldbank.org/en/news/press-release/2010/01/14/philippines-land-bank-world-bank-sign-carbon-finance-deal-help-reduce-greenhouse-gas-emissions-address-climate-change
+        source_title: 'PHILIPPINES: Land Bank, World Bank Sign Carbon Finance Deal to Help Reduce Greenhouse Gas Emissions and Address Climate Change'
+        note: ERPA value EUR 2,437,500 over 2010-2013; volume not stated
+  - id: ANN:metromaniladevelopme-mass_transit-phl
+    name: Metro Manila Development Authority (MMDA) — EDSA Bus Reduction Project
+    developer: Metro Manila Development Authority (MMDA)
+    countries:
+      - PHL
+    l2: mass_transit
+    offtakes:
+      - buyer: World Bank on behalf of the Carbon Fund for Europe
+        date: '2010-01-29'
+        source_url: http://www.worldbank.org/en/news/press-release/2010/01/21/philippines-mmda-signs-carbon-finance-project-world-bank
+        source_title: 'PHILIPPINES: MMDA Signs Carbon Finance Project with World Bank'
+        note: ERPA worth EUR 364,000 for 2011-2013 reductions; volume not stated
+  - id: ANN:rosneftojscnkrosneft-oil_gas_methane-rus
+    name: Rosneft (OJSC NK Rosneft) — Associated Gas Recovery Project, Komsomolskoye Oil Field (Joint Implementation)
+    developer: Rosneft (OJSC NK Rosneft)
+    countries:
+      - RUS
+    l2: oil_gas_methane
+    offtakes:
+      - buyer: World Bank Carbon Funds
+        volume_tco2e: 4000000
+        date: '2010-08-12'
+        source_url: http://www.worldbank.org/en/news/press-release/2010/08/12/world-banks-gas-recovery-project-russia-eliminate-flaring-komsomolskoye-oil-field
+        source_title: "Russia: World Bank's Gas Recovery Project will eliminate flaring at Komsomolskoye Oil Field"
+        note: up to 4 million ERUs by 2012; ERPA signed 2008, project approved 23 Jul 2010
+  - id: ANN:landbankofthephilipp-landfill-phl
+    name: Land Bank of the Philippines (LANDBANK) with LGUs and landfill operators — LANDBANK Carbon Finance Support Facility - landfill methane recovery (CDM PoA)
+    developer: Land Bank of the Philippines (LANDBANK) with LGUs and landfill operators
+    countries:
+      - PHL
+    l2: landfill
+    offtakes:
+      - buyer: World Bank
+        volume_tco2e: 1700000
+        date: '2016-01-21'
+        source_url: http://www.worldbank.org/en/news/press-release/2016/01/21/philippines-modernizing-landfills-to-reduce-harmful-methane-emissions
+        source_title: 'Philippines: Modernizing Landfills to Reduce Harmful Methane Emissions'
+        note: 1.7 million credits until 2020; price not stated
+  - id: ANN:novacel-arr-cod
+    name: NOVACEL — Ibi Batéké Carbon Sink Plantation Project (CDM)
+    developer: NOVACEL
+    countries:
+      - COD
+    l2: arr
+    offtakes:
+      - buyer: World Bank BioCarbon Fund
+        volume_tco2e: 500000
+        date: '2011-03-08'
+        source_url: http://www.worldbank.org/en/news/press-release/2011/03/08/congo-community-to-use-carbon-payments-to-put-kids-through-school
+        source_title: Congo Community To Use Carbon Payments To Put Kids Through School (World Bank)
+        note: 500,000 CERs to be generated by 2017 (ORBEO and Danone also buy credits from the project)
