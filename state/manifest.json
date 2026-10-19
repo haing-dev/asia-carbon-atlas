@@ -1,5 +1,5 @@
 {
-  "last_commit_at": "2026-10-19T04:13:43+00:00",
+  "last_commit_at": "2026-10-19T04:41:10+00:00",
   "sources": {
     "a6pipeline": {
       "error": null,
@@ -66,11 +66,11 @@
     },
     "offsetsdb": {
       "error": null,
-      "last_changed": "2026-10-19T04:13:43+00:00",
-      "last_checked": "2026-10-19T04:13:43+00:00",
-      "rows": 8096,
+      "last_changed": "2026-10-19T04:41:10+00:00",
+      "last_checked": "2026-10-19T04:41:10+00:00",
+      "rows": 8110,
       "signal": {
-        "buyers": "f3f3dced9cf01782bcb4f6056b25f63ef50adda2c2d16577403d8fd0ba62fdca",
+        "buyers": "d0bb8bfc67047e578157be8d27aff61dbb91e0f84b5666eabd69508d96afd823",
         "bytes": "8534671",
         "etag": "\"3620336adfce7d0217faa8b7bde2e23a\"",
         "modified": "Mon, 01 Jun 2026 20:33:19 GMT"

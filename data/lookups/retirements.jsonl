@@ -1989,6 +1989,16 @@
 {"record_id":"CAR:998","beneficiary":null,"matched_by":null,"retired_tco2e":7057,"n":2,"first":"2018-08-27","last":"2018-08-27"}
 {"record_id":"CAR:998","beneficiary":"NW Natural","matched_by":"harmonized","retired_tco2e":23683,"n":8,"first":"2016-10-31","last":"2021-11-11"}
 {"record_id":"CAR:998","beneficiary":"Portland General Electric","matched_by":"harmonized","retired_tco2e":12000,"n":5,"first":"2015-12-24","last":"2016-10-31"}
+{"record_id":"COV:Cercarbono:BRA","registry":"Cercarbono","country":"BRA","issued_tco2e":30974291}
+{"record_id":"COV:Cercarbono:CHL","registry":"Cercarbono","country":"CHL","issued_tco2e":6576678}
+{"record_id":"COV:Cercarbono:COL","registry":"Cercarbono","country":"COL","issued_tco2e":97298514}
+{"record_id":"COV:Cercarbono:DOM","registry":"Cercarbono","country":"DOM","issued_tco2e":80127}
+{"record_id":"COV:Cercarbono:ETH","registry":"Cercarbono","country":"ETH","issued_tco2e":346820}
+{"record_id":"COV:Cercarbono:GHA","registry":"Cercarbono","country":"GHA","issued_tco2e":361327}
+{"record_id":"COV:Cercarbono:HND","registry":"Cercarbono","country":"HND","issued_tco2e":77775}
+{"record_id":"COV:Cercarbono:IND","registry":"Cercarbono","country":"IND","issued_tco2e":988210}
+{"record_id":"COV:Cercarbono:PAN","registry":"Cercarbono","country":"PAN","issued_tco2e":518237}
+{"record_id":"COV:Cercarbono:TUR","registry":"Cercarbono","country":"TUR","issued_tco2e":3011330}
 {"record_id":"GS:1001","beneficiary":null,"matched_by":null,"retired_tco2e":914219,"n":492,"first":"2017-09-08","last":"2026-03-11"}
 {"record_id":"GS:1001","beneficiary":"Gold Standard over-issuance","matched_by":"harmonized","retired_tco2e":3539,"n":2,"first":"2021-09-07","last":"2022-01-25"}
 {"record_id":"GS:1001","beneficiary":"Spotify","matched_by":"harmonized","retired_tco2e":4225,"n":2,"first":"2021-04-14","last":"2021-04-14"}
@@ -3531,7 +3541,8 @@
 {"record_id":"GS:472","beneficiary":"Spotify","matched_by":"harmonized","retired_tco2e":3860,"n":1,"first":"2021-06-18","last":"2021-06-18"}
 {"record_id":"GS:472","beneficiary":"Swiss Re","matched_by":"pattern","retired_tco2e":3000,"n":1,"first":"2013-12-20","last":"2013-12-20"}
 {"record_id":"GS:472","beneficiary":"UBS","matched_by":"pattern","retired_tco2e":40000,"n":3,"first":"2012-02-27","last":"2012-02-27"}
-{"record_id":"GS:472","beneficiary":"Volkswagen","matched_by":"pattern","retired_tco2e":103373,"n":7,"first":"2021-04-16","last":"2022-07-28"}
+{"record_id":"GS:472","beneficiary":"Volkswagen","matched_by":"harmonized","retired_tco2e":103108,"n":3,"first":"2021-04-16","last":"2021-11-08"}
+{"record_id":"GS:472","beneficiary":"Volkswagen Group","matched_by":"pattern","retired_tco2e":265,"n":4,"first":"2021-04-16","last":"2022-07-28"}
 {"record_id":"GS:472","beneficiary":"Österreichische Post","matched_by":"harmonized","retired_tco2e":4000,"n":4,"first":"2012-12-31","last":"2016-12-27"}
 {"record_id":"GS:474","beneficiary":null,"matched_by":null,"retired_tco2e":1733754,"n":126,"first":"2011-06-10","last":"2026-05-26"}
 {"record_id":"GS:474","beneficiary":"Bulb Energy","matched_by":"harmonized","retired_tco2e":287930,"n":3,"first":"2022-08-24","last":"2022-08-30"}
@@ -4248,7 +4259,7 @@
 {"record_id":"GS:7513","beneficiary":null,"matched_by":null,"retired_tco2e":18544,"n":5,"first":"2024-07-04","last":"2025-12-24"}
 {"record_id":"GS:7524","beneficiary":null,"matched_by":null,"retired_tco2e":6404,"n":11,"first":"2021-07-07","last":"2026-05-22"}
 {"record_id":"GS:7525","beneficiary":null,"matched_by":null,"retired_tco2e":648175,"n":13,"first":"2023-10-20","last":"2025-08-08"}
-{"record_id":"GS:7525","beneficiary":"Volkswagen","matched_by":"pattern","retired_tco2e":302410,"n":5,"first":"2023-12-07","last":"2023-12-07"}
+{"record_id":"GS:7525","beneficiary":"Volkswagen Group","matched_by":"pattern","retired_tco2e":302410,"n":5,"first":"2023-12-07","last":"2023-12-07"}
 {"record_id":"GS:7526","beneficiary":null,"matched_by":null,"retired_tco2e":9782,"n":17,"first":"2023-03-29","last":"2026-02-18"}
 {"record_id":"GS:7526","beneficiary":"Boeing","matched_by":"pattern","retired_tco2e":38000,"n":2,"first":"2024-02-19","last":"2024-02-19"}
 {"record_id":"GS:753","beneficiary":null,"matched_by":null,"retired_tco2e":729216,"n":263,"first":"2013-11-26","last":"2026-04-09"}
@@ -4500,7 +4511,7 @@
 {"record_id":"VCS:10","beneficiary":"Städtische Werke","matched_by":"harmonized","retired_tco2e":99616,"n":1,"first":"2018-07-20","last":"2018-07-20"}
 {"record_id":"VCS:10","beneficiary":"Toho Gas","matched_by":"harmonized","retired_tco2e":150000,"n":2,"first":"2021-09-14","last":"2021-09-14"}
 {"record_id":"VCS:10","beneficiary":"ToucanToucan","matched_by":"harmonized","retired_tco2e":326579,"n":9,"first":"2021-10-18","last":"2022-01-12"}
-{"record_id":"VCS:10","beneficiary":"Volkswagen","matched_by":"pattern","retired_tco2e":980,"n":4,"first":"2025-05-19","last":"2026-04-09"}
+{"record_id":"VCS:10","beneficiary":"Volkswagen Group","matched_by":"pattern","retired_tco2e":980,"n":4,"first":"2025-05-19","last":"2026-04-09"}
 {"record_id":"VCS:100","beneficiary":null,"matched_by":null,"retired_tco2e":47015,"n":29,"first":"2015-06-15","last":"2015-10-13"}
 {"record_id":"VCS:1002","beneficiary":null,"matched_by":null,"retired_tco2e":1170361,"n":57,"first":"2019-04-16","last":"2025-05-06"}
 {"record_id":"VCS:1002","beneficiary":"ESWE Versorgungs","matched_by":"harmonized","retired_tco2e":594000,"n":3,"first":"2020-04-20","last":"2020-04-20"}
@@ -4569,7 +4580,8 @@
 {"record_id":"VCS:1067","beneficiary":"McKinsey & Company","matched_by":"harmonized","retired_tco2e":349,"n":2,"first":"2023-05-19","last":"2023-05-19"}
 {"record_id":"VCS:1067","beneficiary":"Shell","matched_by":"harmonized","retired_tco2e":1160969,"n":11,"first":"2020-02-10","last":"2024-02-09"}
 {"record_id":"VCS:1067","beneficiary":"Skoda","matched_by":"harmonized","retired_tco2e":272185,"n":4,"first":"2023-05-17","last":"2023-06-29"}
-{"record_id":"VCS:1067","beneficiary":"Volkswagen","matched_by":"pattern","retired_tco2e":113905,"n":5,"first":"2023-05-17","last":"2023-07-19"}
+{"record_id":"VCS:1067","beneficiary":"Volkswagen","matched_by":"harmonized","retired_tco2e":113830,"n":3,"first":"2023-07-19","last":"2023-07-19"}
+{"record_id":"VCS:1067","beneficiary":"Volkswagen Group","matched_by":"pattern","retired_tco2e":75,"n":2,"first":"2023-05-17","last":"2023-06-15"}
 {"record_id":"VCS:1068","beneficiary":null,"matched_by":null,"retired_tco2e":64935,"n":46,"first":"2021-12-23","last":"2025-09-08"}
 {"record_id":"VCS:1068","beneficiary":"Air France-KLM","matched_by":"pattern","retired_tco2e":16,"n":1,"first":"2023-12-13","last":"2023-12-13"}
 {"record_id":"VCS:1069","beneficiary":null,"matched_by":null,"retired_tco2e":53845,"n":23,"first":"2015-02-04","last":"2023-02-03"}
@@ -4888,7 +4900,7 @@
 {"record_id":"VCS:1329","beneficiary":"Salesforce","matched_by":"harmonized","retired_tco2e":2,"n":1,"first":"2022-07-21","last":"2022-07-21"}
 {"record_id":"VCS:1329","beneficiary":"Uber","matched_by":"harmonized","retired_tco2e":3655,"n":5,"first":"2022-06-22","last":"2023-02-27"}
 {"record_id":"VCS:1329","beneficiary":"Up2You clients","matched_by":"harmonized","retired_tco2e":201,"n":1,"first":"2022-12-16","last":"2022-12-16"}
-{"record_id":"VCS:1329","beneficiary":"Volkswagen","matched_by":"pattern","retired_tco2e":2,"n":1,"first":"2023-03-13","last":"2023-03-13"}
+{"record_id":"VCS:1329","beneficiary":"Volkswagen Group","matched_by":"pattern","retired_tco2e":2,"n":1,"first":"2023-03-13","last":"2023-03-13"}
 {"record_id":"VCS:1329","beneficiary":"Zukunftswerk","matched_by":"harmonized","retired_tco2e":8000,"n":41,"first":"2021-02-14","last":"2023-11-15"}
 {"record_id":"VCS:133","beneficiary":null,"matched_by":null,"retired_tco2e":107366,"n":506,"first":"2017-05-10","last":"2022-11-10"}
 {"record_id":"VCS:133","beneficiary":"Mastercard","matched_by":"pattern","retired_tco2e":15,"n":1,"first":"2019-05-14","last":"2019-05-14"}
@@ -5026,7 +5038,7 @@
 {"record_id":"VCS:1382","beneficiary":"Victor Mattos","matched_by":"harmonized","retired_tco2e":21,"n":21,"first":"2022-02-16","last":"2025-05-19"}
 {"record_id":"VCS:1382","beneficiary":"Visionflex Soluções Gráficas","matched_by":"harmonized","retired_tco2e":795,"n":31,"first":"2022-06-13","last":"2025-01-24"}
 {"record_id":"VCS:1382","beneficiary":"VistaJet clients","matched_by":"harmonized","retired_tco2e":26250,"n":8,"first":"2022-12-16","last":"2025-03-26"}
-{"record_id":"VCS:1382","beneficiary":"Volkswagen","matched_by":"pattern","retired_tco2e":10,"n":2,"first":"2024-05-05","last":"2024-12-13"}
+{"record_id":"VCS:1382","beneficiary":"Volkswagen Group","matched_by":"pattern","retired_tco2e":10,"n":2,"first":"2024-05-05","last":"2024-12-13"}
 {"record_id":"VCS:1382","beneficiary":"Zukunftswerk","matched_by":"harmonized","retired_tco2e":27260,"n":25,"first":"2020-07-02","last":"2023-11-28"}
 {"record_id":"VCS:1383","beneficiary":null,"matched_by":null,"retired_tco2e":3789,"n":1,"first":"2015-09-29","last":"2015-09-29"}
 {"record_id":"VCS:1385","beneficiary":null,"matched_by":null,"retired_tco2e":2838,"n":3,"first":"2023-07-04","last":"2024-08-08"}
@@ -5252,7 +5264,8 @@
 {"record_id":"VCS:1477","beneficiary":"TotalEnergies","matched_by":"harmonized","retired_tco2e":76312,"n":34,"first":"2021-08-09","last":"2023-10-10"}
 {"record_id":"VCS:1477","beneficiary":"ToucanToucan","matched_by":"harmonized","retired_tco2e":1,"n":1,"first":"2021-10-14","last":"2021-10-14"}
 {"record_id":"VCS:1477","beneficiary":"Up2You clients","matched_by":"harmonized","retired_tco2e":200,"n":2,"first":"2023-01-23","last":"2023-10-25"}
-{"record_id":"VCS:1477","beneficiary":"Volkswagen","matched_by":"harmonized","retired_tco2e":1136893,"n":20,"first":"2019-12-13","last":"2021-02-05"}
+{"record_id":"VCS:1477","beneficiary":"Volkswagen","matched_by":"harmonized","retired_tco2e":1130793,"n":19,"first":"2019-12-13","last":"2021-02-05"}
+{"record_id":"VCS:1477","beneficiary":"Volkswagen Group","matched_by":"pattern","retired_tco2e":6100,"n":1,"first":"2020-12-21","last":"2020-12-21"}
 {"record_id":"VCS:1477","beneficiary":"Wesleyan Assurance Society","matched_by":"harmonized","retired_tco2e":300,"n":2,"first":"2024-02-29","last":"2024-02-29"}
 {"record_id":"VCS:1477","beneficiary":"Woodside Energy","matched_by":"harmonized","retired_tco2e":1346118,"n":11,"first":"2023-02-21","last":"2024-12-13"}
 {"record_id":"VCS:1478","beneficiary":null,"matched_by":null,"retired_tco2e":52348,"n":522,"first":"2016-08-22","last":"2022-03-25"}
@@ -5718,7 +5731,7 @@
 {"record_id":"VCS:1753","beneficiary":"SEAT","matched_by":"harmonized","retired_tco2e":200687,"n":1,"first":"2023-04-13","last":"2023-04-13"}
 {"record_id":"VCS:1753","beneficiary":"Shaw Industries","matched_by":"harmonized","retired_tco2e":148110,"n":7,"first":"2024-12-12","last":"2024-12-12"}
 {"record_id":"VCS:1753","beneficiary":"Toho Gas","matched_by":"harmonized","retired_tco2e":214200,"n":2,"first":"2024-01-05","last":"2024-01-05"}
-{"record_id":"VCS:1753","beneficiary":"Volkswagen","matched_by":"pattern","retired_tco2e":15000,"n":1,"first":"2025-10-16","last":"2025-10-16"}
+{"record_id":"VCS:1753","beneficiary":"Volkswagen Group","matched_by":"pattern","retired_tco2e":15000,"n":1,"first":"2025-10-16","last":"2025-10-16"}
 {"record_id":"VCS:1753","beneficiary":"Yamato Transport","matched_by":"harmonized","retired_tco2e":612429,"n":10,"first":"2023-10-18","last":"2024-11-26"}
 {"record_id":"VCS:1753","beneficiary":"ZIPAIR","matched_by":"harmonized","retired_tco2e":50000,"n":1,"first":"2025-01-22","last":"2025-01-22"}
 {"record_id":"VCS:1758","beneficiary":null,"matched_by":null,"retired_tco2e":314256,"n":23,"first":"2021-07-30","last":"2026-05-07"}
@@ -5847,7 +5860,8 @@
 {"record_id":"VCS:1805","beneficiary":"Brisbane City Council","matched_by":"harmonized","retired_tco2e":200000,"n":1,"first":"2023-09-14","last":"2023-09-14"}
 {"record_id":"VCS:1805","beneficiary":"Skoda","matched_by":"harmonized","retired_tco2e":648,"n":2,"first":"2024-08-05","last":"2025-02-12"}
 {"record_id":"VCS:1805","beneficiary":"Sydney Opera House","matched_by":"harmonized","retired_tco2e":2934,"n":1,"first":"2024-10-03","last":"2024-10-03"}
-{"record_id":"VCS:1805","beneficiary":"Volkswagen","matched_by":"pattern","retired_tco2e":2025227,"n":7,"first":"2022-12-14","last":"2026-04-13"}
+{"record_id":"VCS:1805","beneficiary":"Volkswagen","matched_by":"harmonized","retired_tco2e":2004980,"n":5,"first":"2022-12-14","last":"2023-02-01"}
+{"record_id":"VCS:1805","beneficiary":"Volkswagen Group","matched_by":"pattern","retired_tco2e":20247,"n":2,"first":"2026-02-04","last":"2026-04-13"}
 {"record_id":"VCS:1805","beneficiary":"Yamato Transport","matched_by":"harmonized","retired_tco2e":81117,"n":1,"first":"2024-10-22","last":"2024-10-22"}
 {"record_id":"VCS:1805","beneficiary":"easyJet","matched_by":"harmonized","retired_tco2e":673926,"n":3,"first":"2022-05-03","last":"2022-07-26"}
 {"record_id":"VCS:1806","beneficiary":null,"matched_by":null,"retired_tco2e":9909,"n":3,"first":"2026-04-07","last":"2026-05-26"}
@@ -7136,7 +7150,7 @@
 {"record_id":"VCS:513","beneficiary":"Spotify","matched_by":"harmonized","retired_tco2e":4,"n":1,"first":"2025-10-09","last":"2025-10-09"}
 {"record_id":"VCS:513","beneficiary":"ToucanToucan","matched_by":"harmonized","retired_tco2e":909247,"n":16,"first":"2021-10-18","last":"2021-12-22"}
 {"record_id":"VCS:513","beneficiary":"Turo","matched_by":"harmonized","retired_tco2e":139996,"n":3,"first":"2023-12-22","last":"2023-12-22"}
-{"record_id":"VCS:513","beneficiary":"Volkswagen","matched_by":"pattern","retired_tco2e":3,"n":1,"first":"2023-03-13","last":"2023-03-13"}
+{"record_id":"VCS:513","beneficiary":"Volkswagen Group","matched_by":"pattern","retired_tco2e":3,"n":1,"first":"2023-03-13","last":"2023-03-13"}
 {"record_id":"VCS:513","beneficiary":"Zukunftswerk","matched_by":"harmonized","retired_tco2e":8955,"n":43,"first":"2020-12-08","last":"2025-09-18"}
 {"record_id":"VCS:514","beneficiary":null,"matched_by":null,"retired_tco2e":177054,"n":18,"first":"2013-12-13","last":"2026-04-29"}
 {"record_id":"VCS:514","beneficiary":"Delta Airlines","matched_by":"harmonized","retired_tco2e":5000,"n":1,"first":"2017-05-11","last":"2017-05-11"}
@@ -7744,7 +7758,7 @@
 {"record_id":"VCS:875","beneficiary":"Stadtwerke Soest","matched_by":"harmonized","retired_tco2e":11290,"n":1,"first":"2016-04-20","last":"2016-04-20"}
 {"record_id":"VCS:875","beneficiary":"Städtische Werke","matched_by":"harmonized","retired_tco2e":114,"n":1,"first":"2017-05-17","last":"2017-05-17"}
 {"record_id":"VCS:875","beneficiary":"ToucanToucan","matched_by":"harmonized","retired_tco2e":861257,"n":28,"first":"2021-10-18","last":"2022-02-24"}
-{"record_id":"VCS:875","beneficiary":"Volkswagen","matched_by":"pattern","retired_tco2e":3,"n":1,"first":"2013-08-23","last":"2013-08-23"}
+{"record_id":"VCS:875","beneficiary":"Volkswagen Group","matched_by":"pattern","retired_tco2e":3,"n":1,"first":"2013-08-23","last":"2013-08-23"}
 {"record_id":"VCS:875","beneficiary":"Zukunftswerk","matched_by":"harmonized","retired_tco2e":20493,"n":32,"first":"2016-01-20","last":"2016-11-28"}
 {"record_id":"VCS:876","beneficiary":null,"matched_by":null,"retired_tco2e":30196,"n":6,"first":"2018-01-08","last":"2025-11-05"}
 {"record_id":"VCS:876","beneficiary":"ToucanToucan","matched_by":"harmonized","retired_tco2e":32164,"n":1,"first":"2021-11-09","last":"2021-11-09"}
@@ -8001,7 +8015,7 @@
 {"record_id":"VCS:977","beneficiary":"Kering","matched_by":"harmonized","retired_tco2e":20000,"n":5,"first":"2015-04-23","last":"2016-07-29"}
 {"record_id":"VCS:977","beneficiary":"Reforest’Action clients","matched_by":"harmonized","retired_tco2e":55030,"n":13,"first":"2021-10-25","last":"2021-11-19"}
 {"record_id":"VCS:977","beneficiary":"Takeda Pharmaceutical Company","matched_by":"harmonized","retired_tco2e":1500000,"n":4,"first":"2020-06-12","last":"2020-06-12"}
-{"record_id":"VCS:977","beneficiary":"Volkswagen","matched_by":"pattern","retired_tco2e":1,"n":1,"first":"2025-10-15","last":"2025-10-15"}
+{"record_id":"VCS:977","beneficiary":"Volkswagen Group","matched_by":"pattern","retired_tco2e":1,"n":1,"first":"2025-10-15","last":"2025-10-15"}
 {"record_id":"VCS:977","beneficiary":"WEX","matched_by":"harmonized","retired_tco2e":381403,"n":7,"first":"2020-12-21","last":"2021-06-21"}
 {"record_id":"VCS:98","beneficiary":null,"matched_by":null,"retired_tco2e":315553,"n":35,"first":"2013-05-24","last":"2026-05-07"}
 {"record_id":"VCS:981","beneficiary":null,"matched_by":null,"retired_tco2e":5629402,"n":10080,"first":"2015-02-10","last":"2026-05-25"}
