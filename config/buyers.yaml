@@ -124,6 +124,12 @@ buyers:
     retirement_patterns: ['\bStripe, Inc\b']
   - name: Frontier
     aliases: [Frontier buyers, Frontier Climate]
+  - name: Milkywire
+    aliases: [Milkywire (Salesforce-backed), Milkywire (Climate Transformation Fund)]
+  - name: Boston Consulting Group
+    aliases: [BCG, Boston Consulting Group (via ClimeFi)]
+  - name: Klimate
+    aliases: [Klimate.co]
     retirement_patterns: ['(?i)\bfrontier climate\b']
   - name: TD Bank Group
     aliases: [TD Securities, TD Bank]
