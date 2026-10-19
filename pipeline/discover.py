@@ -39,6 +39,39 @@ def summarize_html(text: str) -> str:
             + "\n\nBODY (first 300 KB):\n" + text[:300_000])
 
 
+def summarize_zip(data: bytes, rows: int = 8) -> str:
+    """Members of a zip; for CSV members: header, first rows, row count and (if present) value counts of a few columns."""
+    import collections
+    import csv
+    import zipfile
+
+    z = zipfile.ZipFile(io.BytesIO(data))
+    parts = [f"{i.filename} {i.file_size} bytes" for i in z.infolist()]
+    for i in z.infolist():
+        if not i.filename.endswith(".csv"):
+            continue
+        with z.open(i) as f:
+            rd = csv.reader(io.TextIOWrapper(f, encoding="utf-8", errors="replace"))
+            head = next(rd)
+            parts.append(f"=== {i.filename}\nHEADER: {head}")
+            counts = {c: collections.Counter() for c in ("transaction_type", "registry") if c in head}
+            ids = collections.Counter()
+            n = 0
+            for row in rd:
+                n += 1
+                if n <= rows:
+                    parts.append("r: " + " | ".join(v[:60] for v in row))
+                for c in counts:
+                    counts[c][row[head.index(c)]] += 1
+                if "project_id" in head and n % 50 == 0:
+                    ids[re.sub(r"\d+", "#", row[head.index("project_id")])] += 1
+            parts.append(f"ROWS: {n}")
+            for c, ctr in counts.items():
+                parts.append(f"COUNTS {c}: {ctr.most_common(20)}")
+            parts.append(f"PROJECT_ID PATTERNS: {ids.most_common(20)}")
+    return "\n".join(parts)
+
+
 def main(urls: list[str]) -> None:
     OUT.mkdir(parents=True, exist_ok=True)
     client = PoliteClient(timeout=180)
@@ -63,6 +96,8 @@ def main(urls: list[str]) -> None:
             elif url.split("?")[0].endswith(".js") or "javascript" in ctype:
                 strings = sorted(set(re.findall(r'["\'`]([^"\'`\s]{0,200}(?:api|public|/v\d/)[^"\'`\s]{0,200})["\'`]', r.text)))
                 body = "JS STRINGS mentioning api/public:\n" + "\n".join(strings[:3000]) + "\n\nFULL JS:\n" + r.text[:8_000_000]
+            elif url.split("?")[0].endswith(".zip") or "zip" in ctype:
+                body = summarize_zip(r.content)
             elif url.endswith((".xlsx", ".xlsm")) or "spreadsheet" in ctype:
                 body = summarize_xlsx(r.content)
             else:
