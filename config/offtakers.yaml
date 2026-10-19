@@ -204,7 +204,7 @@ offtakes:
   - record: ISO:prj_1H502CZZH1S0VMYW
     buyer: Frontier buyers
     volume_tco2e: 115211
-    date: '2025-08-28'
+    date: '2025-08-26'
     source_url: https://betakit.com/frontier-signs-43-3-million-cad-carbon-removal-deal-with-planetary/
     source_title: Frontier signs $43.3-million CAD carbon removal deal with Planetary (Nova Scotia)
   - record: GS:12135
@@ -906,6 +906,32 @@ offtakes:
     source_url: https://carbonherald.com/in-a-new-deal-nextgen-opts-in-for-exomad-green-biochar-offsets-certified-by-carbonfuture/
     source_title: In A New Deal, NextGen Purchases Biochar Removals From Exomad Green With dMRV By Carbonfuture (Carbon Herald)
     note: Volume 36,000 t from CDR.fyi Dec 2024 recap ('signed a multi-year offtake agreement with Bolivia-based biochar producer'); Carbon Herald gives no volume.
+  - record: VCS:5525
+    buyer: Shopify
+    volume_tco2e: 10000
+    date: '2021-03-09'
+    source_url: https://carbonherald.com/carbon-engineering-strikes-carbon-removal-deal-shopify/
+    source_title: Carbon Engineering Strikes A Carbon Removal Deal With Shopify (Carbon Herald)
+    note: Article says the supplying facility is in Texas; announced 9 Mar 2021, article 11 Mar 2021.
+  - record: VCS:4993
+    buyer: Shopify
+    volume_tco2e: 45000
+    date: '2024-04-05'
+    source_url: https://carbonherald.com/pachama-lands-carbon-credit-purchase-by-shopify-in-brazil/
+    source_title: Pachama Lands Carbon Credit Purchase By Shopify In Brazil (Carbon Herald)
+    note: ~200 ha reforestation; registry not stated.
+  - record: PURO:631817
+    buyer: Stripe
+    date: '2023-01-13'
+    source_url: https://carbonherald.com/climeworks-delivers-the-first-carbon-removals-to-corporate-customers/
+    source_title: Climeworks Delivers First Verified Carbon Removals To Corporate Customers (Carbon Herald)
+    note: Delivery (DNV-certified) of credits from earlier Climeworks deals; tonnage not disclosed.; retirement disclosed by the buyer
+  - record: PURO:631817
+    buyer: Shopify
+    date: '2023-01-13'
+    source_url: https://carbonherald.com/climeworks-delivers-the-first-carbon-removals-to-corporate-customers/
+    source_title: Climeworks Delivers First Verified Carbon Removals To Corporate Customers (Carbon Herald)
+    note: Delivery (DNV-certified) of credits from earlier Climeworks deals; tonnage not disclosed.; retirement disclosed by the buyer
 announced_rows:
   - id: ANN:varaha-biochar-ind
     name: Varaha — biochar carbon removal (supplier-level deals)
@@ -1344,6 +1370,12 @@ announced_rows:
         source_url: https://carbonherald.com/bcg-ranks-among-top-10-cdr-buyers-with-a-new-purchase-deal-with-climefi/
         source_title: BCG Ranks Among Top 10 CDR Buyers With A New Purchase Deal With ClimeFi (Carbon Herald)
         note: 50,250 t total across six suppliers via ClimeFi; no split. Countries not in the article (Exomad Bolivia, Lithos/Graphyte US, O.C.O UK from other sources).
+      - buyer: Supercritical
+        volume_tco2e: 25000
+        date: 2025-08
+        source_url: https://www.cdr.fyi/blog/cdr-monthly-recap-august-2025
+        source_title: 'Durable CDR Market Recap: August 2025 (CDR.fyi)'
+        note: Supercritical is the sales channel; end buyer not named. Recap also cites Exomad's Riberalta facility (Bolivia). Possibly part of the 130k Supercritical distribution deal already listed.
   - id: ANN:terradot-rice-bra
     name: "Terradot — rice methane elimination, Rio Grande do Sul"
     developer: Terradot
@@ -1504,6 +1536,8 @@ announced_rows:
         source_url: https://frontierclimate.com/writing/exergi
         source_title: Frontier buyers sign $48.6M in offtake agreements with Stockholm Exergi, in first large European deal
         note: 'Tonnage not disclosed: ''The exact volume of tons going to Frontier buyers, and the price per ton, will be announced''.'
+        volume_tco2e: 179998
+        volume_source: https://frontierclimate.com/portfolio
       - buyer: City of Stockholm
         volume_tco2e: 750000
         date: '2026-05-27'
@@ -1585,6 +1619,11 @@ announced_rows:
         source_url: https://news.microsoft.com/de-ch/2024/02/14/neustark-to-deliver-high-quality-carbon-removal-in-a-multi-year-offtake-agreement-with-microsoft/
         source_title: Neustark to deliver high-quality carbon removal in a multi-year offtake agreement with Microsoft
         note: 'Date taken from the URL path. Plants are in Switzerland and Germany: ''14 carbon removal and storage plants in operation in Switzerland and Germany''.'
+      - buyer: Verdane
+        date: '2022-04-12'
+        source_url: https://carbonherald.com/verdane-to-use-climeworks-heirloom-carbon-removals-to-achieve-net-zero/
+        source_title: Verdane To Use Climeworks, Heirloom Carbon Removals To Achieve Net Zero (Carbon Herald)
+        note: Same Verdane purchase ('several thousand tons' total). neustark location not stated in the article; neustark operates in Switzerland/Germany.
   - id: ANN:undo-erw-gbr
     name: UNDO — enhanced rock weathering, UK farmland
     developer: UNDO
@@ -2369,6 +2408,12 @@ announced_rows:
         date: '2023-06-21'
         source_url: https://carbonherald.com/bcg-and-carboncapture-sign-40000-ton-co2-removal-credit-deal/
         source_title: BCG And CarbonCapture Inc Sign 40,000-Ton CO2 Removal Credit Deal (Carbon Herald)
+      - buyer: Frontier
+        volume_tco2e: 45500
+        date: '2023-11-16'
+        source_url: https://frontierclimate.com/writing/carboncapture-heirloom
+        source_title: Frontier buyers sign $47M in offtake agreements with CarbonCapture Inc. and Heirloom
+        note: "Members: Stripe, Alphabet, Shopify, Meta, McKinsey Sustainability, Autodesk, H&M Group, JPMorgan Chase, Workday; Watershed customers via Frontier: Aledade, Boom Supersonic, Canva, SKIMS, Wise, Zendesk. Site not named ('next commercial facility'); CarbonCapture is US-based. CarbonCapture no longer appears on Frontier's portfolio page."
   - id: ANN:lithoscarbon-erw-usa
     name: Lithos Carbon (supplier-level deal)
     developer: Lithos Carbon
@@ -2387,12 +2432,17 @@ announced_rows:
         source_url: https://carbonherald.com/lithos-carbon-renews-carbon-removal-deal-with-microsoft/
         source_title: Lithos Carbon Renews Carbon Removal Deal With Microsoft (Carbon Herald)
         note: over 11,400 t; three-year agreement (return customer)
-      - buyer: Climeworks
-        volume_tco2e: 3500000
-        date: '2026-03-25'
-        source_url: https://carbonherald.com/climeworks-and-lithos-carbon-team-up-to-bring-verified-erw-credits-to-market/
-        source_title: Climeworks And Lithos Carbon Team Up To Bring Verified ERW Credits To Market (Carbon Herald)
-        note: Article calls Climeworks 'the single largest offtaker in the category of ERW credits' and attributes the 3.5 Mt to a 2023 agreement; the buyer of that 2023 agreement is not explicit in the fetched text. Treat with care.
+      - buyer: Frontier
+        volume_tco2e: 640
+        date: '2022-06-29'
+        source_url: https://frontierclimate.com/writing/spring-2022-purchases
+        source_title: Frontier facilitates first carbon removal purchases
+        note: "Buyer per source: Stripe ('Stripe will spend $2.4M buying carbon removal from these six companies'). Location is the one Frontier lists (may be company HQ)."
+      - buyer: Boston Consulting Group (via ClimeFi)
+        date: '2024-12-16'
+        source_url: https://carbonherald.com/bcg-ranks-among-top-10-cdr-buyers-with-a-new-purchase-deal-with-climefi/
+        source_title: BCG Ranks Among Top 10 CDR Buyers With A New Purchase Deal With ClimeFi (Carbon Herald)
+        note: 50,250 t total across six suppliers via ClimeFi; no split. Countries not in the article (Exomad Bolivia, Lithos/Graphyte US, O.C.O UK from other sources).
   - id: ANN:carbonstreamingcorpo-biochar-usa
     name: Carbon Streaming Corporation — Waverly Biochar project
     developer: Carbon Streaming Corporation
@@ -2431,6 +2481,11 @@ announced_rows:
         source_url: https://carbonherald.com/eion-secures-a-deal-with-microsoft-and-locks-in-3m-in-extended-series-a-funding/
         source_title: Eion Secures A Deal With Microsoft And Locks In $3M In Extended Series A Funding (Carbon Herald)
         note: 5-year; olivine on mid-Atlantic US farmland (Eion since acquired by Terradot)
+      - buyer: Stripe
+        date: '2023-11-17'
+        source_url: https://carbonherald.com/eion-makes-first-delivery-of-enhanced-rock-weathering-carbon-removal-to-stripe/
+        source_title: Eion Makes First Delivery Of Enhanced Rock Weathering Carbon Removal To Stripe (Carbon Herald)
+        note: Original purchase date and tonnage not stated; first 50 t delivered; Stripe made an additional ~$1M purchase. Location not stated (Eion operates in the US).
   - id: ANN:ebbcarbon-other-usa
     name: Ebb Carbon (supplier-level deal)
     developer: Ebb Carbon
@@ -2483,6 +2538,12 @@ announced_rows:
         source_url: https://www.datacenterdynamics.com/en/news/microsoft-signs-23602-ton-carbon-removal-deal-with-wastewater-alkalinity-enhancement-firm-crew/
         source_title: Microsoft signs 23,602-ton carbon removal deal with wastewater alkalinity enhancement firm Crew (DCD)
         note: up to; wastewater alkalinity enhancement (no exact credit_type)
+      - buyer: Frontier
+        volume_tco2e: 71878
+        date: '2024-12-17'
+        source_url: https://frontierclimate.com/writing/co280-crew
+        source_title: Frontier buyers sign $80M in offtake agreements with CO280 and CREW Carbon
+        note: 'Members: Stripe, Google, Shopify, McKinsey Sustainability, Autodesk, H&M Group, Workday, Salesforce; Watershed customers via Frontier: Aledade, Canva, Match Group, Samsara, SKIMS, Skyscanner, Wise, Zendesk. Wastewater alkalinity enhancement; sites not named (CREW is New Haven, US-based).'
   - id: ANN:greendiamond-ifm-usa
     name: Green Diamond — Klamath East and West IFM
     developer: Green Diamond
@@ -2966,6 +3027,11 @@ announced_rows:
         source_url: https://carbonherald.com/planetary-issues-the-first-ever-oae-carbon-credits-verified-by-isometric/
         source_title: Planetary Issues The First-Ever OAE Carbon Credits, Verified By Isometric (Carbon Herald)
         note: 625.6 credits issued in total for Stripe, Shopify and British Airways; split not given; ocean alkalinity enhancement (Isometric)
+      - buyer: Shopify
+        date: 2025-01
+        source_url: https://www.cdr.fyi/blog/cdr-monthly-recap-january-2025
+        source_title: 'Durable CDR Market Recap: January 2025 (CDR.fyi)'
+        note: Volumes not disclosed per supplier (Mati 5,000 t per CDR.fyi deal alert 2025-01-18, already listed). Countries not stated in the recap (MASH Makes operates in India; Planetary in Nova Scotia).
   - id: ANN:freres-biochar-usa
     name: Freres — Freres Biochar Project, Oregon (offered via CO2llaborate)
     developer: Freres
@@ -3144,3 +3210,130 @@ announced_rows:
         source_url: https://carbonherald.com/milkywire-catalyzes-cdr-with-15-new-purchases-and-3-grants/
         source_title: Milkywire Catalyzes CDR With 15 New Purchases And 3 Grants (Carbon Herald)
         note: 'Article lists 18 selected companies: 15 CDR purchase agreements and 3 grants (Backwater, remove, Silicate/Northwestern). This supplier is among the 15 purchases (by elimination). Volume, method and country not stated per supplier; countries filled only where another fetched source states them. Planboo/Carboneers (Ghana) is the 15th, see separate row. CTF backers: Klarna, Spotify, Bolt, Avanza and others.'
+  - id: ANN:arca-mineralization-can
+    name: Arca (supplier-level deal)
+    developer: Arca
+    countries:
+      - CAN
+    l2: mineralization
+    offtakes:
+      - buyer: Frontier
+        volume_tco2e: 380
+        date: '2022-12-15'
+        source_url: https://frontierclimate.com/writing/fall-2022-purchases
+        source_title: Frontier facilitates second round of carbon removal purchases
+        note: "Buyers per source: 'Stripe and Shopify will spend a combined $3.5M buying carbon removal'. Location is the one Frontier lists (may be HQ). Australia is out of scope; Canada part in scope; no split."
+  - id: ANN:alkaliearth-mineralization-usa
+    name: Alkali Earth (supplier-level deal)
+    developer: Alkali Earth
+    countries:
+      - USA
+    l2: mineralization
+    offtakes:
+      - buyer: Frontier
+        volume_tco2e: 1351
+        date: '2023-09-07'
+        source_url: https://frontierclimate.com/writing/fall-2023-purchases
+        source_title: Frontier facilitates third round of carbon removal purchases
+        note: 'Buyers per source: Stripe, Shopify and H&M Group ($7M from 12 companies). Location is the one Frontier lists (may be HQ). Carbon-storing road gravel from industrial by-products.'
+  - id: ANN:alithic-dac-usa
+    name: Alithic (supplier-level deal)
+    developer: Alithic
+    countries:
+      - USA
+    l2: dac
+    offtakes:
+      - buyer: Frontier
+        volume_tco2e: 285
+        date: '2024-09-18'
+        source_url: https://frontierclimate.com/writing/fall-2024-prepurchases
+        source_title: Frontier facilitates fourth round of carbon removal prepurchases
+        note: Round total $4.5M from 9 companies. Location is the one Frontier lists (may be HQ).
+  - id: ANN:limenet-other-ita
+    name: Limenet (supplier-level deal)
+    developer: Limenet
+    countries:
+      - ITA
+    l2: other
+    offtakes:
+      - buyer: Frontier
+        volume_tco2e: 330
+        date: '2025-07-14'
+        source_url: https://frontierclimate.com/writing/summer-2025-prepurchases
+        source_title: Frontier boosts ocean liming and surficial mineralization startups in fifth round of prepurchases
+        note: 'Round of $1.75M; buyers named on the page: Stripe, Shopify and Google (no per-supplier split). Location is the one Frontier lists.'
+  - id: ANN:pronoe-other-fra
+    name: PRONOE (supplier-level deal)
+    developer: PRONOE
+    countries:
+      - FRA
+    l2: other
+    offtakes:
+      - buyer: Frontier
+        volume_tco2e: 333
+        date: '2026-01-14'
+        source_url: https://carbonherald.com/cella-and-pronoe-secure-prepurchase-deals-with-frontier-buyers/
+        source_title: Cella And PRONOE Secure Prepurchase Deals With Frontier Buyers (Carbon Herald)
+        note: "Buyers: Google, Stripe, Shopify. Tonnage from Frontier portfolio ('PRONOE | Marine carbon removal | Paris, France | Prepurchase (2025) | 333'). Land-based OAE at a desalination plant."
+  - id: ANN:brineworks-dac-nld
+    name: Brineworks (supplier-level deal)
+    developer: Brineworks
+    countries:
+      - NLD
+    l2: dac
+    offtakes:
+      - buyer: Milkywire (Salesforce-backed)
+        volume_tco2e: 500
+        date: '2026-09-29'
+        source_url: https://carbonherald.com/milkywire-completes-eight-new-durable-cdr-pre-purchases-backed-by-salesforce/
+        source_title: Milkywire Completes Eight New Durable CDR Pre-Purchases Backed By Salesforce (Carbon Herald)
+        note: One of eight Salesforce-backed pre-purchases totalling 3,661 t. Tonnage per supplier from the article.
+  - id: ANN:inplanet-other-bra
+    name: InPlanet (supplier-level deal)
+    developer: InPlanet
+    countries:
+      - BRA
+    l2: other
+    offtakes:
+      - buyer: Milkywire (Climate Transformation Fund)
+        date: '2025-06-27'
+        source_url: https://carbonherald.com/milkywire-catalyzes-cdr-with-15-new-purchases-and-3-grants/
+        source_title: Milkywire Catalyzes CDR With 15 New Purchases And 3 Grants (Carbon Herald)
+        note: 'Article lists 18 selected companies: 15 CDR purchase agreements and 3 grants (Backwater, remove, Silicate/Northwestern). This supplier is among the 15 purchases (by elimination). Volume, method and country not stated per supplier; countries filled only where another fetched source states them. Planboo/Carboneers (Ghana) is the 15th, see separate row. CTF backers: Klarna, Spotify, Bolt, Avanza and others.'
+  - id: ANN:chestnutcarbon-ifm-usa
+    name: Chestnut Carbon (supplier-level deal)
+    developer: Chestnut Carbon
+    countries:
+      - USA
+    l2: ifm
+    offtakes:
+      - buyer: TD Bank
+        date: '2025-11-05'
+        source_url: https://carbonherald.com/chestnut-carbon-secures-carbon-credit-sale-with-td-bank/
+        source_title: Chestnut Carbon Secures Carbon Credit Sale With TD Bank (Carbon Herald)
+        note: Volume not stated; Chestnut partners with landowners in 37 US states.
+  - id: ANN:brilliantplanet-biomass_storage-mar
+    name: Brilliant Planet (supplier-level deal)
+    developer: Brilliant Planet
+    countries:
+      - MAR
+    l2: biomass_storage
+    offtakes:
+      - buyer: Block (via Watershed marketplace)
+        volume_tco2e: 1500
+        date: '2023-07-26'
+        source_url: https://carbonherald.com/brilliant-planet-lands-first-large-scale-carbon-removal-deal-via-watershed-marketplace/
+        source_title: Brilliant Planet Lands First Large-Scale Carbon Removal Deal Via Watershed Marketplace (Carbon Herald)
+        note: Algae cultivation and burial; facilitated through Watershed's marketplace.
+  - id: ANN:euthenia-biochar-esp
+    name: Euthenia — Olive-grove waste biochar, Andalusia
+    developer: Euthenia
+    countries:
+      - ESP
+    l2: biochar
+    offtakes:
+      - buyer: EcoVadis (via Supercritical)
+        date: '2025-04-09'
+        source_url: https://carbonherald.com/ecovadis-invests-in-euthenia-biochar-carbon-credits-via-supercritical/
+        source_title: EcoVadis Invests In Euthenia Biochar Carbon Credits Via Supercritical (Carbon Herald)
+        note: Volume not stated.
