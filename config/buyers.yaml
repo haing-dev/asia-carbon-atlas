@@ -53,6 +53,7 @@ buyers:
     aliases: [ANA, All Nippon Airways]
     retirement_patterns: ['(?i)\ball nippon airways\b']
   - name: Japan Airlines
+    aliases: [ZIPAIR Tokyo (JAL group)]
     retirement_patterns: ['(?i)\bjapan airlines\b']
   - name: Kering
     aliases: [Gucci, Gucci (Kering), PPR (now Kering), Saint Laurent, Bottega Veneta, Balenciaga]
@@ -103,7 +104,12 @@ buyers:
     aliases: [ITOCHU]
     retirement_patterns: ['(?i)\bitochu\b']
   - name: Marubeni
+    aliases: [Marubeni Corporation]
     retirement_patterns: ['(?i)\bmarubeni\b']
+  - name: NYK Line
+    aliases: [NYK Line (NYK Group), NYK]
+  - name: Mitsui O.S.K. Lines (MOL)
+    aliases: [MOL, Mitsui O.S.K. Lines]
   - name: INPEX
     retirement_patterns: ['\bINPEX\b']
   - name: Trafigura

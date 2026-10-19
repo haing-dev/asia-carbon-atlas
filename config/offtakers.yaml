@@ -25,16 +25,20 @@ buyer_splits:
 offtakes:
   - record: VCS:4811
     buyer: Microsoft
-    volume_tco2e: 1500000
+    volume_tco2e: 1691553
     date: 2025-03-07
     source_url: https://carboncredits.com/microsoft-and-climate-impact-partners-reveal-biggest-carbon-removal-deal-in-asia/
     source_title: Microsoft and Climate Impact Partners Reveal Biggest Carbon Removal Deal in Asia
+    volume_source: https://cdn-dynmedia-1.microsoft.com/is/content/microsoftcorp/microsoft/msc/documents/presentations/CSR/Updating-our-Carbon-Removal-Portfolio.pdf
+    note: "Press: 1.5M; Microsoft's own portfolio (Jan 2026) lists 1,691,553 t over 26 years."
   - record: VCS:2250
     buyer: Microsoft
+    volume_tco2e: 10000
     date: 2022-03-10
-    shared_volume_tco2e: 3000000  # 'could see up to three million carbon credits traded' across the four named buyers
     source_url: https://www.trafigura.com/press-releases/landmark-carbon-transaction-marks-turning-point-for-global-blue-carbon-market/
     source_title: Landmark carbon transaction marks turning point for global blue carbon market (Trafigura)
+    volume_source: https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE4QO0D
+    note: Microsoft's FY22 carbon removal report lists 10,000 t contracted from Delta Blue Carbon (the Trafigura release's 3M is for all buyers).
   - record: VCS:2250
     buyer: Carbon Growth Partners
     date: 2022-03-10
@@ -165,10 +169,10 @@ offtakes:
     source_title: 1PointFive and TD announce DAC carbon removal credit purchase
   - record: ISO:prj_1HCHT9G2H1S05MYP
     buyer: Microsoft
-    volume_tco2e: 10000
     date: '2024-11-15'
-    source_url: https://datacenterdynamics.com/en/news/microsoft-to-purchase-10000-tons-of-dac-credits-from-deep-sky
-    source_title: Microsoft to purchase 10,000 tons of DAC credits from Deep Sky (Alberta)
+    source_url: https://carbonherald.com/deep-sky-sells-10000-carbon-removal-credits-to-microsoft-and-royal-bank-of-canada/
+    source_title: Deep Sky sells 10,000 carbon removal credits to Microsoft and Royal Bank of Canada (Carbon Herald)
+    shared_volume_tco2e: 10000
   - record: ISO:prj_1J4P33N6W1S0RKE2
     buyer: American Airlines
     volume_tco2e: 10000
@@ -253,10 +257,10 @@ offtakes:
     note: Source names CarbonRun's first Nova Scotia site; CarbonRun has one registry project.
   - record: ISO:prj_1HCHT9G2H1S05MYP
     buyer: RBC
-    volume_tco2e: 10000
     date: '2024-11-14'
-    source_url: https://esgpost.com/microsoft-rbc-to-purchase-carbon-removal-credits-from-deep-sky/
-    source_title: Microsoft & RBC to purchase carbon removal credits from Deep Sky (Alberta)
+    source_url: https://carbonherald.com/deep-sky-sells-10000-carbon-removal-credits-to-microsoft-and-royal-bank-of-canada/
+    source_title: Deep Sky sells 10,000 carbon removal credits to Microsoft and Royal Bank of Canada (Carbon Herald)
+    shared_volume_tco2e: 10000
   - record: ISO:prj_1HCHT9G2H1S05MYP
     buyer: TD Bank Group
     volume_tco2e: 18000
@@ -686,6 +690,105 @@ offtakes:
     source_url: https://corporate.visa.com/content/dam/VCOM/corporate/about-visa/documents/fy24-ab1305-voluntary-carbon-markets-disclosure-act-visa-usa-inc.pdf
     source_title: FY24 AB1305 Voluntary Carbon Markets Disclosure (Visa U.S.A. Inc.)
     note: units listed for FY2024 claims (disclosure as of 2026-01-01); China project VCS2458 in the same list is out of scope; retirement disclosed by the buyer
+  - record: VCS:5525
+    buyer: NYK Line (NYK Group)
+    date: '2025-09-18'
+    source_url: https://www.rigzone.com/news/nyk_increases_co2_credits_purchase_from_occidental-19-sep-2025-181852-article/
+    source_title: 'NYK Increases CO2 Credits Purchase from Occidental (Rigzone, 2025-09-19); primary: https://www.nyk.com/english/news/2025/20250918_01.html'
+    note: volume not disclosed; NYK's second Stratos agreement (first was via ENEOS, Dec 2024)
+  - record: VCS:5525
+    buyer: NYK Line (NYK Group)
+    date: '2024-12-18'
+    source_url: https://www.nyk.com/english/news/2024/20241218_01.html
+    source_title: NYK and ENEOS Sign Agreement for Sale and Purchase of Marine Fuel with CDR Credits Created Through DACCS
+    note: volume not disclosed; marine fuel bundled with CDR credits, five years from 2028; MOU signed 2024-12-11
+  - record: PURO:511285
+    buyer: Microsoft
+    volume_tco2e: 1000
+    date: 2021-01
+    source_url: https://cdn-dynmedia-1.microsoft.com/is/content/microsoftcorp/microsoft/final/en-us/microsoft-brand/documents/microsoft-carbon-removal-lessons-from-an-early-corporate-purchase-january-2021.pdf
+    source_title: 'Microsoft carbon removal: Lessons from an early corporate purchase (January 2021)'
+    note: FY21 portfolio; Southeast Germany
+  - record: PURO:432524
+    buyer: Microsoft
+    volume_tco2e: 32000
+    date: '2023-12-14'
+    source_url: https://carbonherald.com/carbonfuture-microsoft-sign-offtake-agreement-biochar-carbon-removal/
+    source_title: Carbonfuture And Microsoft Sign Offtake Agreement For Biochar Carbon Removal (Carbon Herald)
+    note: over 32,000 t, delivery by June 2024; separate from the May 2025 1.24 Mt deal
+  - record: ISO:prj_1HCHT9G2H1S05MYP
+    buyer: Microsoft
+    date: '2026-06-30'
+    source_url: https://carboncredits.com/microsoft-and-rbc-buy-north-americas-first-verified-direct-air-capture-dac-carbon-credits-from-canadas-deep-sky/
+    source_title: Microsoft and RBC Buy North America's First Verified DAC Carbon Credits From Canada's Deep Sky (Carbon Credits)
+    note: first certified DAC credits delivered to Microsoft and RBC (Isometric); delivered volume not stated; retirement disclosed by the buyer
+  - record: ACR:0199
+    buyer: Microsoft
+    volume_tco2e: 400000
+    date: 2022-03
+    source_url: https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE4QO0D
+    source_title: 'Microsoft Carbon Removal: An update with lessons learned in our second year (March 2022; FY22 newly contracted table)'
+    note: FY22 newly contracted
+  - record: VCS:5760
+    buyer: Microsoft
+    volume_tco2e: 147601
+    date: 2023-06
+    source_url: https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RW16V26
+    source_title: 'Microsoft Carbon Removal: Observations from our third year (June 2023; FY23 newly contracted table)'
+    note: FY23 newly contracted; Plan Vivo; 20-yr contracted durability
+  - record: ACR:0574
+    buyer: Microsoft
+    volume_tco2e: 40000
+    date: 2023-06
+    source_url: https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RW16V26
+    source_title: 'Microsoft Carbon Removal: Observations from our third year (June 2023; FY23 newly contracted table)'
+    note: FY23 newly contracted
+  - record: ACR:0282
+    buyer: Microsoft
+    volume_tco2e: 80000
+    date: '2024-08-01'
+    source_url: https://www.esgtoday.com/microsoft-purchases-80000-tons-of-carbon-removals-from-u-s-forest-management-project/
+    source_title: Microsoft Purchases 80,000 Tons of Carbon Removals from U.S. Forest Management Project (ESG Today)
+    note: press says 80,000 t; Microsoft Jan 2026 portfolio lists '3Degrees Blue Creek ... IFM 1 83,097' (signed FY24)
+  - record: ACR:0574
+    buyer: Microsoft
+    volume_tco2e: 26000
+    date: 2026-01
+    source_url: https://cdn-dynmedia-1.microsoft.com/is/content/microsoftcorp/microsoft/msc/documents/presentations/CSR/Updating-our-Carbon-Removal-Portfolio.pdf
+    source_title: Updating our Carbon Removal Portfolio (Microsoft, January 2026; FY24-FY26 contracted tables)
+    note: signed FY25 (Jul 2024-Jun 2025); 1-yr tenor
+  - record: VCS:5351
+    buyer: Microsoft
+    volume_tco2e: 1800000
+    date: '2026-03-04'
+    source_url: https://esgpost.com/rainforest-builder-signs-1-8m-carbon-removal-credit-offtake-with-microsoft/
+    source_title: Rainforest Builder signs 1.8m carbon removal credit offtake with Microsoft (ESG Post)
+    note: up to 1.8M over 15 years; Microsoft Jan 2026 portfolio lists 'Rainforest Builder Project Buffalo Low Sierra Leone ARR 15 1,815,000'
+  - record: VCS:674
+    buyer: Microsoft
+    date: '2014-02-12'
+    source_url: https://blogs.microsoft.com/green/2014/02/12/a-look-inside-microsofts-impact-on-biodiversity-through-offset-investments/
+    source_title: "A Look Inside: Microsoft's Impact on Biodiversity through Offset Investments (Microsoft Green Blog)"
+    note: volume not stated; retirement disclosed by the buyer
+  - record: VCS:674
+    buyer: Microsoft
+    date: '2015-04-16'
+    source_url: https://news.microsoft.com/features/3-years-in-microsofts-carbon-fee-is-improving-environments-creating-healthier-lives/
+    source_title: 3 years in, Microsoft's carbon fee is improving environments, creating healthier lives (Microsoft Stories)
+    note: volume not stated; retirement disclosed by the buyer
+  - record: VCS:1175
+    buyer: Microsoft
+    date: '2015-04-16'
+    source_url: https://news.microsoft.com/features/3-years-in-microsofts-carbon-fee-is-improving-environments-creating-healthier-lives/
+    source_title: 3 years in, Microsoft's carbon fee is improving environments, creating healthier lives (Microsoft Stories)
+    note: volume not stated; retirement disclosed by the buyer
+  - record: VCS:2250
+    buyer: Microsoft
+    volume_tco2e: 100000
+    date: 2023-06
+    source_url: https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RW16V26
+    source_title: 'Microsoft Carbon Removal: Observations from our third year (June 2023; FY23 newly contracted table)'
+    note: FY23 newly contracted (Jul 2022-Jun 2023); VCS; 60-yr contracted durability. Additional to the FY22 10,000 t.
 announced_rows:
   - id: ANN:varaha-biochar-ind
     name: Varaha — biochar carbon removal (supplier-level deals)
@@ -955,6 +1058,12 @@ announced_rows:
         source_url: https://www.cdr.fyi/blog/cdr-monthly-recap-august-2026
         source_title: 'Durable CDR Market Recap: August 2026 (CDR.fyi)'
         note: partnership with purchase of CDR credits; volume not stated. Buyer outside assigned list (insurer).
+      - buyer: Microsoft
+        volume_tco2e: 2000
+        date: 2021-01
+        source_url: https://cdn-dynmedia-1.microsoft.com/is/content/microsoftcorp/microsoft/final/en-us/microsoft-brand/documents/microsoft-carbon-removal-lessons-from-an-early-corporate-purchase-january-2021.pdf
+        source_title: 'Microsoft carbon removal: Lessons from an early corporate purchase (January 2021)'
+        note: FY21 portfolio; Oklahoma, US
   - id: ANN:livingcarbon-usa
     name: "Living Carbon — reforestation of Appalachian mine lands (supplier-level deal)"
     developer: Living Carbon
@@ -1040,10 +1149,12 @@ announced_rows:
     l2: arr
     offtakes:
       - buyer: Microsoft
-        volume_tco2e: 1600000
+        volume_tco2e: 1382312
         date: '2024-06-13'
         source_url: https://orrick.com/News/2024/06/Nature-Based-Carbon-Removal-Microsoft-Agrees-to-Panama-Reforestation-Deal
         source_title: Microsoft Agrees to Panama Reforestation Deal (Ponterra)
+        volume_source: https://cdn-dynmedia-1.microsoft.com/is/content/microsoftcorp/microsoft/msc/documents/presentations/CSR/Updating-our-Carbon-Removal-Portfolio.pdf
+        note: "Press: 1.6M; Microsoft's own portfolio (Jan 2026) lists 1,382,312 t over 30 years, with Rubicon and Carbon Streaming as co-suppliers."
   - id: ANN:exomad-bol
     name: "Exomad Green — biochar, Bolivia (supplier-level deal)"
     developer: Exomad Green
@@ -1071,6 +1182,12 @@ announced_rows:
         source_url: https://carbonherald.com/carbonfuture-signs-deal-with-swiss-re-for-70000-tonnes-of-biochar-removals-from-exomad-green/
         source_title: Carbonfuture Signs Deal With Swiss Re For 70,000 Tonnes Of Biochar Removals From Exomad Green
         note: "'at least'; 7-year contract signed with Carbonfuture"
+      - buyer: Mitsui O.S.K. Lines (MOL)
+        volume_tco2e: 2000
+        date: '2025-05-28'
+        source_url: https://www.lnews.jp/2025/05/r0528602.html
+        source_title: 商船三井／ボリビアのバイオ炭プロジェクトからCDRクレジットを受領・償却 (LNEWS)
+        note: 2,000 t received and retired; bought through NextGen CDR; retirement disclosed by the buyer
   - id: ANN:terradot-rice-bra
     name: "Terradot — rice methane elimination, Rio Grande do Sul"
     developer: Terradot
@@ -1325,6 +1442,12 @@ announced_rows:
         source_url: https://un-do.com/resources/case-studies/undo-becomes-microsofts-first-enhanced-rock-weathering-supplier/
         source_title: UNDO becomes Microsoft's first enhanced rock weathering supplier
         note: Supplier's own page. Corroborated by edie ('Microsoft turns to British farms...').
+      - buyer: Microsoft
+        volume_tco2e: 15000
+        date: '2024-09-24'
+        source_url: https://un-do.com/resources/blog/undo-signs-follow-on-enhanced-rock-weathering-carbon-removal-deal-with-microsoft/
+        source_title: UNDO Signs Follow-On Enhanced Rock Weathering Carbon Removal Deal with Microsoft
+        note: follow-on deal (2nd); UK basalt and Canadian wollastonite (Ontario)
   - id: ANN:climeworks-dac-isl
     name: Climeworks — direct air capture, Iceland (Orca/Mammoth)
     developer: Climeworks
@@ -1338,6 +1461,12 @@ announced_rows:
         source_url: https://www.geekwire.com/2022/heres-a-look-at-the-worlds-biggest-carbon-capture-site-which-just-signed-a-10-year-deal-with-microsoft/
         source_title: We visited the world's biggest carbon capture plant, which just signed a 10-year deal with Microsoft
         note: GeekWire ties the deal to the Iceland plant. DCD (same date) says 'remove 10,000 tons of carbon over a decade' but gives no country.
+      - buyer: Microsoft
+        volume_tco2e: 1400
+        date: 2021-01
+        source_url: https://cdn-dynmedia-1.microsoft.com/is/content/microsoftcorp/microsoft/final/en-us/microsoft-brand/documents/microsoft-carbon-removal-lessons-from-an-early-corporate-purchase-january-2021.pdf
+        source_title: 'Microsoft carbon removal: Lessons from an early corporate purchase (January 2021)'
+        note: FY21 portfolio; separate from the 2022 10-year 10,000 t deal
   - id: ANN:klim-soil-deu
     name: Klim — regenerative agriculture, Germany
     developer: Klim
@@ -1383,10 +1512,12 @@ announced_rows:
     l2: cookstoves
     offtakes:
       - buyer: TotalEnergies
+        volume_tco2e: 2500000
+        volume_source: https://www.qcintel.com/carbon/article/totalenergies-cookstoves-deal-offtakes-2-5m-carbon-credits-52871.html
         date: '2025-11-13'
         source_url: https://www.businesswire.com/news/home/20251113312524/en
         source_title: 'Rwanda : TotalEnergies Joins Forces with DelAgua to Bring Clean Cooking into 200,000 Households'
-        note: The 2.5 Mt figure is projected avoided emissions over 10 years, not a stated credit volume, so volume is left null. The caller may choose to use 2.5 Mt.
+        note: 'Quantum Commodity Intelligence: "TotalEnergies cookstoves deal offtakes 2.5m carbon credits" (10 years).'
   - id: ANN:cquest-cookstoves-afr
     name: C-Quest Capital — clean cookstoves (Malawi, Zambia, Zimbabwe, Mozambique, Uganda, Kenya)
     developer: C-Quest Capital
@@ -1615,6 +1746,12 @@ announced_rows:
         source_url: https://carboncredits.com/mercedes-amg-petronas-expands-carbon-removal-portfolio-to-accelerate-net-zero-push/
         source_title: Mercedes-AMG PETRONAS Expands Carbon Removal Portfolio to Accelerate Net Zero Push (CarbonCredits.com)
         note: 1,000-1,500 t/yr from 2027; term not stated so no total
+      - buyer: Microsoft
+        volume_tco2e: 425557
+        date: 2026-01
+        source_url: https://cdn-dynmedia-1.microsoft.com/is/content/microsoftcorp/microsoft/msc/documents/presentations/CSR/Updating-our-Carbon-Removal-Portfolio.pdf
+        source_title: Updating our Carbon Removal Portfolio (Microsoft, January 2026; FY24-FY26 contracted tables)
+        note: signed FY25; separate from Phase 1 (361,700) and the 'Megaton' 7,444,588 contract
   - id: ANN:firstclimate-blue_carbon-idn
     name: First Climate — Mangrove restoration project, Java (2,500+ ha)
     developer: First Climate
@@ -1652,6 +1789,12 @@ announced_rows:
         source_url: https://carboncredits.com/shell-to-buy-22500-biochar-removal-credits-from-the-next-150
         source_title: Shell to Buy 22,500 Biochar Removal Credits from The Next 150
         note: up to; 5-year agreement
+      - buyer: Microsoft
+        volume_tco2e: 95000
+        date: '2024-03-22'
+        source_url: https://www.datacenterdynamics.com/en/news/microsoft-buys-95000-tons-of-carbon-capture-credits-from-mexican-biochar-plant/
+        source_title: Microsoft buys 95,000 tons of carbon capture credits from Mexican biochar plant (DCD)
+        note: six-year purchase agreement
   - id: ANN:cquestcapital-buildings-ind
     name: C-Quest Capital — Project SHINE I (household LED efficiency)
     developer: C-Quest Capital
@@ -1676,6 +1819,12 @@ announced_rows:
         source_url: https://corporate.totalenergies.us/news/totalenergies-invests-sustainable-forestry-operations-preserve-sustainable-carbon-sinks
         source_title: TotalEnergies Invests in Sustainable Forestry Operations to Preserve Sustainable Carbon Sinks
         note: $100 million agreement; credit volume not stated
+      - buyer: Microsoft
+        volume_tco2e: 4800000
+        date: '2025-06-25'
+        source_url: https://www.esgtoday.com/microsoft-signs-deal-for-4-8-million-tons-of-carbon-removal-generated-through-improved-forest-management/
+        source_title: Microsoft Signs Deal for 4.8 Million Tons of Carbon Removal Generated Through Improved Forest Management (ESG Today)
+        note: 4.8M over 10 years. Microsoft's Jan 2026 portfolio lists these five Anew IFM projects (FY25) at 380,408 + 1,664,005 + 2,087,783 + 461,292 + 1,174,144 = 5,767,632 t
   - id: ANN:nativstate-ifm-usa
     name: NativState — 13 Improved Forest Management projects (~100,000 ha; ACR)
     developer: NativState
@@ -1817,6 +1966,12 @@ announced_rows:
         source_url: https://un-do.com/resources/case-studies/barclays-backs-undo-in-landmark-carbon-removal-deal/
         source_title: Barclays Backs UNDO in Landmark Carbon Removal Deal
         note: underwritten/insured by CFC
+      - buyer: Microsoft
+        volume_tco2e: 28900
+        date: '2025-10-21'
+        source_url: https://carbonherald.com/undo-and-microsoft-sign-new-cdr-deal-backed-by-novel-inlandsis-financing/
+        source_title: UNDO And Microsoft Sign New CDR Deal, Backed By Novel Inlandsis Financing (Carbon Herald)
+        note: third deal; delivery by 2036; Canadian farmland; brings Microsoft-UNDO total to 49,000 t
   - id: ANN:nellietechnologies-other-gbr
     name: Nellie Technologies (supplier-level deal)
     developer: Nellie Technologies
@@ -1867,6 +2022,12 @@ announced_rows:
         source_url: https://www.cdr.fyi/blog/cdr-monthly-recap-august-2026
         source_title: 'Durable CDR Market Recap: August 2026 (CDR.fyi)'
         note: first CDR purchase; volume not stated. Buyer outside assigned list (financial).
+      - buyer: Microsoft
+        volume_tco2e: 44000
+        date: '2025-04-25'
+        source_url: https://www.datacenterdynamics.com/en/news/microsoft-to-purchase-44000-tons-of-carbon-removal-credits-from-biochar-firm-carba/
+        source_title: Microsoft to purchase 44,000 tons of carbon removal credits from biochar firm Carba (DCD)
+        note: five years; Minnesota-based; biocarbon for landfill cover (pyrolysis + burial)
   - id: ANN:heartyculturevia3deg-biochar-ind
     name: Heartyculture (via 3Degrees) (supplier-level deal)
     developer: Heartyculture (via 3Degrees)
@@ -1942,3 +2103,548 @@ announced_rows:
         source_url: https://carbonherald.com/rubicon-carbon-to-provide-microsoft-with-2m-forestry-credits-from-ugandan-kijani-project/
         source_title: Rubicon Carbon To Provide Microsoft With 2M Forestry Credits From Ugandan Kijani Project
         note: multi-year, delivery by 2035; Rubicon Carbon is the seller (intermediary), Kijani Forestry operates the project
+  - id: ANN:japanblueeconomytech-blue_carbon-jpn
+    name: Japan Blue Economy Technology Research Association (JBE), J Blue Credit — Seagrass and tidal-flat restoration in Yokohama, Tokuyama-Kudamatsu Port (Shunan) and Hyogo Canal
+    developer: Japan Blue Economy Technology Research Association (JBE), J Blue Credit
+    countries:
+      - JPN
+    l2: blue_carbon
+    offtakes:
+      - buyer: Mitsui O.S.K. Lines (MOL)
+        volume_tco2e: 11
+        date: '2022-03-18'
+        source_url: https://www.ajot.com/news/mol-to-participate-in-j-blue-credit-carbon-offset
+        source_title: MOL to participate in J Blue Credit carbon offset (AJOT)
+        note: 11 t of 65 t issued in FY2021 round
+  - id: ANN:graphyteinc-biomass_storage-usa
+    name: Graphyte, Inc. — Loblolly (Arkansas)
+    developer: Graphyte, Inc.
+    countries:
+      - USA
+    l2: biomass_storage
+    offtakes:
+      - buyer: NYK Line (NYK Group)
+        date: '2026-06-04'
+        source_url: https://www.nyk.com/english/news/2026/20260604_1.html
+        source_title: NYK to Purchase CDR Credits from Graphyte
+        note: volume not disclosed
+  - id: ANN:mitsuico-ifm-jpn
+    name: Mitsui & Co. — forest management J-Credit projects (Hokkaido, Akita, Okayama)
+    developer: Mitsui & Co.
+    countries:
+      - JPN
+    l2: ifm
+    offtakes:
+      - buyer: NYK Line (NYK Group)
+        date: '2025-02-05'
+        source_url: https://www.nyk.com/english/news/2025/20250205.html
+        source_title: NYK Concludes Purchase Agreement for J-Credits Resulting from Forest Management in Hokkaido and Akita
+        note: "volume not disclosed; annual purchases for five years from 2025 (J-Credits from two Mitsui forest projects: Northern Kamikawa/Western Abashiri, Hokkaido, and Akita Prefectural Forestry Public Corporation)"
+      - buyer: Mazda Motor Corporation
+        date: '2023-12-14'
+        source_url: https://www.mitsui.com/jp/ja/topics/2023/1247987_13930.html
+        source_title: マツダと三井物産、森林由来J-クレジットの売買契約を締結 (Mitsui & Co.)
+        note: volume not disclosed; purchases for FY2022-FY2029
+  - id: ANN:yokohamacityfisherie-blue_carbon-jpn
+    name: Yokohama City Fisheries Cooperative, NPO Umibe Tsukuri Research Group, Kanazawa Hakkei-Tokyo Bay Eelgrass Bed Regeneration Council (J Blue Credit, issued by JBE) — Eelgrass and Akamoku seaweed bed restoration off Yokohama Bayside Marina, Kanazawa-ku
+    developer: Yokohama City Fisheries Cooperative, NPO Umibe Tsukuri Research Group, Kanazawa Hakkei-Tokyo Bay Eelgrass Bed Regeneration Council (J Blue Credit, issued by JBE)
+    countries:
+      - JPN
+    l2: blue_carbon
+    offtakes:
+      - buyer: Marubeni Corporation
+        volume_tco2e: 10
+        date: '2022-03-28'
+        source_url: https://www.marubeni.com/jp/news/2022/release/00024.html
+        source_title: Jブルークレジット®の購入について (Marubeni)
+        note: 9.7 t of 19.4 t issued (crediting 2020-09-01 to 2021-08-31)
+  - id: ANN:sojitzcorporation-other_land-usa
+    name: Sojitz Corporation — U.S. forestry projects (not named)
+    developer: Sojitz Corporation
+    countries:
+      - USA
+    l2: other_land
+    offtakes:
+      - buyer: ZIPAIR Tokyo (JAL group)
+        volume_tco2e: 36000
+        date: '2023-02-21'
+        source_url: https://www.sojitz.com/en/news/article/info-20230221.html
+        source_title: Sojitz Supplies Carbon Credits to ZIPAIR for Realizing a Decarbonized Society
+        note: 36,000 t for FY2023 Narita-Honolulu flights; forestry project type not stated (airline buyer; aviation sweep may also cover)
+  - id: ANN:carbofexviapuroearth-biochar-fin
+    name: Carbofex (via Puro.earth) — Carbofex
+    developer: Carbofex (via Puro.earth)
+    countries:
+      - FIN
+    l2: biochar
+    offtakes:
+      - buyer: Microsoft
+        volume_tco2e: 500
+        date: 2021-01
+        source_url: https://cdn-dynmedia-1.microsoft.com/is/content/microsoftcorp/microsoft/final/en-us/microsoft-brand/documents/microsoft-carbon-removal-lessons-from-an-early-corporate-purchase-january-2021.pdf
+        source_title: 'Microsoft carbon removal: Lessons from an early corporate purchase (January 2021)'
+        note: FY21 portfolio
+  - id: ANN:carboncaptureinc-dac-usa
+    name: CarbonCapture Inc. — Project Bison
+    developer: CarbonCapture Inc.
+    countries:
+      - USA
+    l2: dac
+    offtakes:
+      - buyer: Microsoft
+        date: '2023-03-23'
+        source_url: https://carbonherald.com/microsoft-buys-carbon-removal-credits-generated-by-carboncapture-incs-direct-air-capture-tech/
+        source_title: Microsoft Buys Carbon Removal Credits Generated By CarbonCapture Inc's Direct Air Capture Tech (Carbon Herald)
+        note: volume not disclosed; Wyoming
+  - id: ANN:lithoscarbon-erw-usa
+    name: Lithos Carbon (supplier-level deal)
+    developer: Lithos Carbon
+    countries:
+      - USA
+    l2: erw
+    offtakes:
+      - buyer: Microsoft
+        date: '2023'
+        source_url: https://cdn-dynmedia-1.microsoft.com/is/content/microsoftcorp/microsoft/msc/documents/presentations/CSR/Microsoft-2024-Environmental-Sustainability-Report.pdf
+        source_title: Microsoft 2024 Environmental Sustainability Report
+        note: first (2023) deal; contracted volume not stated; Lithos had delivered 500 t to Microsoft by Dec 2023 (Carbon Herald 2024-09-27). Exact 2023 date not stated
+      - buyer: Microsoft
+        volume_tco2e: 11400
+        date: '2024-09-27'
+        source_url: https://carbonherald.com/lithos-carbon-renews-carbon-removal-deal-with-microsoft/
+        source_title: Lithos Carbon Renews Carbon Removal Deal With Microsoft (Carbon Herald)
+        note: over 11,400 t; three-year agreement (return customer)
+  - id: ANN:carbonstreamingcorpo-biochar-usa
+    name: Carbon Streaming Corporation — Waverly Biochar project
+    developer: Carbon Streaming Corporation
+    countries:
+      - USA
+    l2: biochar
+    offtakes:
+      - buyer: Microsoft
+        date: '2023-09-22'
+        source_url: https://carbonherald.com/carbon-streaming-announces-biochar-carbon-removal-deal-with-microsoft/
+        source_title: Carbon Streaming Announces Biochar Carbon Removal Deal With Microsoft (Carbon Herald)
+        note: up to 10,000 t/yr; contract term and total not disclosed; Waverly, Virginia
+  - id: ANN:carbonitysuezairexen-biochar-can
+    name: Carbonity (Suez, Airex Energy, Groupe Remabec JV) — Carbonity biochar facility, Quebec
+    developer: Carbonity (Suez, Airex Energy, Groupe Remabec JV)
+    countries:
+      - CAN
+    l2: biochar
+    offtakes:
+      - buyer: Microsoft
+        volume_tco2e: 36000
+        date: 2024-05
+        source_url: https://www.datacenterdynamics.com/en/news/microsoft-backs-carbon-capture-projects-in-denmark-panama-and-canada/?n=%40
+        source_title: Microsoft backs carbon capture projects in Denmark, Panama, and Canada (DCD)
+        note: forward contract; delivered within three years
+  - id: ANN:eion-erw-usa
+    name: Eion (supplier-level deal)
+    developer: Eion
+    countries:
+      - USA
+    l2: erw
+    offtakes:
+      - buyer: Microsoft
+        volume_tco2e: 8000
+        date: '2024-09-25'
+        source_url: https://carbonherald.com/eion-secures-a-deal-with-microsoft-and-locks-in-3m-in-extended-series-a-funding/
+        source_title: Eion Secures A Deal With Microsoft And Locks In $3M In Extended Series A Funding (Carbon Herald)
+        note: 5-year; olivine on mid-Atlantic US farmland (Eion since acquired by Terradot)
+  - id: ANN:ebbcarbon-other-usa
+    name: Ebb Carbon (supplier-level deal)
+    developer: Ebb Carbon
+    countries:
+      - USA
+    l2: other
+    offtakes:
+      - buyer: Microsoft
+        volume_tco2e: 350000
+        date: '2024-10-24'
+        source_url: https://www.esgtoday.com/microsoft-signs-ocean-based-carbon-removal-deal-with-ebb-carbon/
+        source_title: Microsoft Signs Ocean-Based Carbon Removal Deal with Ebb Carbon (ESG Today)
+        note: up to (option); initial firm tranche 1,333 t; 10 years; ocean alkalinity enhancement (no exact credit_type); Sequim/Olympic Peninsula, Washington
+  - id: ANN:gaiacopenhageninfras-beccs-dnk
+    name: Gaia (Copenhagen Infrastructure Partners and Vestforbraending JV) — Gaia
+    developer: Gaia (Copenhagen Infrastructure Partners and Vestforbraending JV)
+    countries:
+      - DNK
+    l2: beccs
+    offtakes:
+      - buyer: Microsoft
+        volume_tco2e: 2950000
+        date: '2025-07-08'
+        source_url: https://www.datacenterdynamics.com/en/news/microsoft-buys-295m-tons-of-carbon-removal-credits-from-ccs-project-in-denmark/
+        source_title: Microsoft buys 2.95m tons of carbon removal credits from CCS project in Denmark (DCD)
+        note: waste-to-energy CCS (biogenic CO2); deliveries from 2029
+  - id: ANN:beaverlakerenewablee-beccs-usa
+    name: Beaver Lake Renewable Energy (C2X) — Beaver Lake biomethanol plant, Pineville, Louisiana
+    developer: Beaver Lake Renewable Energy (C2X)
+    countries:
+      - USA
+    l2: beccs
+    offtakes:
+      - buyer: Microsoft
+        volume_tco2e: 3600000
+        date: '2025-12-12'
+        source_url: https://www.datacenterdynamics.com/en/news/microsoft-signs-36-million-ton-carbon-removal-deal-with-biomethanol-producer-beaver-lake/
+        source_title: Microsoft signs 3.6 million ton carbon removal deal with biomethanol producer Beaver Lake (DCD)
+        note: 12 years; biogenic CO2 capture at biomethanol plant
+  - id: ANN:crewcarbon-other-usa
+    name: CREW Carbon — East Shore Water Pollution Abatement Facility, New Haven
+    developer: CREW Carbon
+    countries:
+      - USA
+    l2: other
+    offtakes:
+      - buyer: Microsoft
+        volume_tco2e: 23602
+        date: '2026-08-04'
+        source_url: https://www.datacenterdynamics.com/en/news/microsoft-signs-23602-ton-carbon-removal-deal-with-wastewater-alkalinity-enhancement-firm-crew/
+        source_title: Microsoft signs 23,602-ton carbon removal deal with wastewater alkalinity enhancement firm Crew (DCD)
+        note: up to; wastewater alkalinity enhancement (no exact credit_type)
+  - id: ANN:greendiamond-ifm-usa
+    name: Green Diamond — Klamath East and West IFM
+    developer: Green Diamond
+    countries:
+      - USA
+    l2: ifm
+    offtakes:
+      - buyer: Microsoft
+        volume_tco2e: 240000
+        date: 2021-01
+        source_url: https://cdn-dynmedia-1.microsoft.com/is/content/microsoftcorp/microsoft/final/en-us/microsoft-brand/documents/microsoft-carbon-removal-lessons-from-an-early-corporate-purchase-january-2021.pdf
+        source_title: 'Microsoft carbon removal: Lessons from an early corporate purchase (Jan 2021; FY21 portfolio table)'
+        note: FY21 contracted volume
+      - buyer: Microsoft
+        volume_tco2e: 143965
+        date: 2022-03
+        source_url: https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE4QO0D
+        source_title: 'Microsoft Carbon Removal: An update with lessons learned in our second year (March 2022; FY22 newly contracted table)'
+        note: FY22 newly contracted
+      - buyer: Microsoft
+        volume_tco2e: 830000
+        date: 2023-06
+        source_url: https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RW16V26
+        source_title: 'Microsoft Carbon Removal: Observations from our third year (June 2023; FY23 newly contracted table)'
+        note: FY23 newly contracted; CARB/ACR
+  - id: ANN:naturalcapitalpartne-arr-usa
+    name: Natural Capital Partners and Arbor Day Foundation — GreenTrees ACRE and CommuniTree Carbon Program
+    developer: Natural Capital Partners and Arbor Day Foundation
+    countries:
+      - USA
+      - NIC
+    l2: arr
+    offtakes:
+      - buyer: Microsoft
+        volume_tco2e: 209800
+        date: 2021-01
+        source_url: https://cdn-dynmedia-1.microsoft.com/is/content/microsoftcorp/microsoft/final/en-us/microsoft-brand/documents/microsoft-carbon-removal-lessons-from-an-early-corporate-purchase-january-2021.pdf
+        source_title: 'Microsoft carbon removal: Lessons from an early corporate purchase (Jan 2021; FY21 portfolio table)'
+        note: FY21 contracted; one figure covers two projects (GreenTrees ACRE, Mississippi Alluvial Valley, US; CommuniTree/Taking Root, Nicaragua), no split
+  - id: ANN:thenatureconservancy-ifm-usa
+    name: The Nature Conservancy — Clinch Valley Conservation and Washington Rainforest
+    developer: The Nature Conservancy
+    countries:
+      - USA
+    l2: ifm
+    offtakes:
+      - buyer: Microsoft
+        volume_tco2e: 202369
+        date: 2021-01
+        source_url: https://cdn-dynmedia-1.microsoft.com/is/content/microsoftcorp/microsoft/final/en-us/microsoft-brand/documents/microsoft-carbon-removal-lessons-from-an-early-corporate-purchase-january-2021.pdf
+        source_title: 'Microsoft carbon removal: Lessons from an early corporate purchase (Jan 2021; FY21 portfolio table)'
+        note: FY21 contracted; two projects, no split
+      - buyer: Microsoft
+        volume_tco2e: 37330
+        date: 2022-03
+        source_url: https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE4QO0D
+        source_title: 'Microsoft Carbon Removal: An update with lessons learned in our second year (March 2022; FY22 newly contracted table)'
+        note: FY22 newly contracted; two projects, no split
+      - buyer: Microsoft
+        volume_tco2e: 194676
+        date: 2023-06
+        source_url: https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RW16V26
+        source_title: 'Microsoft Carbon Removal: Observations from our third year (June 2023; FY23 newly contracted table)'
+        note: FY23 newly contracted
+  - id: ANN:silviaterranaturalca-ifm-usa
+    name: SilviaTerra (Natural Capital Exchange, now NCX) — Natural Capital Exchange (NCAPX)
+    developer: SilviaTerra (Natural Capital Exchange, now NCX)
+    countries:
+      - USA
+    l2: ifm
+    offtakes:
+      - buyer: Microsoft
+        volume_tco2e: 200000
+        date: 2021-01
+        source_url: https://cdn-dynmedia-1.microsoft.com/is/content/microsoftcorp/microsoft/final/en-us/microsoft-brand/documents/microsoft-carbon-removal-lessons-from-an-early-corporate-purchase-january-2021.pdf
+        source_title: 'Microsoft carbon removal: Lessons from an early corporate purchase (Jan 2021; FY21 portfolio table)'
+        note: FY21 contracted
+      - buyer: Microsoft
+        volume_tco2e: 6800
+        date: '2021-02-02'
+        source_url: https://www.businesswire.com/news/home/20210202005451/en
+        source_title: SilviaTerra NCAPX named in Microsoft carbon removal portfolio (Business Wire)
+        note: "'over 6,800 tons' sequestered in the 2019 Pennsylvania pilot with Microsoft (ex-post, not a forward volume)"
+  - id: ANN:cumberlandforestlpma-ifm-usa
+    name: Cumberland Forest, LP (managed by The Nature Conservancy) — Cumberland Forest Project
+    developer: Cumberland Forest, LP (managed by The Nature Conservancy)
+    countries:
+      - USA
+    l2: ifm
+    offtakes:
+      - buyer: Microsoft
+        volume_tco2e: 153000
+        date: 2021-01
+        source_url: https://cdn-dynmedia-1.microsoft.com/is/content/microsoftcorp/microsoft/final/en-us/microsoft-brand/documents/microsoft-carbon-removal-lessons-from-an-early-corporate-purchase-january-2021.pdf
+        source_title: 'Microsoft carbon removal: Lessons from an early corporate purchase (Jan 2021; FY21 portfolio table)'
+        note: FY21 contracted
+      - buyer: Microsoft
+        volume_tco2e: 210341
+        date: 2022-03
+        source_url: https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE4QO0D
+        source_title: 'Microsoft Carbon Removal: An update with lessons learned in our second year (March 2022; FY22 newly contracted table)'
+        note: FY22 newly contracted
+      - buyer: Microsoft
+        volume_tco2e: 150500
+        date: 2026-01
+        source_url: https://cdn-dynmedia-1.microsoft.com/is/content/microsoftcorp/microsoft/msc/documents/presentations/CSR/Updating-our-Carbon-Removal-Portfolio.pdf
+        source_title: Updating our Carbon Removal Portfolio (Microsoft, January 2026; FY24-FY26 contracted tables)
+        note: signed FY24 (Jul 2023-Jun 2024); 1-yr tenor
+  - id: ANN:climatecareoxfordand-arr-per
+    name: ClimateCare Oxford and PUR Projet — Jubilación Segura
+    developer: ClimateCare Oxford and PUR Projet
+    countries:
+      - PER
+    l2: arr
+    offtakes:
+      - buyer: Microsoft
+        volume_tco2e: 100000
+        date: 2021-01
+        source_url: https://cdn-dynmedia-1.microsoft.com/is/content/microsoftcorp/microsoft/final/en-us/microsoft-brand/documents/microsoft-carbon-removal-lessons-from-an-early-corporate-purchase-january-2021.pdf
+        source_title: 'Microsoft carbon removal: Lessons from an early corporate purchase (Jan 2021; FY21 portfolio table)'
+        note: FY21 contracted; Microsoft labels type 'Forestry'
+      - buyer: Microsoft
+        volume_tco2e: 120000
+        date: 2022-03
+        source_url: https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE4QO0D
+        source_title: 'Microsoft Carbon Removal: An update with lessons learned in our second year (March 2022; FY22 newly contracted table)'
+        note: FY22 newly contracted
+  - id: ANN:truterralandolakes-soil_carbon-usa
+    name: Truterra / Land O'Lakes — Soil Carbon Best Practices
+    developer: Truterra / Land O'Lakes
+    countries:
+      - USA
+    l2: soil_carbon
+    offtakes:
+      - buyer: Microsoft
+        volume_tco2e: 100000
+        date: 2021-01
+        source_url: https://cdn-dynmedia-1.microsoft.com/is/content/microsoftcorp/microsoft/final/en-us/microsoft-brand/documents/microsoft-carbon-removal-lessons-from-an-early-corporate-purchase-january-2021.pdf
+        source_title: 'Microsoft carbon removal: Lessons from an early corporate purchase (Jan 2021; FY21 portfolio table)'
+        note: FY21 contracted
+      - buyer: Microsoft
+        volume_tco2e: 200000
+        date: 2022-03
+        source_url: https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE4QO0D
+        source_title: 'Microsoft Carbon Removal: An update with lessons learned in our second year (March 2022; FY22 newly contracted table)'
+        note: FY22 newly contracted
+  - id: ANN:shellenergynorthamer-arr-ind
+    name: Shell Energy North America — TIST India
+    developer: Shell Energy North America
+    countries:
+      - IND
+    l2: arr
+    offtakes:
+      - buyer: Microsoft
+        volume_tco2e: 9000
+        date: 2021-01
+        source_url: https://cdn-dynmedia-1.microsoft.com/is/content/microsoftcorp/microsoft/final/en-us/microsoft-brand/documents/microsoft-carbon-removal-lessons-from-an-early-corporate-purchase-january-2021.pdf
+        source_title: 'Microsoft carbon removal: Lessons from an early corporate purchase (Jan 2021; FY21 portfolio table)'
+        note: FY21 contracted; TIST = The International Small Group and Tree Planting Program
+  - id: ANN:coperatieverabobanku-agroforestry-bra
+    name: Coöperatieve Rabobank U.A. — Acorn
+    developer: Coöperatieve Rabobank U.A.
+    countries:
+      - BRA
+      - COL
+      - PER
+    l2: agroforestry
+    offtakes:
+      - buyer: Microsoft
+        volume_tco2e: 500
+        date: 2021-01
+        source_url: https://cdn-dynmedia-1.microsoft.com/is/content/microsoftcorp/microsoft/final/en-us/microsoft-brand/documents/microsoft-carbon-removal-lessons-from-an-early-corporate-purchase-january-2021.pdf
+        source_title: 'Microsoft carbon removal: Lessons from an early corporate purchase (Jan 2021; FY21 portfolio table)'
+        note: FY21 contracted
+      - buyer: Microsoft
+        volume_tco2e: 39619
+        date: 2022-03
+        source_url: https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE4QO0D
+        source_title: 'Microsoft Carbon Removal: An update with lessons learned in our second year (March 2022; FY22 newly contracted table)'
+        note: FY22 newly contracted
+  - id: ANN:arbordayfoundationna-arr-nic
+    name: Arbor Day Foundation, Natural Capital Partners — CommuniTree Carbon Program
+    developer: Arbor Day Foundation, Natural Capital Partners
+    countries:
+      - NIC
+    l2: arr
+    offtakes:
+      - buyer: Microsoft
+        volume_tco2e: 250484
+        date: 2022-03
+        source_url: https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE4QO0D
+        source_title: 'Microsoft Carbon Removal: An update with lessons learned in our second year (March 2022; FY22 newly contracted table)'
+        note: FY22 newly contracted
+  - id: ANN:naturalcapitalpartne-arr-ken
+    name: Natural Capital Partners — TIST Program in Kenya
+    developer: Natural Capital Partners
+    countries:
+      - KEN
+    l2: arr
+    offtakes:
+      - buyer: Microsoft
+        volume_tco2e: 82019
+        date: 2022-03
+        source_url: https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE4QO0D
+        source_title: 'Microsoft Carbon Removal: An update with lessons learned in our second year (March 2022; FY22 newly contracted table)'
+        note: FY22 newly contracted
+  - id: ANN:climateimpactpartner-arr-nic
+    name: Climate Impact Partners (Taking Root) — CommuniTree Carbon Program
+    developer: Climate Impact Partners (Taking Root)
+    countries:
+      - NIC
+    l2: arr
+    offtakes:
+      - buyer: Microsoft
+        volume_tco2e: 700000
+        date: 2022-11
+        source_url: https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RW15mgm
+        source_title: Microsoft 2022 Environmental Sustainability Report
+        note: 700,000 t signed Nov 2022 (ex-ante credits); Microsoft's FY23 table lists 646,111 newly contracted for 'Communitree' (Plan Vivo, 50-yr durability) - same contract, do not add both
+  - id: ANN:grassrootscarbon-soil_carbon-usa
+    name: Grassroots Carbon — Grassroots Carbon Microsoft Project
+    developer: Grassroots Carbon
+    countries:
+      - USA
+    l2: soil_carbon
+    offtakes:
+      - buyer: Microsoft
+        volume_tco2e: 200000
+        date: 2023-06
+        source_url: https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RW16V26
+        source_title: 'Microsoft Carbon Removal: Observations from our third year (June 2023; FY23 newly contracted table)'
+        note: FY23 newly contracted; VCS
+  - id: ANN:climateimpactpartner-arr-ken
+    name: Climate Impact Partners — The International Small Group and Tree Planting Program (TIST)
+    developer: Climate Impact Partners
+    countries:
+      - KEN
+      - UGA
+    l2: arr
+    offtakes:
+      - buyer: Microsoft
+        volume_tco2e: 150000
+        date: 2026-01
+        source_url: https://cdn-dynmedia-1.microsoft.com/is/content/microsoftcorp/microsoft/msc/documents/presentations/CSR/Updating-our-Carbon-Removal-Portfolio.pdf
+        source_title: Updating our Carbon Removal Portfolio (Microsoft, January 2026; FY24-FY26 contracted tables)
+        note: signed FY24; 2-yr tenor
+  - id: ANN:indigocarbonindigoag-soil_carbon-usa
+    name: Indigo Carbon (Indigo Ag) — US Project No. 1 (2024 Spot)
+    developer: Indigo Carbon (Indigo Ag)
+    countries:
+      - USA
+    l2: soil_carbon
+    offtakes:
+      - buyer: Microsoft
+        volume_tco2e: 40000
+        date: 2026-01
+        source_url: https://cdn-dynmedia-1.microsoft.com/is/content/microsoftcorp/microsoft/msc/documents/presentations/CSR/Updating-our-Carbon-Removal-Portfolio.pdf
+        source_title: Updating our Carbon Removal Portfolio (Microsoft, January 2026; FY24-FY26 contracted tables)
+        note: signed FY24; spot purchase
+  - id: ANN:efm-ifm-usa
+    name: EFM — Olympic Rainforest IFM Project (68,000-acre Olympic Peninsula forest)
+    developer: EFM
+    countries:
+      - USA
+    l2: ifm
+    offtakes:
+      - buyer: Microsoft
+        volume_tco2e: 3000000
+        date: '2025-05-08'
+        source_url: https://www.datacenterdynamics.com/en/news/microsoft-to-purchase-3m-carbon-removal-credits-from-forest-management-firm-efm/
+        source_title: Microsoft to purchase 3m carbon removal credits from forest management firm EFM (DCD)
+        note: 'up to 3M credits total: 700,000 firm offtake through 2035 + ~2.3M linked to Microsoft Climate Innovation Fund investment in EFM Fund IV. Microsoft portfolio lists 815,548 t contracted (FY25)'
+  - id: ANN:wildlifeconservation-redd-mdg
+    name: Wildlife Conservation Society (via The CarbonNeutral Company) — Makira REDD+
+    developer: Wildlife Conservation Society (via The CarbonNeutral Company)
+    countries:
+      - MDG
+    l2: redd
+    offtakes:
+      - buyer: Microsoft
+        date: '2014-02-12'
+        source_url: https://blogs.microsoft.com/green/2014/02/12/a-look-inside-microsofts-impact-on-biodiversity-through-offset-investments/
+        source_title: "A Look Inside: Microsoft's Impact on Biodiversity through Offset Investments (Microsoft Green Blog)"
+        note: volume not stated; part of a 21-project offset portfolio; retirement disclosed by the buyer
+  - id: ANN:thecarbonneutralcomp-cookstoves-mex
+    name: The CarbonNeutral Company (HELPS International) — Improved Mexican Cookstoves Project
+    developer: The CarbonNeutral Company (HELPS International)
+    countries:
+      - MEX
+    l2: cookstoves
+    offtakes:
+      - buyer: Microsoft
+        date: '2014-06-03'
+        source_url: https://blogs.microsoft.com/green/2014/06/03/a-look-inside-microsofts-impact-on-households-through-offset-investments/
+        source_title: "A Look Inside: Microsoft's Impact on Households through Offset Investments (Microsoft Green Blog)"
+        note: volume not stated; retirement disclosed by the buyer
+  - id: ANN:thecarbonneutralcomp-redd-bra
+    name: The CarbonNeutral Company — Acre Amazonian Rainforest Conservation
+    developer: The CarbonNeutral Company
+    countries:
+      - BRA
+    l2: redd
+    offtakes:
+      - buyer: Microsoft
+        date: '2013-09-10'
+        source_url: https://blogs.microsoft.com/green/2013/09/10/microsofts-carbon-offset-strategy-making-a-difference-one-project-at-a-time/
+        source_title: "Microsoft's Carbon Offset Strategy: Making a Difference One Project at a Time (Microsoft Green Blog)"
+        note: volume not stated; FY13 offsets; retirement disclosed by the buyer
+  - id: ANN:thecarbonneutralcomp-arr-ken
+    name: The CarbonNeutral Company (TIST) — Meru Nanyuki Community Reforestation
+    developer: The CarbonNeutral Company (TIST)
+    countries:
+      - KEN
+    l2: arr
+    offtakes:
+      - buyer: Microsoft
+        date: '2013-09-10'
+        source_url: https://blogs.microsoft.com/green/2013/09/10/microsofts-carbon-offset-strategy-making-a-difference-one-project-at-a-time/
+        source_title: "Microsoft's Carbon Offset Strategy: Making a Difference One Project at a Time (Microsoft Green Blog)"
+        note: volume not stated; FY13 offsets; retirement disclosed by the buyer
+  - id: ANN:thecarbonneutralcomp-cookstoves-mng
+    name: The CarbonNeutral Company — Mongolian Insulation and Efficient Cookstoves
+    developer: The CarbonNeutral Company
+    countries:
+      - MNG
+    l2: cookstoves
+    offtakes:
+      - buyer: Microsoft
+        date: '2013-09-10'
+        source_url: https://blogs.microsoft.com/green/2013/09/10/microsofts-carbon-offset-strategy-making-a-difference-one-project-at-a-time/
+        source_title: "Microsoft's Carbon Offset Strategy: Making a Difference One Project at a Time (Microsoft Green Blog)"
+        note: volume not stated; FY13 offsets; retirement disclosed by the buyer
+  - id: ANN:paradigmprojectwitht-cookstoves-ken
+    name: Paradigm Project (with The CarbonNeutral Company) — Kenya clean cookstoves (Eastern Province)
+    developer: Paradigm Project (with The CarbonNeutral Company)
+    countries:
+      - KEN
+    l2: cookstoves
+    offtakes:
+      - buyer: Microsoft
+        date: '2015-04-16'
+        source_url: https://news.microsoft.com/features/3-years-in-microsofts-carbon-fee-is-improving-environments-creating-healthier-lives/
+        source_title: 3 years in, Microsoft's carbon fee is improving environments, creating healthier lives (Microsoft Stories)
+        note: volume not stated; retirement disclosed by the buyer

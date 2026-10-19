@@ -51,9 +51,13 @@ def run(projects: list[dict]) -> tuple[list[str], list[list[str]]]:
                 errors.append(f"{p['project_id']}: deal listed twice ({k[0]}, {k[1]})")
             seen.add(k)
             deal_where[k].add(p["project_id"])
+    dev = {p["project_id"]: _norm(p.get("developer") or "").split(" ")[0] for p in projects}
     for (buyer, url), pids in deal_where.items():
-        if len(pids) > 1 and any(x.startswith("ANN:") for x in pids) and any(not x.startswith("ANN:") for x in pids):
-            warns.append(["deal_mapped_and_announced", buyer, url or "", " ".join(sorted(pids))])
+        ann = {x for x in pids if x.startswith("ANN:")}
+        reg = pids - ann
+        same = {(a, r) for a in ann for r in reg if dev.get(a) and dev.get(a) == dev.get(r)}
+        if same:   # one announcement both mapped to a registry project and listed as that same supplier's announcement row
+            warns.append(["deal_mapped_and_announced", buyer, url or "", " ".join(sorted({x for pair in same for x in pair}))])
 
     ret, _ = load_retirements(projects)
     for p in projects:
