@@ -1021,6 +1021,19 @@ offtakes:
     source_url: https://carbonherald.com/boomitra-selected-as-one-of-four-nature-based-cdr-suppliers-to-receive-support-from-govt-of-singapore/
     source_title: Boomitra Selected As One Of Four Nature-Based CDR Suppliers To Receive Support From Govt Of Singapore (Carbon Herald)
     note: one of four projects in a 2.175 Mt (S$76m / ~US$60m) contract for 2026-2031; per-project split not stated except Boomitra 625,000
+  - record: CAR:660
+    buyer: Apple
+    date: '2025-09-25'
+    source_url: https://carbonherald.com/apple-teams-up-with-the-conservation-fund-on-a-new-forest-restoration-project-in-california/
+    source_title: Apple Teams Up With The Conservation Fund On A New Forest Restoration Project In California (Carbon Herald)
+    note: volume not stated; Apple invests in restoration/management and receives the resulting credits over time
+  - record: VCS:5525
+    buyer: Bain & Company
+    volume_tco2e: 9000
+    date: '2026-01-13'
+    source_url: https://carbonherald.com/bain-company-joins-growing-list-of-1pointfives-direct-air-capture-buyers/
+    source_title: Bain & Company Joins Growing List Of 1PointFive's Direct Air Capture Buyers (Carbon Herald)
+    note: delivered over three years
 announced_rows:
   - id: ANN:varaha-biochar-ind
     name: Varaha — biochar carbon removal (supplier-level deals)
@@ -1338,7 +1351,7 @@ announced_rows:
         source_title: Living Carbon Announces Agreement with Microsoft
       - buyer: Symbiosis Coalition (Meta, Google, McKinsey)
         volume_tco2e: 131240
-        date: '2026-04-01'
+        date: '2026-03-30'
         source_url: https://decarbonfuse.com/posts/symbiosis-announces-new-carbon-offtake-agreements-with-living-carbon
         source_title: Symbiosis announces new carbon offtake agreements with Living Carbon
   - id: ANN:regreen-bra
@@ -1387,6 +1400,12 @@ announced_rows:
         date: '2026-09-21'
         source_url: https://carbon-pulse.com/552843/
         source_title: Brazilian CDR developer signs Salesforce deal (Carbon Pulse)
+      - buyer: McKinsey
+        volume_tco2e: 15000
+        date: '2025-11-06'
+        source_url: https://www.symbiosiscoalition.org/perspectives/catalyzing-high-integrity-nature-based-carbon-removal
+        source_title: Catalyzing high-integrity nature-based carbon removal (Symbiosis Coalition)
+        note: 'Symbiosis: Google and McKinsey bought 215,000 t combined; Google announced 200,000 t, so McKinsey ~15,000 t.'
   - id: ANN:btgtig-bra
     name: "BTG Pactual TIG — reforestation and restoration in Latin America (supplier-level deals)"
     developer: BTG Pactual Timberland Investment Group
@@ -1403,6 +1422,7 @@ announced_rows:
         date: '2024-09-18'
         source_url: https://www.esgtoday.com/meta-signs-deal-for-up-to-3-9-million-tons-of-nature-based-carbon-removal-credits-with-btg-pactual/
         source_title: Meta Signs Deal for up to 3.9 Million Tons with BTG Pactual
+        note: ' 1.3 Mt firm, with an option for 2.6 Mt more (up to 3.9 Mt); deliveries through 2038 (Carbon Herald).'
   - id: ANN:ponterra-pan
     name: "Ponterra — reforestation, Panama (supplier-level deal)"
     developer: Ponterra
@@ -1472,11 +1492,13 @@ announced_rows:
     l2: rice_methane
     offtakes:
       - buyer: Google
-        volume_tco2e: 1000000
+        volume_tco2e: 2000000
         date: '2026-09-18'
         source_url: https://carboncredits.com/?p=47817
         source_title: Google Signs Record Carbon Removal Deal With Terradot for Brazil Rice Project
   # --- backfill 2026-10-13 ---
+        volume_source: https://www.datacenterdynamics.com/en/news/google-inks-multi-million-ton-carbon-removal-deal-with-erw-firm-terradot/
+        note: '2 Mt in total: 1 Mt methane reduction by 2030 + 1 Mt CO2 removal by 2040 (first reported by Reuters 2026-09-16).'
   - id: ANN:agoro-soil-usa
     name: "Agoro Carbon — soil carbon, US crop and rangeland (supplier-level deal)"
     developer: Agoro Carbon
@@ -1884,7 +1906,7 @@ announced_rows:
         date: '2026-06-30'
         source_url: https://www.aboutamazon.com/news/sustainability/amazon-south-africa-land-restoration
         source_title: Amazon invests in one of the world's largest carbon removal projects (About Amazon)
-        note: Purchases span more than ten years. Linked to a World Bank Spekboom Outcome Bond. The source title is approximate.
+        note: Purchases span more than ten years. Linked to a World Bank Spekboom Outcome Bond. The source title is approximate. First announced 2026-04-27 (https://carbonherald.com/imperative-secures-amazon-deal-blended-financing-to-advance-south-africa-ecosystem-restoration-project/); covers Eastern and Western Cape.
   - id: ANN:vnv-mangrove-mdg
     name: Value Network Ventures / Bondy — mangrove restoration, north-east Madagascar
     developer: Value Network Ventures
@@ -2291,6 +2313,12 @@ announced_rows:
         source_url: https://www.cdr.fyi/blog/cdr-monthly-recap-june-2025
         source_title: 'Durable CDR Market Recap: June 2025 (CDR.fyi)'
         note: multi-year; volume and price not disclosed; deliveries from 2025
+      - buyer: Salesforce (via Milkywire)
+        volume_tco2e: 394
+        date: '2026-09-29'
+        source_url: https://carbonherald.com/milkywire-completes-eight-new-durable-cdr-pre-purchases-backed-by-salesforce/
+        source_title: Milkywire Completes Eight New Durable CDR Pre-Purchases Backed By Salesforce (Carbon Herald)
+        note: Pre-purchase finalised by Milkywire, funded by Salesforce (part of Salesforce's $100M durable CDR pledge). One of eight pre-purchases totalling 3,661 t.
   - id: ANN:inheritcarbonsolutio-beccs-nor
     name: Inherit Carbon Solutions (supplier-level deal)
     developer: Inherit Carbon Solutions
@@ -3685,3 +3713,92 @@ announced_rows:
         source_url: http://www.worldbank.org/en/news/press-release/2011/03/08/congo-community-to-use-carbon-payments-to-put-kids-through-school
         source_title: Congo Community To Use Carbon Payments To Put Kids Through School (World Bank)
         note: 500,000 CERs to be generated by 2017 (ORBEO and Danone also buy credits from the project)
+  - id: ANN:charmindustrial-biochar-usa
+    name: Charm Industrial (supplier-level deal)
+    developer: Charm Industrial
+    countries:
+      - USA
+    l2: biochar
+    offtakes:
+      - buyer: Google
+        volume_tco2e: 100000
+        date: '2025-01-16'
+        source_url: https://www.datacenterdynamics.com/en/news/google-signs-biochar-carbon-removal-deal-with-charm-industrial/
+        source_title: Google signs biochar carbon removal deal with Charm Industrial (DCD)
+        note: delivered through 2030
+  - id: ANN:recoolit-industrial_gases-idn
+    name: Recoolit — HFC refrigerant recovery and destruction, Indonesia
+    developer: Recoolit
+    countries:
+      - IDN
+    l2: industrial_gases
+    offtakes:
+      - buyer: Google
+        shared_volume_tco2e: 1000000
+        date: '2025-05-08'
+        source_url: https://trellis.net/article/google-super-pollutants-carbon-credits/
+        source_title: Google buys carbon credits for super pollutants (Trellis)
+        note: 'Combined for both Google superpollutant deals (Recoolit Indonesia + Cool Effect Cuiaba landfill Brazil): 25,000 t of methane and HFCs by 2030, ~1 Mt CO2e over 100 years; no per-project split. Recoolit is quoted (ESG News) as saying Google committed to a multi-year purchase of 250,000 carbon credits.'
+  - id: ANN:cooleffect-landfill-bra
+    name: Cool Effect — Landfill methane destruction, Cuiaba
+    developer: Cool Effect
+    countries:
+      - BRA
+    l2: landfill
+    offtakes:
+      - buyer: Google
+        shared_volume_tco2e: 1000000
+        date: '2025-05-08'
+        source_url: https://www.cooleffect.org/press-entry/google-uses-carbon-credit-purchase-to-tackle-short-lived-super-pollutants
+        source_title: Google uses carbon credit purchase to tackle short-lived super-pollutants (Cool Effect)
+        note: 'Combined with the Recoolit (Indonesia) deal: 25,000 t methane+HFCs by 2030, ~1 Mt CO2e over 100 years; no per-project split.'
+  - id: ANN:oneidaherkimersolidw-landfill-usa
+    name: Oneida-Herkimer Solid Waste Management Authority — Oneida-Herkimer Regional Landfill gas project, upstate New York
+    developer: Oneida-Herkimer Solid Waste Management Authority
+    countries:
+      - USA
+    l2: landfill
+    offtakes:
+      - buyer: Google
+        volume_tco2e: 500000
+        date: '2010'
+        source_url: https://www.sustainability.google/stories/landfill-NewYork/
+        source_title: Capturing value from waste in upstate New York (Google Sustainability)
+        note: Google committed in 2010 to buy all offsets the project would generate; the project had generated 'more than half a million carbon offsets' by Feb 2018
+  - id: ANN:stlandryparishlandfi-landfill-usa
+    name: St. Landry Parish landfill gas project, Louisiana (supplier-level deal)
+    developer: St. Landry Parish landfill gas project, Louisiana
+    countries:
+      - USA
+    l2: landfill
+    offtakes:
+      - buyer: Google
+        date: '2011-09-08'
+        source_url: https://blog.google/outreach-initiatives/sustainability/sometimes-greening-google-means-getting
+        source_title: Sometimes greening Google means getting a little dirty (Google blog)
+        note: Project in Google's carbon offset portfolio (2011 blog by Google's offset portfolio manager); volume not stated; developer not named; retirement disclosed by the buyer
+  - id: ANN:dukecarbonoffsetsini-livestock-usa
+    name: Duke Carbon Offsets Initiative — Loyd Ray Farms Swine Waste-to-Energy Project, Yadkin County, North Carolina
+    developer: Duke Carbon Offsets Initiative
+    countries:
+      - USA
+    l2: livestock
+    offtakes:
+      - buyer: Google
+        date: 2011-09
+        source_url: https://dukechronicle.com/article/2011/09/google-duke
+        source_title: Google, Duke partner on offsets (The Chronicle)
+        note: Google partnered with Duke to invest in and buy offsets from the project; volume not stated
+  - id: ANN:boomitra-soil_carbon-mex
+    name: Boomitra — Northern Mexico Grassland Restoration Project
+    developer: Boomitra
+    countries:
+      - MEX
+    l2: soil_carbon
+    offtakes:
+      - buyer: Deloitte (North and South Europe)
+        volume_tco2e: 18000
+        date: '2025-11-06'
+        source_url: https://carbonherald.com/deloitte-nse-invests-in-soil-carbon-credits-from-boomitra/
+        source_title: Deloitte NSE Invests In Soil Carbon Credits From Boomitra (Carbon Herald)
+        note: more than 18,000 credits; Verra VM0042
