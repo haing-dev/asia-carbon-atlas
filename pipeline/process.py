@@ -445,6 +445,7 @@ def build_projects(write_review: bool = False) -> list[dict]:
             "crediting": [lead.get("crediting_start"), lead.get("crediting_end")],
             "years": {k: _min_year(members, f"{k}_date") for k in ("listed", "registered", "first_issuance")},
             "article6": merge_article6([m.get("article6") for m in members + notes]),
+            "methodology_names": sorted({str(m["methodology_raw"]) for m in members if m.get("methodology_raw")}),
             "statuses": sorted({f"{m['registry']}: {m['registry_status_raw']}" for m in members if m.get("registry_status_raw")}),
             # Offtakers = publicly announced deals only (each linked to the announcement).
             "offtakers": sorted([o for m in members for o in deals_by_record.get(m["record_id"], []) + m.get("_deals", [])],

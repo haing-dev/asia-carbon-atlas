@@ -1,10 +1,34 @@
 # Eligibility labels: a filter on the region tables (dropdown "Eligibility"). Each label is decided per project from
 # public records only, by one or more rules (any rule matching sets the label):
 #   article6: [mechanism substrings]        from the UNEP-CCC Article 6 Pipeline tag on the project
+#   a6_status: [regex]                      on that tag's status
 #   status:   [regex]                        on "<REGISTRY>: <registry status as published>"
-#   methodology: {registry: [regex]}         on the project's methodology codes, for records of that registry
+#   methodology: {registry: [regex]}         on the methodology codes of a project with a record in that registry
+#   methodology_name: {registry: [regex]}    on the methodology / protocol names published by that registry
 # Every label lists the public source it is decided from (shown in the filter's tooltip and the notes).
 labels:
+  - id: ccp
+    label: ICVCM CCP-approved methodology (check version)
+    # ICVCM assessment status, last updated 2026-08-04 (read 2026-10-19): CCP-approved methodologies under CCP-Eligible
+    # programmes. ICVCM approves specific versions, and the CCP label is applied to individual credits at issuance, so
+    # this marks projects using an approved methodology, not labelled credits. Not set: CDM/JCM/UCR/Article 6 records
+    # alone (not CCP-Eligible programmes), ART TREES (HFLD and removals under remedial action), VM0051 (status unclear).
+    source: https://icvcm.org/assessment-status/
+    methodology:
+      VCS: ['^ACM0001$', '^AMS-III\.G\.?$', '^ACM0008$', '^AM0023$', '^VM0042$', '^VM0044$', '^VM0045$', '^VM0047$',
+            '^VM0048$', '^VM0049$', '^VM0050$', '^VMR0016$', '^VMR0017$']
+      GS: ['^ACM0001$', '^AMS-III\.G\.?$', '^TPDDTEC$', '(?i)metered', '(?i)^GS.*rice']
+    methodology_name:
+      ACR: ['Afforestation and Reforestation of Degraded Lands', 'Improved Forest Management \(IFM\) on Non-Federal U\.S\.',
+            'Landfill Gas Destruction and Beneficial Use', 'Destruction of Ozone Depleting Substances from International']
+      CAR: ['^CAR U\.S\. and Canada Biochar', '^CAR Mexico Forest Protocol', '^CAR U\.S\. Landfill Protocol',
+            '^CAR Article 5 Ozone Depleting', '^CAR U\.S\. Ozone Depleting']
+      ISO: ['^Biochar Production and Storage', '^Reforestation', '^Agroforestry', '^Mangrove Restoration', '^Direct Air Capture',
+            '^Biomass Geological Storage', '^Bio-oil Geological Storage', '^Subsurface Biomass', '^Biogenic Carbon Capture']
+  - id: a6auth
+    label: Article 6 authorized (registered or units issued)
+    a6_status: ['registered', 'mo issued']
+    source: https://a6pipeline.unepccc.org/
   - id: a62
     label: Article 6.2 (bilateral) activity
     article6: ["6.2"]

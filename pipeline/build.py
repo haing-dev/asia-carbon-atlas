@@ -87,9 +87,14 @@ def eligibility_mask(p: dict) -> int:
     for i, lab in enumerate(ELIG):
         hit = any(m in a6 for m in lab.get("article6") or [])
         hit = hit or any(re.search(rx, st, re.I) for rx in lab.get("status") or [] for st in p.get("statuses") or [])
+        if lab.get("a6_status") and p.get("article6"):
+            hit = hit or any(re.search(rx, p["article6"].get("status") or "", re.I) for rx in lab["a6_status"])
         for reg, rxs in (lab.get("methodology") or {}).items():
             if any(r["registry"] == reg for r in p["registries"]):
                 hit = hit or any(re.search(rx, c) for rx in rxs for c in p.get("methodology_codes") or [])
+        for reg, rxs in (lab.get("methodology_name") or {}).items():
+            if any(r["registry"] == reg for r in p["registries"]):
+                hit = hit or any(re.search(rx, c, re.I) for rx in rxs for c in p.get("methodology_names") or [])
         if hit:
             mask |= 1 << i
     return mask
