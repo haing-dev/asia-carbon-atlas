@@ -1,16 +1,17 @@
 <script>
   // A pill button that opens a checklist panel. `groups`: [{label, color?, items:[{i, label}]}]
   // `selected`: Set of item indices, or null meaning "all".
-  let { label, groups, total, selected = $bindable(), wide = false } = $props();
+  // optIn: nothing ticked = no filter ("Any"); ticking items narrows to projects carrying any ticked item.
+  let { label, groups, total, selected = $bindable(), wide = false, optIn = false, title = "" } = $props();
 
   let open = $state(false);
   let root;
 
   const allSet = () => new Set(groups.flatMap((g) => g.items.map((x) => x.i)));
-  const isOn = (i) => !selected || selected.has(i);
-  function commit(s) { selected = s.size === total ? null : s; }
+  const isOn = (i) => (optIn ? !!selected?.has(i) : !selected || selected.has(i));
+  function commit(s) { selected = optIn ? (s.size ? s : null) : s.size === total ? null : s; }
   function toggle(i) {
-    const s = selected ? new Set(selected) : allSet();
+    const s = selected ? new Set(selected) : optIn ? new Set() : allSet();
     s.has(i) ? s.delete(i) : s.add(i);
     commit(s);
   }
@@ -24,7 +25,8 @@
     const n = g.items.filter((x) => isOn(x.i)).length;
     return n === 0 ? "none" : n === g.items.length ? "all" : "some";
   };
-  const summary = $derived(!selected ? "All" : selected.size === 0 ? "None" : `${selected.size} of ${total}`);
+  const summary = $derived(optIn ? (!selected ? "Any" : `${selected.size} selected`)
+    : !selected ? "All" : selected.size === 0 ? "None" : `${selected.size} of ${total}`);
 
   function onDocClick(e) { if (open && root && !root.contains(e.target)) open = false; }
 </script>
@@ -32,14 +34,15 @@
 <svelte:document onclick={onDocClick} onkeydown={(e) => e.key === "Escape" && (open = false)} />
 
 <div class="dd" bind:this={root}>
-  <button class="pill" class:on={!!selected} aria-expanded={open} onclick={() => (open = !open)}>
+  <button class="pill" class:on={!!selected} aria-expanded={open} onclick={() => (open = !open)} {title}>
     {label}: <strong>{summary}</strong> <span aria-hidden="true">{open ? "▴" : "▾"}</span>
   </button>
   {#if open}
     <div class="panel" class:wide role="group" aria-label={label}>
       <div class="actions">
-        <button class="link" onclick={() => (selected = null)}>Select all</button>
-        <button class="link" onclick={() => (selected = new Set())}>Clear</button>
+        {#if optIn}<button class="link" onclick={() => (selected = null)}>Clear</button>
+        {:else}<button class="link" onclick={() => (selected = null)}>Select all</button>
+        <button class="link" onclick={() => (selected = new Set())}>Clear</button>{/if}
       </div>
       {#each groups as g}
         {#if g.label}
@@ -58,7 +61,7 @@
         {:else}
           <div class="flat">
             {#each g.items as x}
-              <label><input type="checkbox" checked={isOn(x.i)} onchange={() => toggle(x.i)} />{x.label}</label>
+              <label title={x.title || ""}><input type="checkbox" checked={isOn(x.i)} onchange={() => toggle(x.i)} />{x.label}{#if x.n != null}<span class="cnt">{x.n.toLocaleString()}</span>{/if}</label>
             {/each}
           </div>
         {/if}
@@ -82,5 +85,6 @@
   .flat { display: grid; gap: 4px; border-top: 1px solid var(--line); padding-top: 6px; }
   label { display: flex; gap: 6px; align-items: center; cursor: pointer; }
   .sw { width: 10px; height: 10px; border-radius: 2px; display: inline-block; }
+  .cnt { margin-left: auto; color: var(--faint); font-size: 12px; padding-left: 10px; }
   .link { background: none; border: 0; color: var(--accent); cursor: pointer; padding: 0; font-size: 13px; }
 </style>

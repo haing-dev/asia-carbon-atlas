@@ -324,36 +324,39 @@ def _deal(d: dict) -> dict:
 
 
 def _share_volumes(deals: list[dict]) -> None:
-    """A total stated for several buyers in one announcement (shared_volume_tco2e) is split equally among them."""
-    groups: dict[str, list[dict]] = defaultdict(list)
+    """A total stated for several buyers or projects in one announcement (shared_volume_tco2e, same source and same
+    total) is split equally among those deals, wherever they are listed."""
+    groups: dict[tuple, list[dict]] = defaultdict(list)
     for d in deals:
         if d.get("shared") and not d.get("volume_tco2e"):
-            groups[d["source_url"]].append(d)
+            groups[(d["source_url"], d["shared"])].append(d)
     for ds in groups.values():
+        who = "buyers" if len({d["name"] for d in ds}) > 1 else "projects"
         for d in ds:
             d["volume_tco2e"] = round(d["shared"] / len(ds))
             d["note"] = (d.get("note") + " " if d.get("note") else "") + \
-                f"Equal share of {d['shared']:,} stated for {len(ds)} buyers together (no split published)."
+                f"Equal share of {d['shared']:,} stated for {len(ds)} {who} together (no split published)."
 
 
 def load_offtakes() -> tuple[dict[str, list[dict]], list[dict]]:
     """config/offtakers.yaml -> (deals by record_id, pseudo-records for announced rows)."""
     cfg = common.load_yaml("offtakers.yaml") if (common.CONFIG / "offtakers.yaml").exists() else {}
     by_record: dict[str, list[dict]] = defaultdict(list)
+    every: list[dict] = []
     for d in cfg.get("offtakes") or []:
         by_record[d["record"]].append(_deal(d))
-    for ds in by_record.values():
-        _share_volumes(ds)
+        every.append(by_record[d["record"]][-1])
     rows = []
     for a in cfg.get("announced_rows") or []:
         deals = [_deal(d) for d in a.get("offtakes") or []]
-        _share_volumes(deals)
+        every += deals
         rows.append({
             "record_id": a["id"], "registry": "ANN", "native_id": a["id"].split(":", 1)[-1],
             "registry_url": deals[0]["source_url"] if deals else None, "name": a["name"],
             "developer_raw": a.get("developer"), "countries": a["countries"], "l2_override": a["l2"],
             "registry_status_raw": "announced", "issued_tco2e": 0, "retired_tco2e": 0, "_deals": deals,
         })
+    _share_volumes(every)
     return by_record, rows
 
 
@@ -442,6 +445,7 @@ def build_projects(write_review: bool = False) -> list[dict]:
             "crediting": [lead.get("crediting_start"), lead.get("crediting_end")],
             "years": {k: _min_year(members, f"{k}_date") for k in ("listed", "registered", "first_issuance")},
             "article6": merge_article6([m.get("article6") for m in members + notes]),
+            "statuses": sorted({f"{m['registry']}: {m['registry_status_raw']}" for m in members if m.get("registry_status_raw")}),
             # Offtakers = publicly announced deals only (each linked to the announcement).
             "offtakers": sorted([o for m in members for o in deals_by_record.get(m["record_id"], []) + m.get("_deals", [])],
                                 key=lambda o: str(o.get("date") or ""), reverse=True),

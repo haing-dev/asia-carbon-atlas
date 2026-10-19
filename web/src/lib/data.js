@@ -39,7 +39,7 @@ async function fetchIndex(file) {
   const projects = new Array(n);
   for (let i = 0; i < n; i++) {
     projects[i] = {
-      id: c.id[i], shares: c.c[i], l2: c.l2[i], st: c.st[i], rg: c.rg[i], a6: c.a6[i], ex: c.ex ? c.ex[i] : 0,
+      id: c.id[i], shares: c.c[i], l2: c.l2[i], st: c.st[i], rg: c.rg[i], a6: c.a6[i], el: c.el ? c.el[i] : 0, ex: c.ex ? c.ex[i] : 0,
       ea: c.ea[i], is: c.is[i], re: c.re[i], pi: c.pi ? c.pi[i] : null,
     };
   }
@@ -93,13 +93,13 @@ export function tagsForQuery(meta, q) {
   return hit.size ? hit : null;
 }
 
-// filters: {l2: Set<number>|null, stages: Set<number>, registries: Set<number>|null, a6: bool}
+// filters: {l2: Set<number>|null, stages: Set<number>, registries: Set<number>|null, el: Set<number>|null (eligibility labels, any)}
 export function makePredicate(f) {
   return (p) =>
     (!f.l2 || f.l2.has(p.l2)) &&
     (!f.stages || f.stages.has(p.st)) &&
     (!f.registries || [...f.registries].some((ri) => p.rg & (1 << ri))) &&
-    (!f.a6 || p.a6 === 1);
+    (!f.el || [...f.el].some((i) => p.el & (1 << i)));
 }
 
 // Sum metric per country index using population-weighted shares.

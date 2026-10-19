@@ -119,7 +119,7 @@ offtakes:
     volume_tco2e: 12000000
     date: '2024-09-25'
     source_url: https://www.nicfi.no/2024/09/25/new-agreement-with-global-businesses-preserves-rainforest-in-the-amazon/
-    source_title: "New Agreement with Global Businesses Preserves Rainforest in the Amazon (Par\xE1)"
+    source_title: "New Agreement with Global Businesses Preserves Rainforest in the Amazon (Pará)"
   - record: ART:0101
     buyer: Emergent (LEAF Coalition)
     date: '2023-12-02'
@@ -213,7 +213,7 @@ offtakes:
     volume_tco2e: 234000
     date: '2024-09-11'
     source_url: https://www.esgtoday.com/microsoft-buys-234000-rainforest-restoration-carbon-removal-credits-from-toroto/
-    source_title: "Microsoft Buys 234,000 Rainforest Restoration Carbon Removal Credits from Toroto (Conhu\xE1s)"
+    source_title: "Microsoft Buys 234,000 Rainforest Restoration Carbon Removal Credits from Toroto (Conhuás)"
   - record: A62:PE-CH-5031
     buyer: KliK Foundation (with Climate Cent Foundation)
     volume_tco2e: 960000
@@ -289,8 +289,7 @@ offtakes:
     date: '2022-08-30'
     source_url: https://www.ubs.com/global/en/media/display-page-ndp/en-20220830-carbonremoval.html
     source_title: UBS carbon removal agreements with Climeworks and neustark (UBS media release)
-    note: 39,500 t is the combined total for Climeworks (Orca, Iceland) and neustark. The split is not given, so volume is left null. UBS calls these 'long-term collaborations'/'agreements'. The source title
-      is approximate.
+    note: 39,500 t is the combined total for Climeworks (Orca, Iceland) and neustark. The split is not given, so volume is left null. UBS calls these 'long-term collaborations'/'agreements'. The source title is approximate.
   - record: A62:GH-CH-5004
     buyer: KliK Foundation
     volume_tco2e: 11733
@@ -362,6 +361,103 @@ offtakes:
     source_url: https://www.eni.com/en-IT/media/press-release/2019/11/eni-has-become-an-active-member-of-the-governance-of-the-forest-conservation-redd-luangwa-community-forests-project-lcfp-in-zambia.html
     source_title: Eni has become an active member of the governance of the forest conservation REDD+ Luangwa Community Forests Project (LCFP) in Zambia
     note: 20-year credit purchase commitment, VCS+CCB. Volume not stated. The Verra ID was not confirmed, so it is left null.
+  - record: VCS:1318
+    buyer: Paris 2024 (Olympic & Paralympic Games organising committee)
+    date: '2026-06-09'
+    source_url: https://reddmonitor.substack.com/p/ghost-carbon-how-the-livelihoods
+    source_title: "'Ghost carbon.' How the Livelihoods' Mangrove Restoration project in Senegal overestimated... (REDD-Monitor)"
+    note: volume not stated; credits used to offset Paris 2024 Paralympic Games emissions; retirement disclosed by the buyer
+  - record: VCS:944
+    buyer: Gucci (Kering)
+    shared_volume_tco2e: 1400000
+    date: '2018'
+    source_url: https://reddmonitor.substack.com/p/guccis-sustainability-claims-rely
+    source_title: Gucci's sustainability claims rely on carbon offsets and accounting tricks (REDD-Monitor, 2024-06-13)
+    note: 1.4M credits (US$8.4M) bought in 2018 across 4 REDD projects (Alto Mayo, Chyulu Hills, Southern Cardamom, Rimba Raya); no per-project split; supplier name is the known proponent, source names project only
+  - record: VCS:1408
+    buyer: Gucci (Kering)
+    shared_volume_tco2e: 1400000
+    date: '2018'
+    source_url: https://reddmonitor.substack.com/p/guccis-sustainability-claims-rely
+    source_title: Gucci's sustainability claims rely on carbon offsets and accounting tricks (REDD-Monitor, 2024-06-13)
+    note: 1.4M credits (US$8.4M) bought in 2018 across 4 REDD projects (Alto Mayo, Chyulu Hills, Southern Cardamom, Rimba Raya); no per-project split; supplier name is the known proponent, source names project only
+  - record: VCS:1748
+    buyer: Gucci (Kering)
+    shared_volume_tco2e: 1400000
+    date: '2018'
+    source_url: https://reddmonitor.substack.com/p/guccis-sustainability-claims-rely
+    source_title: Gucci's sustainability claims rely on carbon offsets and accounting tricks (REDD-Monitor, 2024-06-13)
+    note: 1.4M credits (US$8.4M) bought in 2018 across 4 REDD projects (Alto Mayo, Chyulu Hills, Southern Cardamom, Rimba Raya); no per-project split; supplier name is the known proponent, source names project only
+  - record: VCS:674
+    buyer: Gucci (Kering)
+    shared_volume_tco2e: 1400000
+    date: '2018'
+    source_url: https://reddmonitor.substack.com/p/guccis-sustainability-claims-rely
+    source_title: Gucci's sustainability claims rely on carbon offsets and accounting tricks (REDD-Monitor, 2024-06-13)
+    note: 1.4M credits (US$8.4M) bought in 2018 across 4 REDD projects (Alto Mayo, Chyulu Hills, Southern Cardamom, Rimba Raya); no per-project split; supplier name is the known proponent, source names project only
+  - record: VCS:902
+    buyer: Gucci (Kering)
+    date: '2024-06-13'
+    source_url: https://reddmonitor.substack.com/p/guccis-sustainability-claims-rely
+    source_title: Gucci's sustainability claims rely on carbon offsets and accounting tricks (REDD-Monitor, 2024-06-13)
+    note: volume not stated; listed in Gucci 2021 sustainability report; supplier is known proponent, source names project only; retirement disclosed by the buyer
+  - record: VCS:844
+    buyer: Gucci (Kering)
+    date: '2024-06-13'
+    source_url: https://reddmonitor.substack.com/p/guccis-sustainability-claims-rely
+    source_title: Gucci's sustainability claims rely on carbon offsets and accounting tricks (REDD-Monitor, 2024-06-13)
+    note: volume not stated; for Gucci's 2022 emissions; supplier is known proponent, source names project only; retirement disclosed by the buyer
+  - record: VCS:1477
+    buyer: Volkswagen Group
+    date: '2019-11-02'
+    source_url: https://electriccarsreport.com/2019/11/how-volkswagen-makes-the-id-3-carbon-neutral/
+    source_title: How Volkswagen makes the ID.3 carbon neutral? (Electric Cars Report)
+    note: volume not disclosed (Greenpeace notes VW never disclosed it); used to offset ID.3/ID. production
+  - record: VCS:985
+    buyer: Shell
+    volume_tco2e: 7000000
+    date: 2026-08
+    source_url: https://carbonmarketwatch.org/wp-content/uploads/2026/08/26_08_Spillover.pdf
+    source_title: Spillover - Shell and TotalEnergies' expansive roles (Carbon Market Watch policy brief, Sept 2026)
+    note: "'nearly seven million' credits purchased (cumulative, per Carbon Market Watch analysis); retirement disclosed by the buyer"
+  - record: VCS:612
+    buyer: Shell
+    volume_tco2e: 2000000
+    date: 2026-08
+    source_url: https://carbonmarketwatch.org/wp-content/uploads/2026/08/26_08_Spillover.pdf
+    source_title: Spillover - Shell and TotalEnergies' expansive roles (Carbon Market Watch policy brief, Sept 2026)
+    note: "'nearly two million' credits acquired (cumulative, per Carbon Market Watch analysis); retirement disclosed by the buyer"
+  - record: VCS:902
+    buyer: TotalEnergies (ProxiFuel subsidiary)
+    volume_tco2e: 190000
+    date: 2026-08
+    source_url: https://carbonmarketwatch.org/wp-content/uploads/2026/08/26_08_Spillover.pdf
+    source_title: Spillover - Shell and TotalEnergies' expansive roles (Carbon Market Watch policy brief, Sept 2026)
+    note: approx. 190,000 retired 2021-2023 by ProxiFuel (TotalEnergies subsidiary); Kariba is believed to be VCS 902 but the source does not state the ID; retirement disclosed by the buyer
+  - record: VCS:5187
+    buyer: TotalEnergies
+    date: '2021-03-16'
+    source_url: https://totalenergies.com/newsroom/total-and-frm-to-plant-forest-in-congo/?lang=eng
+    source_title: Total and Forêt Ressources Management to Plant a 40,000-Hectare Forest in the Republic of the Congo
+    note: Source gives ~10 Mt as the project's expected sequestration, not a contracted volume
+  - record: VCS:985
+    buyer: TotalEnergies Nature Based Solutions
+    date: 2021-03
+    source_url: https://hilldavid.substack.com/p/sorry-totalenergies-but-something
+    source_title: Sorry, TotalEnergies, but something is very wrong with your Amazon offsets project
+    note: volume not stated; contract signed ~2 months before the May 2021 article
+  - record: VCS:1477
+    buyer: Tokyo Gas
+    date: '2022-07-04'
+    source_url: https://www.qcintel.com/carbon/article/tokyo-gas-uses-katingan-credits-for-carbon-neutral-lng-delivery-6993.html
+    source_title: Tokyo Gas uses Katingan credits for carbon-neutral LNG delivery
+    note: credits used for a carbon-neutral LNG delivery; volume not visible (paywalled); retirement disclosed by the buyer
+  - record: VCS:1477
+    buyer: Shell
+    date: 2021-08
+    source_url: https://www.source-material.org/shell-drive-carbon-neutral-claims-in-doubt-after-forest-scrutiny/
+    source_title: Shell 'Drive Carbon Neutral' claims in doubt after forest scrutiny (Source Material)
+    note: volume not stated; purchases per Verra data, most recent Aug 2021; retirement disclosed by the buyer
 announced_rows:
   - id: ANN:varaha-biochar-ind
     name: Varaha — biochar carbon removal (supplier-level deals)
@@ -395,7 +491,7 @@ announced_rows:
         date: '2026-09-11'
         source_url: https://www.esgtoday.com/gsk-signs-500000-tonne-carbon-removal-deal-with-varaha/
         source_title: GSK Signs Carbon Removal Deal with Varaha (Punjab and Haryana)
-        note: "Headline: 500,000 t; article: ~100,000 t a year in 2028\u20132033 (600,000 credits)."
+        note: "Headline: 500,000 t; article: ~100,000 t a year in 2028–2033 (600,000 credits)."
   - id: ANN:mati-erw-ind
     name: Mati Carbon — enhanced rock weathering (supplier-level deal)
     developer: Mati Carbon
@@ -502,7 +598,7 @@ announced_rows:
         source_title: Nepal and World Bank Sign Innovative Financing Agreement on Forests and Climate Change
   # --- Americas (researched 2026-10-12) ---
   - id: ANN:heirloom-dac-usa
-    name: "Heirloom \u2014 Project Cypress DAC, Louisiana"
+    name: "Heirloom — Project Cypress DAC, Louisiana"
     developer: Heirloom
     countries: [USA]
     l2: dac
@@ -518,7 +614,7 @@ announced_rows:
         source_url: https://frontierclimate.com/writing/carboncapture-heirloom
         source_title: Frontier buyers sign offtakes with CarbonCapture Inc. and Heirloom (Louisiana)
   - id: ANN:holocene-dac-usa
-    name: "Holocene \u2014 direct air capture, Tennessee (supplier-level deal)"
+    name: "Holocene — direct air capture, Tennessee (supplier-level deal)"
     developer: Holocene
     countries: [USA]
     l2: dac
@@ -529,7 +625,7 @@ announced_rows:
         source_url: https://www.esgtoday.com/google-signs-100000-ton-carbon-removal-deal-with-dac-technology-startup-holocene/
         source_title: Google Signs 100,000 Ton Carbon Removal Deal with Holocene
   - id: ANN:atmosclear-beccs-usa
-    name: "AtmosClear \u2014 BECCS, Port of Greater Baton Rouge, Louisiana"
+    name: "AtmosClear — BECCS, Port of Greater Baton Rouge, Louisiana"
     developer: AtmosClear BR (Fidelis)
     countries: [USA]
     l2: beccs
@@ -540,7 +636,7 @@ announced_rows:
         source_url: https://aap.com.au/aapreleases/cision20250415ae64670
         source_title: AtmosClear signs agreement with Microsoft for carbon removal from Louisiana project
   - id: ANN:co280-beccs-usa
-    name: "CO280 \u2014 BECCS at US pulp and paper mills (supplier-level deals)"
+    name: "CO280 — BECCS at US pulp and paper mills (supplier-level deals)"
     developer: CO280
     countries: [USA]
     l2: beccs
@@ -556,7 +652,7 @@ announced_rows:
         source_url: https://www.esgtoday.com/jpmorgan-signs-large-scale-carbon-removal-deal-for-under-200-per-ton/
         source_title: JPMorgan Signs Large-Scale Carbon Removal Deal (CO280, Gulf Coast mill)
   - id: ANN:arbor-beccs-usa
-    name: "Arbor \u2014 BECCS facility near Lake Charles, Louisiana"
+    name: "Arbor — BECCS facility near Lake Charles, Louisiana"
     developer: Arbor
     countries: [USA]
     l2: beccs
@@ -572,7 +668,7 @@ announced_rows:
         source_url: https://www.businesswire.com/news/home/20240918265258/en/Arbor-Signs-Multi-year-Agreement-to-Deliver-Carbon-Removal-Credits-to-Microsoft
         source_title: Arbor Signs Multi-year Agreement to Deliver Carbon Removal Credits to Microsoft
   - id: ANN:vaulteddeep-usa
-    name: "Vaulted Deep \u2014 biomass geologic storage (supplier-level deal)"
+    name: "Vaulted Deep — biomass geologic storage (supplier-level deal)"
     developer: Vaulted Deep
     countries: [USA]
     l2: biomass_storage
@@ -583,7 +679,7 @@ announced_rows:
         source_url: https://www.esgtoday.com/microsoft-signs-one-of-largest-ever-carbon-removal-deals-with-biomass-waste-management-startup-vaulted-deep/
         source_title: Microsoft Signs One of Largest-Ever Carbon Removal Deals with Vaulted Deep
   - id: ANN:charm-usa
-    name: "Charm Industrial \u2014 bio-oil sequestration (supplier-level deal)"
+    name: "Charm Industrial — bio-oil sequestration (supplier-level deal)"
     developer: Charm Industrial
     countries: [USA]
     l2: biomass_storage
@@ -622,7 +718,7 @@ announced_rows:
         source_title: Klimate.co And Charm Industrial Extend Partnership With $1.1M Off-Take Agreement (Carbon Herald)
         note: "'Nearly 1900 tons', bought on behalf of Klimate.co's customers."
   - id: ANN:livingcarbon-usa
-    name: "Living Carbon \u2014 reforestation of Appalachian mine lands (supplier-level deal)"
+    name: "Living Carbon — reforestation of Appalachian mine lands (supplier-level deal)"
     developer: Living Carbon
     countries: [USA]
     l2: arr
@@ -638,7 +734,7 @@ announced_rows:
         source_url: https://decarbonfuse.com/posts/symbiosis-announces-new-carbon-offtake-agreements-with-living-carbon
         source_title: Symbiosis announces new carbon offtake agreements with Living Carbon
   - id: ANN:regreen-bra
-    name: "re.green \u2014 forest restoration, Brazil (supplier-level deals)"
+    name: "re.green — forest restoration, Brazil (supplier-level deals)"
     developer: re.green
     countries: [BRA]
     l2: arr
@@ -653,13 +749,13 @@ announced_rows:
         date: '2025-01-23'
         source_url: https://www.esgtoday.com/microsoft-signs-forest-restoration-deal-to-remove-3-5-million-tons-of-co2/
         source_title: Microsoft Signs Forest Restoration Deal to Remove 3.5 Million Tons of CO2 (re.green)
-      - buyer: "Nestl\xE9"
+      - buyer: "Nestlé"
         volume_tco2e: 880000
         date: '2025-07-17'
         source_url: https://carbon-pulse.com/418584/
         source_title: Food conglomerate closes deal for 880,000 restoration credits from Atlantic Forest (Carbon Pulse)
   - id: ANN:mombak-bra
-    name: "Mombak \u2014 Amazon reforestation, Brazil (supplier-level deals)"
+    name: "Mombak — Amazon reforestation, Brazil (supplier-level deals)"
     developer: Mombak
     countries: [BRA]
     l2: arr
@@ -684,7 +780,7 @@ announced_rows:
         source_url: https://carbon-pulse.com/552843/
         source_title: Brazilian CDR developer signs Salesforce deal (Carbon Pulse)
   - id: ANN:btgtig-bra
-    name: "BTG Pactual TIG \u2014 reforestation and restoration in Latin America (supplier-level deals)"
+    name: "BTG Pactual TIG — reforestation and restoration in Latin America (supplier-level deals)"
     developer: BTG Pactual Timberland Investment Group
     countries: [BRA]
     l2: arr
@@ -700,7 +796,7 @@ announced_rows:
         source_url: https://www.esgtoday.com/meta-signs-deal-for-up-to-3-9-million-tons-of-nature-based-carbon-removal-credits-with-btg-pactual/
         source_title: Meta Signs Deal for up to 3.9 Million Tons with BTG Pactual
   - id: ANN:ponterra-pan
-    name: "Ponterra \u2014 reforestation, Panama (supplier-level deal)"
+    name: "Ponterra — reforestation, Panama (supplier-level deal)"
     developer: Ponterra
     countries: [PAN]
     l2: arr
@@ -711,7 +807,7 @@ announced_rows:
         source_url: https://orrick.com/News/2024/06/Nature-Based-Carbon-Removal-Microsoft-Agrees-to-Panama-Reforestation-Deal
         source_title: Microsoft Agrees to Panama Reforestation Deal (Ponterra)
   - id: ANN:exomad-bol
-    name: "Exomad Green \u2014 biochar, Bolivia (supplier-level deal)"
+    name: "Exomad Green — biochar, Bolivia (supplier-level deal)"
     developer: Exomad Green
     countries: [BOL]
     l2: biochar
@@ -732,7 +828,7 @@ announced_rows:
         source_url: https://biochartoday.com/news/supercritical-secures-130000-tonnes-of-biochar-carbon-removal-in-expanded-partnership-with-exomad-green/
         source_title: Supercritical secures 130,000 tonnes of biochar carbon removal from Exomad Green
   - id: ANN:terradot-rice-bra
-    name: "Terradot \u2014 rice methane elimination, Rio Grande do Sul"
+    name: "Terradot — rice methane elimination, Rio Grande do Sul"
     developer: Terradot
     countries: [BRA]
     l2: rice_methane
@@ -744,7 +840,7 @@ announced_rows:
         source_title: Google Signs Record Carbon Removal Deal With Terradot for Brazil Rice Project
   # --- backfill 2026-10-13 ---
   - id: ANN:agoro-soil-usa
-    name: "Agoro Carbon \u2014 soil carbon, US crop and rangeland (supplier-level deal)"
+    name: "Agoro Carbon — soil carbon, US crop and rangeland (supplier-level deal)"
     developer: Agoro Carbon
     countries: [USA]
     l2: soil_carbon
@@ -755,7 +851,7 @@ announced_rows:
         source_url: https://www.esgtoday.com/agoro-carbon-secures-flagship-12-year-agreement-to-deliver-2-6-million-soil-carbon-removal-credits-to-microsoft/
         source_title: Agoro Carbon Secures 12-Year Agreement to Deliver 2.6 Million Soil Carbon Removal Credits to Microsoft
   - id: ANN:indigo-soil-usa
-    name: "Indigo Ag \u2014 Carbon by Indigo soil carbon (supplier-level deals)"
+    name: "Indigo Ag — Carbon by Indigo soil carbon (supplier-level deals)"
     developer: Indigo Ag
     countries: [USA]
     l2: soil_carbon
@@ -771,7 +867,7 @@ announced_rows:
         source_url: https://www.esgtoday.com/microsoft-purchases-60000-soil-carbon-credits-from-sustainable-agriculture-solutions-provider-indigo/
         source_title: Microsoft Purchases 60,000 Soil Carbon Credits from Indigo
   - id: ANN:northstar-beccs-can
-    name: "North Star BECCS \u2014 MLTC Bioenergy Centre, Meadow Lake, Saskatchewan"
+    name: "North Star BECCS — MLTC Bioenergy Centre, Meadow Lake, Saskatchewan"
     developer: North Star Carbon Solutions (Svante + Meadow Lake Tribal Council)
     countries: [CAN]
     l2: beccs
@@ -780,9 +876,9 @@ announced_rows:
         volume_tco2e: 626000
         date: '2026-04-06'
         source_url: https://offshoresource.com/business-wire/svante-meadow-lake-tribal-council-partnership-agrees-to-sell-microsoft-626000-tonnes-of-carbon-removal-credits/
-        source_title: "Svante\u2013Meadow Lake Tribal Council partnership agrees to sell Microsoft 626,000 tonnes"
+        source_title: "Svante–Meadow Lake Tribal Council partnership agrees to sell Microsoft 626,000 tonnes"
   - id: ANN:liferaft-biochar-usa
-    name: "Liferaft \u2014 biochar facilities, Iowa and Illinois"
+    name: "Liferaft — biochar facilities, Iowa and Illinois"
     developer: Liferaft
     countries: [USA]
     l2: biochar
@@ -793,7 +889,7 @@ announced_rows:
         source_url: https://www.esgtoday.com/microsoft-signs-1-million-ton-carbon-removal-deal-with-u-s-biochar-company-liferaft/
         source_title: Microsoft Signs 1 Million Ton Carbon Removal Deal with Liferaft
   - id: ANN:inplanet-erw-bra
-    name: "InPlanet \u2014 enhanced rock weathering, Brazil (supplier-level deal)"
+    name: "InPlanet — enhanced rock weathering, Brazil (supplier-level deal)"
     developer: InPlanet
     countries: [BRA]
     l2: erw
@@ -804,7 +900,7 @@ announced_rows:
         source_url: https://www.esgtoday.com/microsoft-signs-enhanced-rock-weathering-carbon-removal-deal-with-inplanet
         source_title: Microsoft Signs Enhanced Rock Weathering Carbon Removal Deal with InPlanet
   - id: ANN:goodrice-ind
-    name: "The Good Rice Alliance (Bayer) \u2014 rice methane reduction, India"
+    name: "The Good Rice Alliance (Bayer) — rice methane reduction, India"
     developer: The Good Rice Alliance (Bayer)
     countries: [IND]
     l2: rice_methane
@@ -815,7 +911,7 @@ announced_rows:
         source_url: https://www.esgtoday.com/amazon-signs-685000-ton-carbon-credit-deal-to-reduce-emissions-from-rice-farming-in-india/
         source_title: Amazon Signs 685,000 Ton Carbon Credit Deal to Reduce Emissions from Rice Farming in India
   - id: ANN:amp-biochar-usa
-    name: "Commonwealth Sortation (AMP) \u2014 waste-to-biochar, South Hampton Roads, Virginia"
+    name: "Commonwealth Sortation (AMP) — waste-to-biochar, South Hampton Roads, Virginia"
     developer: Commonwealth Sortation LLC (AMP Robotics)
     countries: [USA]
     l2: biochar
@@ -826,7 +922,7 @@ announced_rows:
         source_url: https://ampsortation.com/articles/google-biochar-carbon-credits
         source_title: Google to Purchase Carbon Removal Credits from AMP's organic waste processing
   - id: ANN:280earth-dac-usa
-    name: "280 Earth \u2014 direct air capture, The Dalles, Oregon"
+    name: "280 Earth — direct air capture, The Dalles, Oregon"
     developer: 280 Earth
     countries: [USA]
     l2: dac
@@ -837,7 +933,7 @@ announced_rows:
         source_url: https://frontierclimate.com/writing/280-earth
         source_title: Frontier buyers sign $40M offtake with 280 Earth
   - id: ANN:terradot-erw-usa
-    name: "Terradot (formerly Eion) \u2014 enhanced rock weathering, US South/Midwest"
+    name: "Terradot (formerly Eion) — enhanced rock weathering, US South/Midwest"
     developer: Terradot (Eion)
     countries: [USA]
     l2: erw
@@ -858,7 +954,7 @@ announced_rows:
         source_url: https://www.edb.gov.sg/en/news-and-insights/singapore-to-buy-s76-4-million-worth-of-nature-based-carbon-credits-from-projects-in-ghana-peru-and-paraguay
         source_title: Singapore to buy S$76.4 million of nature-based carbon credits (Peru, Paraguay, Ghana)
   - id: ANN:boomitra-pry
-    name: "Boomitra \u2014 grassland soil carbon, Paraguay (Singapore Article 6 purchase)"
+    name: "Boomitra — grassland soil carbon, Paraguay (Singapore Article 6 purchase)"
     developer: Boomitra
     countries: [PRY]
     l2: soil_carbon
@@ -872,266 +968,590 @@ announced_rows:
     name: Stockholm Exergi — BECCS at Värtan, Stockholm
     developer: Stockholm Exergi
     countries:
-    - SWE
+      - SWE
     l2: beccs
     offtakes:
-    - buyer: Microsoft
-      volume_tco2e: 3330000
-      date: '2024-05-06'
-      source_url: https://www.stockholmexergi.se/en/?p=42310
-      source_title: Stockholm Exergi announces permanent carbon removal agreement with Microsoft, world's largest to date
-      note: 10-year delivery from 2028.
-    - buyer: Microsoft
-      date: '2025-05-07'
-      source_url: https://www.datacenterdynamics.com/en/news/microsoft-expands-carbon-removal-agreement-with-stockholm-exergi/
-      source_title: Microsoft expands carbon removal agreement with Stockholm Exergi
-      note: Amends the 2024 deal (new total 5.08 Mt); volume not added again.
-    - buyer: Frontier
-      date: '2024-06-18'
-      source_url: https://frontierclimate.com/writing/exergi
-      source_title: Frontier buyers sign $48.6M in offtake agreements with Stockholm Exergi, in first large European deal
-      note: 'Tonnage not disclosed: ''The exact volume of tons going to Frontier buyers, and the price per ton, will be announced''.'
-    - buyer: City of Stockholm
-      volume_tco2e: 750000
-      date: '2026-05-27'
-      source_url: https://www.esgtoday.com/stockholm-becomes-one-of-worlds-largest-carbon-removal-buyers-with-new-750000-tonne-deal/
-      source_title: Stockholm Becomes One of World's Largest Carbon Removal Buyers with New 750,000-Tonne Deal
-      note: Buyer is the city government, which co-owns the supplier.
+      - buyer: Microsoft
+        volume_tco2e: 3330000
+        date: '2024-05-06'
+        source_url: https://www.stockholmexergi.se/en/?p=42310
+        source_title: Stockholm Exergi announces permanent carbon removal agreement with Microsoft, world's largest to date
+        note: 10-year delivery from 2028.
+      - buyer: Microsoft
+        date: '2025-05-07'
+        source_url: https://www.datacenterdynamics.com/en/news/microsoft-expands-carbon-removal-agreement-with-stockholm-exergi/
+        source_title: Microsoft expands carbon removal agreement with Stockholm Exergi
+        note: Amends the 2024 deal (new total 5.08 Mt); volume not added again.
+      - buyer: Frontier
+        date: '2024-06-18'
+        source_url: https://frontierclimate.com/writing/exergi
+        source_title: Frontier buyers sign $48.6M in offtake agreements with Stockholm Exergi, in first large European deal
+        note: 'Tonnage not disclosed: ''The exact volume of tons going to Frontier buyers, and the price per ton, will be announced''.'
+      - buyer: City of Stockholm
+        volume_tco2e: 750000
+        date: '2026-05-27'
+        source_url: https://www.esgtoday.com/stockholm-becomes-one-of-worlds-largest-carbon-removal-buyers-with-new-750000-tonne-deal/
+        source_title: Stockholm Becomes One of World's Largest Carbon Removal Buyers with New 750,000-Tonne Deal
+        note: Buyer is the city government, which co-owns the supplier.
   - id: ANN:orsted-beccs-dnk
     name: Ørsted — BECCS at Kalundborg CO2 Hub (Asnæs, Avedøre)
     developer: Ørsted
     countries:
-    - DNK
+      - DNK
     l2: beccs
     offtakes:
-    - buyer: Microsoft
-      volume_tco2e: 2760000
-      date: '2023-05-16'
-      source_url: https://www.esgtoday.com/microsoft-signs-one-of-the-largest-ever-deals-for-carbon-removal/
-      source_title: Microsoft Signs One of the Largest Ever Carbon Removal Deals
-    - buyer: Microsoft
-      volume_tco2e: 1000000
-      date: '2024-05-23'
-      source_url: https://www.esgtoday.com/microsoft-signs-1-million-tonne-bioenergy-based-carbon-removal-agreement-with-orsted/
-      source_title: Microsoft Signs 1 Million Tonne Bioenergy-based Carbon Removal Agreement with Ørsted
-      note: 10-year term. The fetch tool paraphrased this quote; check it against the page before publishing.
+      - buyer: Microsoft
+        volume_tco2e: 2760000
+        date: '2023-05-16'
+        source_url: https://www.esgtoday.com/microsoft-signs-one-of-the-largest-ever-deals-for-carbon-removal/
+        source_title: Microsoft Signs One of the Largest Ever Carbon Removal Deals
+      - buyer: Microsoft
+        volume_tco2e: 1000000
+        date: '2024-05-23'
+        source_url: https://www.esgtoday.com/microsoft-signs-1-million-tonne-bioenergy-based-carbon-removal-agreement-with-orsted/
+        source_title: Microsoft Signs 1 Million Tonne Bioenergy-based Carbon Removal Agreement with Ørsted
+        note: 10-year term. The fetch tool paraphrased this quote; check it against the page before publishing.
+      - buyer: Equinor
+        volume_tco2e: 330000
+        date: '2024-09-20'
+        source_url: https://carbonherald.com/orsted-and-equinor-partner-on-10-yr-carbon-removal-credits-deal/
+        source_title: Ørsted And Equinor Partner On 10-yr Carbon Removal Credits Deal
+        note: total over 10 years
   - id: ANN:hafslund-beccs-nor
     name: Hafslund Celsio — waste-to-energy CCS at Klemetsrud, Oslo
     developer: Hafslund Celsio
     countries:
-    - NOR
+      - NOR
     l2: beccs
     offtakes:
-    - buyer: Microsoft
-      volume_tco2e: 1100000
-      date: '2025-06-30'
-      source_url: https://hitecvision.com/news/hafslund-celsio-announces-a-10-year-carbon-removal-agreement-with-microsoft/
-      source_title: Hafslund Celsio announces a 10-year carbon removal agreement with Microsoft
-      note: Facility expected operational from 2029.
-    - buyer: Frontier
-      volume_tco2e: 100000
-      date: '2025-04-01'
-      source_url: https://esgpost.com/frontier-signs-carbon-removal-deal-with-norways-largest-waste-to-energy-plant/
-      source_title: Frontier signs carbon removal deal with Norway's largest waste-to-energy plant
-      note: Frontier's own post (frontierclimate.com/writing/hafslundcelsio) is dated April 1, 2025. esgpost is dated 2 April 2025.
+      - buyer: Microsoft
+        volume_tco2e: 1100000
+        date: '2025-06-30'
+        source_url: https://hitecvision.com/news/hafslund-celsio-announces-a-10-year-carbon-removal-agreement-with-microsoft/
+        source_title: Hafslund Celsio announces a 10-year carbon removal agreement with Microsoft
+        note: Facility expected operational from 2029.
+      - buyer: Frontier
+        volume_tco2e: 100000
+        date: '2025-04-01'
+        source_url: https://esgpost.com/frontier-signs-carbon-removal-deal-with-norways-largest-waste-to-energy-plant/
+        source_title: Frontier signs carbon removal deal with Norway's largest waste-to-energy plant
+        note: Frontier's own post (frontierclimate.com/writing/hafslundcelsio) is dated April 1, 2025. esgpost is dated 2 April 2025.
   - id: ANN:biocirc-beccs-dnk
     name: BioCirc — biogas CO2 capture and storage, Denmark
     developer: BioCirc
     countries:
-    - DNK
+      - DNK
     l2: beccs
     offtakes:
-    - buyer: Microsoft
-      volume_tco2e: 650000
-      date: '2026-05-20'
-      source_url: https://www.esgtoday.com/microsoft-announces-first-major-carbon-removal-deal-since-reportedly-exiting-the-market/
-      source_title: Microsoft Signs First Major Carbon Removal Deal Since Reportedly Pausing Purchases
-      note: Deliveries from H2 2026 through 2032.
+      - buyer: Microsoft
+        volume_tco2e: 650000
+        date: '2026-05-20'
+        source_url: https://www.esgtoday.com/microsoft-announces-first-major-carbon-removal-deal-since-reportedly-exiting-the-market/
+        source_title: Microsoft Signs First Major Carbon Removal Deal Since Reportedly Pausing Purchases
+        note: Deliveries from H2 2026 through 2032.
   - id: ANN:neustark-mineral-che
     name: neustark — CO2 storage in recycled concrete (Switzerland, Germany)
     developer: neustark
     countries:
-    - CHE
-    - DEU
+      - CHE
+      - DEU
     l2: mineralization
     offtakes:
-    - buyer: Microsoft
-      volume_tco2e: 27600
-      date: '2024-02-14'
-      source_url: https://news.microsoft.com/de-ch/2024/02/14/neustark-to-deliver-high-quality-carbon-removal-in-a-multi-year-offtake-agreement-with-microsoft/
-      source_title: Neustark to deliver high-quality carbon removal in a multi-year offtake agreement with Microsoft
-      note: 'Date taken from the URL path. Plants are in Switzerland and Germany: ''14 carbon removal and storage plants in operation in Switzerland and Germany''.'
+      - buyer: Microsoft
+        volume_tco2e: 27600
+        date: '2024-02-14'
+        source_url: https://news.microsoft.com/de-ch/2024/02/14/neustark-to-deliver-high-quality-carbon-removal-in-a-multi-year-offtake-agreement-with-microsoft/
+        source_title: Neustark to deliver high-quality carbon removal in a multi-year offtake agreement with Microsoft
+        note: 'Date taken from the URL path. Plants are in Switzerland and Germany: ''14 carbon removal and storage plants in operation in Switzerland and Germany''.'
   - id: ANN:undo-erw-gbr
     name: UNDO — enhanced rock weathering, UK farmland
     developer: UNDO
     countries:
-    - GBR
+      - GBR
     l2: erw
     offtakes:
-    - buyer: Microsoft
-      volume_tco2e: 5000
-      date: '2023-04-13'
-      source_url: https://un-do.com/resources/case-studies/undo-becomes-microsofts-first-enhanced-rock-weathering-supplier/
-      source_title: UNDO becomes Microsoft's first enhanced rock weathering supplier
-      note: Supplier's own page. Corroborated by edie ('Microsoft turns to British farms...').
+      - buyer: Microsoft
+        volume_tco2e: 5000
+        date: '2023-04-13'
+        source_url: https://un-do.com/resources/case-studies/undo-becomes-microsofts-first-enhanced-rock-weathering-supplier/
+        source_title: UNDO becomes Microsoft's first enhanced rock weathering supplier
+        note: Supplier's own page. Corroborated by edie ('Microsoft turns to British farms...').
   - id: ANN:climeworks-dac-isl
     name: Climeworks — direct air capture, Iceland (Orca/Mammoth)
     developer: Climeworks
     countries:
-    - ISL
+      - ISL
     l2: dac
     offtakes:
-    - buyer: Microsoft
-      volume_tco2e: 10000
-      date: '2022-07-13'
-      source_url: https://www.geekwire.com/2022/heres-a-look-at-the-worlds-biggest-carbon-capture-site-which-just-signed-a-10-year-deal-with-microsoft/
-      source_title: We visited the world's biggest carbon capture plant, which just signed a 10-year deal with Microsoft
-      note: GeekWire ties the deal to the Iceland plant. DCD (same date) says 'remove 10,000 tons of carbon over a decade' but gives no country.
+      - buyer: Microsoft
+        volume_tco2e: 10000
+        date: '2022-07-13'
+        source_url: https://www.geekwire.com/2022/heres-a-look-at-the-worlds-biggest-carbon-capture-site-which-just-signed-a-10-year-deal-with-microsoft/
+        source_title: We visited the world's biggest carbon capture plant, which just signed a 10-year deal with Microsoft
+        note: GeekWire ties the deal to the Iceland plant. DCD (same date) says 'remove 10,000 tons of carbon over a decade' but gives no country.
   - id: ANN:klim-soil-deu
     name: Klim — regenerative agriculture, Germany
     developer: Klim
     countries:
-    - DEU
+      - DEU
     l2: soil_carbon
     offtakes:
-    - buyer: Lufthansa Group
-      date: '2026-05-22'
-      source_url: https://esgpost.com/lufthansa-group-secures-multi-year-carbon-removal-offtake-via-senken/
-      source_title: Lufthansa Group secures multi-year carbon removal offtake via Senken
-      note: The portfolio also includes Deep Sky (Canada) and Exomad Green (Bolivia), both outside scope. Volume undisclosed.
+      - buyer: Lufthansa Group
+        date: '2026-05-22'
+        source_url: https://esgpost.com/lufthansa-group-secures-multi-year-carbon-removal-offtake-via-senken/
+        source_title: Lufthansa Group secures multi-year carbon removal offtake via Senken
+        note: The portfolio also includes Deep Sky (Canada) and Exomad Green (Bolivia), both outside scope. Volume undisclosed.
   - id: ANN:ghana-solar-a62-gha
     name: Solar with battery storage for commercial and industrial sites, Ghana (Article 6.2)
     countries:
-    - GHA
+      - GHA
     l2: solar
     offtakes:
-    - buyer: Swedish Energy Agency
-      date: '2024-05-29'
-      source_url: https://www.energimyndigheten.se/en/news/2024/swedens-first-legally-binding-agreement-on-emissions-trading-under-the-paris-agreement/
-      source_title: Sweden's first legally binding agreement on emissions trading under the Paris Agreement
-      note: The project developer is not named. The 165,000 t figure is estimated reductions, not a contracted volume. Weakest supplier identification in the set.
+      - buyer: Swedish Energy Agency
+        date: '2024-05-29'
+        source_url: https://www.energimyndigheten.se/en/news/2024/swedens-first-legally-binding-agreement-on-emissions-trading-under-the-paris-agreement/
+        source_title: Sweden's first legally binding agreement on emissions trading under the Paris Agreement
+        note: The project developer is not named. The 165,000 t figure is estimated reductions, not a contracted volume. Weakest supplier identification in the set.
   - id: ANN:zambia-cfip-a62-zmb
     name: Zambia Carbon Feed-In Premium programme (Article 6.2)
     developer: Government of Zambia
     countries:
-    - ZMB
+      - ZMB
     l2: other_re
     offtakes:
-    - buyer: Government of Norway (NACA Fund via GGGI)
-      volume_tco2e: 3500000
-      volume_source: https://www.regjeringen.no/en/whats-new/norge-og-zambia-skal-samarbeide-om-a-kutte-utslipp/id3147489  # up to 3,500,000 over 10 years (from 2026)
-      date: '2026-01-28'
-      source_url: https://gggi.org/zambia-and-norway-sign-purchase-agreement-on-emission-reductions/
-      source_title: Zambia and Norway Sign Purchase Agreement on Emission Reductions
-      note: Government-to-government MOPA. Volume not stated.
+      - buyer: Government of Norway (NACA Fund via GGGI)
+        volume_tco2e: 3500000
+        volume_source: https://www.regjeringen.no/en/whats-new/norge-og-zambia-skal-samarbeide-om-a-kutte-utslipp/id3147489 # up to 3,500,000 over 10 years (from 2026)
+        date: '2026-01-28'
+        source_url: https://gggi.org/zambia-and-norway-sign-purchase-agreement-on-emission-reductions/
+        source_title: Zambia and Norway Sign Purchase Agreement on Emission Reductions
+        note: Government-to-government MOPA. Volume not stated.
   - id: ANN:delagua-cookstoves-rwa
     name: DelAgua — Live Well clean cooking, Rwanda
     developer: DelAgua
     countries:
-    - RWA
+      - RWA
     l2: cookstoves
     offtakes:
-    - buyer: TotalEnergies
-      date: '2025-11-13'
-      source_url: https://www.businesswire.com/news/home/20251113312524/en
-      source_title: 'Rwanda : TotalEnergies Joins Forces with DelAgua to Bring Clean Cooking into 200,000 Households'
-      note: The 2.5 Mt figure is projected avoided emissions over 10 years, not a stated credit volume, so volume is left null. The caller may choose to use 2.5 Mt.
+      - buyer: TotalEnergies
+        date: '2025-11-13'
+        source_url: https://www.businesswire.com/news/home/20251113312524/en
+        source_title: 'Rwanda : TotalEnergies Joins Forces with DelAgua to Bring Clean Cooking into 200,000 Households'
+        note: The 2.5 Mt figure is projected avoided emissions over 10 years, not a stated credit volume, so volume is left null. The caller may choose to use 2.5 Mt.
   - id: ANN:cquest-cookstoves-afr
     name: C-Quest Capital — clean cookstoves (Malawi, Zambia, Zimbabwe, Mozambique, Uganda, Kenya)
     developer: C-Quest Capital
     countries:
-    - MWI
-    - ZMB
-    - ZWE
-    - MOZ
-    - UGA
-    - KEN
+      - MWI
+      - ZMB
+      - ZWE
+      - MOZ
+      - UGA
+      - KEN
     l2: cookstoves
     offtakes:
-    - buyer: Shell
-      volume_tco2e: 60000000
-      date: '2021-04-16'
-      source_url: https://www.spglobal.com/energy/en/news-research/latest-news/coal/041621-c-quest-capital-signs-60-million-mt-carbon-credit-deal-with-shell
-      source_title: C-Quest Capital signs 60 million mt carbon credit deal with Shell
-      note: Spans six countries with no per-country split. Shell funds the programme, and the credits flow to Shell per the source.
+      - buyer: Shell
+        volume_tco2e: 60000000
+        date: '2021-04-16'
+        source_url: https://www.spglobal.com/energy/en/news-research/latest-news/coal/041621-c-quest-capital-signs-60-million-mt-carbon-credit-deal-with-shell
+        source_title: C-Quest Capital signs 60 million mt carbon credit deal with Shell
+        note: Spans six countries with no per-country split. Shell funds the programme, and the credits flow to Shell per the source.
   - id: ANN:flux-erw-ken
     name: Flux — enhanced rock weathering, Kenya
     developer: Flux
     countries:
-    - KEN
+      - KEN
     l2: erw
     offtakes:
-    - buyer: Milkywire
-      volume_tco2e: 540
-      date: '2024-09-17'
-      source_url: https://dabafinance.com/en/news/nairobi-based-flux-sells-africas-first-carbon-dioxide-removal-credits
-      source_title: Nairobi-Based Flux Sells Africa's First Carbon Dioxide Removal Credits
-    - buyer: Frontier
-      volume_tco2e: 1142
-      date: '2024-09-18'
-      source_url: https://frontierclimate.com/writing/fall-2024-prepurchases
-      source_title: Frontier facilitates fourth round of carbon removal prepurchases
-      note: The location Frontier lists may be the company HQ. Flux's operations are in Kenya per the Daba row above.
+      - buyer: Milkywire
+        volume_tco2e: 540
+        date: '2024-09-17'
+        source_url: https://dabafinance.com/en/news/nairobi-based-flux-sells-africas-first-carbon-dioxide-removal-credits
+        source_title: Nairobi-Based Flux Sells Africa's First Carbon Dioxide Removal Credits
+      - buyer: Frontier
+        volume_tco2e: 1142
+        date: '2024-09-18'
+        source_url: https://frontierclimate.com/writing/fall-2024-prepurchases
+        source_title: Frontier facilitates fourth round of carbon removal prepurchases
+        note: The location Frontier lists may be the company HQ. Flux's operations are in Kenya per the Daba row above.
   - id: ANN:stackcarbon-erw-uga
     name: Stack Carbon — enhanced rock weathering, Uganda
     developer: Stack Carbon
     countries:
-    - UGA
+      - UGA
     l2: erw
     offtakes:
-    - buyer: Wild Assets
-      date: '2026-08-03'
-      source_url: https://www.argusmedia.com/es/news-and-insights/latest-market-news/2860077-uganda-s-stack-carbon-signs-major-carbon-credits-deal
-      source_title: Uganda's Stack Carbon signs major carbon credits deal
-      note: The volume is only 'tens of thousands of tonnes', so it is left null.
+      - buyer: Wild Assets
+        date: '2026-08-03'
+        source_url: https://www.argusmedia.com/es/news-and-insights/latest-market-news/2860077-uganda-s-stack-carbon-signs-major-carbon-credits-deal
+        source_title: Uganda's Stack Carbon signs major carbon credits deal
+        note: The volume is only 'tens of thousands of tonnes', so it is left null.
   - id: ANN:sirona-dac-ken
     name: Sirona Technologies — Project Jacaranda direct air capture, Kenya
     developer: Sirona Technologies
     countries:
-    - KEN
+      - KEN
     l2: dac
     offtakes:
-    - buyer: IMC
-      date: '2025-11-28'
-      source_url: https://decarbonfuse.com/posts/sirona-technologies-and-imc-announce-purchase-of-permanent-carbon-removal-credits
-      source_title: Sirona Technologies and IMC announce purchase of permanent carbon removal credits
-      note: Says 'has purchased' but the project's first unit was only coming online in 2025, so delivered vs forward is unclear. Volume undisclosed.
+      - buyer: IMC
+        date: '2025-11-28'
+        source_url: https://decarbonfuse.com/posts/sirona-technologies-and-imc-announce-purchase-of-permanent-carbon-removal-credits
+        source_title: Sirona Technologies and IMC announce purchase of permanent carbon removal credits
+        note: Says 'has purchased' but the project's first unit was only coming online in 2025, so delivered vs forward is unclear. Volume undisclosed.
   - id: ANN:imperative-spekboom-zaf
     name: Imperative — spekboom restoration, Eastern Cape
     developer: Imperative
     countries:
-    - ZAF
+      - ZAF
     l2: arr
     offtakes:
-    - buyer: Amazon
-      volume_tco2e: 1950000
-      date: '2026-06-30'
-      source_url: https://www.aboutamazon.com/news/sustainability/amazon-south-africa-land-restoration
-      source_title: Amazon invests in one of the world's largest carbon removal projects (About Amazon)
-      note: Purchases span more than ten years. Linked to a World Bank Spekboom Outcome Bond. The source title is approximate.
+      - buyer: Amazon
+        volume_tco2e: 1950000
+        date: '2026-06-30'
+        source_url: https://www.aboutamazon.com/news/sustainability/amazon-south-africa-land-restoration
+        source_title: Amazon invests in one of the world's largest carbon removal projects (About Amazon)
+        note: Purchases span more than ten years. Linked to a World Bank Spekboom Outcome Bond. The source title is approximate.
   - id: ANN:vnv-mangrove-mdg
     name: Value Network Ventures / Bondy — mangrove restoration, north-east Madagascar
     developer: Value Network Ventures
     countries:
-    - MDG
+      - MDG
     l2: blue_carbon
     offtakes:
-    - buyer: Sumitomo Corporation
-      volume_tco2e: 800000
-      date: '2025-04-01'
-      source_url: https://www.sumitomocorp.com/en/jp/news/topics/2025/group/20250401_2
-      source_title: Entering the Carbon Credit Business Through Mangrove Reforestation in Madagascar and Mozambique
-      note: 800k is the first-phase generation target (2024-2044), which Sumitomo procures. The Mozambique part of the same release is an equity investment and is excluded.
+      - buyer: Sumitomo Corporation
+        volume_tco2e: 800000
+        date: '2025-04-01'
+        source_url: https://www.sumitomocorp.com/en/jp/news/topics/2025/group/20250401_2
+        source_title: Entering the Carbon Credit Business Through Mangrove Reforestation in Madagascar and Mozambique
+        note: 800k is the first-phase generation target (2024-2044), which Sumitomo procures. The Mozambique part of the same release is an equity investment and is excluded.
   - id: ANN:kasigau-redd-ken
     name: Wildlife Works — Kasigau Corridor REDD+ (phase not stated)
     developer: Wildlife Works
     countries:
-    - KEN
+      - KEN
     l2: redd
     offtakes:
-    - buyer: Crédit Agricole
-      volume_tco2e: 2655
-      date: '2012-01-16'
-      source_url: https://www.credit-agricole.com/en/press-releases/credit-agricole-s.a.-continues-its-carbon-offsetting-policy-choosing-a-redd-project-for-the-first-time
-      source_title: Crédit Agricole S.A. continues its carbon offsetting policy, choosing a REDD project for the first time
-      note: Spot purchase of issued VERs. Kasigau has two Verra phases, and the source does not say which, so registry_id is null.
+      - buyer: Crédit Agricole
+        volume_tco2e: 2655
+        date: '2012-01-16'
+        source_url: https://www.credit-agricole.com/en/press-releases/credit-agricole-s.a.-continues-its-carbon-offsetting-policy-choosing-a-redd-project-for-the-first-time
+        source_title: Crédit Agricole S.A. continues its carbon offsetting policy, choosing a REDD project for the first time
+        note: Spot purchase of issued VERs. Kasigau has two Verra phases, and the source does not say which, so registry_id is null.
+      - buyer: PPR (now Kering)
+        volume_tco2e: 95100
+        date: '2011'
+        source_url: https://reddmonitor.substack.com/p/guccis-sustainability-claims-rely
+        source_title: Gucci's sustainability claims rely on carbon offsets and accounting tricks (REDD-Monitor, 2024-06-13)
+        note: phase (VCS 562/612) not stated
+  - id: ANN:barrycallebaut-agroforestry-bra
+    name: Barry Callebaut — Cocoa agroforestry + reforestation, 6,000 ha in Bahia and Pará
+    developer: Barry Callebaut
+    countries:
+      - BRA
+    l2: agroforestry
+    offtakes:
+      - buyer: Nestlé
+        volume_tco2e: 600000
+        date: '2025-07-17'
+        source_url: https://carboncredits.com/?p=39082
+        source_title: Nestlé to Plant 11 Million Trees in Brazil to Generate Carbon Credits and Boost Sustainability (CarbonCredits.com)
+        note: expected credits (~600,000 t over ~25 yrs); co-funded 60% Nestlé / 40% Barry Callebaut - credit allocation between the two not stated
+  - id: ANN:livelihoodsfundslive-blue_carbon-sen
+    name: Livelihoods Funds (Livelihoods Carbon Fund 1) — Fund portfolio incl. Senegal mangrove restoration
+    developer: Livelihoods Funds (Livelihoods Carbon Fund 1)
+    countries:
+      - SEN
+    l2: blue_carbon
+    offtakes:
+      - buyer: Danone
+        date: '2011-07-04'
+        source_url: https://www.credit-agricole.com/en/press-releases/livelihoods-an-innovative-carbon-offset-fund-serving-rural-communities
+        source_title: 'Livelihoods: an innovative carbon-offset fund serving rural communities (Crédit Agricole, 2011-07-04)'
+        note: no per-investor volume; fund partners Danone, Crédit Agricole, Schneider Electric, CDC Climat; first project Senegal mangroves (~900,000 t over 20 yrs)
+      - buyer: Schneider Electric
+        date: '2011-07-04'
+        source_url: https://www.credit-agricole.com/en/press-releases/livelihoods-an-innovative-carbon-offset-fund-serving-rural-communities
+        source_title: 'Livelihoods: an innovative carbon-offset fund serving rural communities (Crédit Agricole, 2011-07-04)'
+        note: no per-investor volume; fund partners Danone, Crédit Agricole, Schneider Electric, CDC Climat; first project Senegal mangroves (~900,000 t over 20 yrs)
+  - id: ANN:livelihoodsfundslive-other-sen
+    name: Livelihoods Funds (Livelihoods Carbon Fund 3) (supplier-level deal)
+    developer: Livelihoods Funds (Livelihoods Carbon Fund 3)
+    countries:
+      - SEN
+      - KEN
+      - RWA
+      - IND
+      - GTM
+      - IDN
+    l2: other
+    offtakes:
+      - buyer: Danone
+        shared_volume_tco2e: 30000000
+        date: '2021-06-30'
+        source_url: https://www.marketscreener.com/quote/stock/DANONE-4634/news/Danone-Launch-of-a-new-Livelihoods-Carbon-Fund-14-companies-financial-investors-join-forces-to-35758567/
+        source_title: 'Danone: Launch of a new Livelihoods Carbon Fund - 14 companies & financial investors join forces (2021-06-30 release)'
+        note: up to 30M offsets over fund life, shared among 14 investors (Bel, Chanel, Danone, Eurofins, GEF, Hermès, L'OCCITANE, Mars, MCB, McCain, Orange, SAP, Schneider Electric, Voyageurs du Monde); no per-investor split; fund pays upfront, investors receive credits instead of dividends; projects in Senegal, Kenya, Rwanda, India, Guatemala, Indonesia (Sumatra)
+      - buyer: Chanel
+        shared_volume_tco2e: 30000000
+        date: '2021-06-30'
+        source_url: https://www.marketscreener.com/quote/stock/DANONE-4634/news/Danone-Launch-of-a-new-Livelihoods-Carbon-Fund-14-companies-financial-investors-join-forces-to-35758567/
+        source_title: 'Danone: Launch of a new Livelihoods Carbon Fund - 14 companies & financial investors join forces (2021-06-30 release)'
+        note: up to 30M offsets over fund life, shared among 14 investors (Bel, Chanel, Danone, Eurofins, GEF, Hermès, L'OCCITANE, Mars, MCB, McCain, Orange, SAP, Schneider Electric, Voyageurs du Monde); no per-investor split; fund pays upfront, investors receive credits instead of dividends; projects in Senegal, Kenya, Rwanda, India, Guatemala, Indonesia (Sumatra)
+      - buyer: Mars
+        shared_volume_tco2e: 30000000
+        date: '2021-06-30'
+        source_url: https://www.marketscreener.com/quote/stock/DANONE-4634/news/Danone-Launch-of-a-new-Livelihoods-Carbon-Fund-14-companies-financial-investors-join-forces-to-35758567/
+        source_title: 'Danone: Launch of a new Livelihoods Carbon Fund - 14 companies & financial investors join forces (2021-06-30 release)'
+        note: up to 30M offsets over fund life, shared among 14 investors (Bel, Chanel, Danone, Eurofins, GEF, Hermès, L'OCCITANE, Mars, MCB, McCain, Orange, SAP, Schneider Electric, Voyageurs du Monde); no per-investor split; fund pays upfront, investors receive credits instead of dividends; projects in Senegal, Kenya, Rwanda, India, Guatemala, Indonesia (Sumatra)
+      - buyer: Orange
+        shared_volume_tco2e: 30000000
+        date: '2021-06-30'
+        source_url: https://www.marketscreener.com/quote/stock/DANONE-4634/news/Danone-Launch-of-a-new-Livelihoods-Carbon-Fund-14-companies-financial-investors-join-forces-to-35758567/
+        source_title: 'Danone: Launch of a new Livelihoods Carbon Fund - 14 companies & financial investors join forces (2021-06-30 release)'
+        note: up to 30M offsets over fund life, shared among 14 investors (Bel, Chanel, Danone, Eurofins, GEF, Hermès, L'OCCITANE, Mars, MCB, McCain, Orange, SAP, Schneider Electric, Voyageurs du Monde); no per-investor split; fund pays upfront, investors receive credits instead of dividends; projects in Senegal, Kenya, Rwanda, India, Guatemala, Indonesia (Sumatra)
+      - buyer: Schneider Electric
+        shared_volume_tco2e: 30000000
+        date: '2021-06-30'
+        source_url: https://www.marketscreener.com/quote/stock/DANONE-4634/news/Danone-Launch-of-a-new-Livelihoods-Carbon-Fund-14-companies-financial-investors-join-forces-to-35758567/
+        source_title: 'Danone: Launch of a new Livelihoods Carbon Fund - 14 companies & financial investors join forces (2021-06-30 release)'
+        note: up to 30M offsets over fund life, shared among 14 investors (Bel, Chanel, Danone, Eurofins, GEF, Hermès, L'OCCITANE, Mars, MCB, McCain, Orange, SAP, Schneider Electric, Voyageurs du Monde); no per-investor split; fund pays upfront, investors receive credits instead of dividends; projects in Senegal, Kenya, Rwanda, India, Guatemala, Indonesia (Sumatra)
+  - id: ANN:atmosfair-biochar-ind
+    name: Atmosfair — Atmosfair biochar project, eastern India
+    developer: Atmosfair
+    countries:
+      - IND
+    l2: biochar
+    offtakes:
+      - buyer: BMW Group
+        shared_volume_tco2e: 25000
+        date: '2025-03-20'
+        source_url: https://www.green.earth/news/bmw-retires-first-biochar-carbon-credits-plans-more-by-2026
+        source_title: BMW retires first biochar carbon credits, plans more by 2026 (green.earth)
+        note: 25,000 t retired in 2024 shared between Atmosfair and First Climate (no split); BMW plans 46,000-57,500 t more over 2025-2026; retirement disclosed by the buyer
+  - id: ANN:firstclimatewithcarb-biochar-can
+    name: First Climate (with Carbonity) — Carbonity biochar facility, Port-Cartier, Quebec
+    developer: First Climate (with Carbonity)
+    countries:
+      - CAN
+    l2: biochar
+    offtakes:
+      - buyer: BMW Group
+        shared_volume_tco2e: 25000
+        date: '2025-03-20'
+        source_url: https://www.green.earth/news/bmw-retires-first-biochar-carbon-credits-plans-more-by-2026
+        source_title: BMW retires first biochar carbon credits, plans more by 2026 (green.earth)
+        note: 25,000 t retired in 2024 shared between Atmosfair and First Climate (no split); BMW plans 46,000-57,500 t more over 2025-2026; retirement disclosed by the buyer
+  - id: ANN:respirainternational-soil_carbon-gbr
+    name: Respira International — Blaston Farm soil carbon project, Leicestershire (Regen Network registry)
+    developer: Respira International
+    countries:
+      - GBR
+    l2: soil_carbon
+    offtakes:
+      - buyer: Mercedes-AMG PETRONAS F1 Team
+        volume_tco2e: 2000
+        date: '2024-07-02'
+        source_url: https://carboncredits.com/mercedes-amg-petronas-expands-carbon-removal-portfolio-to-accelerate-net-zero-push/
+        source_title: Mercedes-AMG PETRONAS Expands Carbon Removal Portfolio to Accelerate Net Zero Push (CarbonCredits.com, 2026-03-06); first announced 2024-06-28
+        note: three-year agreement; 2,000 t used against 2024 footprint (total over 3 yrs not stated)
+  - id: ANN:chestnutcarbon-arr-usa
+    name: Chestnut Carbon — 200 ha afforestation of degraded farmland, southeastern US
+    developer: Chestnut Carbon
+    countries:
+      - USA
+    l2: arr
+    offtakes:
+      - buyer: Mercedes-AMG PETRONAS F1 Team
+        date: '2026-03-06'
+        source_url: https://carboncredits.com/mercedes-amg-petronas-expands-carbon-removal-portfolio-to-accelerate-net-zero-push/
+        source_title: Mercedes-AMG PETRONAS Expands Carbon Removal Portfolio to Accelerate Net Zero Push (CarbonCredits.com)
+        note: 1,000-1,500 t/yr from 2027; term not stated so no total
+  - id: ANN:firstclimate-blue_carbon-idn
+    name: First Climate — Mangrove restoration project, Java (2,500+ ha)
+    developer: First Climate
+    countries:
+      - IDN
+    l2: blue_carbon
+    offtakes:
+      - buyer: GSK
+        date: '2023-04-05'
+        source_url: https://carboncredits.com/big-firms-make-their-own-carbon-credits-gsk-volkswagen-total/
+        source_title: Big Firms Make their own Carbon Credits - GSK, Volkswagen, Total (CarbonCredits.com)
+        note: up to 140,000 credits per year expected; term not stated so no total; GSK-funded project generating credits for own use
+  - id: ANN:massachusettstricity-ifm-usa
+    name: Massachusetts Tri-City Forestry project (proponent not named) (supplier-level deal)
+    developer: Massachusetts Tri-City Forestry project (proponent not named)
+    countries:
+      - USA
+    l2: ifm
+    offtakes:
+      - buyer: The Estée Lauder Companies
+        date: '2020-11-02'
+        source_url: https://www.elcompanies.com/en/news-and-media/newsroom/press-releases/2020/11-02-2020-171617374
+        source_title: The Estée Lauder Companies Reaches Milestone Climate Goals (2020-11-02)
+        note: volume not stated
+  - id: ANN:thenext150generalbio-biochar-mex
+    name: The Next 150 (General Biochar Systems) — GBS Guanajuato biochar plant
+    developer: The Next 150 (General Biochar Systems)
+    countries:
+      - MEX
+    l2: biochar
+    offtakes:
+      - buyer: Shell Environmental Products
+        volume_tco2e: 22500
+        date: '2024-03-13'
+        source_url: https://carboncredits.com/shell-to-buy-22500-biochar-removal-credits-from-the-next-150
+        source_title: Shell to Buy 22,500 Biochar Removal Credits from The Next 150
+        note: up to; 5-year agreement
+  - id: ANN:cquestcapital-buildings-ind
+    name: C-Quest Capital — Project SHINE I (household LED efficiency)
+    developer: C-Quest Capital
+    countries:
+      - IND
+    l2: buildings
+    offtakes:
+      - buyer: Shell
+        date: 2026-08
+        source_url: https://carbonmarketwatch.org/wp-content/uploads/2026/08/26_08_Spillover.pdf
+        source_title: Spillover - Shell and TotalEnergies' expansive roles (Carbon Market Watch policy brief, Sept 2026)
+        note: volume not stated; Shell financed the programme
+  - id: ANN:anewclimateandaurora-ifm-usa
+    name: Anew Climate and Aurora Sustainable Lands — 20 Improved Forest Management projects (~300,000 ha)
+    developer: Anew Climate and Aurora Sustainable Lands
+    countries:
+      - USA
+    l2: ifm
+    offtakes:
+      - buyer: TotalEnergies
+        date: '2024-08-30'
+        source_url: https://corporate.totalenergies.us/news/totalenergies-invests-sustainable-forestry-operations-preserve-sustainable-carbon-sinks
+        source_title: TotalEnergies Invests in Sustainable Forestry Operations to Preserve Sustainable Carbon Sinks
+        note: $100 million agreement; credit volume not stated
+  - id: ANN:nativstate-ifm-usa
+    name: NativState — 13 Improved Forest Management projects (~100,000 ha; ACR)
+    developer: NativState
+    countries:
+      - USA
+    l2: ifm
+    offtakes:
+      - buyer: TotalEnergies
+        date: '2025-07-22'
+        source_url: https://www.businesswire.com/news/home/20250722721232/en/United-States-TotalEnergies-Expands-Its-Investments-in-Sustainable-Forestry-Operations-to-Preserve-Carbon-Sinks
+        source_title: 'United States: TotalEnergies Expands Its Investments in Sustainable Forestry Operations to Preserve Carbon Sinks'
+        note: volume not stated
+  - id: ANN:1pointfive-dac-usa
+    name: 1PointFive — STRATOS Direct Air Capture plant (Texas)
+    developer: 1PointFive
+    countries:
+      - USA
+    l2: dac
+    offtakes:
+      - buyer: ENEOS
+        date: '2024-12-18'
+        source_url: https://www.nyk.com/english/news/2024/20241218_01.html
+        source_title: NYK and ENEOS Sign Agreement for Sale and Purchase of Marine Fuel with CDR Credits Created Through DACCS
+        note: volume not disclosed; ENEOS procures and resells to NYK with marine fuel
+  - id: ANN:greencarboninc-rice_methane-phl
+    name: Green Carbon Inc. — AWD paddy methane reduction, Isabela province (JCM)
+    developer: Green Carbon Inc.
+    countries:
+      - PHL
+    l2: rice_methane
+    offtakes:
+      - buyer: Idemitsu Kosan
+        date: '2025-08-07'
+        source_url: https://green-carbon.co.jp/en/engreencarbonidemitsu/
+        source_title: Idemitsu Kosan and Green Carbon to Promote Carbon Credit Generation under the Joint Crediting Mechanism
+        note: investor with rights to share of Japan-allocated JCM credits; volume not disclosed
+      - buyer: Osaka Gas
+        date: '2025-09-10'
+        source_url: https://green-carbon.co.jp/en/engreencarbon-osakagas/
+        source_title: Investment in Methane Emission Reduction Project in Ilocos Norte, Philippines
+        note: investment with intended use of credits if issued; volume not stated
+  - id: ANN:chibaprefecturefores-ifm-jpn
+    name: Chiba Prefecture Forest Owners Association — Kamogawa Forest for the Future (J-Credit)
+    developer: Chiba Prefecture Forest Owners Association
+    countries:
+      - JPN
+    l2: ifm
+    offtakes:
+      - buyer: Cosmo Energy Holdings
+        volume_tco2e: 9964
+        date: '2026-06-30'
+        source_url: https://www.cosmo-energy.co.jp/en/information/press/2026/260630-01.html
+        source_title: 'Cosmo Energy Holdings press release: Kamogawa Forest for the Future J-Credit purchase'
+        note: purchase of all J-Credits generated; 9,964 t is the registered sequestration volume
+  - id: ANN:greencarbonincpaddyf-rice_methane-jpn
+    name: Green Carbon Inc. (Paddy Field Consortium) — Nakaboshi (mid-season drainage) J-Credits, Aizu, Fukushima
+    developer: Green Carbon Inc. (Paddy Field Consortium)
+    countries:
+      - JPN
+    l2: rice_methane
+    offtakes:
+      - buyer: Cosmo Oil Marketing
+        date: '2025-11-20'
+        source_url: https://www.cosmo-energy.co.jp/en/information/press/2025/251120-01.html
+        source_title: 'Cosmo Oil Marketing press release: offsetting with Nakaboshi credits'
+        note: volume not disclosed; used to offset tanker-truck emissions; retirement disclosed by the buyer
+  - id: ANN:glengarryestatetreep-arr-gbr
+    name: Glengarry Estate (tree-planting project, Scottish Highlands) — Glengarry woodland creation
+    developer: Glengarry Estate (tree-planting project, Scottish Highlands)
+    countries:
+      - GBR
+    l2: arr
+    offtakes:
+      - buyer: Shell
+        date: '2021-10-25'
+        source_url: https://unearthed.greenpeace.org/2021/10/25/shell-oil-carbon-neutral-offsetting/
+        source_title: Doubts over Shell's 'drive carbon neutral' claim (Unearthed)
+        note: sole funder (GBP 5m); credits to be claimed by Shell; volume not stated (1m trees target)
+  - id: ANN:greentreesreforestat-arr-usa
+    name: Green Trees Reforestation Project (developer not named in source) (supplier-level deal)
+    developer: Green Trees Reforestation Project (developer not named in source)
+    countries:
+      - USA
+    l2: arr
+    offtakes:
+      - buyer: Shell
+        date: '2019-04-19'
+        source_url: https://reddmonitor.substack.com/p/shell-and-natural-climate-solutions
+        source_title: 'Shell and Natural Climate Solutions: US$300 million for carbon offsets (REDD-Monitor)'
+        note: volume not stated; retirement disclosed by the buyer
+  - id: ANN:atec-cookstoves-bgd
+    name: ATEC — ATEC IoT eCook electric cooking (Gold Standard metered methodology)
+    developer: ATEC
+    countries:
+      - BGD
+      - KHM
+    l2: cookstoves
+    offtakes:
+      - buyer: ENGIE
+        volume_tco2e: 11500000
+        date: '2023-03-28'
+        source_url: https://carbonherald.com/engie-to-buy-11-5m-tons-of-carbon-credits-from-atec/
+        source_title: ENGIE To Buy 11.5M Tons Of Carbon Credits From ATEC
+        note: long-term agreement; period not stated
+  - id: ANN:zefiromethanecorp-oil_gas_methane-usa
+    name: Zefiro Methane Corp. — Orphan/abandoned oil and gas well plugging (unnamed)
+    developer: Zefiro Methane Corp.
+    countries:
+      - USA
+    l2: oil_gas_methane
+    offtakes:
+      - buyer: EDF Trading
+        date: '2024-07-16'
+        source_url: https://carbonherald.com/zefiro-methane-corp-announces-presale-of-methane-emission-offset-credits-to-edf-trading/
+        source_title: Zefiro Methane Corp. Announces Presale Of Methane Emission Offset Credits To EDF Trading
+        note: presale; volume not disclosed
+  - id: ANN:stateofpiau-redd-bra
+    name: State of Piauí — Piauí jurisdictional REDD+ programme (ART TREES)
+    developer: State of Piauí
+    countries:
+      - BRA
+    l2: redd
+    offtakes:
+      - buyer: Silvania
+        date: '2025-07-08'
+        source_url: https://carbonherald.com/brazils-piaui-state-and-silvania-launch-jurisdictional-redd-program/
+        source_title: Brazil's Piauí State And Silvania Launch Jurisdictional REDD+ Program
+        note: exclusive buyer; volume not stated (state projects >20m credits by 2030); Silvania also provides upfront financing for certification. Source does not mention Mercuria; Silvania is described as 'backed by Mercuria' in https://carbonherald.com/silvania-launches-1-5b-initiative-to-protect-the-amazon/

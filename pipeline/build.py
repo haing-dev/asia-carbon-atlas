@@ -77,6 +77,24 @@ def _template_url(record_id: str) -> str | None:
     return t.format(id=native, lid=native.lower()) if t else None
 
 
+ELIG = common.load_yaml("eligibility.yaml")["labels"]
+
+
+def eligibility_mask(p: dict) -> int:
+    """Bitmask of config/eligibility.yaml labels that apply to the project (bit i = labels[i])."""
+    mask = 0
+    a6 = (p.get("article6") or {}).get("mechanism") or ""
+    for i, lab in enumerate(ELIG):
+        hit = any(m in a6 for m in lab.get("article6") or [])
+        hit = hit or any(re.search(rx, st, re.I) for rx in lab.get("status") or [] for st in p.get("statuses") or [])
+        for reg, rxs in (lab.get("methodology") or {}).items():
+            if any(r["registry"] == reg for r in p["registries"]):
+                hit = hit or any(re.search(rx, c) for rx in rxs for c in p.get("methodology_codes") or [])
+        if hit:
+            mask |= 1 << i
+    return mask
+
+
 TAGS = common.load_yaml("tags.yaml")["tags"]
 TAG_INDEX = {t["id"]: i for i, t in enumerate(TAGS)}
 
@@ -374,6 +392,7 @@ def main() -> None:
             cols["st"].append(STAGES.index(p["stage"]))
             cols["rg"].append(mask)
             cols["a6"].append(1 if p.get("article6") else 0)
+            cols["el"].append(eligibility_mask(p))
             cols["ea"].append(p.get("est_annual_tco2e"))   # null = not published by the source
             end = (p.get("crediting") or [None, None])[1]
             cols["ex"].append(1 if end and end < today else 0)  # crediting period over: left out of map est. totals
@@ -392,6 +411,7 @@ def main() -> None:
             "l1": [{"id": k, **v} for k, v in taxonomy["l1"].items()],
             "l2": [{"id": k, **v} for k, v in taxonomy["l2"].items()],
             "stages": STAGES,
+            "eligibility": [{"id": e["id"], "label": e["label"], "source": e.get("source")} for e in ELIG],
             "registries": [{"id": r, "label": REGISTRY_LABELS[r], "group": REGISTRY_GROUP[r], "present": bool(present >> i & 1)}
                            for i, r in enumerate(REGISTRIES)],
             "cols": cols,

@@ -21,10 +21,10 @@ buyers:
   - name: Salesforce
     retirement_patterns: ['(?i)\bsalesforce\b']
   - name: Shell
-    aliases: [Shell plc, Shell International, Royal Dutch Shell]
+    aliases: [Shell plc, Shell International, Royal Dutch Shell, Shell Environmental Products, Shell Energy North America]
     retirement_patterns: ['\bShell (plc|International|Energy|Trading|Eastern|Nederland|Deutschland|Brasil|Canada)\b', '\bRoyal Dutch Shell\b']
   - name: TotalEnergies
-    aliases: [Total]
+    aliases: [Total, TotalEnergies (ProxiFuel subsidiary), TotalEnergies Nature Based Solutions]
     retirement_patterns: ['(?i)\btotalenergies\b']
   - name: BP
     retirement_patterns: ['\bBP (p\.?l\.?c|Gas Marketing|Oil|Products|Europa)\b']
@@ -55,7 +55,7 @@ buyers:
   - name: Japan Airlines
     retirement_patterns: ['(?i)\bjapan airlines\b']
   - name: Kering
-    aliases: [Gucci, Saint Laurent, Bottega Veneta, Balenciaga]
+    aliases: [Gucci, Gucci (Kering), PPR (now Kering), Saint Laurent, Bottega Veneta, Balenciaga]
   - name: The Walt Disney Company
     aliases: [Disney, Walt Disney]
     retirement_patterns: ['(?i)\bwalt disney\b']
@@ -70,6 +70,7 @@ buyers:
   - name: Mercedes-Benz
     retirement_patterns: ['(?i)\bmercedes[- ]benz\b', '(?i)\bdaimler\b']
   - name: BMW
+    aliases: [BMW Group]
     retirement_patterns: ['\bBMW\b']
   - name: Boeing
     retirement_patterns: ['(?i)\bboeing\b']
@@ -128,6 +129,8 @@ buyers:
     retirement_patterns: ['\bAT&T\b']
   - name: Uber
     retirement_patterns: ['\bUber (Technologies|B\.V)\b']
+  - name: Cosmo Energy Holdings
+    aliases: [Cosmo Oil Marketing]
   - name: ENTEGA
     aliases: [ENTEGA Plus]
   - name: Ørsted

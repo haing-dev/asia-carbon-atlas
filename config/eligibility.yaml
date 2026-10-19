@@ -1,0 +1,19 @@
+# Eligibility labels: a filter on the region tables (dropdown "Eligibility"). Each label is decided per project from
+# public records only, by one or more rules (any rule matching sets the label):
+#   article6: [mechanism substrings]        from the UNEP-CCC Article 6 Pipeline tag on the project
+#   status:   [regex]                        on "<REGISTRY>: <registry status as published>"
+#   methodology: {registry: [regex]}         on the project's methodology codes, for records of that registry
+# Every label lists the public source it is decided from (shown in the filter's tooltip and the notes).
+labels:
+  - id: a62
+    label: Article 6.2 (bilateral) activity
+    article6: ["6.2"]
+    source: https://a6pipeline.unepccc.org/
+  - id: a64
+    label: Article 6.4 (PACM), incl. CDM transition
+    article6: ["6.4"]
+    source: https://a6pipeline.unepccc.org/
+  - id: hold
+    label: On hold / under registry review
+    status: ['^VCS: on hold', '^VCS: requantification requested', '(?i)under (registry )?review']
+    source: https://registry.verra.org/

@@ -25,7 +25,7 @@
   let country = $state(null);
   let mapHl = $state(null);   // country hovered in the ranking
   let rankHl = $state(null);  // country hovered on the map
-  let f = $state({ l2: null, stages: new Set([0, 1, 2, 4]), registries: null, a6: false, q: "" });
+  let f = $state({ l2: null, stages: new Set([0, 1, 2, 4]), registries: null, el: null, q: "" });
   let rawRows = $state([]);
   let loadingRows = $state(false);
 
@@ -41,7 +41,9 @@
     if (st) f.stages = st[0] === "all" ? null : new Set(st.map((s) => idx.stages.indexOf(s)).filter((i) => i >= 0));
     const r = ids("r");
     if (r) f.registries = new Set(r.map((id) => idx.registries.findIndex((x) => x.id === id)).filter((i) => i >= 0));
-    f.a6 = p.get("a6") === "1";
+    const el = ids("el") || (p.get("a6") === "1" ? ["a62", "a64"] : null);   // a6=1: older links (Article 6 only)
+    f.el = el ? new Set(el.map((id) => (idx.eligibility || []).findIndex((x) => x.id === id)).filter((i) => i >= 0)) : null;
+    if (f.el && !f.el.size) f.el = null;
     f.q = p.get("q") || "";
   }
   $effect(() => {
@@ -58,7 +60,7 @@
     const st = f.stages ? [...f.stages].sort().map((i) => index.stages[i]).join(",") : "all";
     if (st !== "pipeline,registered,issuing,announced") p.set("st", st);
     if (f.registries) p.set("r", [...f.registries].map((i) => index.registries[i].id).join(","));
-    if (f.a6) p.set("a6", "1");
+    if (f.el) p.set("el", [...f.el].map((i) => index.eligibility[i].id).join(","));
     if (f.q) p.set("q", f.q);
     const qs = p.toString();
     history.replaceState(null, "", qs ? "?" + qs : location.pathname);
@@ -155,7 +157,7 @@
   const total = $derived([...totals.values()].reduce((a, b) => a + b, 0));
 
   function clearFilters() {
-    f = { l2: null, stages: new Set([0, 1, 2, 4]), registries: null, a6: false, q: "" };
+    f = { l2: null, stages: new Set([0, 1, 2, 4]), registries: null, el: null, q: "" };
   }
   function selectCountry(iso) {
     country = iso;
