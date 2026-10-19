@@ -57,7 +57,7 @@
           <div class="row" role="button" tabindex="0" aria-expanded={open === r.n}
             onclick={(e) => { if (!e.target.closest(".nm")) open = open === r.n ? null : r.n; }}
             onkeydown={(e) => (e.key === "Enter" || e.key === " ") && !e.target.closest(".nm") && (e.preventDefault(), (open = open === r.n ? null : r.n))}>
-            <span class="name"><span class="rk">{i + 1}</span><button class="nm" title="Open buyer profile" onclick={() => onprofile(r.n)}>{r.n}</button></span>
+            <span class="name"><span class="rk">{i + 1}</span><button class="nm" title="{r.n} — open buyer profile" onclick={() => onprofile(r.n)}>{r.n}</button></span>
             <span class="track">
               <span class="bar" style:width="{width(r.total)}%">
                 {#each r.segs as s}
@@ -105,8 +105,10 @@
   .bars li { border-top: 1px solid var(--line); position: relative; }
   .row { display: grid; grid-template-columns: minmax(140px, 260px) 1fr 14px; gap: 12px; align-items: center; padding: 6px 2px; cursor: pointer; }
   .row:hover, .open .row { background: var(--chip); }
-  .name { font-size: 14px; font-weight: 600; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
-  .nm { background: none; border: 0; padding: 0; font: inherit; color: var(--ink); cursor: pointer; text-align: left; }
+  .name { font-size: 14px; font-weight: 600; display: flex; min-width: 0; }
+  .rk { flex: none; }
+  .nm { background: none; border: 0; padding: 0; font: inherit; color: var(--ink); cursor: pointer; text-align: left;
+    min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
   .nm:hover { color: var(--accent); text-decoration: underline; }
   .rk { display: inline-block; width: 22px; color: var(--faint); font-weight: 500; }
   .track { display: flex; align-items: center; gap: 8px; min-width: 0; }

@@ -131,6 +131,8 @@ buyers:
   - name: KliK Foundation
     aliases: [KliK Foundation (with Climate Cent Foundation), Stiftung KliK]
     retirement_patterns: ['(?i)\bklik\b']
+  - name: Government of Norway
+    aliases: [Government of Norway (NACA Fund via GGGI), Norway]
   - name: LEAF Coalition
     aliases: [Emergent (LEAF Coalition)]
   - name: AT&T
