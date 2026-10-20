@@ -1,5 +1,5 @@
 {
-  "last_commit_at": "2026-10-19T04:41:10+00:00",
+  "last_commit_at": "2026-10-20T02:22:01+00:00",
   "sources": {
     "a6pipeline": {
       "error": null,
@@ -102,12 +102,12 @@
     },
     "verradesc": {
       "error": null,
-      "last_changed": "2026-10-19T02:22:47+00:00",
-      "last_checked": "2026-10-19T02:22:47+00:00",
-      "rows": 218,
+      "last_changed": "2026-10-20T02:22:01+00:00",
+      "last_checked": "2026-10-20T02:22:01+00:00",
+      "rows": 236,
       "signal": {
-        "day": "2026-10-19",
-        "missing": 3794
+        "day": "2026-10-20",
+        "missing": 3690
       },
       "stale": false
     },
