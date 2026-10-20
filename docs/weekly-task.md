@@ -17,6 +17,9 @@ Budget: ~25 web searches, no page fetches beyond verifying items. Never touch `d
    the buyer, the project or supplier, and the date (SPEC §10.4: no inference; partnerships/investments without a credit
    purchase don't count). If one registry project is unambiguous (`grep -i` the name/developer in `data/records/*.jsonl`),
    add to `offtakes:` with its `record`; otherwise add or extend an `announced_rows:` entry (id `ANN:<supplier>-<type>-<iso>`).
+   **Skip already-checked news:** before opening a source, `uv run python -m pipeline.ledger check <url>`; skip
+   "added" / "not_added". After editing offtakers.yaml run `uv run python -m pipeline.ledger sync`; record sources you
+   opened and rejected with outcome "not_added" (see pipeline/ledger.py). Backlog of unsearched buyers: docs/buyer-sweep.md.
    **Supplier sweep (rotating):** also search "<supplier> carbon credit offtake" for 5 suppliers already in
    `config/offtakers.yaml` (rotate alphabetically by week number), any date, to catch deals older than 7 days.
 4. **Duplicate review** — if the `ArtifactData` tool is available, `list` collection `decisions` of

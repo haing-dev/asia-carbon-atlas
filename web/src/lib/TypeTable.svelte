@@ -1,15 +1,22 @@
 <script>
-  // Per credit type, all regions: how much of what was issued has been retired, and how long projects take to first issuance.
+  // Per credit type: projects issuing, issued, retired, % of issued retired, and time to first issuance; by region.
+  import Dropdown from "./Dropdown.svelte";
+  import RegionSwitch from "./RegionSwitch.svelte";
   import { L1_COLORS, fmt } from "./data.js";
 
-  let { types, l1, l2 } = $props();
+  let { types, l1, l2, areas } = $props();
 
+  let region = $state("all");
   let sortKey = $state("is");
   let sortDir = $state(-1);
   let all = $state(false);
+  let groups = $state(null);   // Set of l1 indices, or null = all
   const l1Label = $derived(Object.fromEntries(l1.map((x) => [x.id, x.label])));
-  const key = (r) => ({ type: l2[r.l2]?.label || r.l2, n: r.n, is: r.is, re: r.re, share: r.share ?? -1, tt: r.tt ? r.tt[0] : 99 })[sortKey];
-  const rows = $derived([...types].sort((a, b) => {
+  const groupOpts = $derived([{ items: l1.map((x, i) => ({ i, label: x.label })) }]);
+  const SMALL = 5;   // fewer projects than this: the time figure is marked as a small sample
+
+  const key = (r) => ({ type: `${l1Label[r.l1]} ${l2[r.l2]?.label || r.l2}`, n: r.n, is: r.is, re: r.re, share: r.share ?? -1, tt: r.tt ? r.tt[0] : 99 })[sortKey];
+  const rows = $derived((types[region] || []).filter((r) => !groups || groups.has(l1.findIndex((x) => x.id === r.l1))).sort((a, b) => {
     const x = key(a), y = key(b);
     return (typeof x === "number" ? x - y : String(x).localeCompare(String(y))) * sortDir;
   }));
@@ -21,22 +28,27 @@
     else { sortKey = k; sortDir = k === "type" || k === "tt" ? 1 : -1; }
   }
   const COLS = [
-    { k: "type", label: "Credit type" }, { k: "n", label: "Projects issuing", num: true }, { k: "is", label: "Issued", unit: "tCO₂e", num: true },
-    { k: "re", label: "Retired", unit: "tCO₂e", num: true }, { k: "share", label: "Retired share", unit: "of issued" },
-    { k: "tt", label: "Years to first issuance", unit: "median · bar = middle half of projects" },
+    { k: "type", label: "Credit Type" }, { k: "n", label: "# of Projects Issuing", num: true },
+    { k: "is", label: "Volume Issued (tCO₂e)", num: true }, { k: "re", label: "Volume Retired (tCO₂e)", num: true },
+    { k: "share", label: "% of Issued Credits Retired" }, { k: "tt", label: "Time to First Issuance*" },
   ];
 </script>
 
 <section class="tt">
-  <h2>Retired share and time to first issuance, by credit type</h2>
-  <p class="muted sub">All regions. Retired share = credits retired ÷ credits issued (projects whose registry reports retirements). Years to first issuance are counted from the project's first registry milestone (listing, validation or crediting start, whichever is earliest); shown for types with at least 5 projects.</p>
+  <div class="head">
+    <h2>Which credit types are fastest to market, in time to issuance and share of retirement?</h2>
+    <div class="ctl">
+      <RegionSwitch {areas} bind:value={region} />
+      <Dropdown label="Credit type" groups={groupOpts} total={l1.length} bind:selected={groups} align="right" />
+    </div>
+  </div>
   <div class="scroller">
     <table>
       <thead>
         <tr>
           {#each COLS as c}
             <th class:n={c.num} aria-sort={sortKey === c.k ? (sortDir > 0 ? "ascending" : "descending") : "none"}>
-              <button onclick={() => sortBy(c.k)}>{c.label}{sortKey === c.k ? (sortDir > 0 ? " ↑" : " ↓") : ""}{#if c.unit}<small>{c.unit}</small>{/if}</button>
+              <button onclick={() => sortBy(c.k)}>{c.label}{sortKey === c.k ? (sortDir > 0 ? " ↑" : " ↓") : ""}</button>
             </th>
           {/each}
         </tr>
@@ -44,7 +56,7 @@
       <tbody>
         {#each shown as r (r.l2)}
           <tr>
-            <td><i class="dot" style:background={L1_COLORS[r.l1]}></i>{l2[r.l2]?.label || r.l2} <span class="muted l1">{l1Label[r.l1]}</span></td>
+            <td class="name"><span class="tag" style:background={L1_COLORS[r.l1]}>{l1Label[r.l1]}</span>{l2[r.l2]?.label || r.l2}</td>
             <td class="n num">{r.n.toLocaleString()}</td>
             <td class="n num">{fmt(r.is)}</td>
             <td class="n num">{fmt(r.re)}</td>
@@ -59,41 +71,47 @@
                   <span class="iqr" style:left={pos(r.tt[1])} style:width="calc({pos(r.tt[2])} - {pos(r.tt[1])} + 3px)"></span>
                   <span class="med" style:left={pos(r.tt[0])}></span>
                 </span>
-                <span class="num">{r.tt[0]} yr</span> <span class="muted small">({r.tt[1]}–{r.tt[2]}, n={r.tt[3]})</span>
-              {:else}<span class="muted">too few projects</span>{/if}
+                <span class="num">{r.tt[0]} yr{#if r.tt[3] < SMALL}<span class="small-n" title="Fewer than {SMALL} projects">**</span>{/if}</span>
+                <span class="muted small">({r.tt[1]}–{r.tt[2]}, n={r.tt[3]})</span>
+              {:else}<span class="muted">—</span>{/if}
             </td>
           </tr>
         {/each}
+        {#if !shown.length}<tr><td colspan={COLS.length} class="muted empty">No issuing projects for this selection.</td></tr>{/if}
       </tbody>
     </table>
   </div>
   {#if rows.length > 15}
     <p class="more"><button class="link" onclick={() => (all = !all)}>{all ? "Show top 15" : `Show all ${rows.length} credit types`}</button></p>
   {/if}
+  <p class="foot muted">* Median years from a project's first registry step (listing, validation or start of crediting) to its first credits issued; the bar shows the middle half of projects. ** Fewer than {SMALL} projects.</p>
 </section>
 
 <style>
   .tt { margin-top: 22px; border: 1px solid var(--line); border-radius: var(--radius); background: var(--surface); padding: 12px 14px 10px; }
+  .head { display: grid; gap: 10px; margin-bottom: 10px; }
+  .ctl { display: flex; justify-content: space-between; align-items: center; gap: 10px; flex-wrap: wrap; }
   h2 { font-size: 18px; margin: 0; }
-  .sub { margin: 3px 0 8px; font-size: 12.5px; max-width: 860px; }
   .scroller { overflow-x: auto; }
-  table { border-collapse: collapse; width: 100%; min-width: 820px; font-size: 13px; }
+  table { border-collapse: collapse; width: 100%; min-width: 760px; font-size: 13px; }
   th, td { text-align: left; padding: 5px 8px; border-bottom: 1px solid var(--line); vertical-align: middle; }
-  th { font-weight: 600; color: var(--muted); white-space: nowrap; }
+  th { font-weight: 600; color: var(--muted); vertical-align: bottom; }
   th button { background: none; border: 0; padding: 0; font: inherit; color: inherit; cursor: pointer; text-align: inherit; }
-  th small { display: block; font-weight: 400; color: var(--faint); font-size: 10.5px; }
   .n { text-align: right; }
-  .dot { display: inline-block; width: 9px; height: 9px; border-radius: 2px; margin-right: 6px; vertical-align: -1px; }
-  .l1 { font-size: 11.5px; margin-left: 4px; }
-  .share { white-space: nowrap; min-width: 170px; }
-  .sbar { display: inline-block; width: 110px; height: 8px; background: var(--chip); border-radius: 4px; overflow: hidden; vertical-align: middle; margin-right: 8px; }
+  .name { min-width: 230px; }
+  .tag { display: inline-block; white-space: nowrap; font-size: 11px; font-weight: 600; color: #0d2023; padding: 1px 8px; border-radius: 4px; margin-right: 8px; min-width: 0; }
+  .share { white-space: nowrap; }
+  .sbar { display: inline-block; width: 70px; height: 8px; background: var(--chip); border-radius: 4px; overflow: hidden; vertical-align: middle; margin-right: 8px; }
   .sbar span { display: block; height: 100%; background: var(--choro-hi); border-radius: 4px; }
-  .time { white-space: nowrap; min-width: 280px; }
-  .tbar { position: relative; display: inline-block; width: 130px; height: 10px; vertical-align: middle; margin-right: 8px;
+  .time { white-space: nowrap; }
+  .tbar { position: relative; display: inline-block; width: 90px; height: 10px; vertical-align: middle; margin-right: 8px;
     background: linear-gradient(to right, var(--line) 1px, transparent 1px) 0 0 / 10% 100%; border-bottom: 1px solid var(--line); }
   .iqr { position: absolute; top: 2px; height: 6px; background: var(--accent-soft); border-radius: 3px; }
   .med { position: absolute; top: 0; width: 3px; height: 10px; background: var(--accent); border-radius: 1px; }
+  .small-n { color: var(--warn); margin-left: 1px; }
   .small { font-size: 11.5px; }
+  .empty { text-align: center; padding: 14px; }
   .more { margin: 6px 0 0; font-size: 12.5px; }
+  .foot { margin: 8px 0 0; font-size: 11.5px; }
   .link { background: none; border: 0; color: var(--accent); cursor: pointer; padding: 0; font: inherit; }
 </style>

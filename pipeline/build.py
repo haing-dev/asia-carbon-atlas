@@ -238,20 +238,24 @@ def _q(xs: list[float], q: float) -> float:
     return xs[lo] + (xs[min(lo + 1, len(xs) - 1)] - xs[lo]) * (k - lo)
 
 
-def build_types(projects: list[dict], taxonomy: dict) -> list[dict]:
+def build_types(projects: list[dict], taxonomy: dict, area_of: dict | None = None, area: str | None = None) -> list[dict]:
     """Per credit type: issued, retired, retired share, and years to first issuance, counted from the project's first
-    registry milestone (listing, registration/validation or crediting start, whichever is earliest)."""
+    registry milestone (listing, registration/validation or crediting start, whichever is earliest). With `area`,
+    only that region's share of each project counts."""
     agg = defaultdict(lambda: {"n": 0, "is": 0.0, "re": 0.0, "re_n": 0, "t": []})
     for p in projects:
         iss = p.get("issued_tco2e") or 0
         if iss <= 0 or p["stage"] == "announced":
             continue
+        w = 1.0 if not area else sum(sh for c, sh in p["country_shares"].items() if (area_of or {}).get(c) == area)
+        if w <= 0:
+            continue
         a = agg[p["l2"]]
         a["n"] += 1
-        a["is"] += iss
+        a["is"] += iss * w
         if p.get("retired_tco2e") is not None:
-            a["re"] += p["retired_tco2e"]
-            a["re_n"] += iss
+            a["re"] += p["retired_tco2e"] * w
+            a["re_n"] += iss * w
         y = p["years"]
         cs = (p.get("crediting") or [None])[0]
         starts = [v for v in (y.get("listed"), y.get("registered"), int(cs[:4]) if cs else None) if v]
@@ -262,12 +266,12 @@ def build_types(projects: list[dict], taxonomy: dict) -> list[dict]:
         t = a["t"]
         out.append({"l2": k, "l1": taxonomy["l2"][k]["l1"], "n": a["n"], "is": round(a["is"]), "re": round(a["re"]),
                     "share": round(a["re"] / a["re_n"], 3) if a["re_n"] else None,
-                    "tt": [round(_q(t, 0.5), 1), round(_q(t, 0.25), 1), round(_q(t, 0.75), 1), len(t)] if len(t) >= 5 else None})
+                    "tt": [round(_q(t, 0.5), 1), round(_q(t, 0.25), 1), round(_q(t, 0.75), 1), len(t)] if t else None})
     out.sort(key=lambda r: -r["is"])
     return out
 
 
-def build_buyers(projects: list[dict], taxonomy: dict) -> dict:
+def build_buyers(projects: list[dict], taxonomy: dict, area_of: dict | None = None) -> dict:
     """Buyers through three lenses: Retired (registry retirements in the buyer's name, OffsetsDB), Issued (announced
     deals on projects that have issued credits), Announced (deals on projects not issuing yet or not registered).
     Each buyer lists its projects with the deal volume, the project's issued total and what the buyer retired there."""
@@ -275,12 +279,21 @@ def build_buyers(projects: list[dict], taxonomy: dict) -> dict:
     ret, rmeta = load_retirements(projects)
     l2 = taxonomy["l2"]
     buyers: dict[str, dict] = {}
+    area_of = area_of or {}
+
+    def aweights(p):   # share of the project in each region (population split for multi-country projects)
+        w = defaultdict(float)
+        for c, sh in p["country_shares"].items():
+            if c in area_of:
+                w[area_of[c]] += sh
+        return {a: round(v, 4) for a, v in w.items()}
+
     def entry(name, p):
         b = buyers.setdefault(name, {"n": name, "an": 0, "is": 0, "re": 0, "p": {}})
         return b, b["p"].setdefault(p["project_id"], {
             "id": p["project_id"], "nm": p["display_name"], "l2": p["l2"], "l1": l2[p["l2"]]["l1"], "c": p["countries"],
             "rg": p["registries"][0]["record_id"], "iss": 1 if p["stage"] == "issuing" and (p.get("issued_tco2e") or 0) > 0 else 0,
-            "pis": p.get("issued_tco2e"), "an": None, "dl": [], "re": 0, "rd": None})
+            "pis": p.get("issued_tco2e"), "an": None, "dl": [], "re": 0, "rd": None, "aw": aweights(p)})
     for p in projects:
         seen = set()
         for o in p.get("offtakers") or []:
@@ -305,15 +318,20 @@ def build_buyers(projects: list[dict], taxonomy: dict) -> dict:
             e["re"] += t
             e["rd"] = [first, last]
             b["re"] += t
-    rank = {k: sorted(buyers.values(), key=lambda b: -b[k]) for k in ("re", "is", "an")}
-    keep = {b["n"] for k, rows in rank.items() for b in rows[:60] if b[k] > 0}
+    def lens(e, k):
+        return e["re"] if k == "re" else (e["an"] or 0) if (k == "is") == bool(e["iss"]) else 0
+    keep = set()
+    for a in [None, *AREAS]:   # the top buyers of every lens, overall and in each region
+        for k in ("re", "is", "an"):
+            tot = {b["n"]: sum(lens(e, k) * (e["aw"].get(a, 0) if a else 1) for e in b["p"].values()) for b in buyers.values()}
+            keep |= {n for n, v in sorted(tot.items(), key=lambda kv: -kv[1])[:40] if v > 0}
     keep |= {b["n"] for b in buyers.values() if any(e["dl"] for e in b["p"].values())}
     out = []
     for b in buyers.values():
         if b["n"] not in keep:
             continue
         ps = sorted(b["p"].values(), key=lambda e: -max(e["re"], e["an"] or 0))
-        out.append({**b, "np": len(ps), "p": ps[:150]})
+        out.append({**b, "np": len(ps), "p": ps[:400]})
     out.sort(key=lambda b: -(b["re"] + b["is"] + b["an"]))
     snap = (rmeta.get("snapshot") or "")[:10] or None
     return {"retired_as_of": snap, "retired_source": rmeta.get("source_version"), "list": out}
@@ -383,8 +401,8 @@ def build_summary(projects: list[dict], countries: dict, taxonomy: dict) -> dict
         "l2": {k: {"label": v["label"], "l1": v["l1"]} for k, v in l2.items()},
         "regions": [{"id": a, "label": AREAS[a]["label"], "is": round(r["is"]), "ea": round(r["ea"]), "re": round(r["re"]),
                      "projects": r["projects"], "countries": len(r["countries"])} for a, r in regions.items()],
-        "buyers": build_buyers(projects, taxonomy),
-        "types": build_types(projects, taxonomy),
+        "buyers": build_buyers(projects, taxonomy, area_of),
+        "types": {a: build_types(projects, taxonomy, area_of, None if a == "all" else a) for a in ["all", *AREAS]},
     }
 
 

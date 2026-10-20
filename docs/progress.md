@@ -87,6 +87,12 @@
     Buyer deal sweep (10 parallel web sweeps): +~230 verified deals so far; incomplete because the web-search quota
     (200 per turn) ran out — backlog in `docs/buyer-sweep.md`.
 
+  - 2026-10-20: All Regions headings as questions; region switch on the buyer and credit-type tables (per-region
+    buyer totals use each project's regional share); credit-type table: L1 tag pills, renamed sortable columns,
+    credit-type filter, small samples (<5) marked ** instead of hidden; subtitles removed. Verified-source ledger
+    `data/verified/ledger.jsonl` (`pipeline/ledger.py`; sync/check/import) so sweeps skip news already checked;
+    sweep brief `docs/deal-sweep-brief.md`, merge tool `scripts/deal_merge.py`.
+
 ## Next
 - Finish the buyer deal sweep (`docs/buyer-sweep.md`), fill coverage totals in `config/coverage.yaml`, add ICVCM CCP and
   CORSIA labels to `config/eligibility.yaml` once their public lists are sourced.

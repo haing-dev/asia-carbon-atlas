@@ -2,7 +2,7 @@
   // A pill button that opens a checklist panel. `groups`: [{label, color?, items:[{i, label}]}]
   // `selected`: Set of item indices, or null meaning "all".
   // optIn: nothing ticked = no filter ("Any"); ticking items narrows to projects carrying any ticked item.
-  let { label, groups, total, selected = $bindable(), wide = false, optIn = false, title = "" } = $props();
+  let { label, groups, total, selected = $bindable(), wide = false, optIn = false, title = "", align = "left" } = $props();
 
   let open = $state(false);
   let root;
@@ -38,7 +38,7 @@
     {label}: <strong>{summary}</strong> <span aria-hidden="true">{open ? "▴" : "▾"}</span>
   </button>
   {#if open}
-    <div class="panel" class:wide role="group" aria-label={label}>
+    <div class="panel" class:wide class:right={align === "right"} role="group" aria-label={label}>
       <div class="actions">
         {#if optIn}<button class="link" onclick={() => (selected = null)}>Clear</button>
         {:else}<button class="link" onclick={() => (selected = null)}>Select all</button>
@@ -77,6 +77,7 @@
   .pill.on { border-color: var(--accent); background: var(--accent-soft); }
   .panel { position: absolute; z-index: 5; top: calc(100% + 6px); left: 0; width: min(280px, calc(100vw - 32px)); max-height: 65vh; overflow: auto;
     background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); padding: 10px 12px; box-shadow: 0 6px 24px rgba(0,0,0,.12); font-size: 13px; }
+  .panel.right { left: auto; right: 0; }
   .panel.wide { width: min(440px, calc(100vw - 32px)); }
   .actions { display: flex; gap: 14px; padding-bottom: 6px; }
   .group { border-top: 1px solid var(--line); padding: 6px 0; }

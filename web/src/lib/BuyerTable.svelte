@@ -2,25 +2,32 @@
   // Top 15 buyers through one of three lenses (retired / issued / announced); bars split by credit type.
   // Click a buyer for its projects (announced, issued, retired per project); the name opens the buyer profile.
   import BuyerProjects from "./BuyerProjects.svelte";
+  import RegionSwitch from "./RegionSwitch.svelte";
   import { L1_COLORS, fmt } from "./data.js";
 
   let { meta, data, l1, l2, top = 15, onprofile } = $props();
+  let region = $state("all");
 
   const LENSES = {
-    re: { label: "Retired", sub: () => `Credits retired in the buyer's name in registry records (Verra, Gold Standard, ACR, CAR, ART TREES), as of ${data.retired_as_of || "—"}.` },
-    is: { label: "Issued", sub: () => "Announced deal volumes on projects that are already issuing credits." },
-    an: { label: "Announced", sub: () => "Announced deal volumes on projects not issuing yet, or not yet registered (announcement only)." },
+    re: { label: "Retired", tip: () => `Credits retired in the buyer's name in registry records, as of ${data.retired_as_of || "—"}` },
+    is: { label: "Issued", tip: () => "Announced deals on projects already issuing credits" },
+    an: { label: "Announced", tip: () => "Announced deals on projects not issuing yet, or not yet registered" },
   };
   let lens = $state("re");
-  const val = (e, k) => (k === "re" ? e.re : k === "is" ? (e.iss ? e.an || 0 : 0) : (!e.iss ? e.an || 0 : 0));
+  const val = (e, k) => (k === "re" ? e.re : k === "is" ? (e.iss ? e.an || 0 : 0) : (!e.iss ? e.an || 0 : 0))
+    * (region === "all" ? 1 : e.aw?.[region] || 0);
 
   const L1_ORDER = $derived(Object.fromEntries(l1.map((x, i) => [x.id, i])));
-  const rows = $derived(data.list.filter((b) => b[lens] > 0).sort((a, b) => b[lens] - a[lens]).slice(0, top).map((b) => {
+  const rows = $derived(data.list.map((b) => {
     const by = new Map();
-    for (const e of b.p) { const v = val(e, lens); if (v) by.set(e.l2, (by.get(e.l2) || 0) + v); }
+    let total = 0;
+    for (const e of b.p) { const v = val(e, lens); if (v) { by.set(e.l2, (by.get(e.l2) || 0) + v); total += v; } }
+    return { b, by, total };
+  }).filter((x) => x.total > 0).sort((x, y) => y.total - x.total).slice(0, top).map(({ b, by, total }) => {
     const segs = [...by.entries()].map(([k, v]) => ({ l2: k, l1: l2[k]?.l1 || "other", label: l2[k]?.label || k, v }))
-      .sort((a, b) => L1_ORDER[a.l1] - L1_ORDER[b.l1] || b.v - a.v);
-    return { ...b, total: b[lens], segs };
+      .sort((a, c) => L1_ORDER[a.l1] - L1_ORDER[c.l1] || c.v - a.v);
+    const p = region === "all" ? b.p : b.p.filter((e) => e.aw?.[region]);
+    return { ...b, p, total, segs };
   }));
   const vmax = $derived(Math.max(1, ...rows.map((r) => r.total)));
   // Square-root scale: the largest buyers are 1,000x the smallest, so a linear scale leaves most bars as slivers.
@@ -29,24 +36,24 @@
 
   let open = $state(null);
   let tip = $state(null);
-  $effect(() => { lens; open = null; });
+  $effect(() => { lens; region; open = null; });
 </script>
 
 <section class="bt">
   <div class="head">
-    <div>
-      <h2>Top buyers, all regions</h2>
-      <p class="muted sub">{LENSES[lens].sub()} Top {top} by volume (tCO₂e); bars split by credit type. Click a buyer for its projects.</p>
-    </div>
-    <div class="lens" role="tablist" aria-label="Lens" style:--i={Object.keys(LENSES).indexOf(lens)}>
-      <span class="thumb" aria-hidden="true"></span>
-      {#each Object.entries(LENSES) as [k, l]}
-        <button role="tab" aria-selected={lens === k} onclick={() => (lens = k)}>{l.label}</button>
-      {/each}
+    <h2>Which credit types are top global offtakers procuring</h2>
+    <div class="ctl">
+      <RegionSwitch areas={meta.areas} bind:value={region} />
+      <div class="lens" role="tablist" aria-label="Lens" style:--i={Object.keys(LENSES).indexOf(lens)}>
+        <span class="thumb" aria-hidden="true"></span>
+        {#each Object.entries(LENSES) as [k, l]}
+          <button role="tab" aria-selected={lens === k} title={l.tip()} onclick={() => (lens = k)}>{l.label}</button>
+        {/each}
+      </div>
     </div>
   </div>
   {#if !rows.length}
-    <p class="muted">No buyers with a stated volume yet.</p>
+    <p class="muted">No buyers with a stated volume in this region yet.</p>
   {:else}
     <div class="legend">
       {#each usedL1 as x}<span><i style:background={L1_COLORS[x.id]}></i>{x.label}</span>{/each}
@@ -88,9 +95,9 @@
 
 <style>
   .bt { margin-top: 22px; border: 1px solid var(--line); border-radius: var(--radius); background: var(--surface); padding: 12px 14px 10px; }
-  .head { display: flex; justify-content: space-between; align-items: flex-start; gap: 12px; flex-wrap: wrap; }
+  .head { display: grid; gap: 10px; margin-bottom: 10px; }
   h2 { font-size: 18px; margin: 0; }
-  .sub { margin: 3px 0 8px; font-size: 12.5px; max-width: 720px; }
+  .ctl { display: flex; justify-content: space-between; align-items: center; gap: 10px; flex-wrap: wrap; }
   .lens { position: relative; display: grid; grid-template-columns: repeat(3, 1fr); width: 330px; max-width: 100%; background: var(--chip);
     border: 1px solid var(--line); border-radius: 999px; padding: 3px; }
   .lens button { position: relative; z-index: 1; border: 0; background: none; padding: 5px 10px; border-radius: 999px; cursor: pointer;

@@ -20,6 +20,7 @@
   const vmax = $derived(Math.max(1, ...regions.map((r) => r[metric] || 0)));
 </script>
 
+<h2 class="sec">Where are carbon credits generated</h2>
 <div class="maphead">
   <label>Show
     <select bind:value={metric}>
@@ -44,9 +45,10 @@
 </div>
 
 <BuyerTable {meta} data={summary.buyers} l1={summary.l1} l2={summary.l2} top={15} {onprofile} />
-<TypeTable types={summary.types} l1={summary.l1} l2={summary.l2} />
+<TypeTable types={summary.types} l1={summary.l1} l2={summary.l2} areas={meta.areas} />
 
 <style>
+  .sec { font-size: 18px; margin: 16px 0 0; }
   .maphead { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 8px; margin: 10px 0 8px; font-size: 14px; }
   .maphead select { margin-left: 6px; border: 1px solid var(--line); border-radius: 6px; padding: 3px 6px; background: var(--surface); }
   .mapgrid { display: grid; grid-template-columns: minmax(0, 2.3fr) minmax(220px, 1fr); gap: 12px; align-items: start; }
