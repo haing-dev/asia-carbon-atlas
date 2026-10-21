@@ -20,7 +20,7 @@
   const vmax = $derived(Math.max(1, ...regions.map((r) => r[metric] || 0)));
 </script>
 
-<h2 class="sec">Where are carbon credits generated</h2>
+<h2 class="sec">Where are carbon credits generated?</h2>
 <div class="maphead">
   <label>Show
     <select bind:value={metric}>

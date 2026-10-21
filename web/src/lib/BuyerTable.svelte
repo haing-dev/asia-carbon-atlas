@@ -7,6 +7,7 @@
 
   let { meta, data, l1, l2, top = 15, onprofile } = $props();
   let region = $state("all");
+  let noGov = $state(false);   // leave out governments, public agencies and multilateral funds
 
   const LENSES = {
     re: { label: "Retired", tip: () => `Credits retired in the buyer's name in registry records, as of ${data.retired_as_of || "—"}` },
@@ -18,7 +19,7 @@
     * (region === "all" ? 1 : e.aw?.[region] || 0);
 
   const L1_ORDER = $derived(Object.fromEntries(l1.map((x, i) => [x.id, i])));
-  const rows = $derived(data.list.map((b) => {
+  const rows = $derived(data.list.filter((b) => !(noGov && b.g)).map((b) => {
     const by = new Map();
     let total = 0;
     for (const e of b.p) { const v = val(e, lens); if (v) { by.set(e.l2, (by.get(e.l2) || 0) + v); total += v; } }
@@ -36,12 +37,12 @@
 
   let open = $state(null);
   let tip = $state(null);
-  $effect(() => { lens; region; open = null; });
+  $effect(() => { lens; region; noGov; open = null; });
 </script>
 
 <section class="bt">
   <div class="head">
-    <h2>Which credit types are top global offtakers procuring</h2>
+    <h2>Which credit types are top global offtakers procuring?</h2>
     <div class="ctl">
       <RegionSwitch areas={meta.areas} bind:value={region} />
       <div class="lens" role="tablist" aria-label="Lens" style:--i={Object.keys(LENSES).indexOf(lens)}>
@@ -50,6 +51,8 @@
           <button role="tab" aria-selected={lens === k} title={l.tip()} onclick={() => (lens = k)}>{l.label}</button>
         {/each}
       </div>
+      <label class="gov" title="Governments, public agencies, multilateral carbon funds (e.g. World Bank FCPF) and government-led coalitions (LEAF, KliK)">
+        <input type="checkbox" bind:checked={noGov} /> Exclude governments</label>
     </div>
   </div>
   {#if !rows.length}
@@ -97,7 +100,8 @@
   .bt { margin-top: 22px; border: 1px solid var(--line); border-radius: var(--radius); background: var(--surface); padding: 12px 14px 10px; }
   .head { display: grid; gap: 10px; margin-bottom: 10px; }
   h2 { font-size: 18px; margin: 0; }
-  .ctl { display: flex; justify-content: space-between; align-items: center; gap: 10px; flex-wrap: wrap; }
+  .gov { display: flex; align-items: center; gap: 6px; font-size: 13px; color: var(--muted); cursor: pointer; white-space: nowrap; }
+  .ctl { display: flex; justify-content: flex-start; align-items: center; gap: 10px; flex-wrap: wrap; }
   .lens { position: relative; display: grid; grid-template-columns: repeat(3, 1fr); width: 330px; max-width: 100%; background: var(--chip);
     border: 1px solid var(--line); border-radius: 999px; padding: 3px; }
   .lens button { position: relative; z-index: 1; border: 0; background: none; padding: 5px 10px; border-radius: 999px; cursor: pointer;

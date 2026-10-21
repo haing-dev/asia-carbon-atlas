@@ -189,6 +189,13 @@ def _canon():
     return (lambda n: canon.get(n.lower(), n)), ocfg.get("buyer_splits") or {}, exclude
 
 
+def _is_government():
+    g = (common.load_yaml("buyers.yaml") or {}).get("government") or {}
+    names = set(g.get("names") or [])
+    pats = [re.compile(x) for x in g.get("patterns") or []]
+    return lambda n: n in names or any(p.search(n) for p in pats)
+
+
 def load_retirements(projects: list[dict]) -> tuple[dict, dict]:
     """data/lookups/retirements.jsonl -> ({project_id: {beneficiary: [t, first, last]}}, meta)."""
     path = common.ROOT / "data" / "lookups" / "retirements.jsonl"
@@ -240,7 +247,8 @@ def _q(xs: list[float], q: float) -> float:
 
 def build_types(projects: list[dict], taxonomy: dict, area_of: dict | None = None, area: str | None = None) -> list[dict]:
     """Per credit type: issued, retired, retired share, and years to first issuance, counted from the project's first
-    registry milestone (listing, registration/validation or crediting start, whichever is earliest). With `area`,
+    registry milestone or activity year (listing, registration/validation, crediting start or first vintage, whichever
+    is earliest). With `area`,
     only that region's share of each project counts."""
     agg = defaultdict(lambda: {"n": 0, "is": 0.0, "re": 0.0, "re_n": 0, "t": []})
     for p in projects:
@@ -258,7 +266,8 @@ def build_types(projects: list[dict], taxonomy: dict, area_of: dict | None = Non
             a["re_n"] += iss * w
         y = p["years"]
         cs = (p.get("crediting") or [None])[0]
-        starts = [v for v in (y.get("listed"), y.get("registered"), int(cs[:4]) if cs else None) if v]
+        vint = [int(v) for v in (p.get("issuance_by_vintage") or {}) if str(v).isdigit()]
+        starts = [v for v in (y.get("listed"), y.get("registered"), int(cs[:4]) if cs else None, min(vint) if vint else None) if v]
         if starts and y.get("first_issuance") and y["first_issuance"] >= min(starts):
             a["t"].append(y["first_issuance"] - min(starts))
     out = []
@@ -276,6 +285,7 @@ def build_buyers(projects: list[dict], taxonomy: dict, area_of: dict | None = No
     deals on projects that have issued credits), Announced (deals on projects not issuing yet or not registered).
     Each buyer lists its projects with the deal volume, the project's issued total and what the buyer retired there."""
     canon, splits, exclude = _canon()
+    is_gov = _is_government()
     ret, rmeta = load_retirements(projects)
     l2 = taxonomy["l2"]
     buyers: dict[str, dict] = {}
@@ -331,7 +341,7 @@ def build_buyers(projects: list[dict], taxonomy: dict, area_of: dict | None = No
         if b["n"] not in keep:
             continue
         ps = sorted(b["p"].values(), key=lambda e: -max(e["re"], e["an"] or 0))
-        out.append({**b, "np": len(ps), "p": ps[:400]})
+        out.append({**b, "np": len(ps), "p": ps[:400], **({"g": 1} if is_gov(b["n"]) else {})})
     out.sort(key=lambda b: -(b["re"] + b["is"] + b["an"]))
     snap = (rmeta.get("snapshot") or "")[:10] or None
     return {"retired_as_of": snap, "retired_source": rmeta.get("source_version"), "list": out}

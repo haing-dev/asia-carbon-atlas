@@ -15,7 +15,7 @@
   const groupOpts = $derived([{ items: l1.map((x, i) => ({ i, label: x.label })) }]);
   const SMALL = 5;   // fewer projects than this: the time figure is marked as a small sample
 
-  const key = (r) => ({ type: `${l1Label[r.l1]} ${l2[r.l2]?.label || r.l2}`, n: r.n, is: r.is, re: r.re, share: r.share ?? -1, tt: r.tt ? r.tt[0] : 99 })[sortKey];
+  const key = (r) => ({ cat: `${l1Label[r.l1]} ${l2[r.l2]?.label || r.l2}`, type: l2[r.l2]?.label || r.l2, n: r.n, is: r.is, re: r.re, share: r.share ?? -1, tt: r.tt ? r.tt[0] : 99 })[sortKey];
   const rows = $derived((types[region] || []).filter((r) => !groups || groups.has(l1.findIndex((x) => x.id === r.l1))).sort((a, b) => {
     const x = key(a), y = key(b);
     return (typeof x === "number" ? x - y : String(x).localeCompare(String(y))) * sortDir;
@@ -25,10 +25,10 @@
   const pos = (y) => `${(Math.min(y, TMAX) / TMAX) * 100}%`;
   function sortBy(k) {
     if (sortKey === k) sortDir = -sortDir;
-    else { sortKey = k; sortDir = k === "type" || k === "tt" ? 1 : -1; }
+    else { sortKey = k; sortDir = k === "type" || k === "cat" || k === "tt" ? 1 : -1; }
   }
   const COLS = [
-    { k: "type", label: "Credit Type" }, { k: "n", label: "# of Projects Issuing", num: true },
+    { k: "cat", label: "Credit Category" }, { k: "type", label: "Credit Type" }, { k: "n", label: "# of Projects Issuing", num: true },
     { k: "is", label: "Volume Issued (tCO₂e)", num: true }, { k: "re", label: "Volume Retired (tCO₂e)", num: true },
     { k: "share", label: "% of Issued Credits Retired" }, { k: "tt", label: "Time to First Issuance*" },
   ];
@@ -56,7 +56,8 @@
       <tbody>
         {#each shown as r (r.l2)}
           <tr>
-            <td class="name"><span class="tag" style:background={L1_COLORS[r.l1]}>{l1Label[r.l1]}</span>{l2[r.l2]?.label || r.l2}</td>
+            <td class="cat"><span class="tag" style:background={L1_COLORS[r.l1]}>{l1Label[r.l1]}</span></td>
+            <td class="name">{l2[r.l2]?.label || r.l2}</td>
             <td class="n num">{r.n.toLocaleString()}</td>
             <td class="n num">{fmt(r.is)}</td>
             <td class="n num">{fmt(r.re)}</td>
@@ -71,7 +72,7 @@
                   <span class="iqr" style:left={pos(r.tt[1])} style:width="calc({pos(r.tt[2])} - {pos(r.tt[1])} + 3px)"></span>
                   <span class="med" style:left={pos(r.tt[0])}></span>
                 </span>
-                <span class="num">{r.tt[0]} yr{#if r.tt[3] < SMALL}<span class="small-n" title="Fewer than {SMALL} projects">**</span>{/if}</span>
+                <span class="num">{r.tt[0] < 1 ? "<1" : r.tt[0]} yr{#if r.tt[3] < SMALL}<span class="small-n" title="Fewer than {SMALL} projects">**</span>{/if}</span>
                 <span class="muted small">({r.tt[1]}–{r.tt[2]}, n={r.tt[3]})</span>
               {:else}<span class="muted">—</span>{/if}
             </td>
@@ -84,7 +85,7 @@
   {#if rows.length > 15}
     <p class="more"><button class="link" onclick={() => (all = !all)}>{all ? "Show top 15" : `Show all ${rows.length} credit types`}</button></p>
   {/if}
-  <p class="foot muted">* Median years from a project's first registry step (listing, validation or start of crediting) to its first credits issued; the bar shows the middle half of projects. ** Fewer than {SMALL} projects.</p>
+  <p class="foot muted">* Median years from a project's start (the earliest of listing, validation, crediting start or first vintage) to its first credits issued; the bar shows the middle half of projects. "&lt;1 yr" = same year. ** Fewer than {SMALL} projects.</p>
 </section>
 
 <style>
@@ -98,8 +99,9 @@
   th { font-weight: 600; color: var(--muted); vertical-align: bottom; }
   th button { background: none; border: 0; padding: 0; font: inherit; color: inherit; cursor: pointer; text-align: inherit; }
   .n { text-align: right; }
-  .name { min-width: 230px; }
-  .tag { display: inline-block; white-space: nowrap; font-size: 11px; font-weight: 600; color: #0d2023; padding: 1px 8px; border-radius: 4px; margin-right: 8px; min-width: 0; }
+  .name { min-width: 190px; }
+  .cat { white-space: nowrap; }
+  .tag { display: inline-block; white-space: nowrap; font-size: 11px; font-weight: 600; color: #0d2023; padding: 1px 8px; border-radius: 4px; }
   .share { white-space: nowrap; }
   .sbar { display: inline-block; width: 70px; height: 8px; background: var(--chip); border-radius: 4px; overflow: hidden; vertical-align: middle; margin-right: 8px; }
   .sbar span { display: block; height: 100%; background: var(--choro-hi); border-radius: 4px; }

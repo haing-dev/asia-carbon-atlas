@@ -159,6 +159,12 @@ buyers:
     aliases: [Orsted]
     retirement_patterns: ['(?i)\b[øo]rsted\b']
 
+# Governments, public agencies, multilateral funds and government-led coalitions: the buyer table can leave them out
+# ("Exclude governments" box). A buyer is public if its name is listed here or matches a pattern.
+government:
+  names: [KliK Foundation, LEAF Coalition, World Bank FCPF Carbon Fund, World Bank carbon funds (non-FCPF), Swedish Energy Agency]
+  patterns: ['^(Government|Ministry|Republic|Kingdom|State) of\b', '^City of\b', '\bCity Council$', '\bEnergy Agency$', '^World Bank\b']
+
 # Retirement beneficiaries that are not end buyers (intermediary client pools, token bridges, registry corrections):
 # left out of the buyer table. Their retirements still count in project and region totals.
 exclude_beneficiaries:
