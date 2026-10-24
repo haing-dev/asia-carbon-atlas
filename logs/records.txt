@@ -1,0 +1,15 @@
+a6pipeline.jsonl
+cdm.jsonl
+gcc.jsonl
+jcm.jsonl
+puro.jsonl
+ucr.jsonl
+vrod.jsonl
+     280 data/records/a6pipeline.jsonl
+    4685 data/records/cdm.jsonl
+     231 data/records/gcc.jsonl
+      89 data/records/jcm.jsonl
+     106 data/records/puro.jsonl
+     314 data/records/ucr.jsonl
+   10160 data/records/vrod.jsonl
+   15865 total
