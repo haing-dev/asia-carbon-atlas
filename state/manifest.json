@@ -1,5 +1,5 @@
 {
-  "last_commit_at": "2026-10-24T02:21:09+00:00",
+  "last_commit_at": "2026-10-26T02:27:00+00:00",
   "sources": {
     "a6pipeline": {
       "error": null,
@@ -67,10 +67,10 @@
     "offsetsdb": {
       "error": null,
       "last_changed": "2026-10-19T04:41:10+00:00",
-      "last_checked": "2026-10-19T04:41:10+00:00",
+      "last_checked": "2026-10-26T02:27:00+00:00",
       "rows": 8110,
       "signal": {
-        "buyers": "d0bb8bfc67047e578157be8d27aff61dbb91e0f84b5666eabd69508d96afd823",
+        "buyers": "cd1d91b876bed6e62ebce2a8d2f241213060797dadcba56f4cf9b6c1d23f52ab",
         "bytes": "8534671",
         "etag": "\"3620336adfce7d0217faa8b7bde2e23a\"",
         "modified": "Mon, 01 Jun 2026 20:33:19 GMT"
@@ -101,15 +101,15 @@
       "stale": false
     },
     "verradesc": {
-      "error": null,
+      "error": "JSONDecodeError: Expecting value: line 1 column 1 (char 0)",
       "last_changed": "2026-10-24T02:21:09+00:00",
-      "last_checked": "2026-10-24T02:21:09+00:00",
+      "last_checked": "2026-10-26T02:27:00+00:00",
       "rows": 245,
       "signal": {
         "day": "2026-10-24",
         "missing": 3672
       },
-      "stale": false
+      "stale": true
     },
     "vrod": {
       "error": null,
