@@ -23,6 +23,26 @@ buyer_splits:
   Adyen and Nasdaq: [Adyen, Nasdaq]
 
 offtakes:
+  - record: VCS:5184
+    buyer: Google and McKinsey (Symbiosis Coalition)
+    volume_tco2e: 320000
+    date: '2026-10-20'
+    source_url: https://www.esgtoday.com/?p=26392
+    source_title: Google, McKinsey Sign 320,000 Ton Carbon Removal Deals from Brazil Nature Restoration Project (ESG Today)
+    note: 320,000 t over 10 years via the Symbiosis Coalition; Working Trees' only Brazilian registry project (silvopasture, SE Amazon and Cerrado) is matched.
+  - record: ISO:prj_1K4XA2FF31S0T7V9
+    buyer: Climeworks Solutions
+    volume_tco2e: 2000
+    date: '2026-10-20'
+    source_url: https://www.eznewswire.com/newsroom/terraton-issues-first-carbon-removal-credits-from-agricultural-waste
+    source_title: Terraton Issues First Carbon Removal Credits from Agricultural Waste, Signs Agreements with Climeworks Solutions, Climate Impact Partners, Carbonfuture, CUR8, and Terraset
+    note: 2,000 t committed purchases from EcoFix (Nanyuki, Kenya); a further 14,000 t reserved from future Terraton facilities.
+  - record: ISO:prj_1K4XA2FF31S0T7V9
+    buyer: Climate Impact Partners
+    date: '2026-10-20'
+    source_url: https://www.eznewswire.com/newsroom/terraton-issues-first-carbon-removal-credits-from-agricultural-waste
+    source_title: Terraton Issues First Carbon Removal Credits from Agricultural Waste, Signs Agreements with Climeworks Solutions, Climate Impact Partners, Carbonfuture, CUR8, and Terraset
+    note: Committed purchases from EcoFix; volume not stated.
   - record: VCS:4811
     buyer: Microsoft
     volume_tco2e: 1691553
@@ -2943,6 +2963,12 @@ announced_rows:
         source_url: https://www.datacenterdynamics.com/en/news/microsoft-to-purchase-3m-carbon-removal-credits-from-forest-management-firm-efm/
         source_title: Microsoft to purchase 3m carbon removal credits from forest management firm EFM (DCD)
         note: 'up to 3M credits total: 700,000 firm offtake through 2035 + ~2.3M linked to Microsoft Climate Innovation Fund investment in EFM Fund IV. Microsoft portfolio lists 815,548 t contracted (FY25)'
+      - buyer: Meta
+        volume_tco2e: 676000
+        date: '2025-04-01'
+        source_url: https://carbonherald.com/meta-signs-carbon-removal-deal-with-efm-backing-climate-smart-forestry/
+        source_title: Meta Signs Carbon Removal Deal With EFM, Backing Climate Smart Forestry (Carbon Herald)
+        note: 676,000 nature-based removal credits through 2035 from the Olympic Rainforest (68,000 acres, Olympic Peninsula).
   - id: ANN:wildlifeconservation-redd-mdg
     name: Wildlife Conservation Society (via The CarbonNeutral Company) — Makira REDD+
     developer: Wildlife Conservation Society (via The CarbonNeutral Company)
@@ -3802,3 +3828,22 @@ announced_rows:
         source_url: https://carbonherald.com/deloitte-nse-invests-in-soil-carbon-credits-from-boomitra/
         source_title: Deloitte NSE Invests In Soil Carbon Credits From Boomitra (Carbon Herald)
         note: more than 18,000 credits; Verra VM0042
+  - id: ANN:terraton-biochar-ken
+    name: Terraton — biochar carbon removal, Kenya (supplier-level deals)
+    developer: Terraton
+    countries:
+      - KEN
+    l2: biochar
+    offtakes:
+      - buyer: Terraset
+        volume_tco2e: 14000
+        date: '2026-10-20'
+        source_url: https://www.eznewswire.com/newsroom/terraton-issues-first-carbon-removal-credits-from-agricultural-waste
+        source_title: Terraton Issues First Carbon Removal Credits from Agricultural Waste, Signs Agreements with Climeworks Solutions, Climate Impact Partners, Carbonfuture, CUR8, and Terraset
+        note: Seven-year offtake of up to 14,000 t from future Terraton facilities.
+      - buyer: CUR8
+        volume_tco2e: 240
+        date: '2026-10-20'
+        source_url: https://www.eznewswire.com/newsroom/terraton-issues-first-carbon-removal-credits-from-agricultural-waste
+        source_title: Terraton Issues First Carbon Removal Credits from Agricultural Waste, Signs Agreements with Climeworks Solutions, Climate Impact Partners, Carbonfuture, CUR8, and Terraset
+        note: Purchase of 240 t through CUR8; facility not stated.

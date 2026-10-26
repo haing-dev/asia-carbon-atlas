@@ -59,6 +59,10 @@
   - Weekly 2026-10-19: headlines for 5 areas (week to Oct 19); +3 Charm Industrial deals (Boeing, TD Bank, Klimate.co).
     Sweep (wk 43: BTG TIG, C-Quest, Charm, Climeworks, CO280): C-Quest–bp Angola 15M skipped (source page has no date);
     Climeworks–Swiss Re skipped (no primary source opened). Review artifact had 0 decisions.
+  - Weekly 2026-10-26: headlines for 5 areas (week to Oct 26; Asia thin, 6 items); +6 deals: Google & McKinsey–Working
+    Trees Brazil (VCS:5184, 320k), Terraton EcoFix Kenya (Climeworks Solutions 2k, Climate Impact Partners), Terraton
+    supplier row (Terraset 14k, CUR8 240), Meta–EFM Olympic Rainforest 676k (2025, sweep). Sweep (wk 44: Cumberland,
+    Deep Sky, DelAgua, Duke, EFM): Deep Sky–TD June 2026 article = existing deal. Oman 44.01 out of scope. 0 decisions.
   - Tags (`config/tags.yaml`): ~100 searchable tags from record evidence (name/methodology/registry type) + broad
     per-type tags; exact tag/alias search filters to that tag (AWD ≠ DSR). "Tag" column (last) + footnote; CSV includes tags.
     Tags also read GS registry descriptions (gsreg lookup) and CDM/name capacity (small hydro ≤25 MW); every specific
