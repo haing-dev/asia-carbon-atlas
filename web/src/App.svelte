@@ -6,7 +6,6 @@
   import Table from "./lib/Table.svelte";
   import Summary from "./lib/Summary.svelte";
   import BuyerProfile from "./lib/BuyerProfile.svelte";
-  import CoverageBar from "./lib/CoverageBar.svelte";
   import { aggregate, fmt, loadBasemap, loadIndex, loadMeta, loadRows, loadSummary, makePredicate, tagsForQuery } from "./lib/data.js";
 
   const METRICS = {
@@ -254,7 +253,6 @@
           {#each Object.entries(METRICS) as [k, m]}<option value={k}>{m.label} ({m.unit})</option>{/each}
         </select>
       </label>
-      {#if meta.coverage?.[area]}<CoverageBar cov={meta.coverage[area]} />{/if}
       <span class="muted">Total in view: <span class="num">{fmt(total)}</span> {METRICS[metric].unit}</span>
     </div>
     <div class="mapgrid">

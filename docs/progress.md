@@ -97,8 +97,11 @@
     `data/verified/ledger.jsonl` (`pipeline/ledger.py`; sync/check/import) so sweeps skip news already checked;
     sweep brief `docs/deal-sweep-brief.md`, merge tool `scripts/deal_merge.py`.
 
+  - 2026-10-27: coverage bar removed from the region tabs (owner); `config/coverage.yaml` and build code removed
+    (in git history if needed again).
+
 ## Next
-- Finish the buyer deal sweep (`docs/buyer-sweep.md`), fill coverage totals in `config/coverage.yaml`, add ICVCM CCP and
+- Finish the buyer deal sweep (`docs/buyer-sweep.md`), add ICVCM CCP and
   CORSIA labels to `config/eligibility.yaml` once their public lists are sourced.
 - Owner: send a fresh GCC export when wanted (replace the file in `data/manual/gcc/`); spot-check `review/dedupe_pending.csv` pairs.
 - M5 rest: monthly scheduled Claude task for offtaker/website enrichment (queue + review flow per SPEC §10); Puro retirement beneficiaries.
