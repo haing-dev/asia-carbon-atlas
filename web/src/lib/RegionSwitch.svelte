@@ -12,13 +12,13 @@
 </div>
 
 <style>
-  .rs { position: relative; display: grid; grid-template-columns: repeat(var(--n), 1fr); max-width: 760px; background: var(--chip);
-    border: 1px solid var(--line); border-radius: 999px; padding: 3px; }
-  button { position: relative; z-index: 1; border: 0; background: none; padding: 4px 8px; border-radius: 999px; cursor: pointer;
-    font-size: 12.5px; font-weight: 600; color: var(--muted); transition: color 0.2s; white-space: nowrap; }
-  button[aria-selected="true"] { color: #0d2023; }
-  .thumb { position: absolute; top: 3px; bottom: 3px; left: 3px; width: calc((100% - 6px) / var(--n)); border-radius: 999px;
-    background: var(--choro-hi); transform: translateX(calc(100% * var(--i))); transition: transform 0.25s ease; }
+  .rs { position: relative; display: grid; grid-template-columns: repeat(var(--n), 1fr); max-width: 760px; background: var(--white);
+    border: 1px solid var(--black); border-radius: 0; padding: 2px; }
+  button { position: relative; z-index: 1; border: 0; background: none; padding: 4px 8px; border-radius: 0; cursor: pointer;
+    font-size: 12.5px; font-weight: 700; color: var(--black); transition: color 0.2s; white-space: nowrap; }
+  button[aria-selected="true"] { color: var(--white); }
+  .thumb { position: absolute; top: 2px; bottom: 2px; left: 2px; width: calc((100% - 4px) / var(--n)); border-radius: 0;
+    background: var(--deep-blue); transform: translateX(calc(100% * var(--i))); transition: transform 0.25s ease; }
   @media (prefers-reduced-motion: reduce) { .thumb, button { transition: none; } }
-  @media (max-width: 640px) { .rs { border-radius: 14px; } button { font-size: 11px; padding: 4px 2px; white-space: normal; line-height: 1.15; } }
+  @media (max-width: 640px) { .rs { border-radius: 0; } button { font-size: 11px; padding: 4px 2px; white-space: normal; line-height: 1.15; } }
 </style>

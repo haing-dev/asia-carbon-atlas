@@ -2,7 +2,7 @@
   // World map for the "All Regions" tab: each covered region shaded by its total; click a region to open its tab.
   import { geoNaturalEarth1, geoPath } from "d3-geo";
   import { feature } from "topojson-client";
-  import { fmt } from "./data.js";
+  import { fmt, scaleColor } from "./data.js";
 
   let { basemap, regions, metric, unit, onselect } = $props();
 
@@ -24,7 +24,7 @@
   const vmax = $derived(Math.max(0, ...Object.values(val)));
   const vsum = $derived(Object.values(val).reduce((a, b) => a + b, 0));
   const level = (v) => (v > 0 && vmax > 0 ? 0.15 + 0.85 * Math.sqrt(v / vmax) : 0);
-  const fill = (v) => (v > 0 ? `color-mix(in oklab, var(--choro-hi) ${Math.round(level(v) * 100)}%, var(--choro-lo))` : null);
+  const fill = (v) => (v > 0 ? scaleColor(level(v)) : null);
 
   let hover = $state(null);
   const labels = $derived(regions.map((r) => {
@@ -68,17 +68,17 @@
 
 <style>
   .rmap { margin: 0; position: relative; }
-  svg { width: 100%; height: auto; display: block; background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); }
-  .ctx { fill: var(--land); stroke: var(--surface); stroke-width: 0.4; }
+  svg { width: 100%; height: auto; display: block; background: var(--surface); }
+  .ctx { fill: var(--land); stroke: var(--white); stroke-width: 0.4; }
   .in { fill: var(--land-in); stroke: var(--surface); stroke-width: 0.4; cursor: pointer; transition: opacity 0.15s, filter 0.15s; outline: none; }
   .focusing .in:not(.on) { opacity: 0.4; }
-  .in.on { filter: brightness(1.15); }
+  .in.on { stroke: var(--black); stroke-width: 1; }
   .labels text { font: 700 13px var(--font); fill: var(--ink); text-anchor: middle; paint-order: stroke; stroke: var(--surface); stroke-width: 3.5px;
     stroke-linejoin: round; pointer-events: none; }
   .labels .v { font: 500 11.5px var(--mono); }
-  .tip { position: absolute; transform: translate(-50%, calc(-100% - 22px)); pointer-events: none; background: var(--surface);
-    border: 1px solid var(--accent); border-radius: 8px; padding: 6px 10px; font-size: 13px; line-height: 1.35; display: grid;
-    text-align: center; white-space: nowrap; box-shadow: 0 6px 18px rgba(0, 0, 0, 0.45); z-index: 2; }
+  .tip { position: absolute; transform: translate(-50%, calc(-100% - 22px)); pointer-events: none; background: var(--gray-pale);
+    border-top: 1px solid var(--black); padding: 6px 10px; font-size: 13px; line-height: 1.35; display: grid;
+    text-align: center; white-space: nowrap; z-index: 2; }
   .tip strong { font-size: 14px; }
   .tip .go { color: var(--accent); font-size: 12px; }
   @media (prefers-reduced-motion: reduce) { .in { transition: none; } }

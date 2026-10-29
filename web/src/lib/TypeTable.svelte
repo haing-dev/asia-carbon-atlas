@@ -2,7 +2,7 @@
   // Per credit type: projects issuing, issued, retired, % of issued retired, and time to first issuance; by region.
   import Dropdown from "./Dropdown.svelte";
   import RegionSwitch from "./RegionSwitch.svelte";
-  import { L1_COLORS, fmt } from "./data.js";
+  import { L1_COLORS, L1_TEXT, fmt } from "./data.js";
 
   let { types, l1, l2, areas } = $props();
 
@@ -56,7 +56,7 @@
       <tbody>
         {#each shown as r (r.l2)}
           <tr>
-            <td class="cat"><span class="tag" style:background={L1_COLORS[r.l1]}>{l1Label[r.l1]}</span></td>
+            <td class="cat"><span class="tag" style:background={L1_COLORS[r.l1]} style:color={L1_TEXT[r.l1]}>{l1Label[r.l1]}</span></td>
             <td class="name">{l2[r.l2]?.label || r.l2}</td>
             <td class="n num">{r.n.toLocaleString()}</td>
             <td class="n num">{fmt(r.is)}</td>
@@ -89,27 +89,27 @@
 </section>
 
 <style>
-  .tt { margin-top: 22px; border: 1px solid var(--line); border-radius: var(--radius); background: var(--surface); padding: 12px 14px 10px; }
+  .tt { margin-top: 36px; border: 0; border-top: 1px solid var(--black); border-radius: 0; background: none; padding: 14px 0 10px; }
   .head { display: grid; gap: 10px; margin-bottom: 10px; }
   .ctl { display: flex; justify-content: space-between; align-items: center; gap: 10px; flex-wrap: wrap; }
-  h2 { font-size: 18px; margin: 0; }
+  h2 { font: 700 22px/1.25 var(--serif); margin: 0; }
   .scroller { overflow-x: auto; }
   table { border-collapse: collapse; width: 100%; min-width: 760px; font-size: 13px; }
   th, td { text-align: left; padding: 5px 8px; border-bottom: 1px solid var(--line); vertical-align: middle; }
-  th { font-weight: 600; color: var(--muted); vertical-align: bottom; }
+  th { font-weight: 700; color: var(--black); vertical-align: bottom; border-bottom: 1px solid var(--rule); }
   th button { background: none; border: 0; padding: 0; font: inherit; color: inherit; cursor: pointer; text-align: inherit; }
   .n { text-align: right; }
   .name { min-width: 190px; }
   .cat { white-space: nowrap; }
-  .tag { display: inline-block; white-space: nowrap; font-size: 11px; font-weight: 600; color: #0d2023; padding: 1px 8px; border-radius: 4px; }
+  .tag { display: inline-block; white-space: nowrap; font-size: 11px; font-weight: 700; padding: 2px 8px; }
   .share { white-space: nowrap; }
-  .sbar { display: inline-block; width: 70px; height: 8px; background: var(--chip); border-radius: 4px; overflow: hidden; vertical-align: middle; margin-right: 8px; }
-  .sbar span { display: block; height: 100%; background: var(--choro-hi); border-radius: 4px; }
+  .sbar { display: inline-block; width: 70px; height: 8px; background: var(--gray-pale); overflow: hidden; vertical-align: middle; margin-right: 8px; }
+  .sbar span { display: block; height: 100%; background: var(--deep-blue); }
   .time { white-space: nowrap; }
   .tbar { position: relative; display: inline-block; width: 90px; height: 10px; vertical-align: middle; margin-right: 8px;
     background: linear-gradient(to right, var(--line) 1px, transparent 1px) 0 0 / 10% 100%; border-bottom: 1px solid var(--line); }
-  .iqr { position: absolute; top: 2px; height: 6px; background: var(--accent-soft); border-radius: 3px; }
-  .med { position: absolute; top: 0; width: 3px; height: 10px; background: var(--accent); border-radius: 1px; }
+  .iqr { position: absolute; top: 2px; height: 6px; background: var(--gray-super-light); }
+  .med { position: absolute; top: 0; width: 3px; height: 10px; background: var(--deep-blue); }
   .small-n { color: var(--warn); margin-left: 1px; }
   .small { font-size: 11.5px; }
   .empty { text-align: center; padding: 14px; }

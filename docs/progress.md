@@ -34,7 +34,7 @@
   https://claude.ai/artifact/HMJAiyx5ZAXieaE3j72qFi (db collection `decisions`; apply with `python -m pipeline.review_page --apply`).
   Refresh is now weekly (Sun); weekly Claude scheduled task (Mon) per `docs/weekly-task.md`.
 
-- Night mode only. Footnotes live in `content/notes.md` (owner edits on GitHub; "Edit notes" link shows after visiting the site once with `?owner=1`).
+- Light theme (style guide, 2026-10-29); was night mode only. Footnotes live in `content/notes.md` (owner edits on GitHub; "Edit notes" link shows after visiting the site once with `?owner=1`).
 
 - **Americas (2026-10-12):** areas in `config/countries.yaml` (`area:`), per-area basemaps (`web/scripts/make-basemap.mjs`),
   per-area index files, region switcher. ACR/CAR/ART TREES via VROD (ACR/ART link to GreenTrace project lists; CAR to APX).
@@ -99,6 +99,10 @@
 
   - 2026-10-27: coverage bar removed from the region tabs (owner); `config/coverage.yaml` and build code removed
     (in git history if needed again).
+
+  - 2026-10-29: redesign to the owner's consulting visual style guide (white canvas, Georgia Bold titles and key
+    numbers, Arial text, Deep Blue / Cyan / Electric Blue palette in fixed order, linear blue map scale, black keylines
+    instead of boxed cards, square outlined controls, no shadows/rounded pills/caps). Design only; no data or logic change.
 
 ## Next
 - Finish the buyer deal sweep (`docs/buyer-sweep.md`), add ICVCM CCP and

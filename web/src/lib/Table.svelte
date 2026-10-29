@@ -138,19 +138,19 @@
 {/if}
 
 <style>
-  .scroller { overflow-x: auto; border: 1px solid var(--line); border-radius: var(--radius); background: var(--surface); }
+  .scroller { overflow-x: auto; border: 0; border-top: 1px solid var(--black); background: var(--white); }
   table { border-collapse: collapse; width: 100%; min-width: 1560px; font-size: 13.5px; }
-  th { text-align: left; font-weight: 600; border-bottom: 1px solid var(--line); position: sticky; top: 0; background: var(--surface); }
+  th { text-align: left; font-weight: 700; border-bottom: 1px solid var(--rule); vertical-align: bottom; position: sticky; top: 0; background: var(--surface); }
   th { white-space: nowrap; }
   th sup { margin-left: -6px; }
-  th button { background: none; border: 0; padding: 9px 8px 9px 10px; font-weight: 600; cursor: pointer; text-align: inherit; }
+  th button { background: none; border: 0; padding: 9px 8px 9px 10px; font-weight: 700; cursor: pointer; text-align: inherit; }
   th small { display: block; font-weight: 400; color: var(--faint); font-size: 11px; }
   th.num, td.num { text-align: right; }
   th.num { font-family: var(--font); font-size: inherit; }
   td { padding: 7px 10px; border-bottom: 1px solid var(--line); vertical-align: top; }
   tr.main { cursor: pointer; }
-  tr.main:hover td { background: var(--chip); }
-  tr.main.open td { background: var(--chip); }
+  tr.main:hover td { background: var(--gray-pale); }
+  tr.main.open td { background: var(--gray-pale); }
   .clamp { display: -webkit-box; -webkit-line-clamp: 2; line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
   .clamp.full { display: inline; -webkit-line-clamp: unset; line-clamp: unset; }
   .more-n { font-size: 11.5px; color: var(--muted); white-space: nowrap; margin-left: 2px; }
@@ -159,28 +159,28 @@
   .name { min-width: 240px; }
   .nw { display: flex; gap: 6px; align-items: flex-start; }
   .nw .exp { flex: none; margin-right: 0; }
-  .exp { width: 20px; height: 20px; border: 1px solid var(--line); background: var(--surface); border-radius: 4px; margin-right: 6px; cursor: pointer; line-height: 1; }
-  .badge { display: inline-block; font: 11px var(--mono); padding: 1px 6px; border-radius: 4px; background: var(--chip); color: var(--ink); margin: 0 4px 3px 0; }
-  .badge.a6 { background: var(--accent-soft); }
-  .sw { width: 8px; height: 8px; border-radius: 2px; display: inline-block; margin-right: 6px; }
-  .detail td { background: var(--bg); }
+  .exp { width: 20px; height: 20px; border: 1px solid var(--black); background: var(--white); border-radius: 0; margin-right: 6px; cursor: pointer; line-height: 1; }
+  .badge { display: inline-block; font: 11px var(--font); padding: 1px 6px; background: var(--gray-pale); color: var(--ink); margin: 0 4px 3px 0; }
+  .badge.a6 { background: #AFC3FF; }
+  .sw { width: 10px; height: 10px; display: inline-block; margin-right: 6px; }
+  .detail td { background: #F7F7F7; }
   dl { display: grid; grid-template-columns: 160px 1fr; gap: 4px 14px; margin: 4px 0 4px 26px; }
   dt { color: var(--muted); }
   dd { margin: 0; }
   .vint { display: flex; flex-wrap: wrap; gap: 4px 12px; }
   .type { min-width: 170px; }
   .tags { min-width: 120px; max-width: 220px; }
-  .tag { display: inline-block; font-size: 11.5px; padding: 1px 7px; border-radius: 999px; border: 1px solid var(--line); color: var(--muted); margin: 0 4px 3px 0; white-space: nowrap; }
+  .tag { display: inline-block; font-size: 11.5px; padding: 1px 7px; border: 1px solid var(--gray-light); color: var(--gray-dark); margin: 0 4px 3px 0; white-space: nowrap; }
   .yr { color: var(--muted); }
   .pct { white-space: nowrap; }
   .small { font-size: 11.5px; }
   .rbn { display: inline-block; margin-right: 14px; }
-  .pct.low { color: var(--pink); font-weight: 600; }
+  .pct.low { color: var(--pink); font-weight: 700; }
   .pct.good { color: var(--good); }
-  .rbar { display: inline-block; width: 34px; height: 6px; background: var(--chip); border-radius: 3px; overflow: hidden; margin-right: 6px; vertical-align: 1px; }
-  .rbar span { display: block; height: 100%; background: var(--choro-hi); }
+  .rbar { display: inline-block; width: 34px; height: 6px; background: var(--gray-pale); overflow: hidden; margin-right: 6px; vertical-align: 1px; }
+  .rbar span { display: block; height: 100%; background: var(--deep-blue); }
   .off { min-width: 130px; }
   .empty { text-align: center; color: var(--muted); padding: 28px; }
   .more { text-align: center; }
-  .more button { border: 1px solid var(--line); background: var(--surface); border-radius: 999px; padding: 4px 14px; cursor: pointer; }
+  .more button { border: 1px solid var(--black); background: var(--white); border-radius: 0; padding: 4px 14px; cursor: pointer; }
 </style>

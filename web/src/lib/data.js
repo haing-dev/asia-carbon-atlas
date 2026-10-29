@@ -1,10 +1,24 @@
 // Data loading, filtering and aggregation. All filtering runs in the browser on the compact index.
 
+// Data-visualisation palette, used in its fixed order (largest categories get the first colours); "other" is neutral.
 export const L1_COLORS = {
-  forestry: "#009E73", agriculture: "#B39B00", engineered: "#CC79A7", renewables: "#E69F00",
-  efficiency: "#0072B2", household: "#D55E00", waste: "#8C6D46", industrial: "#56B4E9",
-  transport: "#6E57A6", other: "#8A8A8A",
+  forestry: "#051C2C", renewables: "#00A9F4", household: "#1F40E6", waste: "#AAE6F0", industrial: "#3C96B4",
+  efficiency: "#AFC3FF", agriculture: "#8B5AC7", engineered: "#E69FC7", transport: "#F99F82", other: "#D0D0D0",
 };
+// Text colour that reads on each fill.
+export const L1_TEXT = {
+  forestry: "#FFFFFF", renewables: "#000000", household: "#FFFFFF", waste: "#000000", industrial: "#FFFFFF",
+  efficiency: "#000000", agriculture: "#FFFFFF", engineered: "#000000", transport: "#000000", other: "#000000",
+};
+// Linear (sequential) scale on a light background, lowest -> highest.
+const SCALE = ["#E6E6E6", "#AAE6F0", "#6FD2EF", "#00A9F4", "#0179AF", "#03496D", "#051C2C"];
+const hex = (h) => [1, 3, 5].map((i) => parseInt(h.slice(i, i + 2), 16));
+export function scaleColor(t) {
+  const x = Math.max(0, Math.min(1, t)) * (SCALE.length - 1);
+  const i = Math.min(SCALE.length - 2, Math.floor(x)), f = x - i;
+  const a = hex(SCALE[i]), b = hex(SCALE[i + 1]);
+  return `rgb(${a.map((v, k) => Math.round(v + (b[k] - v) * f)).join(",")})`;
+}
 
 export const STAGE_LABELS = { pipeline: "Listed", registered: "Validated", issuing: "Issuing", inactive: "Inactive", announced: "Announced deal" };
 // Which year to show for each stage: listed -> listing year, validated -> registration year, issuing -> first issuance year.

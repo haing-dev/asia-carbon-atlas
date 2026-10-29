@@ -27,15 +27,15 @@
 </div>
 
 <style>
-  .ranking { border: 1px solid var(--line); border-radius: var(--radius); background: var(--surface); padding: 8px 10px; overflow: auto; }
-  .head { display: flex; justify-content: space-between; font-size: 11px; text-transform: uppercase; letter-spacing: 0.05em; color: var(--muted); padding: 2px 4px 6px; border-bottom: 1px solid var(--line); }
+  .ranking { border: 0; border-top: 1px solid var(--black); border-radius: 0; background: none; padding: 8px 0; overflow: auto; }
+  .head { display: flex; justify-content: space-between; font-size: 12px; font-weight: 700; color: var(--black); padding: 2px 4px 6px; border-bottom: 1px solid var(--rule); }
   .row { display: grid; grid-template-columns: 22px 1fr auto; grid-template-rows: auto 5px; align-items: center; column-gap: 6px; row-gap: 3px;
-    width: 100%; background: none; border: 0; border-radius: 6px; padding: 5px 4px; cursor: pointer; text-align: left; font-size: 13px; }
+    width: 100%; background: none; border: 0; border-radius: 0; padding: 5px 4px; cursor: pointer; text-align: left; font-size: 13px; }
   .row:hover, .row.hl { background: var(--chip); }
   .row.sel { background: var(--accent-soft); }
-  img { border-radius: 2px; box-shadow: 0 0 0 1px var(--line); }
+  img { outline: 1px solid var(--gray-super-light); }
   .name { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
   .val small { color: var(--muted); font-size: 10.5px; }
-  .bar { grid-column: 2 / 4; height: 5px; border-radius: 3px; background: var(--choro-hi); opacity: 0.85; }
+  .bar { grid-column: 2 / 4; height: 5px; background: var(--deep-blue); }
   .empty { font-size: 13px; padding: 8px 4px; }
 </style>

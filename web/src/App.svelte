@@ -311,23 +311,24 @@
 <footer class="wrap muted small">Carbon Credit Atlas · non-commercial research project · registry data checked weekly</footer>
 
 <style>
-  .top { display: flex; justify-content: space-between; align-items: flex-start; gap: 16px; padding-top: 22px; padding-bottom: 6px; }
-  h1 { font-size: 22px; margin: 0 0 2px; letter-spacing: -0.01em; }
+  .top { display: flex; justify-content: space-between; align-items: flex-start; gap: 16px; padding-top: 26px; padding-bottom: 14px; }
+  header.top { background: linear-gradient(var(--black), var(--black)) bottom center / calc(100% - 2 * clamp(16px, 4vw, 40px)) 1px no-repeat; }
+  h1 { font: 700 30px/1.15 var(--serif); margin: 0 0 6px; }
   h1 + p { margin: 0; font-size: 14px; max-width: 680px; }
   nav { display: flex; gap: 14px; align-items: center; font-size: 14px; white-space: nowrap; }
-  .notice { background: var(--chip); border: 1px solid var(--line); border-radius: var(--radius); padding: 8px 12px; font-size: 14px; }
-  .where { color: var(--accent); font-weight: 600; }
-  .regions { position: relative; display: grid; grid-template-columns: repeat(var(--n), 1fr); max-width: 860px; margin: 10px 0 2px;
-    background: var(--chip); border: 1px solid var(--line); border-radius: 999px; padding: 3px; }
-  .regions button { position: relative; z-index: 1; border: 0; background: none; padding: 6px 10px; border-radius: 999px; cursor: pointer;
-    font-size: 14px; font-weight: 600; color: var(--muted); transition: color 0.2s; }
-  .regions button[aria-selected="true"] { color: #0d2023; }
-  .regions .thumb { position: absolute; top: 3px; bottom: 3px; left: 3px; width: calc((100% - 6px) / var(--n)); border-radius: 999px;
-    background: var(--choro-hi); transform: translateX(calc(100% * var(--i))); transition: transform 0.25s ease; }
+  .notice { background: var(--gray-pale); border: 0; padding: 8px 12px; font-size: 14px; }
+  .where { color: var(--ink); font-weight: 700; }
+  .regions { position: relative; display: grid; grid-template-columns: repeat(var(--n), 1fr); max-width: 860px; margin: 14px 0 2px;
+    background: var(--white); border: 1px solid var(--black); border-radius: 0; padding: 2px; }
+  .regions button { position: relative; z-index: 1; border: 0; background: none; padding: 6px 10px; border-radius: 0; cursor: pointer;
+    font-size: 14px; font-weight: 700; color: var(--black); transition: color 0.2s; }
+  .regions button[aria-selected="true"] { color: var(--white); }
+  .regions .thumb { position: absolute; top: 2px; bottom: 2px; left: 2px; width: calc((100% - 4px) / var(--n)); border-radius: 0;
+    background: var(--deep-blue); transform: translateX(calc(100% * var(--i))); transition: transform 0.25s ease; }
   @media (prefers-reduced-motion: reduce) { .regions .thumb, .regions button { transition: none; } }
-  @media (max-width: 640px) { .regions { border-radius: 14px; } .regions button { font-size: 12px; padding: 6px 4px; line-height: 1.2; } }
-  .news { margin: 12px 0 6px; padding: 10px 14px 8px; border: 1px solid var(--line); border-radius: var(--radius); background: var(--surface); }
-  .news h2 { font-size: 15px; margin-bottom: 6px; }
+  @media (max-width: 640px) { .regions { border-radius: 0; } .regions button { font-size: 12px; padding: 6px 4px; line-height: 1.2; } }
+  .news { margin: 16px 0 6px; padding: 10px 0 8px; border: 0; border-top: 1px solid var(--black); border-radius: 0; background: none; }
+  .news h2 { font: 700 15px var(--font); margin-bottom: 6px; }
   .news .wk { font-size: 12.5px; font-weight: 400; }
   .news ol { margin: 0; padding-left: 20px; columns: 2 380px; column-gap: 28px; font-size: 13.5px; }
   .news li { break-inside: avoid; margin-bottom: 5px; line-height: 1.35; }
@@ -336,21 +337,21 @@
   .mapgrid { display: grid; grid-template-columns: minmax(0, 2.3fr) minmax(220px, 1fr); gap: 12px; align-items: start; }
   .mapgrid :global(.ranking) { max-height: 560px; }
   @media (max-width: 820px) { .mapgrid { grid-template-columns: 1fr; } .mapgrid :global(.ranking) { max-height: 320px; } }
-  .maphead select { margin-left: 6px; border: 1px solid var(--line); border-radius: 6px; padding: 3px 6px; background: var(--surface); }
+  .maphead select { margin-left: 6px; border: 1px solid var(--black); border-radius: 0; padding: 3px 6px; background: var(--white); }
   #projects { margin-top: 18px; scroll-margin-top: 12px; }
   .tablehead { display: flex; justify-content: space-between; align-items: center; gap: 12px; flex-wrap: wrap; }
-  h2 { font-size: 18px; margin: 0; display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
-  .count { font-size: 14px; font-weight: 400; }
-  .chip { font-size: 12px; border: 1px solid var(--line); background: var(--chip); border-radius: 999px; padding: 2px 9px; cursor: pointer; }
-  .dl { border: 1px solid var(--accent); color: var(--accent); background: var(--surface); border-radius: 999px; padding: 4px 14px; cursor: pointer; font-size: 13px; }
+  h2 { font: 700 20px/1.25 var(--serif); margin: 0; display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
+  .count { font: 400 14px var(--font); }
+  .chip { font-size: 12px; border: 1px solid var(--black); background: var(--white); border-radius: 0; padding: 2px 9px; cursor: pointer; }
+  .dl { border: 1px solid var(--deep-blue); color: var(--white); background: var(--deep-blue); border-radius: 0; padding: 5px 14px; cursor: pointer; font-size: 13px; font-weight: 700; }
   .dl:disabled { opacity: 0.4; cursor: default; }
   .prose { margin-top: 36px; max-width: 860px; font-size: 14px; }
   .notes { margin-top: 36px; padding-top: 12px; border-top: 1px solid var(--line); max-width: 860px; font-size: 12px; color: var(--muted); }
-  .notes .edit { font-size: 11px; text-transform: none; letter-spacing: 0; border: 1px solid var(--accent); border-radius: 999px; padding: 1px 8px; }
-  .notes h2 { font-size: 13px; text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 4px; }
+  .notes .edit { font-size: 11px; text-transform: none; letter-spacing: 0; border: 1px solid var(--black); border-radius: 0; padding: 1px 8px; }
+  .notes h2 { font: 700 14px var(--font); margin-bottom: 4px; }
   .notes ol { padding-left: 18px; margin: 0 0 10px; }
   .notes > ol > li { margin-bottom: 6px; scroll-margin-top: 16px; }
-  .notes .nt { color: var(--ink); font-weight: 600; }
+  .notes .nt { color: var(--ink); font-weight: 700; }
   .notes h2.cr { margin-top: 14px; }
   .credits { margin: 0 0 10px; padding-left: 18px; }
   .credits li { margin-bottom: 3px; }
@@ -361,6 +362,7 @@
   .prose li { margin-bottom: 4px; }
   .src { border-collapse: collapse; width: 100%; font-size: 13.5px; }
   .src th, .src td { text-align: left; padding: 6px 8px; border-bottom: 1px solid var(--line); vertical-align: top; }
+  .src th { border-bottom: 1px solid var(--rule); vertical-align: bottom; }
   .small { font-size: 12.5px; }
   footer { padding: 28px 16px 40px; }
 </style>

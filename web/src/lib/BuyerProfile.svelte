@@ -1,7 +1,7 @@
 <script>
   // Buyer profile: totals through the three lenses, credit-type and country mix, and every project with sources.
   import BuyerProjects from "./BuyerProjects.svelte";
-  import { L1_COLORS, fmt } from "./data.js";
+  import { L1_COLORS, L1_TEXT, fmt } from "./data.js";
 
   let { meta, summary, name, onback } = $props();
 
@@ -56,7 +56,7 @@
       {@const m = mix(l.k)}
       <div class="mixrow">
         <span class="ml">{l.label}</span>
-        <span class="bar">{#each m as s}<span class="seg" style:flex-grow={s.v} style:background={L1_COLORS[s.l1]} title="{s.label}: {fmt(s.v)} tCO₂e ({((s.v / b[l.k]) * 100).toFixed(0)}%)">{#if s.v / b[l.k] > 0.12}<span class="sl">{s.label}</span>{/if}</span>{/each}</span>
+        <span class="bar">{#each m as s}<span class="seg" style:flex-grow={s.v} style:background={L1_COLORS[s.l1]} title="{s.label}: {fmt(s.v)} tCO₂e ({((s.v / b[l.k]) * 100).toFixed(0)}%)">{#if s.v / b[l.k] > 0.12}<span class="sl" style:color={L1_TEXT[s.l1]}>{s.label}</span>{/if}</span>{/each}</span>
       </div>
       <div class="mixlist muted">{#each m as s}<span><i style:background={L1_COLORS[s.l1]}></i>{s.label} <span class="num">{fmt(s.v)}</span> ({((s.v / b[l.k]) * 100).toFixed(0)}%)</span>{/each}</div>
     {/each}
@@ -78,24 +78,24 @@
 <style>
   .back { margin: 12px 0 4px; }
   .link { background: none; border: 0; color: var(--accent); cursor: pointer; padding: 0; font: inherit; font-size: 14px; }
-  .title { font-size: 22px; margin: 0; display: flex; gap: 10px; align-items: baseline; }
+  .title { font: 700 30px/1.15 var(--serif); margin: 0; display: flex; gap: 10px; align-items: baseline; }
   .kind { font-size: 13px; font-weight: 400; }
   .lead { margin: 2px 0 12px; font-size: 13.5px; }
   .tiles { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 10px; }
-  .tile { border: 1px solid var(--line); border-radius: var(--radius); background: var(--surface); padding: 10px 12px; display: grid; gap: 2px; }
-  .tile strong { font-size: 24px; font-weight: 600; }
+  .tile { border: 0; border-top: 1px solid var(--black); border-radius: 0; background: none; padding: 10px 0; display: grid; gap: 2px; }
+  .tile strong { font: 700 34px/1.1 var(--serif); }
   .small { font-size: 12px; }
-  .card { margin-top: 14px; border: 1px solid var(--line); border-radius: var(--radius); background: var(--surface); padding: 12px 14px; }
-  h3 { margin: 0 0 8px; font-size: 15px; }
+  .card { margin-top: 26px; border: 0; border-top: 1px solid var(--black); border-radius: 0; background: none; padding: 12px 0; }
+  h3 { margin: 0 0 8px; font: 700 16px var(--font); }
   .mixrow { display: grid; grid-template-columns: 190px 1fr; gap: 10px; align-items: center; margin-top: 6px; }
-  .ml { font-size: 13px; font-weight: 600; }
-  .bar { display: flex; height: 22px; border-radius: 4px; overflow: hidden; }
-  .seg { min-width: 3px; border-right: 2px solid var(--surface); display: flex; align-items: center; overflow: hidden; }
+  .ml { font-size: 13px; font-weight: 700; }
+  .bar { display: flex; height: 22px; overflow: hidden; }
+  .seg { min-width: 3px; border-right: 1px solid var(--white); display: flex; align-items: center; overflow: hidden; }
   .seg:last-child { border-right: 0; }
-  .sl { font-size: 11px; font-weight: 600; color: #0d2023; padding: 0 6px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .sl { font-size: 11px; font-weight: 700; padding: 0 6px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
   .mixlist { display: flex; flex-wrap: wrap; gap: 3px 14px; font-size: 12px; margin: 4px 0 4px 200px; }
-  .mixlist i { display: inline-block; width: 9px; height: 9px; border-radius: 2px; margin-right: 5px; vertical-align: -1px; }
+  .mixlist i { display: inline-block; width: 10px; height: 10px; margin-right: 5px; vertical-align: -1px; }
   @media (max-width: 640px) { .mixrow { grid-template-columns: 1fr; } .mixlist { margin-left: 0; } }
   .ctys { display: flex; flex-wrap: wrap; gap: 6px; }
-  .cty { font-size: 12.5px; padding: 2px 9px; border: 1px solid var(--line); border-radius: 999px; }
+  .cty { font-size: 12.5px; padding: 2px 9px; background: var(--gray-pale); }
 </style>

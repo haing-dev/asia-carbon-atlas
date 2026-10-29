@@ -29,6 +29,6 @@
 
 <style>
   .filters { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; margin: 14px 0; }
-  .search { flex: 1 1 200px; min-width: 0; border: 1px solid var(--line); border-radius: 999px; padding: 4px 12px; background: var(--surface); font-size: 14px; }
+  .search { flex: 1 1 200px; min-width: 0; border: 0; border-bottom: 1px solid var(--black); border-radius: 0; padding: 4px 2px; background: var(--white); font-size: 14px; }
   .link { background: none; border: 0; color: var(--accent); cursor: pointer; padding: 0; font-size: 13px; }
 </style>

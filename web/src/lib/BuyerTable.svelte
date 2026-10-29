@@ -3,7 +3,7 @@
   // Click a buyer for its projects (announced, issued, retired per project); the name opens the buyer profile.
   import BuyerProjects from "./BuyerProjects.svelte";
   import RegionSwitch from "./RegionSwitch.svelte";
-  import { L1_COLORS, fmt } from "./data.js";
+  import { L1_COLORS, L1_TEXT, fmt } from "./data.js";
 
   let { meta, data, l1, l2, top = 15, onprofile } = $props();
   let region = $state("all");
@@ -72,7 +72,7 @@
               <span class="bar" style:width="{width(r.total)}%">
                 {#each r.segs as s}
                   <span class="seg" style:flex-grow={s.v} style:background={L1_COLORS[s.l1]}
-                    onmouseenter={() => (tip = { buyer: r.n, ...s, pct: s.v / r.total })} onmouseleave={() => (tip = null)}>{#if (s.v / r.total) * width(r.total) > 14}<span class="sl">{s.label}</span>{/if}</span>
+                    onmouseenter={() => (tip = { buyer: r.n, ...s, pct: s.v / r.total })} onmouseleave={() => (tip = null)}>{#if (s.v / r.total) * width(r.total) > 14}<span class="sl" style:color={L1_TEXT[s.l1]}>{s.label}</span>{/if}</span>
                 {/each}
               </span>
               <span class="tot num">{fmt(r.total)}</span>
@@ -97,40 +97,41 @@
 </section>
 
 <style>
-  .bt { margin-top: 22px; border: 1px solid var(--line); border-radius: var(--radius); background: var(--surface); padding: 12px 14px 10px; }
+  .bt { margin-top: 36px; border: 0; border-top: 1px solid var(--black); border-radius: 0; background: none; padding: 14px 0 10px; }
   .head { display: grid; gap: 10px; margin-bottom: 10px; }
-  h2 { font-size: 18px; margin: 0; }
+  h2 { font: 700 22px/1.25 var(--serif); margin: 0; }
   .gov { display: flex; align-items: center; gap: 6px; font-size: 13px; color: var(--muted); cursor: pointer; white-space: nowrap; }
   .ctl { display: flex; justify-content: flex-start; align-items: center; gap: 10px; flex-wrap: wrap; }
-  .lens { position: relative; display: grid; grid-template-columns: repeat(3, 1fr); width: 330px; max-width: 100%; background: var(--chip);
-    border: 1px solid var(--line); border-radius: 999px; padding: 3px; }
-  .lens button { position: relative; z-index: 1; border: 0; background: none; padding: 5px 10px; border-radius: 999px; cursor: pointer;
-    font-size: 13.5px; font-weight: 600; color: var(--muted); transition: color 0.2s; }
-  .lens button[aria-selected="true"] { color: #0d2023; }
-  .lens .thumb { position: absolute; top: 3px; bottom: 3px; left: 3px; width: calc((100% - 6px) / 3); border-radius: 999px;
-    background: var(--choro-hi); transform: translateX(calc(100% * var(--i))); transition: transform 0.25s ease; }
+  .lens { position: relative; display: grid; grid-template-columns: repeat(3, 1fr); width: 330px; max-width: 100%; background: var(--white);
+    border: 1px solid var(--black); border-radius: 0; padding: 2px; }
+  .lens button { position: relative; z-index: 1; border: 0; background: none; padding: 5px 10px; border-radius: 0; cursor: pointer;
+    font-size: 13.5px; font-weight: 700; color: var(--black); transition: color 0.2s; }
+  .lens button[aria-selected="true"] { color: var(--white); }
+  .lens .thumb { position: absolute; top: 2px; bottom: 2px; left: 2px; width: calc((100% - 4px) / 3); border-radius: 0;
+    background: var(--deep-blue); transform: translateX(calc(100% * var(--i))); transition: transform 0.25s ease; }
   @media (prefers-reduced-motion: reduce) { .lens .thumb, .lens button { transition: none; } }
   .legend { display: flex; flex-wrap: wrap; gap: 4px 12px; font-size: 12px; color: var(--muted); margin-bottom: 8px; }
-  .legend i, .mix i { display: inline-block; width: 9px; height: 9px; border-radius: 2px; margin-right: 5px; vertical-align: -1px; }
+  .legend i, .mix i { display: inline-block; width: 10px; height: 10px; margin-right: 5px; vertical-align: -1px; }
   .bars { list-style: none; margin: 0; padding: 0; }
   .bars li { border-top: 1px solid var(--line); position: relative; }
+  .bars li:first-child { border-top: 0; }
   .row { display: grid; grid-template-columns: minmax(140px, 260px) 1fr 14px; gap: 12px; align-items: center; padding: 6px 2px; cursor: pointer; }
-  .row:hover, .open .row { background: var(--chip); }
-  .name { font-size: 14px; font-weight: 600; display: flex; min-width: 0; }
+  .row:hover, .open .row { background: var(--gray-pale); }
+  .name { font-size: 14px; font-weight: 700; display: flex; min-width: 0; }
   .rk { flex: none; }
   .nm { background: none; border: 0; padding: 0; font: inherit; color: var(--ink); cursor: pointer; text-align: left;
     min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
-  .nm:hover { color: var(--accent); text-decoration: underline; }
+  .nm:hover { color: var(--electric-blue); text-decoration: underline; }
   .rk { display: inline-block; width: 22px; color: var(--faint); font-weight: 500; }
   .track { display: flex; align-items: center; gap: 8px; min-width: 0; }
-  .bar { display: flex; height: 24px; min-width: 4px; border-radius: 4px; overflow: hidden; }
-  .seg { height: 100%; min-width: 3px; border-right: 2px solid var(--surface); display: flex; align-items: center; overflow: hidden; }
+  .bar { display: flex; height: 24px; min-width: 4px; overflow: hidden; }
+  .seg { height: 100%; min-width: 3px; border-right: 1px solid var(--white); display: flex; align-items: center; overflow: hidden; }
   .seg:last-child { border-right: 0; }
-  .seg:hover { filter: brightness(1.25); }
-  .sl { font-size: 11px; font-weight: 600; color: #0d2023; padding: 0 6px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .seg:hover { opacity: 0.85; }
+  .sl { font-size: 11px; font-weight: 700; padding: 0 6px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
   .tot { font-size: 13px; color: var(--ink); white-space: nowrap; }
   .chev { color: var(--faint); font-size: 11px; }
-  .segtip { position: absolute; right: 8px; top: -22px; background: var(--surface); border: 1px solid var(--accent); border-radius: 6px;
+  .segtip { position: absolute; right: 8px; top: -22px; background: var(--gray-pale); border: 0; border-top: 1px solid var(--black);
     padding: 2px 8px; font-size: 12px; z-index: 3; pointer-events: none; white-space: nowrap; }
   .deals { padding: 4px 4px 12px 26px; font-size: 12.5px; }
   .mix { display: flex; flex-wrap: wrap; gap: 4px 14px; margin: 2px 0 6px; color: var(--muted); }

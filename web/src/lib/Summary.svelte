@@ -48,17 +48,18 @@
 <TypeTable types={summary.types} l1={summary.l1} l2={summary.l2} areas={meta.areas} />
 
 <style>
-  .sec { font-size: 18px; margin: 16px 0 0; }
+  .sec { font: 700 22px/1.25 var(--serif); margin: 26px 0 0; }
   .maphead { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 8px; margin: 10px 0 8px; font-size: 14px; }
-  .maphead select { margin-left: 6px; border: 1px solid var(--line); border-radius: 6px; padding: 3px 6px; background: var(--surface); }
+  .maphead select { margin-left: 6px; border: 1px solid var(--black); border-radius: 0; padding: 3px 6px; background: var(--white); }
   .mapgrid { display: grid; grid-template-columns: minmax(0, 2.3fr) minmax(220px, 1fr); gap: 12px; align-items: start; }
   @media (max-width: 820px) { .mapgrid { grid-template-columns: 1fr; } }
   .rlist { list-style: none; margin: 0; padding: 0; display: grid; gap: 8px; }
-  .rlist button { width: 100%; text-align: left; display: grid; gap: 4px; padding: 10px 12px; border: 1px solid var(--line); border-radius: var(--radius);
-    background: var(--surface); cursor: pointer; color: inherit; font: inherit; }
-  .rlist button:hover { border-color: var(--accent); }
+  .rlist button { width: 100%; text-align: left; display: grid; gap: 4px; padding: 10px 0; border: 0; border-top: 1px solid var(--black); border-radius: 0;
+    background: none; cursor: pointer; color: inherit; font: inherit; }
+  .rlist button:hover { background: var(--gray-pale); }
   .top { display: flex; justify-content: space-between; gap: 8px; font-size: 14.5px; }
-  .bar { height: 6px; background: var(--chip); border-radius: 3px; overflow: hidden; }
-  .bar span { display: block; height: 100%; background: var(--choro-hi); }
+  .top .num { font: 700 18px var(--serif); }
+  .bar { height: 6px; background: var(--gray-pale); overflow: hidden; }
+  .bar span { display: block; height: 100%; background: var(--deep-blue); }
   .small { font-size: 12px; }
 </style>

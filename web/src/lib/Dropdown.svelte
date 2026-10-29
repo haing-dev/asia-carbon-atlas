@@ -72,20 +72,21 @@
 
 <style>
   .dd { position: relative; }
-  .pill { border: 1px solid var(--line); background: var(--surface); border-radius: 999px; padding: 4px 12px; font-size: 13px; cursor: pointer; color: var(--muted); }
-  .pill strong { color: var(--ink); font-weight: 600; }
-  .pill.on { border-color: var(--accent); background: var(--accent-soft); }
+  .pill { border: 1px solid var(--black); background: var(--white); border-radius: 0; padding: 4px 12px; font-size: 13px; cursor: pointer; color: var(--black); }
+  .pill strong { color: var(--ink); font-weight: 700; }
+  .pill.on { border-color: var(--deep-blue); background: var(--deep-blue); color: var(--white); }
+  .pill.on strong { color: var(--white); }
   .panel { position: absolute; z-index: 5; top: calc(100% + 6px); left: 0; width: min(280px, calc(100vw - 32px)); max-height: 65vh; overflow: auto;
-    background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); padding: 10px 12px; box-shadow: 0 6px 24px rgba(0,0,0,.12); font-size: 13px; }
+    background: var(--white); border: 1px solid var(--gray-mid); border-top: 1px solid var(--black); border-radius: 0; padding: 10px 12px; font-size: 13px; }
   .panel.right { left: auto; right: 0; }
   .panel.wide { width: min(440px, calc(100vw - 32px)); }
   .actions { display: flex; gap: 14px; padding-bottom: 6px; }
   .group { border-top: 1px solid var(--line); padding: 6px 0; }
-  .head { display: flex; align-items: center; gap: 6px; font-weight: 600; font-size: 13.5px; }
+  .head { display: flex; align-items: center; gap: 6px; font-weight: 700; font-size: 13.5px; }
   .subs { display: grid; gap: 2px; padding: 3px 0 0 24px; }
   .flat { display: grid; gap: 4px; border-top: 1px solid var(--line); padding-top: 6px; }
   label { display: flex; gap: 6px; align-items: center; cursor: pointer; }
-  .sw { width: 10px; height: 10px; border-radius: 2px; display: inline-block; }
+  .sw { width: 10px; height: 10px; display: inline-block; }
   .cnt { margin-left: auto; color: var(--faint); font-size: 12px; padding-left: 10px; }
   .link { background: none; border: 0; color: var(--accent); cursor: pointer; padding: 0; font-size: 13px; }
 </style>

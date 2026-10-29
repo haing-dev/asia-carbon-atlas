@@ -1,7 +1,7 @@
 <script>
   import { geoConicEqualArea, geoMercator, geoPath } from "d3-geo";
   import { feature } from "topojson-client";
-  import { fmt } from "./data.js";
+  import { fmt, scaleColor } from "./data.js";
 
   let { basemap, totals, countries, selected = null, highlight = null, metricLabel, unit, onselect, onhover = () => {} } = $props();
 
@@ -49,7 +49,7 @@
   const vsum = $derived([...values.values()].reduce((a, b) => a + b, 0));
   // Colour intensity: square-root scale so mid-sized countries stay distinguishable from zero.
   const level = (v) => (v > 0 && vmax > 0 ? 0.12 + 0.88 * Math.sqrt(v / vmax) : 0);
-  const fill = (v) => (v > 0 ? `color-mix(in oklab, var(--choro-hi) ${Math.round(level(v) * 100)}%, var(--choro-lo))` : null);
+  const fill = (v) => (v > 0 ? scaleColor(level(v)) : null);
 
   // The focused country, redrawn on top and enlarged around its label point.
   const lifted = $derived.by(() => {
@@ -162,26 +162,25 @@
 
 <style>
   .map { margin: 0; position: relative; }
-  svg { width: 100%; height: auto; display: block; background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); }
-  .ctx { fill: var(--land); stroke: var(--surface); stroke-width: 0.6; }
-  .in { fill: var(--land-in); stroke: var(--surface); stroke-width: 0.8; cursor: pointer; transition: fill 0.2s, opacity 0.15s; outline: none; }
+  svg { width: 100%; height: auto; display: block; background: var(--surface); }
+  .ctx { fill: var(--land); stroke: var(--white); stroke-width: 0.6; }
+  .in { fill: var(--land-in); stroke: var(--white); stroke-width: 0.75; cursor: pointer; transition: fill 0.2s, opacity 0.15s; outline: none; }
   .land.focusing .in { opacity: 0.38; }
   .in.sel { stroke: var(--ink); stroke-width: 2; }
   .lift { stroke: var(--ink); stroke-width: 1.6; vector-effect: non-scaling-stroke; pointer-events: none;
-    filter: drop-shadow(0 6px 10px rgba(0, 0, 0, 0.6)); }
+    }
   .dots line { stroke: var(--muted); stroke-width: 0.8; }
   .dots circle { stroke: var(--ink); stroke-width: 0.8; cursor: pointer; transition: r 0.12s; }
   .dots circle.sel, .dots circle.on { stroke-width: 2.2; }
   .labels text { font: 600 11.5px var(--font); fill: var(--ink); paint-order: stroke; stroke: var(--surface); stroke-width: 3px; stroke-linejoin: round; pointer-events: none; transition: opacity 0.15s; }
   .labels text.zero { font-weight: 500; font-size: 10.5px; fill: var(--muted); }
-  .labels text.onfill { fill: #0d2023; stroke: none; }
+  .labels text.onfill { fill: var(--white); stroke: none; }
   .labels.focusing text:not(.on) { opacity: 0.3; }
   .labels .v { font: 500 10.5px var(--mono); }
   .legend text { font: 10.5px var(--mono); fill: var(--muted); }
   .legend .lt { font-family: var(--font); }
-  .tip { position: absolute; transform: translate(-50%, -100%); pointer-events: none; background: var(--surface); border: 1px solid var(--accent);
-    border-radius: 8px; padding: 6px 10px; font-size: 13px; line-height: 1.35; display: grid; text-align: center; white-space: nowrap;
-    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.45); z-index: 2; }
+  .tip { position: absolute; transform: translate(-50%, -100%); pointer-events: none; background: var(--gray-pale); border: 0; border-top: 1px solid var(--black);
+    padding: 6px 10px; font-size: 13px; line-height: 1.35; display: grid; text-align: center; white-space: nowrap; z-index: 2; }
   .tip.below { transform: translate(-50%, 0); }
   .tip strong { font-size: 14px; }
   @media (prefers-reduced-motion: reduce) { .in, .labels text, .dots circle { transition: none; } }

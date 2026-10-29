@@ -52,11 +52,11 @@
   .bp { overflow-x: auto; }
   table { border-collapse: collapse; width: 100%; min-width: 720px; font-size: 12.5px; }
   th, td { text-align: left; padding: 4px 6px; border-bottom: 1px solid var(--line); vertical-align: top; }
-  th { font-weight: 600; color: var(--muted); white-space: nowrap; }
+  th { font-weight: 700; color: var(--black); white-space: nowrap; vertical-align: bottom; border-bottom: 1px solid var(--rule); }
   th small { display: block; font-weight: 400; color: var(--faint); font-size: 10.5px; }
   .n { text-align: right; }
   tr:not(.hl) td { color: var(--muted); }
-  .dot { display: inline-block; width: 9px; height: 9px; border-radius: 2px; margin-right: 5px; vertical-align: -1px; }
+  .dot { display: inline-block; width: 10px; height: 10px; margin-right: 5px; vertical-align: -1px; }
   .ann { font-size: 10.5px; color: var(--faint); margin-left: 6px; white-space: nowrap; }
   .shr { font: 11px var(--font); color: var(--muted); }
   .more { margin: 6px 0 0; font-size: 12.5px; display: flex; gap: 14px; align-items: center; }
