@@ -203,6 +203,7 @@
     <h1>Carbon Credit Atlas <span class="where">· {areaInfo?.label || ""}</span></h1>
     <p class="muted">Carbon credit projects in {areaInfo?.scope || "…"}, across registries and Paris Agreement mechanisms.</p>
     <p class="disclaimer">Disclaimer: {DISCLAIMER}</p>
+    {#if area === "all"}<p class="author">Author: <a href="mailto:haing.penn@gmail.com">haing.penn@gmail.com</a> · <a href="https://www.linkedin.com/in/hai-n-13a45370" target="_blank" rel="noopener">LinkedIn</a> · <a href="https://hai-portfolio.haing-penn.workers.dev/" target="_blank" rel="noopener">Other projects</a></p>{/if}
   </div>
   <nav>
     <a href="#sources">Sources</a>
@@ -302,7 +303,7 @@
       <ul class="credits">
         <li><strong>Data:</strong> Berkeley Carbon Trading Project, <em>Voluntary Registry Offsets Database</em> (CC BY 4.0); UNEP Copenhagen Climate Centre, <em>CDM Pipeline</em> and <em>Article 6 Pipeline</em>; the registries listed under Sources; Natural Earth; UN DESA, <em>World Population Prospects 2024</em>.</li>
         <li><strong>Disclaimer:</strong> {DISCLAIMER}</li>
-        <li><strong>Author:</strong> <a href="mailto:haing.penn@gmail.com">haing.penn@gmail.com</a> · <a href="https://www.linkedin.com/in/hai-n-13a45370" target="_blank" rel="noopener">LinkedIn</a></li>
+        <li><strong>Author:</strong> <a href="mailto:haing.penn@gmail.com">haing.penn@gmail.com</a> · <a href="https://www.linkedin.com/in/hai-n-13a45370" target="_blank" rel="noopener">LinkedIn</a> · <a href="https://hai-portfolio.haing-penn.workers.dev/" target="_blank" rel="noopener">Other projects</a></li>
       </ul>
     </section>
   {/if}
@@ -356,6 +357,7 @@
   .credits { margin: 0 0 10px; padding-left: 18px; }
   .credits li { margin-bottom: 3px; }
   .disclaimer { margin: 4px 0 0; font-size: 12.5px; color: var(--faint); max-width: 760px; }
+  .author { margin: 2px 0 0; font-size: 12.5px; color: var(--faint); }
   .notes ul { margin: 0; padding-left: 14px; list-style: "– "; }
   .notes > ol > li:target { color: var(--ink); background: var(--accent-soft); }
   .prose h2 { margin-bottom: 8px; }
