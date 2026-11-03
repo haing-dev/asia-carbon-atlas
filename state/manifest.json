@@ -1,5 +1,5 @@
 {
-  "last_commit_at": "2026-11-02T02:43:44+00:00",
+  "last_commit_at": "2026-11-03T09:02:18+00:00",
   "sources": {
     "a6pipeline": {
       "error": null,
@@ -101,15 +101,15 @@
       "stale": false
     },
     "verradesc": {
-      "error": null,
+      "error": "JSONDecodeError: Expecting value: line 1 column 1 (char 0)",
       "last_changed": "2026-11-02T02:43:44+00:00",
-      "last_checked": "2026-11-02T02:43:44+00:00",
+      "last_checked": "2026-11-03T09:02:18+00:00",
       "rows": 249,
       "signal": {
         "day": "2026-11-02",
         "missing": 3661
       },
-      "stale": false
+      "stale": true
     },
     "vrod": {
       "error": null,
