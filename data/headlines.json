@@ -1,364 +1,98 @@
 {
-  "week_ending": "2026-10-26",
-  "updated": "2026-10-26",
+  "week_ending": "2026-11-09",
+  "updated": "2026-11-09",
   "areas": {
     "asia": [
       {
-        "title": "Singapore allows 100% tax deduction for carbon credit and REC spend on voluntary goals",
-        "url": "https://carbon-pulse.com/563313/",
+        "title": "ICAO widens CORSIA Phase 2 eligibility to four more programmes, conditionally approves PACM",
+        "url": "https://carbon-pulse.com/568383/",
         "source": "Carbon Pulse",
-        "date": "2026-10-22",
-        "countries": [
-          "SGP"
-        ],
-        "type": "policy"
-      },
-      {
-        "title": "South Korea urged to drop questionable international credits from national climate goals",
-        "url": "https://carbon-pulse.com/563421/",
-        "source": "Carbon Pulse",
-        "date": "2026-10-22",
-        "countries": [
-          "KOR"
-        ],
-        "type": "policy"
-      },
-      {
-        "title": "Only 3 of 47 registered Indonesian forest carbon projects meet new rules",
-        "url": "https://carbon-pulse.com/562889/",
-        "source": "Carbon Pulse",
-        "date": "2026-10-21",
-        "countries": [
-          "IDN"
-        ],
-        "type": "policy"
-      },
-      {
-        "title": "Asia Pacific overtook Europe in number of carbon credit buyers in 2025, report finds",
-        "url": "https://carbon-pulse.com/562799/",
-        "source": "Carbon Pulse",
-        "date": "2026-10-21",
+        "date": "2026-11-06",
         "countries": [],
-        "type": "other"
+        "type": "policy"
       },
       {
-        "title": "BeZero rates Mitti Labs' Indian sustainable rice project 'A'",
-        "url": "https://carbon-pulse.com/562556/",
+        "title": "Environmental group warns ICVCM approval of coal transition credits risks climate action",
+        "url": "https://carbon-pulse.com/568511/",
         "source": "Carbon Pulse",
-        "date": "2026-10-20",
+        "date": "2026-11-06",
+        "countries": [],
+        "type": "policy"
+      },
+      {
+        "title": "India's aviation sector joining CORSIA could add ~140 Mt of credit demand by 2035",
+        "url": "https://carbonherald.com/carbon-credit-prices-face-fresh-test-as-indias-aviation-market-joins-corsia/",
+        "source": "Carbon Herald",
+        "date": "2026-11-03",
         "countries": [
           "IND"
         ],
-        "type": "other"
+        "type": "policy"
       },
       {
-        "title": "South Korean trading company enters carbon markets via equity stake in project developer",
-        "url": "https://carbon-pulse.com/562265/",
-        "source": "Carbon Pulse",
-        "date": "2026-10-20",
+        "title": "Supercritical to take up to 19,000 t of biochar credits from Jain Irrigation, India",
+        "url": "https://agrospectrumindia.com/news/24/35071/jain-irrigation-sings-agreement-with-supercritical-for-up-to-19000-tonnes-of-biochar-credits-.html",
+        "source": "AgroSpectrum India",
+        "date": "2026-10-29",
         "countries": [
-          "KOR"
+          "IND"
         ],
-        "type": "partnership"
+        "type": "offtake"
       }
     ],
     "north_america": [
       {
-        "title": "Microsoft report warns new large CDR buyers would face supply shortage next year",
-        "url": "https://cdn-dynmedia-1.microsoft.com/is/content/microsoftcorp/microsoft/msc/documents/presentations/CSR/CDR-Lessons-Learned-2026.pdf",
-        "source": "Microsoft",
-        "date": "2026-10-23",
-        "countries": [
-          "USA"
-        ],
-        "type": "other"
-      },
-      {
-        "title": "Colorado CDR non-profit commits over $2m to new carbon removal credit purchases",
-        "url": "https://carbon-pulse.com/563584/",
-        "source": "Carbon Pulse",
-        "date": "2026-10-22",
+        "title": "Gevo signs first multi-year carbon removal credit agreement for North Dakota BECCS plant",
+        "url": "https://biofuels-news.com/news/gevo-strengthens-carbon-revenue-stream-with-new-multi-year-carbon-removal-agreement/",
+        "source": "Biofuels International",
+        "date": "2026-10-28",
         "countries": [
           "USA"
         ],
         "type": "offtake"
       },
       {
-        "title": "NativState's US forest carbon portfolio listed on UAE-based Ahya's Tawazun marketplace",
-        "url": "https://www.ahya.ai/press-releases/ahya-expands-tawazun-marketplace-with-access-to-nativstates-u-s-forest-carbon-portfolio",
-        "source": "Ahya Technologies",
-        "date": "2026-10-22",
+        "title": "Terradot and HASI close $34M investment for enhanced rock weathering projects",
+        "url": "https://www.businesswire.com/news/home/20261027594878/en/Terradot-and-HASI-Close-%2434M-Investment-for-Carbon-Removal-Projects",
+        "source": "Business Wire",
+        "date": "2026-10-27",
         "countries": [
-          "USA"
-        ],
-        "type": "partnership"
-      },
-      {
-        "title": "Experts say compliance demand is key to scaling Canadian carbon removals",
-        "url": "https://carbon-pulse.com/563600/",
-        "source": "Carbon Pulse",
-        "date": "2026-10-22",
-        "countries": [
-          "CAN"
-        ],
-        "type": "other"
-      },
-      {
-        "title": "Panama decree sets national carbon market framework incl. Article 6 and CORSIA transfers",
-        "url": "https://carbon-pulse.com/563174/",
-        "source": "Carbon Pulse",
-        "date": "2026-10-21",
-        "countries": [
-          "PAN"
-        ],
-        "type": "policy"
-      },
-      {
-        "title": "Canadian offset developer-trader reports 99% revenue drop, going-concern warning",
-        "url": "https://carbon-pulse.com/562734/",
-        "source": "Carbon Pulse",
-        "date": "2026-10-21",
-        "countries": [
-          "CAN"
-        ],
-        "type": "other"
-      },
-      {
-        "title": "Citi closes CDR-linked note tied to Applied Carbon's Texas biochar credit issuance",
-        "url": "https://carbon-pulse.com/562599/",
-        "source": "Carbon Pulse",
-        "date": "2026-10-20",
-        "countries": [
-          "USA"
-        ],
-        "type": "partnership"
-      },
-      {
-        "title": "Ann Arbor considers carbon offsets for 2030 community carbon neutrality goal",
-        "url": "https://carbon-pulse.com/562305/",
-        "source": "Carbon Pulse",
-        "date": "2026-10-20",
-        "countries": [
-          "USA"
-        ],
-        "type": "policy"
-      }
-    ],
-    "south_america": [
-      {
-        "title": "Bogota-based standard opens consultations incl. REDD+ methodology revision",
-        "url": "https://carbon-pulse.com/563918/",
-        "source": "Carbon Pulse",
-        "date": "2026-10-23",
-        "countries": [
-          "COL"
-        ],
-        "type": "other"
-      },
-      {
-        "title": "Colombia's top court issues second REDD+ ruling over Indigenous rights violations",
-        "url": "https://carbon-pulse.com/563219/",
-        "source": "Carbon Pulse",
-        "date": "2026-10-22",
-        "countries": [
-          "COL"
-        ],
-        "type": "policy"
-      },
-      {
-        "title": "Preview: Bolsonaro victory could change course of Brazil's emerging ETS",
-        "url": "https://carbon-pulse.com/562800/",
-        "source": "Carbon Pulse",
-        "date": "2026-10-22",
-        "countries": [
+          "USA",
           "BRA"
-        ],
-        "type": "policy"
-      },
-      {
-        "title": "Brazilian agroforestry developer secures R$250m public finance, credits as extra revenue",
-        "url": "https://carbon-pulse.com/562849/",
-        "source": "Carbon Pulse",
-        "date": "2026-10-21",
-        "countries": [
-          "BRA"
-        ],
-        "type": "other"
-      },
-      {
-        "title": "Google and McKinsey to buy 320,000 t CDR from Working Trees' Brazil silvopasture project",
-        "url": "https://www.esgtoday.com/?p=26392",
-        "source": "ESG Today",
-        "date": "2026-10-20",
-        "countries": [
-          "BRA"
-        ],
-        "type": "offtake"
-      },
-      {
-        "title": "Colombian projects under revoked VCM regulation move to transitional regime",
-        "url": "https://carbon-pulse.com/562511/",
-        "source": "Carbon Pulse",
-        "date": "2026-10-20",
-        "countries": [
-          "COL"
-        ],
-        "type": "policy"
-      },
-      {
-        "title": "Colombia's environment minister plans to scrap carbon-tax-funded Fund for Life",
-        "url": "https://carbon-pulse.com/561962/",
-        "source": "Carbon Pulse",
-        "date": "2026-10-19",
-        "countries": [
-          "COL"
-        ],
-        "type": "policy"
-      },
-      {
-        "title": "CORSIA prices flat after Guyana J-REDD+ over-crediting traced to spreadsheet error",
-        "url": "https://carbon-pulse.com/562079/",
-        "source": "Carbon Pulse",
-        "date": "2026-10-19",
-        "countries": [
-          "GUY"
         ],
         "type": "other"
       }
     ],
+    "south_america": [],
     "africa": [
       {
-        "title": "Kenyan telecom develops digital carbon credit trading platform for small projects",
-        "url": "https://carbon-pulse.com/563893/",
+        "title": "Ghana transfers further 23k cookstove ITMOs to Switzerland",
+        "url": "https://carbon-pulse.com/568502/",
         "source": "Carbon Pulse",
-        "date": "2026-10-23",
+        "date": "2026-11-06",
         "countries": [
-          "KEN"
-        ],
-        "type": "other"
-      },
-      {
-        "title": "SaniTap sells 25,000 Gold Standard credits from Madagascar cookstove programme",
-        "url": "https://carbon-pulse.com/563609/",
-        "source": "Carbon Pulse",
-        "date": "2026-10-22",
-        "countries": [
-          "MDG"
-        ],
-        "type": "offtake"
-      },
-      {
-        "title": "South African cement maker buys 112,000 cookstove credits to cut carbon tax",
-        "url": "https://carbon-pulse.com/562788/",
-        "source": "Carbon Pulse",
-        "date": "2026-10-21",
-        "countries": [
-          "ZAF"
-        ],
-        "type": "offtake"
-      },
-      {
-        "title": "Terraton gets first Isometric biochar credits from Kenya, signs offtake and sales deals",
-        "url": "https://www.eznewswire.com/newsroom/terraton-issues-first-carbon-removal-credits-from-agricultural-waste",
-        "source": "Terraton (press release)",
-        "date": "2026-10-20",
-        "countries": [
-          "KEN"
-        ],
-        "type": "issuance"
-      },
-      {
-        "title": "West African protected areas bond to rely mainly on REDD+ and blue carbon credit sales",
-        "url": "https://carbon-pulse.com/562530/",
-        "source": "Carbon Pulse",
-        "date": "2026-10-20",
-        "countries": [],
-        "type": "other"
-      },
-      {
-        "title": "UN technical review notes Namibia looking to Article 6 to meet 2030 target",
-        "url": "https://carbon-pulse.com/561925/",
-        "source": "Carbon Pulse",
-        "date": "2026-10-19",
-        "countries": [
-          "NAM"
+          "GHA"
         ],
         "type": "article6"
+      },
+      {
+        "title": "Gabon to supply ~6M CORSIA-eligible ART TREES forest credits to Germany's SEFE",
+        "url": "https://carboncredits.com/gabon-sells-6-million-forest-carbon-credits-sefe/",
+        "source": "Carbon Credits",
+        "date": "2026-11-05",
+        "countries": [
+          "GAB"
+        ],
+        "type": "offtake"
       }
     ],
     "europe": [
       {
-        "title": "UK nature finance firm partners with carbon market intermediary",
-        "url": "https://carbon-pulse.com/563249/",
-        "source": "Carbon Pulse",
-        "date": "2026-10-22",
-        "countries": [
-          "GBR"
-        ],
-        "type": "partnership"
-      },
-      {
-        "title": "Twelve startups selected for ninth European carbon removal accelerator cohort",
-        "url": "https://carbon-pulse.com/563461/",
-        "source": "Carbon Pulse",
-        "date": "2026-10-22",
+        "title": "EDF: Europe's international carbon credit purchases could raise global ambition",
+        "url": "https://blogs.edf.org/climate411/2026/11/05/europes-carbon-credit-purchases-can-raise-global-ambition-if-the-eu-plays-its-hand-realistically/",
+        "source": "EDF Climate 411",
+        "date": "2026-11-05",
         "countries": [],
-        "type": "other"
-      },
-      {
-        "title": "Switzerland proposes extending CO2 storage crediting to 2035, easing CDR rules",
-        "url": "https://carbon-pulse.com/562798/",
-        "source": "Carbon Pulse",
-        "date": "2026-10-21",
-        "countries": [
-          "CHE"
-        ],
-        "type": "policy"
-      },
-      {
-        "title": "NGO urges MEPs to reject counting bioenergy projects as removals in EU ETS",
-        "url": "https://carbon-pulse.com/562858/",
-        "source": "Carbon Pulse",
-        "date": "2026-10-21",
-        "countries": [],
-        "type": "policy"
-      },
-      {
-        "title": "Swiss developer issues its first timber carbon removal credits",
-        "url": "https://carbon-pulse.com/562026/",
-        "source": "Carbon Pulse",
-        "date": "2026-10-20",
-        "countries": [
-          "CHE"
-        ],
-        "type": "issuance"
-      },
-      {
-        "title": "European Commission favours offtake contracts for 2030s CDR purchasing programme",
-        "url": "https://carbon-pulse.com/562391/",
-        "source": "Carbon Pulse",
-        "date": "2026-10-20",
-        "countries": [],
-        "type": "policy"
-      },
-      {
-        "title": "Russia temporarily changes carbon project registration and unit issuance procedures",
-        "url": "https://carbon-pulse.com/562099/",
-        "source": "Carbon Pulse",
-        "date": "2026-10-19",
-        "countries": [
-          "RUS"
-        ],
-        "type": "policy"
-      },
-      {
-        "title": "UK Carbon Markets Forum chair backs frameworks to put credits on balance sheets",
-        "url": "https://carbon-pulse.com/561889/",
-        "source": "Carbon Pulse",
-        "date": "2026-10-19",
-        "countries": [
-          "GBR"
-        ],
         "type": "other"
       }
     ]

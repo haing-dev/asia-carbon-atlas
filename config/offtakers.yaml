@@ -1505,6 +1505,12 @@ announced_rows:
         source_url: https://www.cdr.fyi/blog/cdr-monthly-recap-august-2025
         source_title: 'Durable CDR Market Recap: August 2025 (CDR.fyi)'
         note: Supercritical is the sales channel; end buyer not named. Recap also cites Exomad's Riberalta facility (Bolivia). Possibly part of the 130k Supercritical distribution deal already listed.
+      - buyer: Senken
+        volume_tco2e: 105000
+        date: '2026-02-17'
+        source_url: https://www.esgtoday.com/?p=22673
+        source_title: Exomad Green, Senken Sign 105,000 Tonne Carbon Removal Deal to Target Aviation Sector (ESG Today)
+        note: Multi-year offtake, 105,000 t in 2026–2028 from Exomad Green's biochar operations in Bolivia; intended for aviation buyers (end buyers not named).
   - id: ANN:terradot-rice-bra
     name: "Terradot — rice methane elimination, Rio Grande do Sul"
     developer: Terradot
@@ -3847,3 +3853,29 @@ announced_rows:
         source_url: https://www.eznewswire.com/newsroom/terraton-issues-first-carbon-removal-credits-from-agricultural-waste
         source_title: Terraton Issues First Carbon Removal Credits from Agricultural Waste, Signs Agreements with Climeworks Solutions, Climate Impact Partners, Carbonfuture, CUR8, and Terraset
         note: Purchase of 240 t through CUR8; facility not stated.
+  - id: ANN:jain-irrigation-biochar-ind
+    name: Jain Irrigation — industrial biochar, Jalgaon, Maharashtra (supplier-level deal)
+    developer: Jain Irrigation Systems
+    countries:
+      - IND
+    l2: biochar
+    offtakes:
+      - buyer: Supercritical
+        volume_tco2e: 19000
+        date: '2026-10-29'
+        source_url: https://agrospectrumindia.com/news/24/35071/jain-irrigation-sings-agreement-with-supercritical-for-up-to-19000-tonnes-of-biochar-credits-.html
+        source_title: Jain Irrigation signs agreement with Supercritical for up to 19,000 tonnes of biochar credits (AgroSpectrum India)
+        note: Up to 19,000 t over 2026–27 from the Jalgaon facility; Supercritical is a marketplace (end buyers not named); Puro.earth verification under way.
+  - id: ANN:agadev-redd-gab
+    name: Gabon (AGADEV) — jurisdictional forest credits, ART TREES (government-level deal)
+    developer: Gabon (AGADEV)
+    countries:
+      - GAB
+    l2: redd
+    offtakes:
+      - buyer: SEFE
+        volume_tco2e: 6000000
+        date: '2026-11-05'
+        source_url: https://carboncredits.com/gabon-sells-6-million-forest-carbon-credits-sefe/
+        source_title: Gabon Sells 6 Million CORSIA-Eligible Forest Carbon Credits to Germany's SEFE (Carbon Credits)
+        note: About 6 million CORSIA-eligible jurisdictional forest credits under ART TREES; deliveries by early 2027.

@@ -63,6 +63,10 @@
     Trees Brazil (VCS:5184, 320k), Terraton EcoFix Kenya (Climeworks Solutions 2k, Climate Impact Partners), Terraton
     supplier row (Terraset 14k, CUR8 240), Meta–EFM Olympic Rainforest 676k (2025, sweep). Sweep (wk 44: Cumberland,
     Deep Sky, DelAgua, Duke, EFM): Deep Sky–TD June 2026 article = existing deal. Oman 44.01 out of scope. 0 decisions.
+  - Weekly 2026-11-09: headlines window Oct 27–Nov 9 (Nov 2 run missed); thin: Asia 4, NA 2, SA 0, Africa 2, Europe 1 —
+    carbon-pulse article pages fail to fetch and search indexes the last week poorly. +3 deals: Senken–Exomad Green
+    105k (Feb 2026), Supercritical–Jain Irrigation 19k (new ANN row, IND), SEFE–Gabon AGADEV ~6M (new ANN row, GAB).
+    Dedupe review: 0 decisions. Supplier sweep: Empacar…Faeger (only Exomad hit).
   - Tags (`config/tags.yaml`): ~100 searchable tags from record evidence (name/methodology/registry type) + broad
     per-type tags; exact tag/alias search filters to that tag (AWD ≠ DSR). "Tag" column (last) + footnote; CSV includes tags.
     Tags also read GS registry descriptions (gsreg lookup) and CDM/name capacity (small hydro ≤25 MW); every specific
