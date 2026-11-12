@@ -1,5 +1,5 @@
 {
-  "last_commit_at": "2026-11-11T08:52:33+00:00",
+  "last_commit_at": "2026-11-12T09:20:07+00:00",
   "sources": {
     "a6pipeline": {
       "error": null,
@@ -101,15 +101,15 @@
       "stale": true
     },
     "verradesc": {
-      "error": null,
+      "error": "SourceError: Verra project 5760: HTTP 500",
       "last_changed": "2026-11-09T09:10:55+00:00",
-      "last_checked": "2026-11-11T08:52:33+00:00",
+      "last_checked": "2026-11-12T09:20:07+00:00",
       "rows": 272,
       "signal": {
         "day": "2026-11-11",
         "missing": 3636
       },
-      "stale": false
+      "stale": true
     },
     "vrod": {
       "error": null,
