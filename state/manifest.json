@@ -1,14 +1,14 @@
 {
-  "last_commit_at": "2026-11-12T09:20:07+00:00",
+  "last_commit_at": "2026-11-13T09:07:50+00:00",
   "sources": {
     "a6pipeline": {
       "error": null,
       "last_changed": "2026-11-06T08:56:46+00:00",
-      "last_checked": "2026-11-06T08:56:46+00:00",
+      "last_checked": "2026-11-13T09:07:50+00:00",
       "rows": 284,
       "signal": {
         "a6p2": "f02a28e2c03c50c6",
-        "pacm": "1155e1506684e8f0",
+        "pacm": "cbea11be5e402c21",
         "rows": {
           "a6p2": 318,
           "pacm": 184
@@ -19,7 +19,7 @@
     "cdm": {
       "error": null,
       "last_changed": "2026-10-16T03:27:27+00:00",
-      "last_checked": "2026-11-06T08:56:46+00:00",
+      "last_checked": "2026-11-13T09:07:50+00:00",
       "rows": 4685,
       "signal": {
         "etag": "\"1182fd5-632f6ba395d70\"",
@@ -31,7 +31,7 @@
     "gcc": {
       "error": null,
       "last_changed": "2026-10-16T03:27:27+00:00",
-      "last_checked": "2026-11-06T08:56:46+00:00",
+      "last_checked": "2026-11-13T09:07:50+00:00",
       "rows": 231,
       "signal": {
         "file": "ApprovedProjects_ProjectsExport.xlsx",
@@ -41,14 +41,14 @@
     },
     "gsreg": {
       "error": null,
-      "last_changed": "2026-11-06T08:56:46+00:00",
-      "last_checked": "2026-11-06T08:56:46+00:00",
-      "rows": 3931,
+      "last_changed": "2026-11-13T09:07:50+00:00",
+      "last_checked": "2026-11-13T09:07:50+00:00",
+      "rows": 3944,
       "signal": {
-        "bucket": 26425,
-        "newest": "5766",
-        "total": 4248,
-        "updated": "2026-10-30T05:13:47Z"
+        "bucket": 26426,
+        "newest": "5778",
+        "total": 4261,
+        "updated": "2026-11-13T05:17:31Z"
       },
       "stale": false
     },
@@ -56,11 +56,11 @@
     "jcm": {
       "error": null,
       "last_changed": "2026-10-30T02:38:28+00:00",
-      "last_checked": "2026-11-06T08:56:46+00:00",
+      "last_checked": "2026-11-13T09:07:50+00:00",
       "rows": 89,
       "signal": {
-        "issues": "W/\"65dfdd1c6b6c9649aa7b097575c1890d\"",
-        "list": "W/\"c41aee0a7126580cbd0d0d64145f2783\""
+        "issues": "\"65dfdd1c6b6c9649aa7b097575c1890d\"",
+        "list": "\"c41aee0a7126580cbd0d0d64145f2783\""
       },
       "stale": false
     },
@@ -79,19 +79,19 @@
     },
     "puro": {
       "error": null,
-      "last_changed": "2026-11-06T08:56:46+00:00",
-      "last_checked": "2026-11-06T08:56:46+00:00",
+      "last_changed": "2026-11-13T09:07:50+00:00",
+      "last_checked": "2026-11-13T09:07:50+00:00",
       "rows": 117,
       "signal": {
         "newest_issuance": "30 Oct 2026 77 Belgium_01 Neustark Carbonated Materials 1000+ years CORC 1000+ view 30 ",
-        "projects_hash": "fa191783dc0dcded"
+        "projects_hash": "8bd08d2673211e6d"
       },
       "stale": false
     },
     "ucr": {
       "error": "SourceError: UCR: no projects found in the grid",
       "last_changed": "2026-10-12T16:24:46+00:00",
-      "last_checked": "2026-11-06T08:56:46+00:00",
+      "last_checked": "2026-11-13T09:07:50+00:00",
       "rows": 314,
       "signal": {
         "grid_hash": "9f1a7b9ea336ebc4",
@@ -101,9 +101,9 @@
       "stale": true
     },
     "verradesc": {
-      "error": "SourceError: Verra project 5760: HTTP 500",
+      "error": "JSONDecodeError: Expecting value: line 1 column 1 (char 0)",
       "last_changed": "2026-11-09T09:10:55+00:00",
-      "last_checked": "2026-11-12T09:20:07+00:00",
+      "last_checked": "2026-11-13T09:07:50+00:00",
       "rows": 272,
       "signal": {
         "day": "2026-11-11",
@@ -114,7 +114,7 @@
     "vrod": {
       "error": null,
       "last_changed": "2026-10-16T03:27:27+00:00",
-      "last_checked": "2026-11-06T08:56:46+00:00",
+      "last_checked": "2026-11-13T09:07:50+00:00",
       "rows": 10160,
       "signal": {
         "url": "https://gspp.berkeley.edu/assets/uploads/page/Voluntary-Registry-Offsets-Database--v2026-08.xlsx",
