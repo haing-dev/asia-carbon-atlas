@@ -1,99 +1,108 @@
 {
-  "week_ending": "2026-11-09",
-  "updated": "2026-11-09",
+  "week_ending": "2026-11-16",
+  "updated": "2026-11-16",
   "areas": {
     "asia": [
       {
-        "title": "ICAO widens CORSIA Phase 2 eligibility to four more programmes, conditionally approves PACM",
-        "url": "https://carbon-pulse.com/568383/",
-        "source": "Carbon Pulse",
-        "date": "2026-11-06",
-        "countries": [],
-        "type": "policy"
-      },
-      {
-        "title": "Environmental group warns ICVCM approval of coal transition credits risks climate action",
-        "url": "https://carbon-pulse.com/568511/",
-        "source": "Carbon Pulse",
-        "date": "2026-11-06",
-        "countries": [],
-        "type": "policy"
-      },
-      {
-        "title": "India's aviation sector joining CORSIA could add ~140 Mt of credit demand by 2035",
-        "url": "https://carbonherald.com/carbon-credit-prices-face-fresh-test-as-indias-aviation-market-joins-corsia/",
-        "source": "Carbon Herald",
-        "date": "2026-11-03",
+        "title": "Norway to buy up to 12 Mt of ITMOs from Indonesian renewables under Article 6.2 deal",
+        "url": "https://scandasia.com/norway-and-indonesia-sign-huge-carbon-purchase-agreement/",
+        "source": "ScandAsia",
+        "date": "2026-11-12",
         "countries": [
-          "IND"
-        ],
-        "type": "policy"
-      },
-      {
-        "title": "Supercritical to take up to 19,000 t of biochar credits from Jain Irrigation, India",
-        "url": "https://agrospectrumindia.com/news/24/35071/jain-irrigation-sings-agreement-with-supercritical-for-up-to-19000-tonnes-of-biochar-credits-.html",
-        "source": "AgroSpectrum India",
-        "date": "2026-10-29",
-        "countries": [
-          "IND"
-        ],
-        "type": "offtake"
-      }
-    ],
-    "north_america": [
-      {
-        "title": "Gevo signs first multi-year carbon removal credit agreement for North Dakota BECCS plant",
-        "url": "https://biofuels-news.com/news/gevo-strengthens-carbon-revenue-stream-with-new-multi-year-carbon-removal-agreement/",
-        "source": "Biofuels International",
-        "date": "2026-10-28",
-        "countries": [
-          "USA"
-        ],
-        "type": "offtake"
-      },
-      {
-        "title": "Terradot and HASI close $34M investment for enhanced rock weathering projects",
-        "url": "https://www.businesswire.com/news/home/20261027594878/en/Terradot-and-HASI-Close-%2434M-Investment-for-Carbon-Removal-Projects",
-        "source": "Business Wire",
-        "date": "2026-10-27",
-        "countries": [
-          "USA",
-          "BRA"
-        ],
-        "type": "other"
-      }
-    ],
-    "south_america": [],
-    "africa": [
-      {
-        "title": "Ghana transfers further 23k cookstove ITMOs to Switzerland",
-        "url": "https://carbon-pulse.com/568502/",
-        "source": "Carbon Pulse",
-        "date": "2026-11-06",
-        "countries": [
-          "GHA"
+          "IDN"
         ],
         "type": "article6"
       },
       {
-        "title": "Gabon to supply ~6M CORSIA-eligible ART TREES forest credits to Germany's SEFE",
-        "url": "https://carboncredits.com/gabon-sells-6-million-forest-carbon-credits-sefe/",
-        "source": "Carbon Credits",
-        "date": "2026-11-05",
+        "title": "Bangladesh and Singapore sign MoU on Article 6 carbon market cooperation at COP31",
+        "url": "https://thebangladeshtoday.com/bangladesh/2026/11/14/39422",
+        "source": "The Bangladesh Today",
+        "date": "2026-11-14",
         "countries": [
-          "GAB"
+          "BGD",
+          "SGP"
+        ],
+        "type": "article6"
+      },
+      {
+        "title": "Korea and Nepal to sign Article 6.2 cooperation MoU; Korea plans first ITMO transfer in 2027",
+        "url": "https://www.ieta.org/ieta-cop31-daily-report-11-november-2026",
+        "source": "IETA",
+        "date": "2026-11-11",
+        "countries": [
+          "KOR",
+          "NPL"
+        ],
+        "type": "article6"
+      },
+      {
+        "title": "ASEAN Common Carbon Framework renewed for two years at COP31; Philippine groups join",
+        "url": "https://www.eco-business.com/news/asean-common-carbon-framework-renewed-at-cop31-regional-endorsement-sought/",
+        "source": "Eco-Business",
+        "date": "2026-11-13",
+        "countries": [
+          "PHL"
+        ],
+        "type": "partnership"
+      },
+      {
+        "title": "BeZero named exclusive ratings partner to Macao International Carbon Emission Exchange",
+        "url": "https://carbonherald.com/bezero-named-exclusive-ratings-partner-to-macao-carbon-exchange/",
+        "source": "Carbon Herald",
+        "date": "2026-11-13",
+        "countries": [
+          "MAC"
+        ],
+        "type": "partnership"
+      }
+    ],
+    "north_america": [
+      {
+        "title": "Boomitra sells and delivers 2.6M soil carbon credits from Northern Mexico grassland project",
+        "url": "https://carbonherald.com/boomitra-sells-and-delivers-2-6m-soil-carbon-credits-from-its-project-in-northern-mexico/",
+        "source": "Carbon Herald",
+        "date": "2026-11-10",
+        "countries": [
+          "MEX"
         ],
         "type": "offtake"
       }
     ],
+    "south_america": [
+      {
+        "title": "Brazil approves Article 6.2 rules; up to 50 Mt may be authorised for 2026-2030",
+        "url": "https://www.ieta.org/ieta-cop31-daily-report-11-november-2026",
+        "source": "IETA",
+        "date": "2026-11-11",
+        "countries": [
+          "BRA"
+        ],
+        "type": "policy"
+      }
+    ],
+    "africa": [
+      {
+        "title": "China, Türkiye and Ethiopia launch carbon crediting cooperation initiative at COP31",
+        "url": "https://en.people.cn/n3/2026/1112/c90000-20518389.html",
+        "source": "People's Daily Online",
+        "date": "2026-11-12",
+        "countries": [
+          "ETH",
+          "TUR"
+        ],
+        "type": "policy"
+      }
+    ],
     "europe": [
       {
-        "title": "EDF: Europe's international carbon credit purchases could raise global ambition",
-        "url": "https://blogs.edf.org/climate411/2026/11/05/europes-carbon-credit-purchases-can-raise-global-ambition-if-the-eu-plays-its-hand-realistically/",
-        "source": "EDF Climate 411",
-        "date": "2026-11-05",
-        "countries": [],
-        "type": "other"
+        "title": "Global Carbon Council and Türkiye's EXIST sign MoU to explore trading GCC credits",
+        "url": "https://www.indexbox.io/blog/gcc-and-exist-sign-carbon-market-cooperation-agreement-at-cop31/",
+        "source": "IndexBox",
+        "date": "2026-11-15",
+        "countries": [
+          "TUR"
+        ],
+        "type": "partnership"
       }
     ]
   }

@@ -67,6 +67,10 @@
     carbon-pulse article pages fail to fetch and search indexes the last week poorly. +3 deals: Senken–Exomad Green
     105k (Feb 2026), Supercritical–Jain Irrigation 19k (new ANN row, IND), SEFE–Gabon AGADEV ~6M (new ANN row, GAB).
     Dedupe review: 0 decisions. Supplier sweep: Empacar…Faeger (only Exomad hit).
+  - Weekly 2026-11-16 (COP31 week): headlines Asia 5, NA 1, SA 1, Africa 1, Europe 1 (carbon-pulse still unfetchable).
+    +2 deals: NYK–Graphyte (Jun 2026, volume undisclosed), Norway NACA–Indonesia GBI floating solar MOPA up to 12 Mt
+    (new ANN row, IDN). Boomitra Mexico 2.6M sale skipped (buyers unnamed). Dedupe review: 0 decisions.
+    Supplier sweep: First Climate, Flux, Freres, Gaia, Graphyte (only Graphyte–NYK new).
   - Tags (`config/tags.yaml`): ~100 searchable tags from record evidence (name/methodology/registry type) + broad
     per-type tags; exact tag/alias search filters to that tag (AWD ≠ DSR). "Tag" column (last) + footnote; CSV includes tags.
     Tags also read GS registry descriptions (gsreg lookup) and CDM/name capacity (small hydro ≤25 MW); every specific

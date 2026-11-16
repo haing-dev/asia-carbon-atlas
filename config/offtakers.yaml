@@ -23,6 +23,12 @@ buyer_splits:
   Adyen and Nasdaq: [Adyen, Nasdaq]
 
 offtakes:
+  - record: ISO:prj_1J4P33N6W1S0RKE2
+    buyer: NYK Group
+    date: '2026-06-03'
+    source_url: https://carbonherald.com/graphyte-secures-backing-from-sumitomo-and-expands-partnerships/
+    source_title: Graphyte Secures Backing From Sumitomo And Expands Partnerships (Carbon Herald)
+    note: NYK agreed to buy carbon removal credits from Graphyte (Carbon Casting); volume not disclosed. Supplier-level deal; Graphyte has one registry project (Loblolly, Pine Bluff, Arkansas).
   - record: VCS:5184
     buyer: Google and McKinsey (Symbiosis Coalition)
     volume_tco2e: 320000
@@ -1832,6 +1838,19 @@ announced_rows:
         source_url: https://www.energimyndigheten.se/en/news/2024/swedens-first-legally-binding-agreement-on-emissions-trading-under-the-paris-agreement/
         source_title: Sweden's first legally binding agreement on emissions trading under the Paris Agreement
         note: The project developer is not named. The 165,000 t figure is estimated reductions, not a contracted volume. Weakest supplier identification in the set.
+  - id: ANN:indonesia-gbi-a62-idn
+    name: Indonesia Generation-Based Incentive programme — floating solar (Article 6.2)
+    developer: Government of Indonesia
+    countries:
+      - IDN
+    l2: other_re
+    offtakes:
+      - buyer: Government of Norway (NACA Fund via GGGI)
+        volume_tco2e: 12000000
+        date: '2026-11-11'
+        source_url: https://scandasia.com/norway-and-indonesia-sign-huge-carbon-purchase-agreement/
+        source_title: Norway and Indonesia sign huge carbon purchase agreement (ScandAsia)
+        note: Government-to-government MOPA signed at COP31 (Antalya) by GGGI for Norway and PT PLN; up to 12 Mt over ten years, first window floating solar PV with battery storage; payment on verified delivery.
   - id: ANN:zambia-cfip-a62-zmb
     name: Zambia Carbon Feed-In Premium programme (Article 6.2)
     developer: Government of Zambia
