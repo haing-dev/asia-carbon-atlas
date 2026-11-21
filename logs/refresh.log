@@ -1,0 +1,31 @@
+Traceback (most recent call last):
+  File "/home/runner/work/asia-carbon-atlas/asia-carbon-atlas/pipeline/refresh.py", line 53, in run
+    records = adapter.fetch(previous, signal)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/work/asia-carbon-atlas/asia-carbon-atlas/pipeline/sources/verradesc.py", line 108, in fetch
+    data = r.json()
+           ^^^^^^^^
+  File "/home/runner/work/asia-carbon-atlas/asia-carbon-atlas/.venv/lib/python3.12/site-packages/httpx/_models.py", line 832, in json
+    return jsonlib.loads(self.content, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/.local/share/uv/python/cpython-3.12.16-linux-x86_64-gnu/lib/python3.12/json/__init__.py", line 346, in loads
+    return _default_decoder.decode(s)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/.local/share/uv/python/cpython-3.12.16-linux-x86_64-gnu/lib/python3.12/json/decoder.py", line 338, in decode
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/.local/share/uv/python/cpython-3.12.16-linux-x86_64-gnu/lib/python3.12/json/decoder.py", line 356, in raw_decode
+    raise JSONDecodeError("Expecting value", s, err.value) from None
+json.decoder.JSONDecodeError: Expecting value: line 1 column 1 (char 0)
+[vrod] skipped (checked recently)
+[gsreg] skipped (checked recently)
+[verradesc] FAILED -> marked stale, previous records kept
+[offsetsdb] skipped (checked recently)
+[cdm] skipped (checked recently)
+[gcc] skipped (checked recently)
+[ucr] skipped (checked recently)
+[puro] skipped (checked recently)
+[isometric] skipped (not enabled yet)
+[jcm] skipped (checked recently)
+[a6pipeline] skipped (checked recently)
+{'changed': False, 'commit': True}
