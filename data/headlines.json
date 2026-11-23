@@ -1,108 +1,142 @@
 {
-  "week_ending": "2026-11-16",
-  "updated": "2026-11-16",
+  "week_ending": "2026-11-23",
+  "updated": "2026-11-23",
   "areas": {
     "asia": [
       {
-        "title": "Norway to buy up to 12 Mt of ITMOs from Indonesian renewables under Article 6.2 deal",
-        "url": "https://scandasia.com/norway-and-indonesia-sign-huge-carbon-purchase-agreement/",
-        "source": "ScandAsia",
-        "date": "2026-11-12",
+        "title": "Indonesia positions forest credits for Japan's JCM demand, eyeing 100 Mt by 2030",
+        "url": "https://en.antaranews.com/news/444483/indonesia-taps-japans-demand-for-100-million-tons-of-carbon-credits",
+        "source": "ANTARA",
+        "date": "2026-11-22",
+        "countries": [
+          "IDN",
+          "JPN"
+        ],
+        "type": "article6"
+      },
+      {
+        "title": "Indonesia submits nine-province jurisdictional REDD+ programme to ART TREES",
+        "url": "https://en.antaranews.com/news/444395/indonesia-advances-forest-carbon-program-in-nine-provinces",
+        "source": "ANTARA",
+        "date": "2026-11-21",
         "countries": [
           "IDN"
         ],
-        "type": "article6"
+        "type": "registration"
       },
       {
-        "title": "Bangladesh and Singapore sign MoU on Article 6 carbon market cooperation at COP31",
-        "url": "https://thebangladeshtoday.com/bangladesh/2026/11/14/39422",
-        "source": "The Bangladesh Today",
-        "date": "2026-11-14",
+        "title": "Norway signs Article 6.2 purchase deal with Indonesia's PLN for up to 12 Mt over 10 years",
+        "url": "https://www.euronews.com/2026/11/20/norway-signs-carbon-credit-deals-with-indonesia-and-morocco-to-help-fund-renewable-energy",
+        "source": "Euronews",
+        "date": "2026-11-20",
         "countries": [
-          "BGD",
-          "SGP"
+          "IDN",
+          "NOR"
         ],
         "type": "article6"
       },
       {
-        "title": "Korea and Nepal to sign Article 6.2 cooperation MoU; Korea plans first ITMO transfer in 2027",
-        "url": "https://www.ieta.org/ieta-cop31-daily-report-11-november-2026",
-        "source": "IETA",
-        "date": "2026-11-11",
+        "title": "Singapore signs MoU with Bangladesh on carbon credits at COP31",
+        "url": "https://carbonherald.com/cop31-singapore-expands-carbon-market-ties-with-kenya-and-zambia-eyes-bangladesh/",
+        "source": "Carbon Herald",
+        "date": "2026-11-19",
         "countries": [
-          "KOR",
-          "NPL"
+          "SGP",
+          "BGD"
         ],
         "type": "article6"
       },
       {
-        "title": "ASEAN Common Carbon Framework renewed for two years at COP31; Philippine groups join",
-        "url": "https://www.eco-business.com/news/asean-common-carbon-framework-renewed-at-cop31-regional-endorsement-sought/",
-        "source": "Eco-Business",
-        "date": "2026-11-13",
+        "title": "India and Japan advance JCM at COP31; validators and project applications next",
+        "url": "https://indianmasterminds.com/news/india-japan-joint-crediting-mechanism-cop31-251219/",
+        "source": "Indian Masterminds",
+        "date": "2026-11-18",
+        "countries": [
+          "IND",
+          "JPN"
+        ],
+        "type": "article6"
+      },
+      {
+        "title": "Philippines joins international coalition to scale high-integrity carbon markets",
+        "url": "https://tribune.net.ph/2026/11/17/philippines-joins-global-carbon-trade-coalition",
+        "source": "Daily Tribune",
+        "date": "2026-11-17",
         "countries": [
           "PHL"
         ],
-        "type": "partnership"
-      },
-      {
-        "title": "BeZero named exclusive ratings partner to Macao International Carbon Emission Exchange",
-        "url": "https://carbonherald.com/bezero-named-exclusive-ratings-partner-to-macao-carbon-exchange/",
-        "source": "Carbon Herald",
-        "date": "2026-11-13",
-        "countries": [
-          "MAC"
-        ],
-        "type": "partnership"
+        "type": "policy"
       }
     ],
     "north_america": [
       {
-        "title": "Boomitra sells and delivers 2.6M soil carbon credits from Northern Mexico grassland project",
-        "url": "https://carbonherald.com/boomitra-sells-and-delivers-2-6m-soil-carbon-credits-from-its-project-in-northern-mexico/",
-        "source": "Carbon Herald",
-        "date": "2026-11-10",
+        "title": "Canada sets national standing offers for carbon removal credits from 19 projects",
+        "url": "https://www.canada.ca/en/treasury-board-secretariat/news/2026/11/government-of-canada-establishes-national-standing-offers-for-canadian-carbon-dioxide-removal-credits.html",
+        "source": "Government of Canada",
+        "date": "2026-11-19",
         "countries": [
-          "MEX"
+          "CAN"
         ],
-        "type": "offtake"
+        "type": "policy"
       }
     ],
     "south_america": [
       {
-        "title": "Brazil approves Article 6.2 rules; up to 50 Mt may be authorised for 2026-2030",
-        "url": "https://www.ieta.org/ieta-cop31-daily-report-11-november-2026",
-        "source": "IETA",
-        "date": "2026-11-11",
+        "title": "Colombia joins international carbon credit coalition alongside the Philippines",
+        "url": "https://tribune.net.ph/2026/11/17/philippines-joins-global-carbon-trade-coalition",
+        "source": "Daily Tribune",
+        "date": "2026-11-17",
         "countries": [
-          "BRA"
+          "COL"
         ],
         "type": "policy"
       }
     ],
     "africa": [
       {
-        "title": "China, Türkiye and Ethiopia launch carbon crediting cooperation initiative at COP31",
-        "url": "https://en.people.cn/n3/2026/1112/c90000-20518389.html",
-        "source": "People's Daily Online",
-        "date": "2026-11-12",
+        "title": "Ghana receives 6.57M ART TREES jurisdictional REDD+ credits, ~US$43M sales expected",
+        "url": "https://www.pulse.com.gh/story/ghana-becomes-1st-african-country-3rd-globally-to-earn-carbon-credits-set-to-raise-dollar43m-from-sales-2026112120555581078",
+        "source": "Pulse Ghana",
+        "date": "2026-11-21",
         "countries": [
-          "ETH",
-          "TUR"
+          "GHA"
         ],
-        "type": "policy"
+        "type": "issuance"
+      },
+      {
+        "title": "Norway signs Article 6.2 deal to buy up to 8.78 Mt from Moroccan renewables",
+        "url": "https://www.euronews.com/2026/11/20/norway-signs-carbon-credit-deals-with-indonesia-and-morocco-to-help-fund-renewable-energy",
+        "source": "Euronews",
+        "date": "2026-11-20",
+        "countries": [
+          "MAR",
+          "NOR"
+        ],
+        "type": "article6"
+      },
+      {
+        "title": "Singapore signs Article 6 implementation agreements with Kenya and Zambia",
+        "url": "https://carbonherald.com/cop31-singapore-expands-carbon-market-ties-with-kenya-and-zambia-eyes-bangladesh/",
+        "source": "Carbon Herald",
+        "date": "2026-11-19",
+        "countries": [
+          "KEN",
+          "ZMB",
+          "SGP"
+        ],
+        "type": "article6"
       }
     ],
     "europe": [
       {
-        "title": "Global Carbon Council and Türkiye's EXIST sign MoU to explore trading GCC credits",
-        "url": "https://www.indexbox.io/blog/gcc-and-exist-sign-carbon-market-cooperation-agreement-at-cop31/",
-        "source": "IndexBox",
-        "date": "2026-11-15",
+        "title": "Week 47 roundup: EU-UK ETS linkage from 2028 and CBAM deduction for carbon prices paid",
+        "url": "https://www.carboncreditmarkets.com/en/single-post/47th-week-ccm-2026-markets-connect-carbon-credits-eu-ets-uk-ets-linkage-cbam-deducts-carbon-pric",
+        "source": "Carbon Credit Markets",
+        "date": "2026-11-22",
         "countries": [
-          "TUR"
+          "GBR"
         ],
-        "type": "partnership"
+        "type": "policy"
       }
     ]
   }
