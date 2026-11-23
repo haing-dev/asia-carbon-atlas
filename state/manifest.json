@@ -1,5 +1,5 @@
 {
-  "last_commit_at": "2026-11-22T09:24:19+00:00",
+  "last_commit_at": "2026-11-23T10:20:08+00:00",
   "sources": {
     "a6pipeline": {
       "error": null,
@@ -67,7 +67,7 @@
     "offsetsdb": {
       "error": null,
       "last_changed": "2026-10-19T04:41:10+00:00",
-      "last_checked": "2026-11-16T09:01:54+00:00",
+      "last_checked": "2026-11-23T10:20:08+00:00",
       "rows": 8110,
       "signal": {
         "buyers": "cd1d91b876bed6e62ebce2a8d2f241213060797dadcba56f4cf9b6c1d23f52ab",
@@ -102,11 +102,11 @@
     },
     "verradesc": {
       "error": null,
-      "last_changed": "2026-11-16T09:01:54+00:00",
-      "last_checked": "2026-11-22T09:24:19+00:00",
-      "rows": 273,
+      "last_changed": "2026-11-23T10:20:08+00:00",
+      "last_checked": "2026-11-23T10:20:08+00:00",
+      "rows": 277,
       "signal": {
-        "day": "2026-11-22",
+        "day": "2026-11-23",
         "missing": 3635
       },
       "stale": false
