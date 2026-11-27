@@ -1,14 +1,14 @@
 {
-  "last_commit_at": "2026-11-26T10:29:07+00:00",
+  "last_commit_at": "2026-11-27T10:33:20+00:00",
   "sources": {
     "a6pipeline": {
       "error": null,
       "last_changed": "2026-11-06T08:56:46+00:00",
-      "last_checked": "2026-11-20T09:43:06+00:00",
+      "last_checked": "2026-11-27T10:33:20+00:00",
       "rows": 284,
       "signal": {
         "a6p2": "f02a28e2c03c50c6",
-        "pacm": "718bbf1c76718287",
+        "pacm": "6b77eaac2b0c94df",
         "rows": {
           "a6p2": 318,
           "pacm": 184
@@ -19,7 +19,7 @@
     "cdm": {
       "error": null,
       "last_changed": "2026-10-16T03:27:27+00:00",
-      "last_checked": "2026-11-20T09:43:06+00:00",
+      "last_checked": "2026-11-27T10:33:20+00:00",
       "rows": 4685,
       "signal": {
         "etag": "\"1182fd5-632f6ba395d70\"",
@@ -31,7 +31,7 @@
     "gcc": {
       "error": null,
       "last_changed": "2026-10-16T03:27:27+00:00",
-      "last_checked": "2026-11-20T09:43:06+00:00",
+      "last_checked": "2026-11-27T10:33:20+00:00",
       "rows": 231,
       "signal": {
         "file": "ApprovedProjects_ProjectsExport.xlsx",
@@ -41,14 +41,14 @@
     },
     "gsreg": {
       "error": null,
-      "last_changed": "2026-11-20T09:43:06+00:00",
-      "last_checked": "2026-11-20T09:43:06+00:00",
-      "rows": 3946,
+      "last_changed": "2026-11-27T10:33:20+00:00",
+      "last_checked": "2026-11-27T10:33:20+00:00",
+      "rows": 3951,
       "signal": {
         "bucket": 26426,
-        "newest": "5778",
-        "total": 4263,
-        "updated": "2026-11-13T05:17:31Z"
+        "newest": "5837",
+        "total": 4268,
+        "updated": "2026-11-26T14:28:49Z"
       },
       "stale": false
     },
@@ -56,7 +56,7 @@
     "jcm": {
       "error": null,
       "last_changed": "2026-10-30T02:38:28+00:00",
-      "last_checked": "2026-11-20T09:43:06+00:00",
+      "last_checked": "2026-11-27T10:33:20+00:00",
       "rows": 89,
       "signal": {
         "issues": "\"65dfdd1c6b6c9649aa7b097575c1890d\"",
@@ -79,19 +79,19 @@
     },
     "puro": {
       "error": null,
-      "last_changed": "2026-11-20T09:43:06+00:00",
-      "last_checked": "2026-11-20T09:43:06+00:00",
-      "rows": 117,
+      "last_changed": "2026-11-27T10:33:20+00:00",
+      "last_checked": "2026-11-27T10:33:20+00:00",
+      "rows": 118,
       "signal": {
-        "newest_issuance": "16 Nov 2026 28 Novocarbo Baltic Sea Novocarbo GmbH Biochar, 2022 ",
-        "projects_hash": "8bd08d2673211e6d"
+        "newest_issuance": "27 Nov 2026 2137 Carbonsate Project Namibia Carbonsate GmbH Terrestrial Storage of Biomass 100+ years CORC 100+ view 25 ",
+        "projects_hash": "845bf82669c360e0"
       },
       "stale": false
     },
     "ucr": {
       "error": "SourceError: UCR: no projects found in the grid",
       "last_changed": "2026-10-12T16:24:46+00:00",
-      "last_checked": "2026-11-20T09:43:06+00:00",
+      "last_checked": "2026-11-27T10:33:20+00:00",
       "rows": 314,
       "signal": {
         "grid_hash": "9f1a7b9ea336ebc4",
@@ -103,7 +103,7 @@
     "verradesc": {
       "error": "JSONDecodeError: Expecting value: line 1 column 1 (char 0)",
       "last_changed": "2026-11-23T10:20:08+00:00",
-      "last_checked": "2026-11-26T10:29:07+00:00",
+      "last_checked": "2026-11-27T10:33:20+00:00",
       "rows": 277,
       "signal": {
         "day": "2026-11-23",
@@ -114,7 +114,7 @@
     "vrod": {
       "error": null,
       "last_changed": "2026-10-16T03:27:27+00:00",
-      "last_checked": "2026-11-20T09:43:06+00:00",
+      "last_checked": "2026-11-27T10:33:20+00:00",
       "rows": 10160,
       "signal": {
         "url": "https://gspp.berkeley.edu/assets/uploads/page/Voluntary-Registry-Offsets-Database--v2026-08.xlsx",
